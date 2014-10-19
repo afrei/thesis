@@ -1,0 +1,1 @@
+This is my master's thesis based on my independent study of model theory with marker's introductory model theory text. It will focus on issues of basic categoricity and stability theory. 
