@@ -1,1 +1,33 @@
-this is the intro
+First, I recall the defition of categoricity in some cardinal \(\lambda\):
+
+\textbf{Definition.} A theory \(T\) is \(\lambda\)-categorical if \(\mcM \isom \mcN\) whenever \(\mcM, \mcN \models T\) and \(|M| = |N| = \lambda\).
+
+\textbf{Example 0.} Consider the theory of infinite sets in the pure language of equality. This theory is \(\lambda\)-categorical for all \(\lambda\).
+Consider two models \(\mcM, \mcN\) such that \(|M|=|N|=\lambda\). By hypothesis we have a bijection \(f: M \to N\). \(f\) is an isomorphism of sets, so \(M \isom N\).
+
+Recall that a theory, \(T\), is complete if for all sentences \(\phi\) we have either \(T \models \phi\) or \(T \models \neg \phi\). 
+
+Note that this theory must also be complete. More generally, Vaught's test tells us that theories without finite models that are categorical in some infinite cardinal \(\kappa\) are categorical. (If such a theory were not complete, it would have models of cardinality of \(\lambda\) disagreeing on some \(\phi\) which couldn't then be isomorphic)
+
+\textbf{Example 1.} Consider the theory of an equivalence relation with exactly two infinite classes. This theory is \(\aleph_0\)-categorical or countably categorical. Consider two countable models \(\mcM, \mcN\). There must be countably many members of each equivalence class in any countable model. We can present a bijection \(f_1\) between members of the first equivalence class in  \(\mcM\) and those in \(\mcN\) and a similar bijection \(f_2\) for the second equivalence class. We see that \(f = f_1 \cup f_2\) is a bijection and actually an isomorphism. 
+
+On the other hand, if \(\lambda > \aleph_0\) is an infinite cardinal, then this theory isn't \(\lambda\)-categorical. It suffices to note that we can have the two non-isomorphic cases a) where the first equivalence class has cardinality \(\lambda\) and the second is countable and b) where both classes are of cardinality \(\lambda\).
+
+Vaught's theorem tells us that even though this theory isn't \(\aleph_1\) categorical, it is still complete. 
+
+So far, we've seen two theories, one categorical for all infinite cardinals and one which is only countably categorical. 
+I'll omit the details, but we also know that the theory of (\(\Z, s\)) (the integers with successor) is categorical in all uncountable cardinals but not countably categorical and that the theory of (\(\Q, <, c_1, c_2\)) (the rationals with their standard order) where \(c_1 < c_2 < c_3 < \ldots\) is complete but not categorical in any infinite cardinal (consider the wether or not the sequence has an upper bound). 
+
+Morley's categoricity theorem states that these are the only four cases. 
+
+My aim in this thesis is to prove the Categoricity Theorem due to Morley. 
+
+\textbf{Morley's Categoricity Theorem.} If a first order theory in a countable language is categorical in some uncountable cardinal, it is categorical in all uncountable cardinals. 
+
+I present a very general sketch of the proof of this theorem which I will flesh out throughout the rest of this work. 
+
+We will define two properties of theories: being \(\omega\)-stable and having Vaughtian pairs. It turns out that lacking \(\omega\)-stability or having Vaughtian pairs will prevent uncountable categoricity, so all uncountably categorical theories lack Vaughtian pairs and are \(\omega\)-stable. 
+
+We then observe that these two conditions, lacking Vaughtian pairs and being \(\omega\)-stable, are sufficient to show categoricity in all uncountable cardinals. Hence, the categoricity of a theory in some uncountable cardinal must imply \(\omega\)-stability and the absence of Vaughtian pairs, which, in turn, implies categoricity in all other uncountable cardinals. 
+
+Once I complete this proof, I will elaborate more on issues of stability in general, morley rank and forking.  
