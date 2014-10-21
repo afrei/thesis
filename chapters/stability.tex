@@ -20,12 +20,18 @@ We are now ready to define stability:
 
 \textbf{Definition.} Let \(T\) be a complete theory in a countable language and \(\kappa\) be an infinite cardinal. \(T\) is \(\kappa\)-stable if \(|S_n^\mcM(A)| = \kappa\) whenever \(\mcM \models T\) and \(|A| = \kappa\). Note: \(\aleph_0\)-stable theories are called \(\omega\)-stable for historical reasons. 
 
-First, we will show that the theory of dense linear orders without endpoints is not \(\omega\)-stable. (\mcM = \(\R, <\)) is a model of this theory and \(A = \Q\) is a subset of size \(\aleph_0\). Still, every real number realizes a different type in \(S_1^\R(\Q)\) (as every two distinct real numbers have a rational number between them). So there must be at least as many types as there are real numbers; there are uncountably many types.  
+First, we will show that the theory of dense linear orders without endpoints is not \(\omega\)-stable. \(\mcM = (\R, <)\) is a model of this theory and \(A = \Q\) is a subset of size \(\aleph_0\). Still, every real number realizes a different type in \(S_1^\R(\Q)\) (as every two distinct real numbers have a rational number between them). So there must be at least as many types as there are real numbers; there are uncountably many types.  
 
-%Recall that we mentioned in the proof outline of Morley's Categoricity theorem that all uncountably categorical theories are \(\omega\)-stable. We mentioned the theory of infinite sets and the theory of (\(\Z, s\)) as uncountably categorical theories. Let's observe that both of these theories are \(\omega\)-stable. 
+Recall that we mentioned in the proof outline of Morley's Categoricity theorem that all uncountably categorical theories are \(\omega\)-stable. We mentioned the theory of infinite sets and the theory of (\(\Z, s\)) as uncountably categorical theories. Let's observe that both of these theories are \(\omega\)-stable. 
 
 %It will help to recall that these theories admit quantifier elimination. 
 
-%Consider some model of the theory of infinite sets, \(\mcM\) and a countable subset \(A\). Consider a type 
+\textbf{Theorem.} The theory of infinite sets is \omst. 
 
-We now aim to show that theories which aren't \(\omega\)-stable cannot be uncountably categorical. 
+First, consider the complete 1-types, \(p(v_1)\). \(p(v_1)\) must assert either that \(v_1 = a\) for exactly \(a \in A\) or that \(v_1 \neq a\) for all \(a \in A\). Moreover, as the theory of infinite sets admits \qe all formulae are equivalent to boolean combinations of such formulae. We have now identified all 1-types (there is one for each element in \(A\) and one more for when \(v_1\) isn't in \(A\). This can be easily extended to \(n\)-types for \(n > 1\)
+
+\textbf{Theorem.} The theory of \((\Z, s)\) is \omst. 
+
+We will again consider 1-types and leave the general argument to the reader. We can assume, WLOG, that no two elements of \(A\) are in the same \(\Z\)-chain. Our 1-type either asserts that \(v_1\) is in the same \(\Z\)-chain as a single element of \(A\) and determines its position relative to that element, or asserts that \(v_1\) isn't in the same \(\Z\) chain as any element of \(A\). Every formula is equivalent to a \qf one, so as these are all of the possible complete atomic types, they are also all of the possible types.    
+
+We now aim to show that theories which aren't \(\omega\)-stable cannot be uncountably categorical. To do so, we need to take a detour into indiscernibles.
