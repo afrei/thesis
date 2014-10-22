@@ -86,4 +86,11 @@ By compactness, we have a model of \(\Gamma\) of cardinality \(|\mcL^*| \leq \ka
 Now, we must show the existence of a model of size \(\kappa\) which realizes only countably many types. To do so, we will have to construct some machinery.
 This will be our guiding intuititon: to ensure our model is of size \(\kappa\), we will start out with \(\kappa\) many virtually identical (indiscernable) elements. 
 To ensure our model is indeed a model of \(T\), we will close it under existentials by adding the right elements. 
+We will be able to show that these ``right elements'' do not change the cardinality of the model and do not realize any types not found in out countable model.
+Only countably many types can be realized in a countable model, so our constructed model will realize countably many types over any countable set, as desired. 
+
+\textbf{Definition.} We say that a \(\{x_i | i \in I\}\) where \(I\) is an ordered set is a sequence of \textit{order indiscernibles} if, given two increasing sequences of length \(n\) from \(I\), 
+\(i_1 < i_2 < \ldots < i_n\) and \(j_1 < j_2 < \ldots < j_n\), we will have \(\mcM \models \phi(i_1, \ldots, i_n) \iff \mcM \models \phi(j_1, \ldots, j_n)\). 
+Intuitively, these elements cannot be distinguised based on first order properties, modulo their relative positions.  
+Recall that the theory of dense linear orders without endpoints admits \qe and it's easy to see that any increasing sequence from such an order is a sequence of indiscernibles. 
 
