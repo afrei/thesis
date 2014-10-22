@@ -2,41 +2,77 @@ In this section, our goal is to define stability (and \(\omega\)-stability in pa
 
 In order to define stability we need to recall a few definitions and facts about types. 
 
-Let \(\mcM\) be an \(\mcL\)-structure and \(A \subset M\). It will often be natural to want to add constant symbols for every element of \(A\) to our language. 
-We will call the resulting language \(\mcL_A\). \(\mcM\) has a natural definition as an \(\mcL_A\)-structure. In general, we call the set of \(\mcL_A\)-sentences true in \(\mcM\) ``\(\Th_A(\mcM)\)'' and, in the special case where \(A = M\) we call it \(\eldiag(\mcM)\) or the ``elementary diagram of \(\mcM\)''. 
+Let \(\mcM\) be an \(\mcL\)-structure and \(A \subset M\). 
+It will often be natural to want to add constant symbols for every element of \(A\) to our language. 
+We will call the resulting language \(\mcL_A\). \(\mcM\) has a natural definition as an \(\mcL_A\)-structure. 
+In general, we call the set of \(\mcL_A\)-sentences true in \(\mcM\) ``\(\Th_A(\mcM)\)'' and, in the special case where \(A = M\) we call it \(\eldiag(\mcM)\) or the ``elementary diagram of \(\mcM\)''. 
+
+\subsection{Defining Types}
 
 We are now prepared to define types. 
 
-\textbf{Definition.} Let \(A, \mcM, \mcL\) as above. An \(n\)-type, \(p\), is a set of \(\mcL_A\)-formulae in \(n\) free variables (\(v_1, \ldots, v_n\)) for which \(p \cup \Th_A(\mcM)\) is satisfiable.
-We say that \(p\) is complete if, for every \(\mcL_A\)-formula \(\phi(v_1, \ldots, v_n)\), either \(p \ni \phi\) or \(p \ni \neg \phi\). We call the set of all complete \(n\) types ``\(S_n^\mcM(A)\)''. 
+\textbf{Definition.} Let \(A, \mcM, \mcL\) as above. 
+An \(n\)-type, \(p\), is a set of \(\mcL_A\)-formulae in \(n\) free variables (\(v_1, \ldots, v_n\)) for which \(p \cup \Th_A(\mcM)\) is satisfiable.
+We say that \(p\) is complete if, for every \(\mcL_A\)-formula \(\phi(v_1, \ldots, v_n)\), either \(p \ni \phi\) or \(p \ni \neg \phi\). 
+We call the set of all complete \(n\) types (containing \(\mcL_A\) formulae satisfiable with \(\Th_A(\mcM)\)) ``\(S_n^\mcM(A)\)''. 
 
-Let's consider a few simple examples of types when  \(\mcM = (\N,s)\), the natural numbers with successor and \(A = \{0\}\) (we've added a constant symbol for 0). One example or an incomplete type is when we take \(p = \{v_1 \neq 0\}\). As \(\N \models \phi(2)\) for all \(\phi \in p\), \(p \cup \Th_\emptyset(\N)\) must be satisfiable, and \(p\) is a type. Still, neither \(v_1 = s(s(s(0)))\) or its negation is in \(p\) so it is not complete. 
+Let's consider a few simple examples of types when  \(\mcM = (\N,s)\), the natural numbers with successor and \(A = \{0\}\) (we've added a constant symbol for 0). 
+One example or an incomplete type is when we take \(p = \{v_1 \neq 0\}\). 
+As \(\N \models \phi(2)\) for all \(\phi \in p\), \(p \cup \Th_\emptyset(\N)\) must be satisfiable, and \(p\) is a type. 
+Still, neither \(v_1 = s(s(s(0)))\) or its negation is in \(p\) so it is not complete. 
 
-There is one clear source of complete types. Every element of \(\N\) has an associated complete type. Let \(p(v) = \{\phi(v) | \N \models \phi(1)\}\). As \(\N\) is a model realizing \(p \cup \Th_\emptyset(\N)\) when \(v_1\) is interpreted as 1, this set of formulae is a type. As every formula in one free variable is either true or false for 1, this type is complete. We say \(p\) is realized by 1. More generall, we say \(\bar{x} \in M^n\) realizes an \(n\)-type \(p\) if \(\mcM \models \phi(\bar{x})\) for all \(\phi \in p\).  
+There is one clear source of complete types. 
+Every element of \(\N\) has an associated complete type. 
+Let \(p(v) = \{\phi(v) | \N \models \phi(1)\}\). 
+As \(\N\) is a model realizing \(p \cup \Th_\emptyset(\N)\) when \(v_1\) is interpreted as 1, this set of formulae is a type. 
+As every formula in one free variable is either true or false for 1, this type is complete. 
+We say \(p\) is realized by 1. 
+More generally, we say \(\bar{x} \in M^n\) realizes an \(n\)-type \(p\) if \(\mcM \models \phi(\bar{x})\) for all \(\phi \in p\).  
 
-This, though, is not the source of types. If we take \(p = \{v_1 \neq 0, v_1 \neq s^1(0), v_1 \neq s^2(0), \ldots\}\) we get a set of \(\mcL_{\{0\}}\)-formulae in one free variable. We note that \(p \cup \Th_{\{0\}}(\N)\) is satisfiable (as it is finitely satisfiable). We can extend \{p\} to a complete type, but that type cannot be realized by any natural number, since an element realizing \(p\) is greater than every natural number by construction. It isn't always the case that a type is realized. 
+This, though, is not the only source of types. 
+If we take \(p = \{v_1 \neq 0, v_1 \neq s^1(0), v_1 \neq s^2(0), \ldots\}\) we get a set of \(\mcL_{\{0\}}\)-formulae in one free variable. 
+We note that \(p \cup \Th_{\{0\}}(\N)\) is satisfiable (as it is finitely satisfiable). 
+We can extend \{p\} to a complete type, but that type cannot be realized by any natural number, since an element realizing \(p\) is greater than every natural number by construction. 
+It isn't always the case that a type is realized. 
+
+\subsection{Defining Stability}
 
 We are now ready to define stability: 
 
-\textbf{Definition.} Let \(T\) be a complete theory in a countable language and \(\kappa\) be an infinite cardinal. \(T\) is \(\kappa\)-stable if \(|S_n^\mcM(A)| = \kappa\) whenever \(\mcM \models T\) and \(|A| = \kappa\). Note: \(\aleph_0\)-stable theories are called \(\omega\)-stable for historical reasons. 
+\textbf{Definition.} Let \(T\) be a complete theory in a countable language and \(\kappa\) be an infinite cardinal. 
+\(T\) is \(\kappa\)-stable if \(|S_n^\mcM(A)| = \kappa\) whenever \(\mcM \models T\) and \(|A| = \kappa\). 
+Note: \(\aleph_0\)-stable theories are called \(\omega\)-stable for historical reasons. 
 
-First, we will show that the theory of dense linear orders without endpoints is not \(\omega\)-stable. \(\mcM = (\R, <)\) is a model of this theory and \(A = \Q\) is a subset of size \(\aleph_0\). Still, every real number realizes a different type in \(S_1^\R(\Q)\) (as every two distinct real numbers have a rational number between them). So there must be at least as many types as there are real numbers; there are uncountably many types.  
+First, we will show that the theory of dense linear orders without endpoints is not \(\omega\)-stable. 
+\(\mcM = (\R, <)\) is a model of this theory and \(A = \Q\) is a subset of size \(\aleph_0\). 
+Still, every real number realizes a different type in \(S_1^\R(\Q)\) (as every two distinct real numbers have a rational number between them). 
+So there must be at least as many types as there are real numbers; there are uncountably many types.  
 
-Recall that we mentioned in the proof outline of Morley's Categoricity theorem that all uncountably categorical theories are \(\omega\)-stable. We mentioned the theory of infinite sets and the theory of (\(\Z, s\)) as uncountably categorical theories. Let's observe that both of these theories are \(\omega\)-stable. 
-
-%It will help to recall that these theories admit quantifier elimination. 
+Recall that we mentioned in the proof outline of Morley's Categoricity theorem that all uncountably categorical theories are \(\omega\)-stable. 
+We mentioned the theory of infinite sets and the theory of (\(\Z, s\)) as uncountably categorical theories. 
+Let's observe that both of these theories are \(\omega\)-stable. 
 
 \textbf{Theorem.} The theory of infinite sets is \omst. 
 
-First, consider the complete 1-types, \(p(v_1)\). \(p(v_1)\) must assert either that \(v_1 = a\) for exactly \(a \in A\) or that \(v_1 \neq a\) for all \(a \in A\). Moreover, as the theory of infinite sets admits \qe all formulae are equivalent to boolean combinations of such formulae. We have now identified all 1-types (there is one for each element in \(A\) and one more for when \(v_1\) isn't in \(A\)). This can be easily extended to \(n\)-types for \(n > 1\)
+First, consider the complete 1-types, \(p(v_1)\). \(p(v_1)\) must assert either that \(v_1 = a\) for exactly \(a \in A\) or that \(v_1 \neq a\) for all \(a \in A\). 
+Moreover, as the theory of infinite sets admits \qe all formulae are equivalent to boolean combinations of such formulae. 
+We have now identified all 1-types (there is one for each element in \(A\) and one more for when \(v_1\) isn't in \(A\)). 
+This can be easily extended to \(n\)-types for \(n > 1\)
 
 \textbf{Theorem.} The theory of \((\Z, s)\) is \omst. 
 
-We will again consider 1-types and leave the general argument to the reader. We can assume, WLOG, that no two elements of \(A\) are in the same \(\Z\)-chain. Our 1-type either asserts that \(v_1\) is in the same \(\Z\)-chain as a single element of \(A\) and determines its position relative to that element, or asserts that \(v_1\) isn't in the same \(\Z\) chain as any element of \(A\). Every formula is equivalent to a \qf one, so as these are all of the possible complete atomic types, they are also all of the possible types.    
+We will again consider 1-types and leave the general argument to the reader. 
+We can assume, WLOG, that no two elements of \(A\) are in the same \(\Z\)-chain. 
+Our 1-type either asserts that \(v_1\) is in the same \(\Z\)-chain as a single element of \(A\) and determines its position relative to that element, or asserts that \(v_1\) isn't in the same \(\Z\) chain as any element of \(A\). 
+Every formula is equivalent to a \qf one, so as these are all of the possible complete atomic types, they are also all of the possible types.    
+
+\subsection{A Theorem about \(\omega\)-stability}
 
 We now aim to show that all theories, \(T\), which aren't \(\omega\)-stable cannot be uncountably categorical.
 
-It suffices to show that for all uncountable \(\kappa\) we can present two non-isomorphic models of \(T\) of cardinality \(\kappa\). We will do so by finding one model realizing only countably many types, and one realizing uncountably many. Clearly, two such models will not be isomorphic, so \(T\) will not be categorical. 
+It suffices to show that for all uncountable \(\kappa\) we can present two non-isomorphic models of \(T\) of cardinality \(\kappa\). 
+We will do so by finding one model realizing only countably many types, and one realizing uncountably many. 
+Clearly, two such models will not be isomorphic, so \(T\) will not be categorical. 
 
 As \(T\) isn't \omst, for some countable \(A\) we have that \(|S_n^\mcM(A)|\) is uncountable. 
 We can realize all of these in some elementary extension of \(\mcM\) which can be taken to be of cardinality exactly \(\kappa\) for any desired uncountable \(\kappa\). 
@@ -50,3 +86,4 @@ By compactness, we have a model of \(\Gamma\) of cardinality \(|\mcL^*| \leq \ka
 Now, we must show the existence of a model of size \(\kappa\) which realizes only countably many types. To do so, we will have to construct some machinery.
 This will be our guiding intuititon: to ensure our model is of size \(\kappa\), we will start out with \(\kappa\) many virtually identical (indiscernable) elements. 
 To ensure our model is indeed a model of \(T\), we will close it under existentials by adding the right elements. 
+
