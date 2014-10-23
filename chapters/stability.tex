@@ -23,7 +23,7 @@ Still, neither \(v_1 = s(s(s(0)))\) or its negation is in \(p\) so it is not com
 
 There is one clear source of complete types. 
 Every element of \(\N\) has an associated complete type. 
-Let \(p(v) = \{\phi(v) | \N \models \phi(1)\}\). 
+Let \(p(v) = \{\phi(v) \mid \N \models \phi(1)\}\). 
 As \(\N\) is a model realizing \(p \cup \Th_\emptyset(\N)\) when \(v_1\) is interpreted as 1, this set of formulae is a type. 
 As every formula in one free variable is either true or false for 1, this type is complete. 
 We say \(p\) is realized by 1. 
@@ -89,7 +89,7 @@ To ensure our model is indeed a model of \(T\), we will close it under existenti
 We will be able to show that these ``right elements'' do not change the cardinality of the model and do not realize any types not found in out countable model.
 Only countably many types can be realized in a countable model, so our constructed model will realize countably many types over any countable set, as desired. 
 
-\textbf{Definition.} We say that a \(\{x_i | i \in I\}\) where \(I\) is an ordered set is a sequence of \textit{order indiscernibles} if, given two increasing sequences of length \(n\) from \(I\), 
+\textbf{Definition.} We say that a \(\{x_i \mid i \in I\}\) where \(I\) is an ordered set is a sequence of \textit{order indiscernibles} if, given two increasing sequences of length \(n\) from \(I\), 
 \(i_1 < i_2 < \ldots < i_n\) and \(j_1 < j_2 < \ldots < j_n\), we will have \(\mcM \models \phi(i_1, \ldots, i_n) \iff \mcM \models \phi(j_1, \ldots, j_n)\). 
 Intuitively, these elements cannot be distinguised based on first order properties, modulo their relative positions.  
 Recall that the theory of dense linear orders without endpoints admits \qe and it's easy to see that any increasing sequence from such an order is a sequence of indiscernibles. 
@@ -97,7 +97,7 @@ Recall that the theory of dense linear orders without endpoints admits \qe and i
 % Perhaps add something about how < need not be present in the language?
 
 Our first theorem about order indiscernibles for every underlying order \(I\), is that they always exist in a theory with infinite models. 
-Augment our language with constants \(\{c_i | i \in I\}\).
+Augment our language with constants \(\{c_i \mid i \in I\}\).
 Let \(\Gamma\) assert that these constants are order indiscernibles, more explicitly:
 \begin{itemize}
 \item \(\Gamma\) asserts that \(c_i \neq c_j\) whenever \(i \neq j\)

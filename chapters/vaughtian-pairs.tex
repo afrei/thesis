@@ -1,1 +1,14 @@
-Vaughtian \(\rho\)airs
+\subsection{Definition}
+The (only) obstacle to uncountable categoricity aside from \(\omega\)-instability is the existence of Vaughtian pairs.
+We will be able to use a Vaughtian pair of models of a theory to construct a \((\kappa, \lambda)\)-model of that theory, which we will be a fairly ovious obstruction to categoricity.  
+First, let's define what it means for two models to form a Vaughtian pair and what it means for a model to be a \((\kappa, \lambda)\)-model.
+
+\textbf{Definition.} \((\mcM, \mcN)\) for a Vaughtian pair if \(\mcM \prec \mcN\) and there is an \(\mcL_\mcM\)-formula \(\phi(\bar{v})\) for which
+\(\{\bar{m} \in N^k \mid \mcN \models \phi(\bar{n})\}\) is an infinite subset of \(M\). 
+In other words, a formula with parameters in \(M\) defines an infinite subset of \(N\) containing no elements of \(N \setminus M\).
+
+\textbf{Definition.} A model \(\mcM\) is a \((\kappa, \lambda)\)-model if \(\kappa > \lambda \geq \aleph_0\) and \(|M| = \kappa\) but there is an \(\mcL\)-formula \(\phi\) for which
+\(|\{\bar{m} \in M^k \mid \mcM \models \phi(\bar{M})\}| = \lambda\).
+Such models prevent uncountable categoricity because given any model of cardinality \(\kappa\) we can construct an elementarily equivalent model in which all infinite definable sets are of cardinality \(\kappa\) (add \(\kappa\) many vectors of constant symbols for each formula \(\phi\) defining an infinite set, assert that none of the (vectors of) constant symbols are equal. This is clearly finitely satisfiable and its model has the desired property).
+
+
