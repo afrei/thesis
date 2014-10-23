@@ -94,3 +94,38 @@ Only countably many types can be realized in a countable model, so our construct
 Intuitively, these elements cannot be distinguised based on first order properties, modulo their relative positions.  
 Recall that the theory of dense linear orders without endpoints admits \qe and it's easy to see that any increasing sequence from such an order is a sequence of indiscernibles. 
 
+% Perhaps add something about how < need not be present in the language?
+
+Our first theorem about order indiscernibles for every underlying order \(I\), is that they always exist in a theory with infinite models. 
+Augment our language with constants \(\{c_i | i \in I\}\).
+Let \(\Gamma\) assert that these constants are order indiscernibles, more explicitly:
+\begin{itemize}
+\item \(\Gamma\) asserts that \(c_i \neq c_j\) whenever \(i \neq j\)
+\item For every \(\mcL\)-formula, \(\phi(v_1, \ldots, v_n)\), and pair of sequences of \(n\) increasing elements of \(I\), \((i_1, \ldots, i_n)\) and \((j_1, \ldots, j_n)\), \(\Gamma\) asserts that \(\phi(c_{i_1}, \ldots, c_{i_n}) \leftrightarrow \phi(c_{j_1}, \ldots, c_{j_n})\)
+\end{itemize}
+
+Obviously, any model of \(T \cup \Gamma\) has a set of order indiscernibles indexed by \(I\). 
+We claim that any finite subset of \(T \cup \Gamma\) is satisfied by any \(\mcM\) an infinite model of \(T\). 
+\textcolor{red}{This proof is missing because I'm looking for a way to provide the infinite combinatorial details.}
+
+It is natural to identify this set of order indiscernibles with \(I\), so that if \(\mcM \models \Gamma \cup T\), then \(I \subset M\).
+
+\textcolor{red}{\(\ldots\)}
+
+Now that we are familiar with order indiscernibles, we can use them to build \textit{Ehrenfeucht-Mostowski Models}, which are constructed as \textit{Skolem hulls} of order indiscernibles. 
+We recall that an \(\mcL\)-theory is said to have \textit{built-in Skolem functions} when for all \(\mcL\)-formulae, \(\phi(v, \bar{w})\), there is a function symbol \(f_\phi\) for which 
+\(T \models \A \bar{w} [(\E v \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})]\), in other words, the Skolem functions provide whitnesses for all existentials. 
+Given any \(\mcL\)-theory \(T\), we can extend \(\mcL\) to \(\mcL^*\) so that it includes Skolem-functions and we also extend \(T\) to \(T^*\) which asserts that \(\mcL^*\) has Skolem-functions. 
+Moreover, there is a natural way to interpret any \(\mcM \models T\) as an \(\mcL^*\) structure modeling \(T^*\).
+Given, then \(I \subset M\), we can look at the substructure of \(\mcM\) whose universe will be the smallest set containing \(I\) and closed under our Skolem functions. 
+We will call this model ``\(\mathcal{H}(I)\)'' or the Skolem hull of \(I\).
+Note that \(\mathcal{H}(I) \prec \mcM\).
+
+We can now achieve our goal of constructing a model of any \(\omega\)-unstable theory which realizes only countably many types over any countable set. 
+As above, simply take \(\mcM = \mathcal{H}((\kappa, <))\). \(M\) will have cardinality \(\kappa\).
+Let \(A\) be our countable subset of \(M\). 
+Every element of \(A\) (like every element of \(M\)) is of the form \(f_\phi(\bar{x})\) for order indiscernibles \(x\).  
+The set of all indiscernibles appearing in one of these Skolem terms is still countable, so we can assume \(A\) contains only order indiscernibles.
+\textcolor{red}{Fill in more details.}
+
+\textcolor{red}{\(\ldots\)}
