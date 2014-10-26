@@ -89,24 +89,45 @@ To ensure our model is indeed a model of \(T\), we will close it under existenti
 We will be able to show that these ``right elements'' do not change the cardinality of the model and do not realize any types not found in out countable model.
 Only countably many types can be realized in a countable model, so our constructed model will realize countably many types over any countable set, as desired. 
 
-\textbf{Definition.} We say that a \(\{x_i \mid i \in I\}\) where \(I\) is an ordered set is a sequence of \textit{order indiscernibles} if, given two increasing sequences of length \(n\) from \(I\), 
+\textbf{Definition.} We say that a \(\{x_i \mid i \in I\}\) where \(I\) is an ordered set is a sequence of \textit{order indiscernibles (of order type \(I\))} if, given two increasing sequences of length \(n\) from \(I\), 
 \(i_1 < i_2 < \ldots < i_n\) and \(j_1 < j_2 < \ldots < j_n\), we will have \(\mcM \models \phi(i_1, \ldots, i_n) \iff \mcM \models \phi(j_1, \ldots, j_n)\). 
 Intuitively, these elements cannot be distinguised based on first order properties, modulo their relative positions.  
 Recall that the theory of dense linear orders without endpoints admits \qe and it's easy to see that any increasing sequence from such an order is a sequence of indiscernibles. 
 
 % Perhaps add something about how < need not be present in the language?
 
-Our first theorem about order indiscernibles for every underlying order \(I\), is that they always exist in a theory with infinite models. 
-Augment our language with constants \(\{c_i \mid i \in I\}\).
-Let \(\Gamma\) assert that these constants are order indiscernibles, more explicitly:
-\begin{itemize}
-\item \(\Gamma\) asserts that \(c_i \neq c_j\) whenever \(i \neq j\)
-\item For every \(\mcL\)-formula, \(\phi(v_1, \ldots, v_n)\), and pair of sequences of \(n\) increasing elements of \(I\), \((i_1, \ldots, i_n)\) and \((j_1, \ldots, j_n)\), \(\Gamma\) asserts that \(\phi(c_{i_1}, \ldots, c_{i_n}) \leftrightarrow \phi(c_{j_1}, \ldots, c_{j_n})\)
-\end{itemize}
+Our first theorem about order indiscernibles is that they always exist in a theory with infinite models.
+Moreover, a set of order-indiscernibles exists of every order type.
 
-Obviously, any model of \(T \cup \Gamma\) has a set of order indiscernibles indexed by \(I\). 
-We claim that any finite subset of \(T \cup \Gamma\) is satisfied by any \(\mcM\) an infinite model of \(T\). 
-\textcolor{red}{This proof is missing because I'm looking for a way to provide the infinite combinatorial details.}
+We claim that any infinite model \(\mcM\) of a theory \(T\), for any finite set \(\Phi\) of formulae in \(n\) free-variables, we can present an \(X \subset M\) such that no two increasing senquences of length \(n\) taken from \(X\) can be distinguiched by a formula from \(\Phi). 
+(The actual order of \(M\) will not matter, we fix an arbitrary one).
+We note that by compactness, this will suffice to show the existence of order indiscernibles of any order type. 
+Also, observe that this is a straightforward consequence of Ramsey's theorem (the infinite version).
+Ramsey's theorem states that if \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subset S\) for which every subset of size \(n\) of \(T\) has the same color. 
+In our case, subsets of \(\Phi\) color subsets of size \(n\) taken from \(M\) by seeing which formulae of \(\Phi\) are true of the (ordered) elements of the subset.
+
+We will therefore prove the infinite Ramsey's theorem. 
+It suffices to show for the case \(c = 2\) as we can divide the colors into two groups, apply the theorem and reduce the number of colors until we're left with only two. 
+We will now induct on \(n\).
+When \(n = 1\) we note the pidgeonhole principle tells us we cannot partition an infinite set into two finite parts. 
+We now show the result \(n > 1\) assuming it is true for all values less than \(n\). 
+Choose some arbitrary element \(s \in S\).
+We induce a coloring of the \((n-1)\)-element subsets \(S'\) of \(S \setminus \{s\}\) by looking at the color of \(S' \cup \{s\}\).
+We must have an infinite subset \(T'\) of \(S'\) whose size \(n-1\) subsets all have the same color. 
+\textcolor{red}{Then some magic happens by wikipedia and stuff works out. \\ ...}  
+
+%Augment our language with constants \(\{c_i \mid i \in I\}\).
+%Let \(\Gamma\) assert that these constants are order indiscernibles, more explicitly:
+%\begin{itemize}
+%\item \(\Gamma\) asserts that \(c_i \neq c_j\) whenever \(i \neq j\)
+%\item For every \(\mcL\)-formula, \(\phi(v_1, \ldots, v_n)\), and pair of sequences of \(n\) increasing elements of \(I\), \((i_1, \ldots, i_n)\) and \((j_1, \ldots, j_n)\), \(\Gamma\) asserts that \(\phi(c_{i_1}, \ldots, c_{i_n}) \leftrightarrow \phi(c_{j_1}, \ldots, c_{j_n})\)
+%\end{itemize}
+
+%Obviously, any model of \(T \cup \Gamma\) has a set of order indiscernibles indexed by \(I\). 
+%We claim that any finite subset of \(T \cup \Gamma\) is satisfied by any \(\mcM\) an infinite model of \(T\). 
+%It suffices to show that for any \(n\) we can find infinitely many \(m \in M\) such that every ... 
+
+%\textcolor{red}{This proof is missing because I'm looking for a way to provide the infinite combinatorial details.}
 
 It is natural to identify this set of order indiscernibles with \(I\), so that if \(\mcM \models \Gamma \cup T\), then \(I \subset M\).
 
