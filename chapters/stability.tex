@@ -99,22 +99,32 @@ Recall that the theory of dense linear orders without endpoints admits \qe and i
 Our first theorem about order indiscernibles is that they always exist in a theory with infinite models.
 Moreover, a set of order-indiscernibles exists of every order type.
 
-We claim that any infinite model \(\mcM\) of a theory \(T\), for any finite set \(\Phi\) of formulae in \(n\) free-variables, we can present an \(X \subset M\) such that no two increasing senquences of length \(n\) taken from \(X\) can be distinguiched by a formula from \(\Phi). 
+We claim that any infinite model \(\mcM\) of a theory \(T\), for any finite set \(\Phi\) of formulae in \(n\) free-variables, we can present an \(X \subset M\) such that no two increasing senquences of length \(n\) taken from \(X\) can be distinguiched by a formula from \(\Phi\). 
 (The actual order of \(M\) will not matter, we fix an arbitrary one).
 We note that by compactness, this will suffice to show the existence of order indiscernibles of any order type. 
 Also, observe that this is a straightforward consequence of Ramsey's theorem (the infinite version).
 Ramsey's theorem states that if \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subset S\) for which every subset of size \(n\) of \(T\) has the same color. 
 In our case, subsets of \(\Phi\) color subsets of size \(n\) taken from \(M\) by seeing which formulae of \(\Phi\) are true of the (ordered) elements of the subset.
 
-We will therefore prove the infinite Ramsey's theorem. 
-It suffices to show for the case \(c = 2\) as we can divide the colors into two groups, apply the theorem and reduce the number of colors until we're left with only two. 
-We will now induct on \(n\).
-When \(n = 1\) we note the pidgeonhole principle tells us we cannot partition an infinite set into two finite parts. 
-We now show the result \(n > 1\) assuming it is true for all values less than \(n\). 
-Choose some arbitrary element \(s \in S\).
-We induce a coloring of the \((n-1)\)-element subsets \(S'\) of \(S \setminus \{s\}\) by looking at the color of \(S' \cup \{s\}\).
-We must have an infinite subset \(T'\) of \(S'\) whose size \(n-1\) subsets all have the same color. 
-\textcolor{red}{Then some magic happens by wikipedia and stuff works out. \\ ...}  
+We will therefore prove Ramsey's theorem. 
+Assume without loss of generality that \(S = \N\).
+When \(n=1\), Ramsey's Theorem states we cannot partition \(\N\) into finitely many finite sets, which is clear.
+Now, we will induct on \(n\). 
+We will constuct a \(T \subset \N\) with the following property: the color of every subset of size \(n\) of \(T\) is determined by its least element. 
+Once we have that set \(T\), we can color the elements \(t\) of \(T\) by the color of all \(n\)-element sets with \(t\) as their element. 
+By the pidgeonhole principle, there will be one color which appears infinitely often. 
+If we take \(T' \subset T\) consisting of those elements, every \(n\) element subset of \(T'\) will have a least element and by construction, that subset will have the color \(c\) we chose. 
+\(T'\) will be the desired set. 
+
+We now construct a \(T \subset \N\) such that the color of every subset of size \(n\) of \(T\) is determined by its least element. 
+We can color subsets, \(A\) of size \(n-1\) of \(\N \setminus \{0\}\) by the color assigned to \(A \cup \{0\}\). 
+By the inductive hypothesis, there is \(T_0 \subset \N \setminus \{0\}\) such that every \(n\)-element subset of \(T_0 \cup \{0\}\) with 0 as its least element is the same color. 
+We now take the least element \(t_0 \in T_0\) and similarly apply the inductive typothesis there to get an infinite \(T_1 \subset T_0\) such that every subset of \(T_1 \cup \{0, t_0\}\) with \(t_0\) as its least element has the same color. 
+As \(T_1 \subset T_0\) the same is still true for subsets with \(0\) as their least element. 
+Continuing inductively, we take \(\bigcap_{<\omega}T_i = \{0, t_0, t_1, \ldots\}\) which will have this property. 
+By what we've said above, we've proven Ramsey's Theorem. 
+This is also enough to complete our compactness argument showing that order-indiscernibles of every order type exist.  
+It is natural to identify this set of order indiscernibles with \(I\), so that if \(\mcM \models \Gamma \cup T\), then \(I \subset M\).
 
 %Augment our language with constants \(\{c_i \mid i \in I\}\).
 %Let \(\Gamma\) assert that these constants are order indiscernibles, more explicitly:
@@ -128,10 +138,6 @@ We must have an infinite subset \(T'\) of \(S'\) whose size \(n-1\) subsets all 
 %It suffices to show that for any \(n\) we can find infinitely many \(m \in M\) such that every ... 
 
 %\textcolor{red}{This proof is missing because I'm looking for a way to provide the infinite combinatorial details.}
-
-It is natural to identify this set of order indiscernibles with \(I\), so that if \(\mcM \models \Gamma \cup T\), then \(I \subset M\).
-
-\textcolor{red}{\(\ldots\)}
 
 Now that we are familiar with order indiscernibles, we can use them to build \textit{Ehrenfeucht-Mostowski Models}, which are constructed as \textit{Skolem hulls} of order indiscernibles. 
 We recall that an \(\mcL\)-theory is said to have \textit{built-in Skolem functions} when for all \(\mcL\)-formulae, \(\phi(v, \bar{w})\), there is a function symbol \(f_\phi\) for which 
