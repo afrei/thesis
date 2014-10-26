@@ -10,7 +10,6 @@ Consider two models \(\mcM, \mcN\) such that \(|M|=|N|=\lambda\).
 By hypothesis we have a bijection \(f: M \to N\). \(f\) is an isomorphism of sets, so \(M \isom N\).
 
 Recall that a theory, \(T\), is complete if for all sentences \(\phi\) we have either \(T \models \phi\) or \(T \models \neg \phi\). 
-
 Note that this theory must also be complete. 
 More generally, Vaught's test tells us that theories without finite models that are categorical in some infinite cardinal \(\kappa\) are complete. 
 (If such a theory were not complete, it would have models of cardinality of \(\lambda\) disagreeing on some \(\phi\) which couldn't then be isomorphic)
@@ -23,18 +22,14 @@ We can present a bijection \(f_1\) between members of the first equivalence clas
 We see that \(f = f_1 \cup f_2\) is a bijection and actually an isomorphism. 
 
 On the other hand, if \(\lambda > \aleph_0\) is an infinite cardinal, then this theory isn't \(\lambda\)-categorical. 
-It suffices to note that we can have the two non-isomorphic cases 
-\begin{itemize}
-\item where the first equivalence class has cardinality \(\lambda\) and the second is countable 
-\item where both classes are of cardinality \(\lambda\)
-\end{itemize}
-
-Vaught's theorem tells us that even though this theory isn't \(\aleph_1\) categorical, it is still complete. 
+It suffices to note that we can have the two non-isomorphic cases: where the first equivalence class has cardinality \(\lambda\) and the second is countable 
+and where both classes are of cardinality \(\lambda\). Vaught's theorem tells us that even though this theory isn't \(\aleph_1\) categorical, it is still complete. 
 
 So far, we've seen two theories, one categorical for all infinite cardinals and one which is only countably categorical. 
 I'll omit the details, but we also know that the theory of (\(\Z, s\)) (the integers with successor) is categorical in all uncountable cardinals but not countably categorical and that the theory of (\(\Q, <, c_1, c_2\)) (the rationals with their standard order) where \(c_1 < c_2 < c_3 < \ldots\) is complete but not categorical in any infinite cardinal (consider the wether or not the sequence has an upper bound). 
 
-Morley's categoricity theorem will state that these are the only four cases. That theorem will be the main focus of this thesis. 
+Morley's categoricity theorem will state that these are the only four cases. 
+That theorem will be the main focus of this thesis. 
 
 \subsection{Stating Morley's Categoricity Theorem}
 
@@ -46,6 +41,6 @@ We will define two properties of theories: being \(\omega\)-stable and having Va
 It turns out that lacking \(\omega\)-stability or having Vaughtian pairs will prevent uncountable categoricity, so all uncountably categorical theories lack Vaughtian pairs and are \(\omega\)-stable. 
 
 We then observe that these two conditions, lacking Vaughtian pairs and being \(\omega\)-stable, are sufficient to show categoricity in all uncountable cardinals. 
-Hence, the categoricity of a theory in some uncountable cardinal must imply \(\omega\)-stability and the absence of Vaughtian pairs, which, in turn, imply categoricity in all other uncountable cardinals. 
+Hence, the categoricity of a theory in some uncountable cardinal must imply \(\omega\)-stability and the absence of Vaughtian pairs, which, in turn, imply categoricity in all other uncountable cardinals.
 
 Once I complete this proof, I will elaborate more on issues of stability in general, morley rank and forking.  

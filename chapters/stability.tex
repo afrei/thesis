@@ -1,15 +1,12 @@
 In this section, our goal is to define stability (and \(\omega\)-stability in particular) and show that theories which aren't \(\omega\)-stable cannot be uncountably categorical for any uncountable cardinality. 
 
 In order to define stability we need to recall a few definitions and facts about types. 
-
 Let \(\mcM\) be an \(\mcL\)-structure and \(A \subset M\). 
 It will often be natural to want to add constant symbols for every element of \(A\) to our language. 
 We will call the resulting language \(\mcL_A\). \(\mcM\) has a natural definition as an \(\mcL_A\)-structure. 
 In general, we call the set of \(\mcL_A\)-sentences true in \(\mcM\) ``\(\Th_A(\mcM)\)'' and, in the special case where \(A = M\) we call it \(\eldiag(\mcM)\) or the ``elementary diagram of \(\mcM\)''. 
 
 \subsection{Defining Types}
-
-We are now prepared to define types. 
 
 \textbf{Definition.} Let \(A, \mcM, \mcL\) as above. 
 An \(n\)-type, \(p\), is a set of \(\mcL_A\)-formulae in \(n\) free variables (\(v_1, \ldots, v_n\)) for which \(p \cup \Th_A(\mcM)\) is satisfiable.
@@ -36,8 +33,6 @@ We can extend \{p\} to a complete type, but that type cannot be realized by any 
 It isn't always the case that a type is realized. 
 
 \subsection{Defining Stability}
-
-We are now ready to define stability: 
 
 \textbf{Definition.} Let \(T\) be a complete theory in a countable language and \(\kappa\) be an infinite cardinal. 
 \(T\) is \(\kappa\)-stable if \(|S_n^\mcM(A)| = \kappa\) whenever \(\mcM \models T\) and \(|A| = \kappa\). 
@@ -69,7 +64,6 @@ Every formula is equivalent to a \qf one, so as these are all of the possible co
 \subsection{A Theorem about \(\omega\)-stability}
 
 We now aim to show that all theories, \(T\), which aren't \(\omega\)-stable cannot be uncountably categorical.
-
 It suffices to show that for all uncountable \(\kappa\) we can present two non-isomorphic models of \(T\) of cardinality \(\kappa\). 
 We will do so by finding one model realizing only countably many types, and one realizing uncountably many. 
 Clearly, two such models will not be isomorphic, so \(T\) will not be categorical. 
@@ -137,8 +131,6 @@ It is natural to identify this set of order indiscernibles with \(I\), so that i
 %We claim that any finite subset of \(T \cup \Gamma\) is satisfied by any \(\mcM\) an infinite model of \(T\). 
 %It suffices to show that for any \(n\) we can find infinitely many \(m \in M\) such that every ... 
 
-%\textcolor{red}{This proof is missing because I'm looking for a way to provide the infinite combinatorial details.}
-
 Now that we are familiar with order indiscernibles, we can use them to build \textit{Ehrenfeucht-Mostowski Models}, which are constructed as \textit{Skolem hulls} of order indiscernibles. 
 We recall that an \(\mcL\)-theory is said to have \textit{built-in Skolem functions} when for all \(\mcL\)-formulae, \(\phi(v, \bar{w})\), there is a function symbol \(f_\phi\) for which 
 \(T \models \A \bar{w} [(\E v \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})]\), in other words, the Skolem functions provide whitnesses for all existentials. 
@@ -152,7 +144,4 @@ We can now achieve our goal of constructing a model of any \(\omega\)-unstable t
 As above, simply take \(\mcM = \mathcal{H}((\kappa, <))\). \(M\) will have cardinality \(\kappa\).
 Let \(A\) be our countable subset of \(M\). 
 Every element of \(A\) (like every element of \(M\)) is of the form \(f_\phi(\bar{x})\) for order indiscernibles \(x\).  
-The set of all indiscernibles appearing in one of these Skolem terms is still countable, so we can assume \(A\) contains only order indiscernibles.
-\textcolor{red}{Fill in more details.}
-
-\textcolor{red}{\(\ldots\)}
+\textcolor{red}{This needs some more work \(\ldots\)}
