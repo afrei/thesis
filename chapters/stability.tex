@@ -68,6 +68,7 @@ It suffices to show that for all uncountable \(\kappa\) we can present two non-i
 We will do so by finding one model realizing only countably many types, and one realizing uncountably many. 
 Clearly, two such models will not be isomorphic, so \(T\) will not be categorical. 
 
+\subsubsection{Realizing Uncountably Many Types Over a Countable Set}
 As \(T\) isn't \omst, for some countable \(A\) we have that \(|S_n^\mcM(A)|\) is uncountable. 
 We can realize all of these in some elementary extension of \(\mcM\) which can be taken to be of cardinality exactly \(\kappa\) for any desired uncountable \(\kappa\). 
 Say \(\{p_i\}\) is a set of uncountably many but at most \(\kappa\) many types indexed by some set \(I\). 
@@ -75,8 +76,9 @@ Let \(c_i\) similar index that same number of constants in a new language \(\mcL
 Let \(\Gamma = T \cup \eldiag(\mcM) \cup \{p_i(c_i)\}\) (we assert each type \(p_i\) is realized by \(c_i\)). 
 We claim that every finite subset of \(\Gamma\) is satisfiable (indeed, every finite subset is true in \(\mcM\)).
 By compactness, we have a model of \(\Gamma\) of cardinality \(|\mcL^*| \leq \kappa\) and by the upward L\"owenheim-Skolem theorem, a model of cardinality \(\kappa\).
-\(\Gamma\) asserts that uncountably many types are realized, as desired. 
+\(\Gamma\) asserts that uncountably many types are realized over \(A\), as desired. 
 
+\subsubsection{Indiscernables}
 Now, we must show the existence of a model of size \(\kappa\) which realizes only countably many types. To do so, we will have to construct some machinery.
 This will be our guiding intuititon: to ensure our model is of size \(\kappa\), we will start out with \(\kappa\) many virtually identical (indiscernable) elements. 
 To ensure our model is indeed a model of \(T\), we will close it under existentials by adding the right elements. 
@@ -100,7 +102,8 @@ Also, observe that this is a straightforward consequence of Ramsey's theorem (th
 Ramsey's theorem states that if \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subset S\) for which every subset of size \(n\) of \(T\) has the same color. 
 In our case, subsets of \(\Phi\) color subsets of size \(n\) taken from \(M\) by seeing which formulae of \(\Phi\) are true of the (ordered) elements of the subset.
 
-We will therefore prove Ramsey's theorem. 
+\subsubsection{A Proof of Ramsey's Theorem}
+%We will therefore prove Ramsey's theorem. 
 Assume without loss of generality that \(S = \N\).
 When \(n=1\), Ramsey's Theorem states we cannot partition \(\N\) into finitely many finite sets, which is clear.
 Now, we will induct on \(n\). 
@@ -120,17 +123,7 @@ By what we've said above, we've proven Ramsey's Theorem.
 This is also enough to complete our compactness argument showing that order-indiscernibles of every order type exist.  
 It is natural to identify this set of order indiscernibles with \(I\), so that if \(\mcM \models \Gamma \cup T\), then \(I \subset M\).
 
-%Augment our language with constants \(\{c_i \mid i \in I\}\).
-%Let \(\Gamma\) assert that these constants are order indiscernibles, more explicitly:
-%\begin{itemize}
-%\item \(\Gamma\) asserts that \(c_i \neq c_j\) whenever \(i \neq j\)
-%\item For every \(\mcL\)-formula, \(\phi(v_1, \ldots, v_n)\), and pair of sequences of \(n\) increasing elements of \(I\), \((i_1, \ldots, i_n)\) and \((j_1, \ldots, j_n)\), \(\Gamma\) asserts that \(\phi(c_{i_1}, \ldots, c_{i_n}) \leftrightarrow \phi(c_{j_1}, \ldots, c_{j_n})\)
-%\end{itemize}
-
-%Obviously, any model of \(T \cup \Gamma\) has a set of order indiscernibles indexed by \(I\). 
-%We claim that any finite subset of \(T \cup \Gamma\) is satisfied by any \(\mcM\) an infinite model of \(T\). 
-%It suffices to show that for any \(n\) we can find infinitely many \(m \in M\) such that every ... 
-
+\subsubsection{Realizing Only Countably Many Types Over Every Countable Set}
 Now that we are familiar with order indiscernibles, we can use them to build \textit{Ehrenfeucht-Mostowski Models}, which are constructed as \textit{Skolem hulls} of order indiscernibles. 
 We recall that an \(\mcL\)-theory is said to have \textit{built-in Skolem functions} when for all \(\mcL\)-formulae, \(\phi(v, \bar{w})\), there is a function symbol \(f_\phi\) for which 
 \(T \models \A \bar{w} [(\E v \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})]\), in other words, the Skolem functions provide whitnesses for all existentials. 
@@ -141,7 +134,16 @@ We will call this model ``\(\mathcal{H}(I)\)'' or the Skolem hull of \(I\).
 Note that \(\mathcal{H}(I) \prec \mcM\).
 
 We can now achieve our goal of constructing a model of any \(\omega\)-unstable theory which realizes only countably many types over any countable set. 
-As above, simply take \(\mcM = \mathcal{H}((\kappa, <))\). \(M\) will have cardinality \(\kappa\).
-Let \(A\) be our countable subset of \(M\). 
-Every element of \(A\) (like every element of \(M\)) is of the form \(f_\phi(\bar{x})\) for order indiscernibles \(x\).  
-\textcolor{red}{This needs some more work \(\ldots\)}
+Let \(\mcM = \mathcal{H}((\kappa, <))\) be our model of cardinality \(\kappa\) and let \(A\) be an arbitrary countable subset of \(M\). 
+As every element of \(M\) (and of \(A\)) must be a Skolem term (i.e. of the form \(f_\phi(\bar{x})\) for some vector of indiscernables), it suffices to look at the types over countable subsets of \(\kappa\).
+Let \(X\) be this countable subset of \(\kappa\). 
+It suffices to show that for each fixed \(n, \phi\), terms of the form \(f_\phi(y_1, \ldots, y_n)\) realize only countably many types. 
+(We then have divided \(M\) into countably many sets each realizing at most countably many types).
+We see that \(f_\phi(y_1, \ldots, y_n)\) and \(f_\phi(z_1, \ldots, z_n)\) realize the same type if, for each \(i \leq n\) there is no \(x \in X\) between \(y_i\) and \(z_i\) or that \(y_i\) and \(z_i\) determine the same cut in \(X\).  
+This is because indiscernability tells us \(\mcM \models \psi(f_\phi(\bar{y}), \bar{x}) \iff \mcM \models \psi(f_\phi(\bar{z}, \bar{x})\) when the relative orders of the indiscernibles in \(\bar{y}\bar{x}\) and in \(\bar{z}\bar{x}\) are the same. 
+It now suffices to note that, as \(\kappa\) is well ordered, we get only countably many cuts of \(X\). 
+This deals with the 1-types. Dealing with the \(n\)-types only requires dealing with \(n\)-tuples of formulae instead of the single formula \(\phi\) we adressed here. 
+
+We have succeded in showing that there is a model of any \(\omega\)-unstable theory realizing only countably many types over any countable set.
+This model cannot be isomorphic to one realizing uncountably many types over a countable set, which we showed must exist as well. 
+Therefore, any \(\omega\)-unstable theory cannot be categorical.
