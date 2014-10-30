@@ -22,25 +22,54 @@ This predicate allows us to state that a formula \(\phi(\bar{v})\) is true in \(
 For \(\phi(\bar{v})\) \qf we let \(\phi_U(\bar{v}) = \bigwedge U(v_i) \land \phi(\bar{v})\) and for \(\phi(\bar{v}) = \exists v \psi, \phi_U(\bar{v}) = \E v (U(v) \land \psi_U)\). 
 In the other cases, do the natural thing. 
 
-Our ultimate goal is to demonstrate a theory in a countable language asserting that \((\mcM, \mcN)\) is Vaughtian pair.
+Our goal is to demonstrate a theory in a countable language asserting that \((\mcM, \mcN)\) is Vaughtian pair.
 By the L\"owenheim-Skolem theorem, we will get out countable pair of models.
-This comes in two parts: asserting \(\M \prec \mcN\) and asserting that we can isolate an infinite subset of \(M\). 
+This comes in two parts: asserting \(\mcM \prec \mcN\) and asserting that we can isolate an infinite subset of \(M\). 
 We assert the former with the formulae \((\bigwedge U(v_i) \land \psi(\bar{v})) \to \psi_U(\bar{v})\). 
 Let \(\phi(\bar{v})\) be the \(\mcL_\mcM\)-formula which isolates an infinite subset of \(M^k\). 
-We can assert that \(\phi\) has infinitely many realizations by \(\E \bar{v}_1, \E \bar{v}_2, \ldots \E \bar{v}_n \bigwedge \bar{v}_i \new \bar{v}_j \land \bigwedge \bar{v}_i \neq \bar{v}_j\)
-We can assert that \(\phi\) only holds for vectors from \(M^k\) by \(\A \bar{v} (\phi(\bar{v}) \to U(\bar{v}))\)/
+We can assert that \(\phi\) has infinitely many realizations by \(\E \bar{v}_1, \E \bar{v}_2, \ldots \E \bar{v}_n \bigwedge \bar{v}_i \neq \bar{v}_j \land \bigwedge \phi(\bar{v}_i)\).
+We can assert that \(\phi\) only holds for vectors from \(M^k\) by \(\A \bar{v} (\phi(\bar{v}) \to U(\bar{v}))\).
 Finally, we assert that \(\mcN\) is a proper extension with \(\E x \neg U(x)\). 
 By construction, the countable model of this theory which is satisfied by \((\mcM, \mcN)\) will be our countable model.
 
+% End of Claim 1 and beginning of homogeneity
+For the next few claims we will need to use a property called homogeneity which will allow us to show that certain countable models are isomorphic.
+\textbf{Definition.} We call a countable model \(\mcM\) is homogeneous if all finite \(A \subset M\) and functions \(f: A \to M\) for which \(\mcM \models \phi(\bar{v}) \iff \mcM \models \phi(f(\bar{v}))\) -- we call this property being ``partial elementary'' -- and every \(m \in M\), there is a \(f': A \cup \{m\} \to M\) extending \(f\) which is partial elementary.
+
+%For example, \(\Q\)...
+
+The first interesting thing we will note about countable homogeneous models is that any partial elementary map \(f: A \to M\) (where \(A \subset M\) is finite) can be extended to an automorphism. 
+To see this, note that partial elementary maps have partial elementary inverses. And \(f_0 = f\)
+We will alternatively extend the domain and range of \(f_i\) by elements in \(M\).
+By construction, \(f^* = \bigcup_{<\omega}f_i\) has domain and range equal to all of \(M\).
+Additionally, it is easy to verify that \(f^*\) is a homomorphism. 
+
+This is why homogeneity is a useful property. We can use it to build isomorphisms, which will be useful soon. 
+
+\textbf{Lemma.}The next thing we note about countable homogeneous models, \(\mcM\) and \(\mcN\), of the same complete theory, \(T\), is that if \(\mcM\) and \(\mcN\) realize the same types, they are isomorphic.
+To show this, we will build a map in a way very similar to the way we built \(f^*\) above. 
+Note that we need \(T\) to be complete in order for \(f_0=\emptyset\) to be partial elementary.
+We will enumerate the elements in the universe of both models, and iteratively add elements to the domain and range of a partial elementary map. 
+If we can do this, the union of this sequence of maps will be an isomorphism.
+As the inverse of a partial elementary map is also partial elementary, it will suffice to show that we can extend a partial elementary map to include an arbitrary element in its range. 
+Let \(dom(f) = \{m_1, \ldots, m_i\}, rng(f) = \{n_1, \ldots, n_i\}, f(m_j) = n_j\).
+Now, choose \{m\} an arbitrary element of \(M\), our goal is to find \(g \supset f\) which is partial elementary and \(m \in dom(g)\).
+Note that we can find a partial elementary \(h\) for which \(dom(f) \cup \{m\} \subset dom(h)\) by merely finding the realization of \(tp(\bar{m}, m)\) in \(\mcN\), which is guarunteed by \(\mcM, \mcN\) realizing the same types. 
+Our one remaining obstacle is that \(h(m_i)\) may not be equal to \(n_i\). 
+This can be rectified with homogeneity. We can easily see that the function which takes \(h(m_i) \mapsto n_i\) can be extended to an automorphism. 
+By simply composing this automorphism with our \(h\) from above to form \(g\) we have found our desired function. 
+
+%(We should note that in the past, we've referred specifically to types of models. As \(\emptyset\)-types only depend on the theory 
+
 \textbf{Claim 2.} Moreover, a Vaughtian pair of countable models can be extended to a Vaughtian pair of isomorphic countable models.
 
-% Proof Goes Here
-\textcolor{red}{Insert Proof Here}
+By above, it suffices to show a vaughtian pair \((\mcM, \mcN)\) can be extended to a vaughtian pair \((\mcM^*, \mcN^*)\) where \(\mcM^*, \mcN^*\) are homogeneous and realize the same types. 
 
-\textbf{Claim 3.} Given a Vaughtian pair of countable isomorphic models, we can construct a Vaughtian pair \((\mcM, \mcN)\) where \(\mcM\) is countable and \(\mcN\) can be taken to be of cardinality \(\aleph_1\).
+%\textcolor{red}{Insert Proof Here}
 
-% Proof Goes Here
-\textcolor{red}{Insert Proof Here}
+\textbf{Claim 3.} Given a Vaughtian pair of countable isomorphic models, we can construct a Vaughtian pair \((\mcN_1, \mcN_2)\) where \(\mcM\) is countable and \(\mcN\) can be taken to be of cardinality \(\aleph_1\).
+
+We have an easy way to grow models once we have \((\mcN_1 \prec \mcN_2)\) and \(\mcN_1 \isom \mcN_2\). 
 
 \textbf{Claim 4.} Given a Vaughtian pair \((\mcM, \mcN)\) where \(\mcM\) is countable and \(\mcN\) is of cardinality \(\aleph_1\), we can construct a model of any uncountably cardinality \(\kappa\) with a countable definable subset. 
 
