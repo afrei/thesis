@@ -16,6 +16,7 @@ Clearly, prime models are unique up to isomorphism. Easy examples of prime model
 
 \textbf{Theorem.} \omst theories have prime models.
  
+% Proof: 4.2.20 p 136 (a crazy induction)
 {\color{red}Prove this \(\ldots\)}
 
 % Strongly minimal formula with params from prime model
@@ -31,12 +32,38 @@ We will show that it's being \omst also tells us that there is a minimal formula
 We will also show this formula is strongly minimal since the theory has no vaughtian pairs. 
 
 \textbf{Lemma.} If \(T\) is \omst there is a minimal formula in all \(\mcM \models T\).
-Assume there is no minimal formula {\color{red}\(\ldots\) ????} % This is pretty Hard
+
+We will build an infinite binary tree of formulae such that 
+every node corresponds to an infinite definable subset of our model (and the formula defining it), 
+and such that every node is a subset (or consequence) of its parent. 
+We will see that every (infinite) path in this tree is a distinct type over a countable set and that there are \(2^{\aleph_0}\) such types. 
+This contradicts the \(\omega\)-stability of \(T\).
+
+It is easy to construct this tree. Let the root of the tree be the entire universe, \(M\), of our model which is defined by the formula \(v = v\).
+Given a node in our tree defined by a formula \(\phi\) which defines an infinite subset, there must be a formula \(\psi\) such that both \(\phi \land \psi\) and \(\phi \land \neg \psi\) define infinite subsets, as \(\phi\) is not minimal. 
+These two formulae/definable sets will be the children of \(\phi\) in our tree. 
+As no formula is minimal, we can repeat this ad infinitum. 
+
+Consider a path in this tree. We can consider the corresponding countable set of formulae consisting of the nodes on this path. 
+Every finite subset contains a node of maximum depth, which defines an infinite subset of \(M\) and is therefore satisfiable. 
+Our set of formulae corresponding to this path can therefore be completed to a type.
+No two distinct paths can be completed to the same type. 
+Specifically, if two paths diverge after a node \(\phi\), then they will disagree on the formula \(\psi\) as defined above. 
+
+Moreover, there are only countably many nodes in this tree. 
+Each formula in this tree contains finitely many constants from \(M\).
+Therefore, all of these types can be defined over countably many constants from \(M\). 
+We have presented \(2^{\aleph_0}\) types over a finite subset, contradicting the \(\omega\)-stability of \(T\).
 
 \textbf{Lemma.} If \(T\) has no Vaughtian pairs and \(\phi\) is a minimal formula for \(\mcM \models T\) then \(\phi\) is strongly-minimal. 
+
+% Proof
+
 {\color{red}\(\ldots\) ????} % Do This one
 
-% Algebraic Closure, Basis, dimensions of sets
+% Define Algebraic Closure, 
+% Define Basis, 
+% Define dimensions of sets
 
 % 11 - Partial Elementary bijections
 
