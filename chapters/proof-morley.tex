@@ -16,15 +16,15 @@ Clearly, prime models are unique up to isomorphism. Easy examples of prime model
 
 \textbf{Theorem.} \omst theories have prime models.
  
-% Proof: 4.2.20 p 136 (a crazy induction)
+% Proof: 4.2.20 p 136 (a transfinite induction)
 {\color{red}Prove this \(\ldots\)}
-
 % Strongly minimal formula with params from prime model
 
 \textbf{Definition.} We say that a \(\mcL_\mcM\)-formula \(\phi\) is \textit{minimal} if \(\phi(\mcM) = \{\bar{m} \in M \mid \mcM \models \phi(\bar{m})\) is infinite and has no infinite and co-infinite definable subsets. 
 We may also call \(\phi(\mcM)\) minimal. 
-We will call \(\phi\) % and \phi(\mcM)\) -- This could use some work 
-\textit{strongly minimal} if it is  minimal in any elementary extension of \(\mcM\).
+We will call \(\phi\) and the set \(\phi(\mcM) \subset M\) % -- This could use some work 
+\textit{strongly minimal} if they are minimal in any elementary extension of \(\mcM\).
+Moreover, a thepry is strongly minimal if the set \(M\) (defined by the formula \(v = v\)) is strongly minimal. 
 
 Now, assume we have a theory which is \omst and has no Vaughtian-pairs. 
 As it is \omst it has a prime model.
@@ -58,10 +58,23 @@ We have presented \(2^{\aleph_0}\) types over a finite subset, contradicting the
 \textbf{Lemma.} If \(T\) has no Vaughtian pairs and \(\phi\) is a minimal formula for \(\mcM \models T\) then \(\phi\) is strongly-minimal. 
 
 % Proof
+{\color{red}\(\ldots\) PROOF????} % Do This one
 
-{\color{red}\(\ldots\) ????} % Do This one
+With these past few lemmata we can conclude that any theory which lack Vaughtian pairs and is \omst has a strongly minimal formula with parameters from a countable prime model. 
+We will develop the theory of dimensions of elementary extensions and see that any two extensions of cardinality \(\kappa > \aleph_0\) will have dimension \(\kappa\) over the prime model.
+From this fact, we will be able to show they are isomorphic, providing us, finally, with \(\kappa\) categoricity and completing the proof of Morley's categoricity theorem. 
 
-% Define Algebraic Closure, 
+\textbf{Definition.} Given a model \(\mcM\) and an \(A \subset M\), we define the algebraic closure of \(A\), denoted \(\text{acl}(A)\) to be all elements of \(M\) which are in a finite set definable by an \(\mcL_A\)-formula. 
+(Note that by quantifier elimination over algebraically closed fields, this notion of ``algebraic closure'' agrees with the familiar one.)
+
+The algebraic closure has the nice properties that \(\text{acl}(\text{acl}(A)) = \text{acl}(A)\), that \(A \subset B \implies \text{acl}(A) \subset \text{acl}(B)\) and that if \(a \in \text{acl}(A)\) then there is a finite subset \(A_0 \subset A\) such that \(a \in \text{acl}(A_0)\).
+This almost gives us that algebraic closure is a pregeometry. 
+The only othe fact we would have to know is exchange, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
+This is only true when we take \(A\) to be a subset of some strongly minimal set.
+
+\textbf{Theorem.} Let \(S\) be a strongly minimal set. If \(A \subset S\) then if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
+
+
 % Define Basis, 
 % Define dimensions of sets
 
