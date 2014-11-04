@@ -75,9 +75,28 @@ This almost gives us that algebraic closure is a pregeometry.
 The only othe fact we would have to know is exchange, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 This is only true when we take \(A\) to be a subset of some strongly minimal set.
 
-\textbf{Theorem.} Let \(S\) be a strongly minimal set. If \(A \subset S\) then if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
+\textbf{Theorem.} Let \(S\) be a strongly minimal set. If \(A \subset S, a, b \in S\) and \(a, b \notin \acl(A)\) but \(a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 
-{\color{red}\(\ldots\) PROOF????} % Do This one
+% Clarify: Limiting \acl to a set D
+
+
+% I think there might be a better, more intuititve presentation for this proof. (something about pairs for which \phi(x, y))
+As \(a \in \acl(A \cup \{b\})\), we have \(\mcM \models \phi(a, b)\) for some \(\mcL_A\)-formula % Make sure we use this notation
+\(\phi\) where \(\{x \in S \mid \phi(x, b)\}\) contains \(n\) elements. 
+Consider the set defined by \(\psi(y)\) asserting \(\{x \in S \mid \phi(x, y)\}\) contains exactly \(n\) elements.
+% As neither \(a\) nor \(b\) are in \(\acl(A)\), the set defined by \(\psi\) must not be finite. 
+% By minimality, we know that \(\psi(\mcM)\) is cofinite. % Make sure we use this notation.   
+We would very much like for \(X = \{y \in S \mid \psi(y) \land \phi(a, y)\}\) to be finite, making \(b \in \acl(A \cup \{a\})\). 
+We will show this must be the case by contradiction.  % WRONG?: As \(\mcM \models \psi(b)\), it will suffice to exhibit \(a_1, \ldots, a_{n+1}\) for which \(\phi(a_i, b)\) holds. 
+If this fails and \(X\) is infinite, then \(X\) is cofinite. 
+Specifically, \(\{y \in S \mid \neg(\psi(y) \land \phi(a, y))\}\) contains \(m\) elements.  
+We let \(\theta(x)\) assert that \(\{y \in S \mid \neg(\psi(y) \land \phi(x, y))\}\) contains exactly \(m\) elements.
+\(\theta\) also defines a cofinite set, as otherwise \(a \in \acl(A)\).   
+Let \(a_1, \ldots, a_{n+1}\) be such that for each \(i\), \(\theta(a_i)\) holds.
+As \(\theta(a_i)\) holds, each set \(\{y \in S \mid \psi(y) \land \phi(a_i, y)\}\) is cofinite, as is their intersection. 
+For any element, \(b'\) in the intersection, we have \(\psi(b')\) and \(a_i \in \{x \in S \mid \phi(x, b')\} for each \(a_i\) by construction.
+This is a contradiction as \(\psi(b')\) asserts there are only \(n\) such elements.  
+
 
 \textbf{Definition.} We say that % ???
 Independent % something something
@@ -101,4 +120,4 @@ We begin by constructing a partial elementary map \(f:\phi(\mcM) \to \phi(\mcN)\
 % Both \(\phi(\mcM), \phi(\mcN)\) have cardinality \(\kappa\) and therefore dimension \(\kappa\). Maybe some more explanation. 
 
 % We could use some work here:
-Something something \mcM prime over something. Extending f. f' is surjective. f' is an isomorphism finally giving us that \(mcM \isom \mcN\). 
+Something something \(\mcM\) prime over something. Extending \(f\). \(f'\) is surjective. \(f'\) is an isomorphism finally giving us that \(\mcM \isom \mcN\). 
