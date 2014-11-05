@@ -109,11 +109,31 @@ This is a contradiction as \(\psi(b')\) asserts there are only \(n\) such elemen
 
 \textbf{Definition.} As above let \(D\) be a minimal set. \(A \subset D\) is independent if for all \(a \in A\), \(a \notin \acl(A \setminus \{a\})\). 
 % Possible Addition: Define ``independent over''. \(A \subset D\) is independent over \(C \subset D\) if, for all \(a \in A\), \(a \notin \acl(C \cup (A \setminus \{a\}))\). 
-We call a maximal independent subset of \(A\) a basis for \(A\). 
-% Likely switch: \(B\) is a basis for \(A\) when \(\acl(A) = \acl(B)\) and \(B\) is independent.
+% Stricken: We call a maximal independent subset of \(A\) a basis for \(A\). 
+\(B\) is a basis for \(A\) when \(\acl(A) = \acl(B)\) and \(B\) is independent.
 We will show that all bases of a set \(A\)  have the same cardinality, which we will call the dimension of \(A\).
 
-% TODO 5: 6.1.9 Proof that all bases have the same cardinality
+We will need the following lemma: given two disjoint independent sets, \(S, T\), if \(S \cup \{s\}\) is independent, there is an element \(t \in T\) such that \((S \cup \{s\}) \cup (T \setminus \{t\})\) is independent and has the same algebraic closure as \(S \cup T\). 
+
+Let \(T_0 \subset T\) be of the smallest cardinality such that \(s \in \acl(S \cup T_0)\). 
+Clearly, \(T_0\) is non-empty, so choose \(t \in T_0\). 
+\(s \in \acl(S \cup T_0)\) and by exchange \(t \in \acl(S \cup \{s\} \cup T_0 \setminus \{t\}) \subset \acl(S \cup \{s\} \cup T \setminus \{t\})\).
+We can conclude \(\acl(S \cup \{s\} \cup T \setminus \{t\}) = \acl(S \cup T)\) as the former contains \(S \cup T\) and is algebraically closed and \(s \in \acl(S \cup T)\). 
+It suffices to show \(S \cup \{s\} \cup T \setminus \{t\}\) is independent. 
+We already know that \(S \cup T\) and therefore \(S \cup T \setminus \{t\}\) are independent. 
+It suffices to show (by exchange) that \(s \notin \acl(S \cup T \setminus \{t\})\).
+If this were the case, by exchange we would have \(t \in \acl(S \cup T \setminus \{t\})\) as that set is equal to \(\acl(S \cup \{s\} \cup T \setminus\{t\})\).
+But this would contradict the independence of \(S \cup T\). 
+
+To prove the uniqueness of dimension, it suffices to show that if \(A\) and \(B\) are bases for \(|C|\), then \(|A| \leq |B|\). 
+The first case we show is when \(|B|\) is finite, which we will show by contradiction.  
+Let \(S_0 = \emptyset\) and \(T_0 = A\). We iteratively expand \(S_i\) by elements of \(B = \{b_1, \ldots, b_n\}\) and remove elements of \(T_i\) preserving the algebraic closure of their union. 
+Ultimately, we see that \(\acl(A) = \acl(S_i \cup T_i) = \acl(B \cup (A \setminus \{a_1, \ldots, a_n\})) = \acl(C)\)
+If \(A \setminus \{a_1, \ldots, a_n\}\) is non-empty and contains some element \(a\), then \(a \notin \acl(B)\) as \(B \cup (A \setminus \{a_1, \ldots, a_n\})\) is independent. 
+But \(a \in \acl(A) = \acl(C)\) so \(\acl(B)\) cannot equal \(\acl(C)\) and cannot be a basis. 
+
+In the case where \(B\) is infinite, \(|B| = \kappa\), we note that there are \(\kappa\) many formula with parameters from \(B\) and at most \(\kappa\) many elements of \(\acl(B) = \acl(C) \supset C\). 
+It is impossible to take mare than \(\kappa\) many elements of \(C\), so there cannot be a subset \(A\) of \(C\) with \(|A| > |B|\) so there cannot be such a basis. 
 
 \textbf{Theorem.} Let \(\mcM, \mcN_1, \mcN_1 \models T\) and \(\mcM \prec \mcN_1, \mcM \prec \mcN_2\) and \(\phi(v)\) be a strongly minimal formula with parameters from \(M\).
 If \(\phi(\mcN_1)\) has the same dimension as \(\phi(\mcN_2)\), then there is a partial elementary map \(f: \phi(\mcN_1) \to \phi(\mcN_2)\) which is a bijection. 
