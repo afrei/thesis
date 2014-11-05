@@ -3,7 +3,7 @@ The (only) obstacle to uncountable categoricity aside from \(\omega\)-instabilit
 We will be able to use a Vaughtian pair of models of a theory to construct a model of size \(\kappa\) with a countable definable subset.  
 Such models prevent uncountable categoricity because given any model of cardinality \(\kappa\) we can construct an elementarily equivalent model in which all infinite definable sets are of cardinality \(\kappa\).
 We simply add \(\kappa\) many vectors of constant symbols for each formula \(\phi\) defining an infinite set, assert that none of the vectors of constant symbols are equal. This is clearly finitely satisfiable and its model has the desired property.
-First, let's define what it means for two models to form a Vaughtian pair. % and what it means for a model to be a \((\kappa, \lambda)\)-model. ??? Removed, definition in previous commits.
+First, let's define what it means for two models to form a Vaughtian pair. % Possible Addition: Definition of kappa lambda models (definition in previous commits)
 
 \textbf{Definition.} \((\mcM, \mcN)\) for a Vaughtian pair if \(\mcM \prec \mcN\) and there is an \(\mcL_\mcM\)-formula \(\phi(\bar{v})\) for which
 \(\{\bar{m} \in N^k \mid \mcN \models \phi(\bar{n})\}\) is an infinite subset of \(M^k\). 
@@ -52,19 +52,21 @@ Note that we can find a partial elementary \(h\) for which \(dom(f) \cup \{m\} \
 Our one remaining obstacle is that \(h(m_i)\) may not be equal to \(n_i\). 
 This can be rectified with homogeneity. We can easily see that the function which takes \(h(m_i) \mapsto n_i\) can be extended to an automorphism. 
 By simply composing this automorphism with our \(h\) from above to form \(g\) we have found our desired function. 
-% (We should note that in the past, we've referred specifically to types of models. As \(\emptyset\)-types only depend on the theory 
+
+% Possible Clarification: Moving from types over models to types over theories
 
 \textbf{Claim 2.} Moreover, a Vaughtian pair of countable models can be extended to a Vaughtian pair of isomorphic countable models.
 
 By above, it suffices to show a vaughtian pair \((\mcM, \mcN)\) can be extended to a vaughtian pair \((\mcM^*, \mcN^*)\) where \(\mcM^*, \mcN^*\) are homogeneous and realize the same types. 
 
+% TODO 1: Proof of 4.3.38
 \textcolor{red}{Insert Proof Here \ldots}
 
-\textbf{Claim 3.} Given a Vaughtian pair of countable isomorphic models, we can construct a Vaughtian pair \((\mcN_1, \mcN_2)\) where \(\mcM\) is countable and \(\mcN\) can be taken to be of any cardinality. %\(\aleph_1\). If we do this in different steps, put back what was a fourth claim. (In previous commits.)
+\textbf{Claim 3.} Given a Vaughtian pair of countable isomorphic models, we can construct a Vaughtian pair \((\mcN_1, \mcN_2)\) where \(\mcM\) is countable and \(\mcN\) can be taken to be of any cardinality. % Possible Alternative: show for \(\aleph_1\). Then grow out to all uncountable kappa. (4th claim in previous commits)
 
-We have an easy way to grow models once we have \((\mcN_1 \prec \mcN_2)\) and \(\mcN_1 \isom \mcN_2\). 
-
+% TODO 2: Proof of 4.3.34/4.3.41 
 \textcolor{red}{Insert Proof Here \ldots} 
+% First line? We have an easy way to grow models once we have \((\mcN_1 \prec \mcN_2)\) and \(\mcN_1 \isom \mcN_2\). 
 
 As we stated above, we can also create a model of \(T\) of size \(\kappa\) where all infinite definable sets are of size \(\kappa\). 
 Such a model wouldn't be isomorphic to the model we just created which has a countable definable subset. 

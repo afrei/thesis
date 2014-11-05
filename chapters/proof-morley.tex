@@ -12,19 +12,19 @@ This will complete the proof.
 \subsection{Prime Models}
 
 \textbf{Definition.} We say that a theory, \(T\),  has a prime model, \(\mcM \models T\) if, for every \(\mcN \models T\), we have \(\mcM \prec \mcN\). 
-Clearly, prime models are unique up to isomorphism. Easy examples of prime models are \(\Q\) for fields of characteristic 0 and \(\N\) for \(\Th(\N, 0, s)\). % Examples?
+Clearly, prime models are unique up to isomorphism. Easy examples of prime models are \(\Q\) for fields of characteristic 0 and \(\N\) for \(\Th(\N, 0, s)\). 
+% Possible Addition: Examples?
 
 \textbf{Theorem.} \omst theories have prime models.
  
-% Proof: 4.2.20 p 136 (a transfinite induction)
+% TODO 3: Proof: 4.2.20 p 136 (a transfinite induction)
 {\color{red}Prove this \(\ldots\)}
-% Strongly minimal formula with params from prime model
 
 \subsection{Minimality}
 
 \textbf{Definition.} We say that a \(\mcL_\mcM\)-formula \(\phi\) is \textit{minimal} if \(\phi(\mcM) = \{\bar{m} \in M \mid \mcM \models \phi(\bar{m})\) is infinite and has no infinite and co-infinite definable subsets. 
 We may also call \(\phi(\mcM)\) minimal. 
-We will call \(\phi\) and the set \(\phi(\mcM) \subset M\) % -- This could use some work 
+We will call \(\phi\) and the set \(\phi(\mcM) \subset M\) % Possible Clarification: more clarity on what it means for sets/formulas to be minimal esp. strongly minimal
 \textit{strongly minimal} if they are minimal in any elementary extension of \(\mcM\).
 Moreover, a thepry is strongly minimal if the set \(M\) (defined by the formula \(v = v\)) is strongly minimal. 
 
@@ -59,7 +59,8 @@ We have presented \(2^{\aleph_0}\) types over a finite subset, contradicting the
 
 \textbf{Lemma.} If \(T\) has no Vaughtian pairs and \(\phi\) is a minimal formula for \(\mcM \models T\) then \(\phi\) is strongly-minimal. 
 
-{\color{red}\(\ldots\) PROOF????} % Do This one
+% TODO 4: 6.1.15
+{\color{red}\(\ldots\) PROOF????}
 
 With these past few lemmata we can conclude that any theory which lack Vaughtian pairs and is \omst has a strongly minimal formula with parameters from a countable prime model. 
 We will develop the theory of dimensions of elementary extensions and see that any two extensions of cardinality \(\kappa > \aleph_0\) will have dimension \(\kappa\) over the prime model.
@@ -77,38 +78,36 @@ This is only true when we take \(A\) to be a subset of some strongly minimal set
 
 \textbf{Theorem.} Let \(S\) be a strongly minimal set. If \(A \subset S, a, b \in S\) and \(a, b \notin \acl(A)\) but \(a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 
-% Clarify: Limiting \acl to a set D
+% Possible Clarification: Limiting \acl to a set D
 
-
-% I think there might be a better, more intuititve presentation for this proof. (something about pairs for which \phi(x, y))
-As \(a \in \acl(A \cup \{b\})\), we have \(\mcM \models \phi(a, b)\) for some \(\mcL_A\)-formula % Make sure we use this notation
+% Possible Improvement: Better presentation/intuition including pairs definable by \phi(x, y)
+As \(a \in \acl(A \cup \{b\})\), we have \(\mcM \models \phi(a, b)\) for some \(\mcL_A\)-formula 
+% Possible Clarification: Make sure notation of \mcL_A is familiar/defined
 \(\phi\) where \(\{x \in S \mid \phi(x, b)\}\) contains \(n\) elements. 
-Consider the set defined by \(\psi(y)\) asserting \(\{x \in S \mid \phi(x, y)\}\) contains exactly \(n\) elements.
-% As neither \(a\) nor \(b\) are in \(\acl(A)\), the set defined by \(\psi\) must not be finite. 
-% By minimality, we know that \(\psi(\mcM)\) is cofinite. % Make sure we use this notation.   
+Consider the set defined by \(\psi(y)\), where \(\psi(y)\) asserts that \(\{x \in S \mid \phi(x, y)\}\) contains exactly \(n\) elements. % Book mentions \psi(\mcM) is cofinite, why?
 We would very much like for \(X = \{y \in S \mid \psi(y) \land \phi(a, y)\}\) to be finite, making \(b \in \acl(A \cup \{a\})\). 
-We will show this must be the case by contradiction.  % WRONG?: As \(\mcM \models \psi(b)\), it will suffice to exhibit \(a_1, \ldots, a_{n+1}\) for which \(\phi(a_i, b)\) holds. 
+We will show this must be the case by contradiction.
 If this fails and \(X\) is infinite, then \(X\) is cofinite. 
 Specifically, \(\{y \in S \mid \neg(\psi(y) \land \phi(a, y))\}\) contains \(m\) elements.  
 We let \(\theta(x)\) assert that \(\{y \in S \mid \neg(\psi(y) \land \phi(x, y))\}\) contains exactly \(m\) elements.
 \(\theta\) also defines a cofinite set, as otherwise \(a \in \acl(A)\).   
 Let \(a_1, \ldots, a_{n+1}\) be such that for each \(i\), \(\theta(a_i)\) holds.
 As \(\theta(a_i)\) holds, each set \(\{y \in S \mid \psi(y) \land \phi(a_i, y)\}\) is cofinite, as is their intersection. 
-For any element, \(b'\) in the intersection, we have \(\psi(b')\) and \(a_i \in \{x \in S \mid \phi(x, b')\} for each \(a_i\) by construction.
+For any element, \(b'\) in the intersection, we have \(\psi(b')\) and \(a_i \in \{x \in S \mid \phi(x, b')\}\) for each \(a_i\) by construction.
 This is a contradiction as \(\psi(b')\) asserts there are only \(n\) such elements.  
 
+\textbf{Definition.} As above let \(D\) be a minimal set. \(A \subset D\) is independent if for all \(a \in A\), \(a \notin \acl(A \setminus \{a\})\). 
+% Possible Addition: Define ``independent over''. \(A \subset D\) is independent over \(C \subset D\) if, for all \(a \in A\), \(a \notin \acl(C \cup (A \setminus \{a\}))\). 
+We call a maximal independent subset of \(A\) a basis for \(A\). 
+% Likely switch: \(B\) is a basis for \(A\) when \(\acl(A) = \acl(B)\) and \(B\) is independent.
+We will show that all bases of a set \(A\)  have the same cardinality, which we will call the dimension of \(A\).
 
-\textbf{Definition.} We say that % ???
-Independent % something something
-Basis % something something
-Dimension
+% TODO 5: 6.1.9 Proof that all bases have the same cardinality
 
-% 6.1.11
-\textbf{Theorem.} There is a partial elementary map from the set defined by \(\phi\) in \(\mcM\) to that set in \(\mcN\). % This isn't what I'd seriously suggest as the statement. 
+\textbf{Theorem.} Let \(\mcM, \mcN_1, \mcN_1 \models T\) and \(\mcM \prec \mcN_1, \mcM \prec \mcN_2\) and \(\phi(v)\) be a strongly minimal formula with parameters from \(M\).
+If \(\phi(\mcN_1)\) has the same dimension as \(\phi(\mcN_2)\), then there is a partial elementary map \(f: \phi(\mcN_1) \to \phi(\mcN_2)\) which is a bijection. 
 
-% define ``Prime over''
-% 6.1.17
-\textbf{Theorem.} \(\mcM\) is prime over \(\phi(\mcM)\).
+% TODO 6: Thm 6.1.11 PEB between sets of same dimension  
 
 \subsection{Proof of Morley's Categoricity Theorem}
 
@@ -117,7 +116,15 @@ We now show the converse: two models \(\mcM, \mcN\)  of a complete \omst theory,
 As \(T\) is \omst it has a prime model, \(\mcM_0\), in which we have a minimal formula \(\phi\) (again as \(T\) is \(\omega\)-stable).
 Moreover, as \(T\) has no Vaughtian pairs, \(\phi\) is strongly minimal. 
 We begin by constructing a partial elementary map \(f:\phi(\mcM) \to \phi(\mcN)\) which is a bijection, which exists as per our theorem above.
-% Both \(\phi(\mcM), \phi(\mcN)\) have cardinality \(\kappa\) and therefore dimension \(\kappa\). Maybe some more explanation. 
+Both \(\phi(\mcM), \phi(\mcN)\) have cardinality \(\kappa\) and therefore dimension \(\kappa\). 
+% Potential Clarification: More detail here.
+We can extend \(f\) to an \(f'\) which is partial elementary and has domain \(\mcM\). 
+% TODO 7a: This is being prime over \mcM. Inline? proof of 6.1.17
+The image of \(f'\) is an elementary submodel of \(\mcN\) containing \(\phi(\mcN)\). 
+No proper elementary submodel exists, so its image must be all of \(\mcN\). 
+% TODO 7b: Again, 6.1.17
+Thus, \(f'\) is a partial elementary bijection 
+% Possible Clarification:: all p.e. maps are injective
+so \(f'\) is an isomorphism.
 
-% We could use some work here:
-Something something \(\mcM\) prime over something. Extending \(f\). \(f'\) is surjective. \(f'\) is an isomorphism finally giving us that \(\mcM \isom \mcN\). 
+% Possible Addition: general review of proof.
