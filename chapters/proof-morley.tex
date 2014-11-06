@@ -18,6 +18,7 @@ Clearly, prime models are unique up to isomorphism. Easy examples of prime model
 \textbf{Theorem.} \omst theories have prime models.
  
 % TODO 3: Proof: 4.2.20 p 136 (a transfinite induction)
+% Maybe do a little extra here for 7a
 {\color{red}Prove this \(\ldots\)}
 
 \subsection{Minimality}
@@ -139,6 +140,12 @@ It is impossible to take mare than \(\kappa\) many elements of \(C\), so there c
 If \(\phi(\mcN_1)\) has the same dimension as \(\phi(\mcN_2)\), then there is a partial elementary map \(f: \phi(\mcN_1) \to \phi(\mcN_2)\) which is a bijection. 
 
 % TODO 6: Thm 6.1.11 PEB between sets of same dimension  
+Let \(B_1\) be a basis for \(\phi(\mcN_1)\) and \(B_2\) be a basis for \(\phi(\mcN_2)\).
+As \(|B_1| = |B_2|\), we have a bijection \(f: B_1 \to B_2\), which we claim is partial elementary. 
+First, we show the case \(\mcN_1 \models \psi(b) \iff \mcN_2 \model \psi(f(b))\). 
+As \(\psi(b)\) holds of a basis element \(\psi(x) \land \phi(x)\) must hold of co-finitely many elements, specifically, there are exactly \(n\) elements for which it doesn't hold. 
+% Clarification: P.E. wrt \mcL_\mcM, right?
+This is a first order sentence, which must hold in \(\mcM, \mcN_1, \mcN_2\). 
 
 \subsection{Proof of Morley's Categoricity Theorem}
 
@@ -151,11 +158,8 @@ Both \(\phi(\mcM), \phi(\mcN)\) have cardinality \(\kappa\) and therefore dimens
 % Potential Clarification: More detail here.
 We can extend \(f\) to an \(f'\) which is partial elementary and has domain \(\mcM\). 
 % TODO 7a: This is being prime over \mcM. Inline? proof of 6.1.17
-The image of \(f'\) is an elementary submodel of \(\mcN\) containing \(\phi(\mcN)\). 
-No proper elementary submodel exists, so its image must be all of \(\mcN\). 
-% TODO 7b: Again, 6.1.17
-Thus, \(f'\) is a partial elementary bijection 
-% Possible Clarification:: all p.e. maps are injective
-so \(f'\) is an isomorphism.
+The range of \(f'\) is an elementary submodel of \(\mcN\) (as it's domain is isomorphic to its range) containing \(\phi(\mcN)\). 
+If the range of \(f'\) isn't all of \(\mcN\), then \((\mcN, f'(\mcM))\) forms a vaughtian pair (\(\phi(mcN)\) is infinite and includes no element of \(\mcN \setminus f'(\mcM)\)).  
+So \(f'\) is injective (as it is partial elementary) and surjective (as we have no Vaughtian pairs) and our desired isomorphism. 
 
 % Possible Addition: general review of proof.
