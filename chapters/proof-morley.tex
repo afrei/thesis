@@ -5,7 +5,7 @@ As this property doesn't depend on the uncountable cardinality, this suffices.
 We've already shown that \(\omega\)-stability and lacking Vaughtian pairs are necessary for uncountable categoricity.
 To show these conditions are also sufficient we will define a notion of ``dimension'' for elementary extensions.
 \(\omega\)-stability will tell us that we can view any two models as elementary extensions of the same \textit{prime model}.
-The fact that, because of their cardinalities, any equinumerous models will have the same dimension over this prime model.
+The fact that, because of their cardinalities, any equinumerous models will have the same dimension over this prime model. %8-1
 Having the same dimension over this prime model will suffice to show that these two models are isomorphic.
 This will complete the proof. 
 
@@ -27,7 +27,7 @@ Clearly, prime models are unique up to isomorphism. Easy examples of prime model
 We may also call \(\phi(\mcM)\) minimal. 
 We will call \(\phi\) and the set \(\phi(\mcM) \subset M\) % Possible Clarification: more clarity on what it means for sets/formulas to be minimal esp. strongly minimal
 \textit{strongly minimal} if they are minimal in any elementary extension of \(\mcM\).
-Moreover, a thepry is strongly minimal if the set \(M\) (defined by the formula \(v = v\)) is strongly minimal. 
+Moreover, a theory is strongly minimal if the set \(M\) (defined by the formula \(v = v\)) is strongly minimal. 
 
 Now, assume we have a theory which is \omst and has no Vaughtian-pairs. 
 As it is \omst it has a prime model.
@@ -35,7 +35,7 @@ We will show that it's being \omst also tells us that there is a minimal formula
 We will also show this formula is strongly minimal since the theory has no vaughtian pairs. 
 
 \textbf{Lemma.} If \(T\) is \omst there is a minimal formula in all \(\mcM \models T\).
-
+%9-1
 We will build an infinite binary tree of formulae such that 
 every node corresponds to an infinite definable subset of our model (and the formula defining it), 
 and such that every node is a subset (or consequence) of its parent. 
@@ -63,16 +63,16 @@ We have presented \(2^{\aleph_0}\) types over a finite subset, contradicting the
 If \(\phi\) is not strongly minimal, there is \(\mcM \prec \mcN\), \(\bar{b} \in \mcN\) and \(\psi(\bar{x}, \bar{b})\) such that \(\psi(\mcN, \bar{b})\) is infinite and co-infinite. 
 We see that for every natural number \(n\), we know \(\mcN \models \E \bar{b} (\theta_{\psi, \bar{b}, n} \land \theta_{\neg \psi, \bar{b}, n})\) where \(\theta_{\psi, \bar{b},n}\) asserts there are at least \(n\) vectors \(\bar{x}\) for which \(\psi(\bar{x}, \bar{b})\) holds. 
 As \(\mcM \prec \mcN\), we know that each of these formulae hold in \(\mcM\) as well. 
-We can use this fact, together with compactness to show that \(T\) has a vaughtian pair.
+We can use this fact, together with compactness to show that \(T\) has a Vaughtian pair.
 Note that for each \(\bar{b}\) either \(\psi(\mcM, \bar{b})\) is infinite or it is co-infinite. 
-One of these cases must happen for arbitrarily large \(n\).  
+One of these cases must happen for arbitrarily large \(n\).  % 10-1
 Assume without loos of generality that \(\psi(\mcM, \bar{b})\) is co-infinite and arbitrarily large. 
 We will represent model pairs as in the previous section with an additional predicate \(U\) defining an elementary submodel. 
 We will show that the following set of formulae is satisfiable: 
 \(\E x (\neg U(x))\), \(U(\bar{w})\), \(\{\theta_{\psi, \bar{w}, n}\}_{n\in \N}\), \(\psi(\bar{v}, \bar{w}) \to U(\bar{v})\). 
 % Possible Clarification: We took the \(\psi(\mcM, \bar{n})\) co-infinite so we could have a proper elementary submodel. Elaborate more on this. 
 When taking finite subsets of these formulae, it suffices to take \(n\) sufficiently large and let \(\bar{w}\) be the \(\bar{b}\) which we know exists.
-In this model, \(\{\bar{v}\mid\psi(\bar{w}, \bar{v})\}\) defines an infinite subset, for which \(U(\bar{v})\) holds, in other words, a Vaughtian pair. 
+In this model, \(\{\bar{v}\mid\psi(\bar{w}, \bar{v})\}\) defines an infinite subset, for which \(U(\bar{v})\) holds, in other words, a Vaughtian pair. %10-2
 
 With these past few lemmata we can conclude that any theory which lack Vaughtian pairs and is \omst has a strongly minimal formula with parameters from a countable prime model. 
 We will develop the theory of dimensions of elementary extensions and see that any two extensions of cardinality \(\kappa > \aleph_0\) will have dimension \(\kappa\) over the prime model.
@@ -84,8 +84,8 @@ From this fact, we will be able to show they are isomorphic, providing us, final
 (Note that by quantifier elimination over algebraically closed fields, this notion of ``algebraic closure'' agrees with the familiar one.)
 
 The algebraic closure has the nice properties that \(\acl(\acl(A)) = \acl(A)\), that \(A \subset B \implies \acl(A) \subset \acl(B)\) and that if \(a \in \acl(A)\) then there is a finite subset \(A_0 \subset A\) such that \(a \in \acl(A_0)\).
-This almost gives us that algebraic closure is a pregeometry. 
-The only othe fact we would have to know is exchange, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
+This almost gives us that algebraic closure is a pregeometry. %10-3
+The only other fact we would have to know is exchange, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 This is only true when we take \(A\) to be a subset of some strongly minimal set.
 
 \textbf{Theorem.} Let \(S\) be a strongly minimal set. If \(A \subset S, a, b \in S\) and \(a, b \notin \acl(A)\) but \(a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
@@ -142,8 +142,8 @@ If \(\phi(\mcN_1)\) has the same dimension as \(\phi(\mcN_2)\), then there is a 
 % TODO 6: Thm 6.1.11 PEB between sets of same dimension  
 Let \(B_1\) be a basis for \(\phi(\mcN_1)\) and \(B_2\) be a basis for \(\phi(\mcN_2)\).
 As \(|B_1| = |B_2|\), we have a bijection \(f: B_1 \to B_2\), which we claim is partial elementary. 
-First, we show the case \(\mcN_1 \models \psi(b) \iff \mcN_2 \model \psi(f(b))\). 
-As \(\psi(b)\) holds of a basis element \(\psi(x) \land \phi(x)\) must hold of co-finitely many elements, specifically, there are exactly \(n\) elements for which it doesn't hold. 
+% First, we show the case \(\mcN_1 \models \psi(b) \iff \mcN_2 \model \psi(f(b))\). 
+% As \(\psi(b)\) holds of a basis element \(\psi(x) \land \phi(x)\) must hold of co-finitely many elements, specifically, there are exactly \(n\) elements for which it doesn't hold. 
 % Clarification: P.E. wrt \mcL_\mcM, right?
 This is a first order sentence, which must hold in \(\mcM, \mcN_1, \mcN_2\). 
 
