@@ -5,12 +5,17 @@ Such models prevent uncountable categoricity because given any model of cardinal
 We simply add \(\kappa\) many vectors of constant symbols for each formula \(\phi\) defining an infinite set, assert that none of the vectors of constant symbols are equal. This is clearly finitely satisfiable and its model has the desired property.
 First, let's define what it means for two models to form a Vaughtian pair. % Possible Addition: Definition of kappa lambda models (definition in previous commits)
 
-\textbf{Definition.} \((\mcM, \mcN)\) form a Vaughtian pair if \(\mcM \prec \mcN\) and there is an \(\mcL_\mcM\)-formula \(\phi(\bar{v})\) for which
+\begin{definition}\label{definition_vaughtian_pairs}
+\((\mcM, \mcN)\) form a Vaughtian pair if \(\mcM \prec \mcN\) and there is an \(\mcL_\mcM\)-formula \(\phi(\bar{v})\) for which
 \(\{\bar{m} \in N^k \mid \mcN \models \phi(\bar{n})\}\) is an infinite subset of \(M^k\). %7-1 m? I don't get it
 In other words, a formula with parameters in \(M\) defines an infinite subset of \(N^k\) containing no elements of \(N^k \setminus M^k\).
+\end{definition}
 
-\textbf{Claim 1.} Assuming a theory \(T\) has a Vaughtian pair \(\mcM, \mcN\), it has a Vaughtian pair \((\mcM_0, \mcN_0)\) of countable models. 
+\begin{theorem}\label{thm_countable_vaughtian_pairs}
+Assuming a theory \(T\) has a Vaughtian pair \(\mcM, \mcN\), it has a Vaughtian pair \((\mcM_0, \mcN_0)\) of countable models. 
+\end{theorem}
 
+\begin{proof}\label{proof_countable_vaughtian_pairs}
 In order to show the existence of a countable model, we will want to use the L\"owenheim-Skolem theorm.
 To do so, we will have to view the pair of models as a single model. 
 Let  \(\mcL^* = \mcL \cup \{U\}\). 
@@ -28,9 +33,13 @@ We can assert that \(\phi\) has infinitely many realizations by \(\E \bar{v}_1, 
 We can assert that \(\phi\) only holds for vectors from \(M^k\) by \(\A \bar{v} (\phi(\bar{v}) \to U(\bar{v}))\).
 Finally, we assert that \(\mcN\) is a proper extension with \(\E x \neg U(x)\). 
 By construction, the countable model of this theory which is satisfied by \((\mcM, \mcN)\) will be our countable model.
+\end{proof}
 
 For the next few claims we will need to use a property called homogeneity which will allow us to show that certain countable models are isomorphic.
-\textbf{Definition.} We call a countable model \(\mcM\) is homogeneous if all finite \(A \subset M\) and functions \(f: A \to M\) for which \(\mcM \models \phi(\bar{v}) \iff \mcM \models \phi(f(\bar{v}))\) -- we call this property being ``partial elementary'' -- and every \(m \in M\), there is a \(f': A \cup \{m\} \to M\) extending \(f\) which is partial elementary. % Examples?
+
+\begin{definition}\label{definition_homogeneity}
+We call a countable model \(\mcM\) is homogeneous if all finite \(A \subset M\) and functions \(f: A \to M\) for which \(\mcM \models \phi(\bar{v}) \iff \mcM \models \phi(f(\bar{v}))\) -- we call this property being ``partial elementary'' -- and every \(m \in M\), there is a \(f': A \cup \{m\} \to M\) extending \(f\) which is partial elementary. % Examples?
+\end{definition}
 
 The first interesting thing we will note about countable homogeneous models is that any partial elementary map \(f: A \to M\) (where \(A \subset M\) is finite) can be extended to an automorphism. 
 To see this, note that partial elementary maps have partial elementary inverses. And \(f_0 = f\) %this bad
@@ -40,7 +49,11 @@ Additionally, it is easy to verify that \(f^*\) is a homomorphism.
 
 This is why homogeneity is a useful property. We can use it to build isomorphisms, which will be useful soon. 
 
-\textbf{Lemma.}The next thing we note about countable homogeneous models, \(\mcM\) and \(\mcN\), of the same complete theory, \(T\), is that if \(\mcM\) and \(\mcN\) realize the same types, they are isomorphic.
+\begin{lemma}\label{lemma_types_isomorphism}
+The next thing we note about countable homogeneous models, \(\mcM\) and \(\mcN\), of the same complete theory, \(T\), is that if \(\mcM\) and \(\mcN\) realize the same types, they are isomorphic.
+\end{lemma}
+
+\begin{proof}\label{proof_types_isomorphism}
 To show this, we will build a map in a way very similar to the way we built \(f^*\) above. 
 Note that we need \(T\) to be complete in order for \(f_0=\emptyset\) to be partial elementary.
 We will enumerate the elements in the universe of both models, and iteratively add elements to the domain and range of a partial elementary map. 
@@ -52,10 +65,12 @@ Note that we can find a partial elementary \(h\) for which \(dom(f) \cup \{m\} \
 Our one remaining obstacle is that \(h(m_i)\) may not be equal to \(n_i\). 
 This can be rectified with homogeneity. We can easily see that the function which takes \(h(m_i) \mapsto n_i\) can be extended to an automorphism. 
 By simply composing this automorphism with our \(h\) from above to form \(g\) we have found our desired function. 
+\end{proof}
 
 % Possible Clarification: Moving from types over models to types over theories
 
-\textbf{Claim 2.} Moreover, a Vaughtian pair of countable models can be extended to a Vaughtian pair of isomorphic countable models.
+% claim?
+Moreover, a Vaughtian pair of countable models can be extended to a Vaughtian pair of isomorphic countable models.
 
 By above, it suffices to show a vaughtian pair \((\mcM, \mcN)\) can be extended to a vaughtian pair \((\mcM^*, \mcN^*)\) where \(\mcM^*, \mcN^*\) are homogeneous and realize the same types. 
 

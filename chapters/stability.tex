@@ -8,10 +8,12 @@ In general, we call the set of \(\mcL_A\)-sentences true in \(\mcM\) ``\(\Th_A(\
 
 \subsection{Defining Types}
 
-\textbf{Definition.} Let \(A, \mcM, \mcL\) as above. 
+\begin{definition}\label{def_types}
+Let \(A, \mcM, \mcL\) as above. 
 An \(n\)-type, \(p\), is a set of \(\mcL_A\)-formulae in \(n\) free variables (\(v_1, \ldots, v_n\)) for which \(p \cup \Th_A(\mcM)\) is satisfiable.
 We say that \(p\) is complete if, for every \(\mcL_A\)-formula \(\phi(v_1, \ldots, v_n)\), either \(p \ni \phi\) or \(p \ni \neg \phi\). 
 We call the set of all complete \(n\) types (containing \(\mcL_A\) formulae satisfiable with \(\Th_A(\mcM)\)) ``\(S_n^\mcM(A)\)''. 
+\end{definition}
 
 Let's consider a few simple examples of types when  \(\mcM = (\N,s)\), the natural numbers with successor and \(A = \{0\}\) (we've added a constant symbol for 0). 
 One example or an incomplete type is when we take \(p = \{v_1 \neq 0\}\). 
@@ -34,9 +36,11 @@ We see that it isn't always the case that a type is realized in every model, eve
 
 \subsection{Defining Stability}
 
-\textbf{Definition.} Let \(T\) be a complete theory in a countable language and \(\kappa\) be an infinite cardinal. 
+\begin{definition}\label{def_stability}
+Let \(T\) be a complete theory in a countable language and \(\kappa\) be an infinite cardinal. 
 \(T\) is \(\kappa\)-stable if \(|S_n^\mcM(A)| = \kappa\) whenever \(\mcM \models T\) and \(|A| = \kappa\). 
 Note: \(\aleph_0\)-stable theories are called \(\omega\)-stable for historical reasons. 
+\end{definition}
 
 First, we will show that the theory of dense linear orders without endpoints is not \(\omega\)-stable. 
 \(\mcM = (\R, <)\) is a model of this theory and \(A = \Q\) is a subset of size \(\aleph_0\). 
@@ -47,19 +51,21 @@ Recall that we mentioned in the proof outline of Morley's Categoricity theorem t
 We mentioned the theory of infinite sets and the theory of (\(\Z, s\)) as uncountably categorical theories. 
 Let's observe that both of these theories are \(\omega\)-stable. 
 
-\textbf{Theorem.} The theory of infinite sets is \omst. 
-
+\begin{example}\label{example_omst_sets}
+The theory of infinite sets is \omst. 
 First, consider the complete 1-types, \(p(v_1)\). \(p(v_1)\) must assert either that \(v_1 = a\) for exactly \(a \in A\) or that \(v_1 \neq a\) for all \(a \in A\). 
 Moreover, as the theory of infinite sets admits \qe all formulae are equivalent to boolean combinations of such formulae. % Citation 
 We have now identified all 1-types (there is one for each element in \(A\) and one more for when \(v_1\) isn't in \(A\)). 
 This can be easily extended to \(n\)-types for \(n > 1\)
+\end{example}
 
-\textbf{Theorem.} The theory of \((\Z, s)\) is \omst. 
-
+\begin{example}\label{example_omst_Z}
+The theory of \((\Z, s)\) is \omst. 
 We will again consider 1-types and leave the general argument to the reader. 
 We can assume, WLOG, that no two elements of \(A\) are in the same \(\Z\)-chain. 
 Our 1-type either asserts that \(v_1\) is in the same \(\Z\)-chain as a single element of \(A\) and determines its position relative to that element, or asserts that \(v_1\) isn't in the same \(\Z\) chain as any element of \(A\). 
 Every formula is equivalent to a \qf one, so as these are all of the possible complete atomic types, they are also all of the possible types.    % More Detail
+\end{example}
 
 \subsection{A Theorem about \(\omega\)-stability}
 
@@ -85,10 +91,12 @@ To ensure our model is indeed a model of \(T\), we will close it under existenti
 We will be able to show that these ``right elements'' do not change the cardinality of the model and do not realize any types not found in out countable model.
 Only countably many types can be realized in a countable model, so our constructed model will realize countably many types over any countable set, as desired. 
 
-\textbf{Definition.} We say that a \(\{x_i \mid i \in I\}\) where \(I\) is an ordered set is a sequence of \textit{order indiscernibles (of order type \(I\))} if, given two increasing sequences of length \(n\) from \(I\), 
+\begin{definition}\label{definition_order_indiscernibles}
+We say that a \(\{x_i \mid i \in I\}\) where \(I\) is an ordered set is a sequence of \textit{order indiscernibles (of order type \(I\))} if, given two increasing sequences of length \(n\) from \(I\), 
 \(i_1 < i_2 < \ldots < i_n\) and \(j_1 < j_2 < \ldots < j_n\), we will have \(\mcM \models \phi(i_1, \ldots, i_n) \iff \mcM \models \phi(j_1, \ldots, j_n)\). 
 Intuitively, these elements cannot be distinguised based on first order properties, modulo their relative positions.  
 Recall that the theory of dense linear orders without endpoints admits \qe and it's easy to see that any increasing sequence from such an order is a sequence of indiscernibles. 
+\end{definition}
 
 % Potential Clarification: < need not be in the language
 

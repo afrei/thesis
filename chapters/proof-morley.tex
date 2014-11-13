@@ -11,31 +11,42 @@ This will complete the proof.
 
 \subsection{Prime Models}
 
-\textbf{Definition.} We say that a theory, \(T\),  has a prime model, \(\mcM \models T\) if, for every \(\mcN \models T\), we have \(\mcM \prec \mcN\). 
+\begin{definition}\label{definition_prime_model}
+We say that a theory, \(T\),  has a prime model, \(\mcM \models T\) if, for every \(\mcN \models T\), we have \(\mcM \prec \mcN\). 
 Clearly, prime models are unique up to isomorphism. Easy examples of prime models are \(\Q\) for fields of characteristic 0 and \(\N\) for \(\Th(\N, 0, s)\). 
+\end{definition}
 % Possible Addition: Examples?
 
-\textbf{Theorem.} \omst theories have prime models.
- 
+\begin{theorem}\label{thm_omst_prime}
+\omst theories have prime models.
+\end{theorem}
+
+\begin{proof}\label{proof_omst_prime} 
 % TODO 3: Proof: 4.2.20 p 136 (a transfinite induction)
 % Maybe do a little extra here for 7a
 {\color{red}Prove this \(\ldots\)}
+\end{proof}
 
 \subsection{Minimality}
 
-\textbf{Definition.} We say that a \(\mcL_\mcM\)-formula \(\phi\) is \textit{minimal} if \(\phi(\mcM) = \{\bar{m} \in M \mid \mcM \models \phi(\bar{m})\) is infinite and has no infinite and co-infinite definable subsets. 
+\begin{definition}\label{definition_minimality}
+We say that a \(\mcL_\mcM\)-formula \(\phi\) is \textit{minimal} if \(\phi(\mcM) = \{\bar{m} \in M \mid \mcM \models \phi(\bar{m})\) is infinite and has no infinite and co-infinite definable subsets. 
 We may also call \(\phi(\mcM)\) minimal. 
 We will call \(\phi\) and the set \(\phi(\mcM) \subset M\) % Possible Clarification: more clarity on what it means for sets/formulas to be minimal esp. strongly minimal
 \textit{strongly minimal} if they are minimal in any elementary extension of \(\mcM\).
 Moreover, a theory is strongly minimal if the set \(M\) (defined by the formula \(v = v\)) is strongly minimal. 
+\end{definition}
 
 Now, assume we have a theory which is \omst and has no Vaughtian-pairs. 
 As it is \omst it has a prime model.
 We will show that it's being \omst also tells us that there is a minimal formula in its prime model.
 We will also show this formula is strongly minimal since the theory has no vaughtian pairs. 
 
-\textbf{Lemma.} If \(T\) is \omst there is a minimal formula in all \(\mcM \models T\).
+\begin{lemma}\label{lemma_minimal_omst}
+If \(T\) is \omst there is a minimal formula in all \(\mcM \models T\).
+\end{lemma}
 
+\begin{proof}\label{proof_minimal_omst}
 Assume no such formula exists for the sake of contradiction. 
 We will build an infinite binary tree of formulae such that 
 every node corresponds to an infinite definable subset of our model (and the formula defining it), 
@@ -58,9 +69,13 @@ Moreover, there are only countably many nodes in this tree.
 Each formula in this tree contains finitely many constants from \(M\).
 Therefore, all of these types can be defined over countably many constants from \(M\). 
 We have presented \(2^{\aleph_0}\) types over a finite subset, contradicting the \(\omega\)-stability of \(T\).
+\end{proof}
 
-\textbf{Lemma.} If \(T\) has no Vaughtian pairs and \(\phi\) is a minimal formula for \(\mcM \models T\) then \(\phi\) is strongly-minimal. 
+\begin{lemma}\label{lemma_minimal_vaughtian_pair}
+If \(T\) has no Vaughtian pairs and \(\phi\) is a minimal formula for \(\mcM \models T\) then \(\phi\) is strongly-minimal. 
+\end{lemma}
 
+\begin{proof}
 If \(\phi\) is not strongly minimal, there is \(\mcM \prec \mcN\), \(\bar{b} \in \mcN\) and \(\psi(\bar{x}, \bar{b})\) such that \(\psi(\mcN, \bar{b})\) is infinite and co-infinite. 
 We see that for every natural number \(n\), we know \(\mcN \models \E \bar{b} (\theta_{\psi, \bar{b}, n} \land \theta_{\neg \psi, \bar{b}, n})\) where \(\theta_{\psi, \bar{b},n}\) asserts there are at least \(n\) vectors \(\bar{x}\) for which \(\psi(\bar{x}, \bar{b})\) holds. 
 As \(\mcM \prec \mcN\), we know that each of these formulae hold in \(\mcM\) as well. 
@@ -78,21 +93,28 @@ In this model, \(\{\bar{v}\mid\psi(\bar{w}, \bar{v})\}\) defines an infinite sub
 With these past few lemmata we can conclude that any theory which lack Vaughtian pairs and is \omst has a strongly minimal formula with parameters from a countable prime model. 
 We will develop the theory of dimensions of elementary extensions and see that any two extensions of cardinality \(\kappa > \aleph_0\) will have dimension \(\kappa\) over the prime model.
 From this fact, we will be able to show they are isomorphic, providing us, finally, with \(\kappa\) categoricity and completing the proof of Morley's categoricity theorem. 
+\end{proof}
 
 \subsection{Algebraic Closure and Dimension}
 
-\textbf{Definition.} Given a model \(\mcM\) and an \(A \subset M\), we define the algebraic closure of \(A\), denoted \(\acl(A)\) to be all elements of \(M\) which are in a finite set definable by an \(\mcL_A\)-formula. 
+
+\begin{definition}\label{definition_algebraic_closure}
+Given a model \(\mcM\) and an \(A \subset M\), we define the algebraic closure of \(A\), denoted \(\acl(A)\) to be all elements of \(M\) which are in a finite set definable by an \(\mcL_A\)-formula. 
 (Note that by quantifier elimination over algebraically closed fields, this notion of ``algebraic closure'' agrees with the familiar one.)
+\end{definition}
 
 The algebraic closure has the nice properties that \(\acl(\acl(A)) = \acl(A)\), that \(A \subset B \implies \acl(A) \subset \acl(B)\) and that if \(a \in \acl(A)\) then there is a finite subset \(A_0 \subset A\) such that \(a \in \acl(A_0)\).
 This almost gives us that algebraic closure is a pregeometry. % Definition?
 The only other fact we would have to know is exchange, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 This is only true when we take \(A\) to be a subset of some strongly minimal set.
 
-\textbf{Theorem.} Let \(S\) be a strongly minimal set. If \(A \subset S, a, b \in S\) and \(a, b \notin \acl(A)\) but \(a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
+\begin{theorem}\label{theorem_exchange}
+Let \(S\) be a strongly minimal set. If \(A \subset S, a, b \in S\) and \(a, b \notin \acl(A)\) but \(a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
+\end{theorem}
 
 % Possible Clarification: Limiting \acl to a set D
 
+\begin{proof}
 % Possible Improvement: Better presentation/intuition including pairs definable by \phi(x, y)
 As \(a \in \acl(A \cup \{b\})\), we have \(\mcM \models \phi(a, b)\) for some \(\mcL_A\)-formula 
 % Possible Clarification: Make sure notation of \mcL_A is familiar/defined
@@ -108,15 +130,22 @@ Let \(a_1, \ldots, a_{n+1}\) be such that for each \(i\), \(\theta(a_i)\) holds.
 As \(\theta(a_i)\) holds, each set \(\{y \in S \mid \psi(y) \land \phi(a_i, y)\}\) is cofinite, as is their intersection. 
 For any element, \(b'\) in the intersection, we have \(\psi(b')\) and \(a_i \in \{x \in S \mid \phi(x, b')\}\) for each \(a_i\) by construction.
 This is a contradiction as \(\psi(b')\) asserts there are only \(n\) such elements.  
+\end{proof}
 
-\textbf{Definition.} As above let \(D\) be a minimal set. \(A \subset D\) is independent if for all \(a \in A\), \(a \notin \acl(A \setminus \{a\})\). 
+\begin{definition}\label{definition_independence}
+As above let \(D\) be a minimal set. \(A \subset D\) is independent if for all \(a \in A\), \(a \notin \acl(A \setminus \{a\})\). 
 % Possible Addition: Define ``independent over''. \(A \subset D\) is independent over \(C \subset D\) if, for all \(a \in A\), \(a \notin \acl(C \cup (A \setminus \{a\}))\). 
 % Stricken: We call a maximal independent subset of \(A\) a basis for \(A\). 
 \(B\) is a basis for \(A\) when \(\acl(A) = \acl(B)\) and \(B\) is independent.
 We will show that all bases of a set \(A\)  have the same cardinality, which we will call the dimension of \(A\).
+\end{definition}
 
-We will need the following lemma: given two disjoint independent sets, \(S, T\), if \(S \cup \{s\}\) is independent, there is an element \(t \in T\) such that \((S \cup \{s\}) \cup (T \setminus \{t\})\) is independent and has the same algebraic closure as \(S \cup T\). 
+\begin{lemma}\label{lemma_dimension}
+Given two disjoint independent sets, \(S, T\), %whose union is also independent?
+ if \(S \cup \{s\}\) is independent, there is an element \(t \in T\) such that \((S \cup \{s\}) \cup (T \setminus \{t\})\) is independent and has the same algebraic closure as \(S \cup T\). 
+\end{lemma}
 
+\begin{proof}
 Let \(T_0 \subset T\) be of the smallest cardinality such that \(s \in \acl(S \cup T_0)\). 
 Clearly, \(T_0\) is non-empty, so choose \(t \in T_0\). 
 \(s \in \acl(S \cup T_0)\) and by exchange \(t \in \acl(S \cup \{s\} \cup T_0 \setminus \{t\}) \subset \acl(S \cup \{s\} \cup T \setminus \{t\})\).
@@ -126,7 +155,13 @@ We already know that \(S \cup T\) and therefore \(S \cup T \setminus \{t\}\) are
 It suffices to show (by exchange) that \(s \notin \acl(S \cup T \setminus \{t\})\).
 If this were the case, by exchange we would have \(t \in \acl(S \cup T \setminus \{t\})\) as that set is equal to \(\acl(S \cup \{s\} \cup T \setminus\{t\})\).
 But this would contradict the independence of \(S \cup T\). 
+\end{proof}
 
+\begin{theorem}\label{theorem_dimension}
+The dimension of a set (which is a subset of a strongly minimal set) is well defined.
+\end{theorem}
+
+\begin{proof}
 To prove the uniqueness of dimension, it suffices to show that if \(A\) and \(B\) are bases for \(|C|\), then \(|A| \leq |B|\). 
 The first case we show is when \(|B|\) is finite, which we will show by contradiction.  
 Let \(S_0 = \emptyset\) and \(T_0 = A\). We iteratively expand \(S_i\) by elements of \(B = \{b_1, \ldots, b_n\}\) and remove elements of \(T_i\) preserving the algebraic closure of their union. 
@@ -136,10 +171,14 @@ But \(a \in \acl(A) = \acl(C)\) so \(\acl(B)\) cannot equal \(\acl(C)\) and cann
 
 In the case where \(B\) is infinite, \(|B| = \kappa\), we note that there are \(\kappa\) many formula with parameters from \(B\) and at most \(\kappa\) many elements of \(\acl(B) = \acl(C) \supset C\). 
 It is impossible to take mare than \(\kappa\) many elements of \(C\), so there cannot be a subset \(A\) of \(C\) with \(|A| > |B|\) so there cannot be such a basis. 
+\end{proof}
 
-\textbf{Theorem.} Let \(\mcM, \mcN_1, \mcN_1 \models T\) and \(\mcM \prec \mcN_1, \mcM \prec \mcN_2\) and \(\phi(v)\) be a strongly minimal formula with parameters from \(M\).
+\begin{theorem}\label{ss} %find a good label
+Let \(\mcM, \mcN_1, \mcN_1 \models T\) and \(\mcM \prec \mcN_1, \mcM \prec \mcN_2\) and \(\phi(v)\) be a strongly minimal formula with parameters from \(M\).
 If \(\phi(\mcN_1)\) has the same dimension as \(\phi(\mcN_2)\), then there is a partial elementary map \(f: \phi(\mcN_1) \to \phi(\mcN_2)\) which is a bijection. 
+\end{theorem}
 
+\begin{proof} %yet incomplete 
 % TODO 6: Thm 6.1.11 PEB between sets of same dimension  
 Let \(B_1\) be a basis for \(\phi(\mcN_1)\) and \(B_2\) be a basis for \(\phi(\mcN_2)\).
 As \(|B_1| = |B_2|\), we have a bijection \(f: B_1 \to B_2\), which we claim is partial elementary. 
@@ -147,9 +186,13 @@ As \(|B_1| = |B_2|\), we have a bijection \(f: B_1 \to B_2\), which we claim is 
 % As \(\psi(b)\) holds of a basis element \(\psi(x) \land \phi(x)\) must hold of co-finitely many elements, specifically, there are exactly \(n\) elements for which it doesn't hold. 
 % Clarification: P.E. wrt \mcL_\mcM, right?
 This is a first order sentence, which must hold in \(\mcM, \mcN_1, \mcN_2\). 
+\end{proof}
 
 \subsection{Proof of Morley's Categoricity Theorem}
 
+We can now present a proof of Morley's Categoricity Theorem, Theorem \ref{theorem_morleys_categoricity}.
+
+\begin{proof}
 In the previous sections we have succeeded in showing theories categorical in any uncountable cardinal are \omst and lack Vaughtian pairs. 
 We now show the converse: two models \(\mcM, \mcN\)  of a complete \omst theory, \(T\), in a countable language lacking Vaughtian pairs we can show \(\mcM \isom \mcN\). 
 As \(T\) is \omst it has a prime model, \(\mcM_0\), in which we have a minimal formula \(\phi\) (again as \(T\) is \(\omega\)-stable).
@@ -162,5 +205,6 @@ We can extend \(f\) to an \(f'\) which is partial elementary and has domain \(\m
 The range of \(f'\) is an elementary submodel of \(\mcN\) (as it's domain is isomorphic to its range) containing \(\phi(\mcN)\). 
 If the range of \(f'\) isn't all of \(\mcN\), then \((\mcN, f'(\mcM))\) forms a vaughtian pair (\(\phi(mcN)\) is infinite and includes no element of \(\mcN \setminus f'(\mcM)\)).  
 So \(f'\) is injective (as it is partial elementary) and surjective (as we have no Vaughtian pairs) and our desired isomorphism. 
+\end{proof}
 
 % Possible Addition: general review of proof.
