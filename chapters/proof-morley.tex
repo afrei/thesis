@@ -5,7 +5,7 @@ As this property doesn't depend on the uncountable cardinality, this suffices.
 We've already shown that \(\omega\)-stability and lacking Vaughtian pairs are necessary for uncountable categoricity.
 To show these conditions are also sufficient we will define a notion of ``dimension'' for elementary extensions.
 \(\omega\)-stability will tell us that we can view any two models as elementary extensions of the same \textit{prime model}.
-The fact that, because of their cardinalities, any equinumerous models will have the same dimension over this prime model. %8-1
+Because of their cardinalities, any equinumerous models will have the same dimension over this prime model.
 Having the same dimension over this prime model will suffice to show that these two models are isomorphic.
 This will complete the proof. 
 
@@ -35,7 +35,8 @@ We will show that it's being \omst also tells us that there is a minimal formula
 We will also show this formula is strongly minimal since the theory has no vaughtian pairs. 
 
 \textbf{Lemma.} If \(T\) is \omst there is a minimal formula in all \(\mcM \models T\).
-%9-1
+
+Assume no such formula exists for the sake of contradiction. 
 We will build an infinite binary tree of formulae such that 
 every node corresponds to an infinite definable subset of our model (and the formula defining it), 
 and such that every node is a subset (or consequence) of its parent. 
@@ -65,14 +66,14 @@ We see that for every natural number \(n\), we know \(\mcN \models \E \bar{b} (\
 As \(\mcM \prec \mcN\), we know that each of these formulae hold in \(\mcM\) as well. 
 We can use this fact, together with compactness to show that \(T\) has a Vaughtian pair.
 Note that for each \(\bar{b}\) either \(\psi(\mcM, \bar{b})\) is infinite or it is co-infinite. 
-One of these cases must happen for arbitrarily large \(n\).  % 10-1
+One of these cases must happen for arbitrarily large \(n\).  % 10-1 in M?
 Assume without loos of generality that \(\psi(\mcM, \bar{b})\) is co-infinite and arbitrarily large. 
 We will represent model pairs as in the previous section with an additional predicate \(U\) defining an elementary submodel. 
 We will show that the following set of formulae is satisfiable: 
 \(\E x (\neg U(x))\), \(U(\bar{w})\), \(\{\theta_{\psi, \bar{w}, n}\}_{n\in \N}\), \(\psi(\bar{v}, \bar{w}) \to U(\bar{v})\). 
 % Possible Clarification: We took the \(\psi(\mcM, \bar{n})\) co-infinite so we could have a proper elementary submodel. Elaborate more on this. 
 When taking finite subsets of these formulae, it suffices to take \(n\) sufficiently large and let \(\bar{w}\) be the \(\bar{b}\) which we know exists.
-In this model, \(\{\bar{v}\mid\psi(\bar{w}, \bar{v})\}\) defines an infinite subset, for which \(U(\bar{v})\) holds, in other words, a Vaughtian pair. %10-2
+In this model, \(\{\bar{v}\mid\psi(\bar{w}, \bar{v})\}\) defines an infinite subset, for which \(U(\bar{v})\) holds, in other words, a Vaughtian pair. % Explain more
 
 With these past few lemmata we can conclude that any theory which lack Vaughtian pairs and is \omst has a strongly minimal formula with parameters from a countable prime model. 
 We will develop the theory of dimensions of elementary extensions and see that any two extensions of cardinality \(\kappa > \aleph_0\) will have dimension \(\kappa\) over the prime model.
@@ -84,7 +85,7 @@ From this fact, we will be able to show they are isomorphic, providing us, final
 (Note that by quantifier elimination over algebraically closed fields, this notion of ``algebraic closure'' agrees with the familiar one.)
 
 The algebraic closure has the nice properties that \(\acl(\acl(A)) = \acl(A)\), that \(A \subset B \implies \acl(A) \subset \acl(B)\) and that if \(a \in \acl(A)\) then there is a finite subset \(A_0 \subset A\) such that \(a \in \acl(A_0)\).
-This almost gives us that algebraic closure is a pregeometry. %10-3
+This almost gives us that algebraic closure is a pregeometry. % Definition?
 The only other fact we would have to know is exchange, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 This is only true when we take \(A\) to be a subset of some strongly minimal set.
 

@@ -1,12 +1,12 @@
 \subsection{Definition}
-The (only) obstacle to uncountable categoricity aside from \(\omega\)-instability is the existence of Vaughtian pairs. %6-3
+The (only) obstacle to uncountable categoricity aside from \(\omega\)-instability is the existence of Vaughtian pairs. %Introduce V-pairs first
 We will be able to use a Vaughtian pair of models of a theory to construct a model of size \(\kappa\) with a countable definable subset.  
 Such models prevent uncountable categoricity because given any model of cardinality \(\kappa\) we can construct an elementarily equivalent model in which all infinite definable sets are of cardinality \(\kappa\).
 We simply add \(\kappa\) many vectors of constant symbols for each formula \(\phi\) defining an infinite set, assert that none of the vectors of constant symbols are equal. This is clearly finitely satisfiable and its model has the desired property.
 First, let's define what it means for two models to form a Vaughtian pair. % Possible Addition: Definition of kappa lambda models (definition in previous commits)
 
 \textbf{Definition.} \((\mcM, \mcN)\) form a Vaughtian pair if \(\mcM \prec \mcN\) and there is an \(\mcL_\mcM\)-formula \(\phi(\bar{v})\) for which
-\(\{\bar{m} \in N^k \mid \mcN \models \phi(\bar{n})\}\) is an infinite subset of \(M^k\). %7-1 
+\(\{\bar{m} \in N^k \mid \mcN \models \phi(\bar{n})\}\) is an infinite subset of \(M^k\). %7-1 m? I don't get it
 In other words, a formula with parameters in \(M\) defines an infinite subset of \(N^k\) containing no elements of \(N^k \setminus M^k\).
 
 \textbf{Claim 1.} Assuming a theory \(T\) has a Vaughtian pair \(\mcM, \mcN\), it has a Vaughtian pair \((\mcM_0, \mcN_0)\) of countable models. 
@@ -17,14 +17,14 @@ Let  \(\mcL^* = \mcL \cup \{U\}\).
 We look at \(\mcN\) as an \(\mcL^*\)-structure where \(U\) is the subset \(M\). 
 This predicate allows us to state that a formula \(\phi(\bar{v})\) is true in \(\mcM\).
 For \(\phi(\bar{v})\) \qf we let \(\phi_U(\bar{v}) = \bigwedge U(v_i) \land \phi(\bar{v})\) and for \(\phi(\bar{v}) = \exists v \psi, \phi_U(\bar{v}) = \E v (U(v) \land \psi_U)\). 
-In the other cases, do the natural thing. %7-2
+In the other cases, do the natural thing. %Say this better
 
-Our goal is to demonstrate a theory in a countable language asserting that \((\mcM, \mcN)\) is Vaughtian pair. %7-3
+Our goal is to demonstrate an \(\mcL^*\)-theory in a countable language asserting that \((\mcM, \mcN)\) is Vaughtian pair.
 By the L\"owenheim-Skolem theorem, we will get out countable pair of models.
 This comes in two parts: asserting \(\mcM \prec \mcN\) and asserting that we can isolate an infinite subset of \(M\). 
 We assert the former with the formulae \((\bigwedge U(v_i) \land \psi(\bar{v})) \to \psi_U(\bar{v})\). 
 Let \(\phi(\bar{v})\) be the \(\mcL_\mcM\)-formula which isolates an infinite subset of \(M^k\). 
-We can assert that \(\phi\) has infinitely many realizations by \(\E \bar{v}_1, \E \bar{v}_2, \ldots \E \bar{v}_n \bigwedge \bar{v}_i \neq \bar{v}_j \land \bigwedge \phi(\bar{v}_i)\). %7-4
+We can assert that \(\phi\) has infinitely many realizations by \(\E \bar{v}_1, \E \bar{v}_2, \ldots \E \bar{v}_n \bigwedge \bar{v}_i \neq \bar{v}_j \land \bigwedge \phi(\bar{v}_i)\). %This argument got out of hand
 We can assert that \(\phi\) only holds for vectors from \(M^k\) by \(\A \bar{v} (\phi(\bar{v}) \to U(\bar{v}))\).
 Finally, we assert that \(\mcN\) is a proper extension with \(\E x \neg U(x)\). 
 By construction, the countable model of this theory which is satisfied by \((\mcM, \mcN)\) will be our countable model.

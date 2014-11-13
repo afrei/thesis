@@ -59,22 +59,22 @@ This can be easily extended to \(n\)-types for \(n > 1\)
 We will again consider 1-types and leave the general argument to the reader. 
 We can assume, WLOG, that no two elements of \(A\) are in the same \(\Z\)-chain. 
 Our 1-type either asserts that \(v_1\) is in the same \(\Z\)-chain as a single element of \(A\) and determines its position relative to that element, or asserts that \(v_1\) isn't in the same \(\Z\) chain as any element of \(A\). 
-Every formula is equivalent to a \qf one, so as these are all of the possible complete atomic types, they are also all of the possible types.    % 4.1
+Every formula is equivalent to a \qf one, so as these are all of the possible complete atomic types, they are also all of the possible types.    % More Detail
 
 \subsection{A Theorem about \(\omega\)-stability}
 
-We now aim to show that all theories, \(T\), which aren't \(\omega\)-stable cannot be uncountably categorical. % 4-2
-It suffices to show that for all uncountable \(\kappa\) we can present two non-isomorphic models of \(T\) of cardinality \(\kappa\). 
+We now aim to show that no theory \(T\) can be uncountably categorical, unless it is \(\omega\)-stable.
+It suffices to show that for all uncountable \(\kappa\) we can present two non-isomorphic models of \(T\) of cardinality \(\kappa\), given only that \(T\) is not \(\omega\)-stable.  
 We will do so by finding one model realizing only countably many types, and one realizing uncountably many. 
 Clearly, two such models will not be isomorphic, so \(T\) will not be categorical. 
 
 \subsubsection{Realizing Uncountably Many Types Over a Countable Set}
 As \(T\) isn't \omst, for some countable \(A\) we have that \(|S_n^\mcM(A)|\) is uncountable. 
-We can realize all of these in some elementary extension of \(\mcM\) which can be taken to be of cardinality exactly \(\kappa\) for any desired uncountable \(\kappa\). %4-3 
+We can realize all of these in some elementary extension of \(\mcM\) which can be taken to be of cardinality exactly \(\kappa\) for any desired uncountable \(\kappa\). %4-3 Big Enough?
 Say \(\{p_i\}\) is a set of uncountably many but at most \(\kappa\) many types indexed by some set \(I\). 
 Let \(c_i\) simialar index that same number of constants in a new language \(\mcL^* = \mcL_\mcM \cup \{c_i\}\). 
 Let \(\Gamma = T \cup \eldiag(\mcM) \cup \{p_i(c_i)\}\) (we assert each type \(p_i\) is realized by \(c_i\)). 
-We claim that every finite subset of \(\Gamma\) is satisfiable (indeed, every finite subset is true in \(\mcM\)). % 4-4
+We claim that every finite subset of \(\Gamma\) is realizable (indeed, every finite subset is realized in \(\mcM\)). 
 By compactness, we have a model of \(\Gamma\) of cardinality \(|\mcL^*| \leq \kappa\) and by the upward L\"owenheim-Skolem theorem, a model of cardinality \(\kappa\).
 \(\Gamma\) asserts that uncountably many types are realized over \(A\), as desired. 
 
@@ -95,13 +95,12 @@ Recall that the theory of dense linear orders without endpoints admits \qe and i
 Our first theorem about order indiscernibles is that they always exist in a theory with infinite models.
 Moreover, a set of order-indiscernibles exists of every order type.
 
-% 5-1
-We claim that any infinite model \(\mcM\) of a theory \(T\), for any finite set \(\Phi\) of formulae in \(n\) free-variables, we can present an \(X \subset M\) such that no two increasing senquences of length \(n\) taken from \(X\) can be distinguiched by a formula from \(\Phi\). 
-(The actual order of \(M\) will not matter, we fix an arbitrary one). %5-2
+We claim that given any infinite model \(\mcM\) of a theory \(T\) and any finite set \(\Phi\) of formulae in \(n\) free-variables, we can present an \(X \subset M\) such that no two increasing senquences of length \(n\) taken from \(X\) can be distinguiched by a formula from \(\Phi\). 
+(The actual order of \(M\) will not matter, we fix an arbitrary one). %5-2 This is confusing
 We note that by compactness, this will suffice to show the existence of order indiscernibles of any order type. 
 Also, observe that this is a straightforward consequence of Ramsey's theorem (the infinite version).
 Ramsey's theorem states that if \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subset S\) for which every subset of size \(n\) of \(T\) has the same color. 
-In our case, subsets of \(\Phi\) color subsets of size \(n\) taken from \(M\) by seeing which formulae of \(\Phi\) are true of the (ordered) elements of the subset. %5-3
+In our case, subsets of \(\Phi\) color subsets of size \(n\) taken from \(M\) by seeing which formulae of \(\Phi\) are true of the (ordered) elements of the subset. %More details
 
 \subsubsection{A Proof of Ramsey's Theorem}
 Assume without loss of generality that \(S = \N\).
@@ -134,7 +133,7 @@ We will call this model ``\(\mathcal{H}(I)\)'' or the Skolem hull of \(I\).
 Note that \(\mathcal{H}(I) \prec \mcM\).
 
 We can now achieve our goal of constructing a model of any \(\omega\)-unstable theory which realizes only countably many types over any countable set. 
-Let \(\mcM = \mathcal{H}((\kappa, <))\) be our model of cardinality \(\kappa\) and let \(A\) be an arbitrary countable subset of \(M\). %6-1
+Let \(\mcM = \mathcal{H}((\kappa, <))\) be our model of cardinality \(\kappa\) and let \(A\) be an arbitrary countable subset of \(M\). % This is unclear
 As every element of \(M\) (and of \(A\)) must be a Skolem term (i.e. of the form \(f_\phi(\bar{x})\) for some vector of indiscernables), it suffices to look at the types over countable subsets of \(\kappa\).
 Let \(X\) be this countable subset of \(\kappa\). 
 It suffices to show that for each fixed \(n, \phi\), terms of the form \(f_\phi(y_1, \ldots, y_n)\) realize only countably many types. 
@@ -146,4 +145,4 @@ This deals with the 1-types. Dealing with the \(n\)-types only requires dealing 
 
 We have succeded in showing that there is a model of any \(\omega\)-unstable theory realizing only countably many types over any countable set.
 This model cannot be isomorphic to one realizing uncountably many types over a countable set, which we showed must exist as well. 
-Therefore, any \(\omega\)-unstable theory cannot be categorical. %6-2
+Therefore, any \(\omega\)-unstable theory cannot be categorical. %This section was sketchy
