@@ -67,22 +67,43 @@ This can be rectified with homogeneity. We can easily see that the function whic
 By simply composing this automorphism with our \(h\) from above to form \(g\) we have found our desired function. 
 \end{proof}
 
-% Possible Clarification: Moving from types over models to types over theories
+% Possible Clarification: Moving from types over models to types over theories (p.125)
 
-% claim?
-Moreover, a Vaughtian pair of countable models can be extended to a Vaughtian pair of isomorphic countable models.
+\begin{theorem}\label{theorem_vaughtian_pairs_countable_isomorphic}
+Vaughtian pair of countable models can be extended to a Vaughtian pair of isomorphic countable models.
+\end{theorem}
 
+\begin{proof}
 By above, it suffices to show a vaughtian pair \((\mcM, \mcN)\) can be extended to a vaughtian pair \((\mcM^*, \mcN^*)\) where \(\mcM^*, \mcN^*\) are homogeneous and realize the same types. 
-
 % TODO 1: Proof of 4.3.38
 \textcolor{red}{Insert Proof Here \ldots}
+\end{proof}
 
-\textbf{Claim 3.} Given a Vaughtian pair of countable isomorphic models, we can construct a Vaughtian pair \((\mcN_1, \mcN_2)\) where \(\mcM\) is countable and \(\mcN\) can be taken to be of any cardinality. % Possible Alternative: show for \(\aleph_1\). Then grow out to all uncountable kappa. (4th claim in previous commits)
+% claim?
+\begin{theorem}\label{theorem_aleph_one_vaightian_pairs}
+Given a Vaughtian pair of countable isomorphic models, we can construct a Vaughtian pair \((\mcN_1, \mcN_2)\) where \(\mcM\) is countable and \(\mcN\) has cardinality \(\aleph_1\). % Possible Alternative: show for \(\aleph_1\). Then grow out to all uncountable kappa. (4th claim in previous commits)
+\end{theorem}
 
-% TODO 2: Proof of 4.3.34/4.3.41 
+\begin{proof}
+% TODO 2a: Proof of 4.3.34/4.3.41 
 \textcolor{red}{Insert Proof Here \ldots} 
 % First line? We have an easy way to grow models once we have \((\mcN_1 \prec \mcN_2)\) and \(\mcN_1 \isom \mcN_2\). 
+\end{proof}
 
+\begin{theorem}\label{theorem_uncountable_vaightian_pairs}
+Given a Vaughtian pair \((\mcN, \mcM)\), \(\mcN, \mcM \models T\) where \(|N| = \aleph_1\), \(\mcM\) is countable and \(T\) is \(\omega\)-stable, for every uncountable cardinal \(\kappa\), there is a model of \(T\) of cardinality \(\kappa\) with a countable definable subset.  
+\end{theorem}
+
+\begin{proof}
+% TODO 2b: Proof of 4.3.41 
+\textcolor{red}{Insert Proof Here \ldots} 
+\end{proof}
+
+\begin{theorem}\label{theorem_vaughtian_pairs_categoricity}
+Any theory which has Vaughtian pairs cannot be \(\kappa\)-categorical for any uncountable \(\kappa\)
+\end{theorem}
+
+\begin{proof}
 As we stated above, we can also create a model of \(T\) of size \(\kappa\) where all infinite definable sets are of size \(\kappa\). 
 Such a model wouldn't be isomorphic to the model we just created which has a countable definable subset. 
-Therefore, theories admitting Vaughtian pairs cannot be categorical in any uncountable cardinality.
+\end{proof}

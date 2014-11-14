@@ -99,16 +99,23 @@ Recall that the theory of dense linear orders without endpoints admits \qe and i
 \end{definition}
 
 % Potential Clarification: < need not be in the language
+% Put in environments
 
 Our first theorem about order indiscernibles is that they always exist in a theory with infinite models.
 Moreover, a set of order-indiscernibles exists of every order type.
 
 We claim that given any infinite model \(\mcM\) of a theory \(T\) and any finite set \(\Phi\) of formulae in \(n\) free-variables, we can present an \(X \subset M\) such that no two increasing senquences of length \(n\) taken from \(X\) can be distinguiched by a formula from \(\Phi\). 
-(The actual order of \(M\) will not matter, we fix an arbitrary one). %5-2 This is confusing
+It is possible that \(M\) isn't ordered, in which case it suffices to fix an arbitrary ordering of \(M\). 
 We note that by compactness, this will suffice to show the existence of order indiscernibles of any order type. 
 Also, observe that this is a straightforward consequence of Ramsey's theorem (the infinite version).
 Ramsey's theorem states that if \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subset S\) for which every subset of size \(n\) of \(T\) has the same color. 
-In our case, subsets of \(\Phi\) color subsets of size \(n\) taken from \(M\) by seeing which formulae of \(\Phi\) are true of the (ordered) elements of the subset. %More details
+In our case, subsets of \(\Phi\) color subsets of size \(n\) taken from \(M\) by seeing which formulae of \(\Phi\) are true of the (ordered) elements of the subset. %This could maybe be better. 
+More specifically if \(\Phi\) is the set of formulae in an arbitrary finite subset of \(\Gamma\), let \(2^\Phi\) be our set of colors of size \(2^{|\Phi|}\). 
+A subset, \(V\), of size \(n\) can be ordered so that \(V = \{v_1, \ldots, n_n\}\) where \(v_i < v_j\) when \(i < j\). 
+Color this set by the set \(\{\phi \in \Phi \mid \mcM \models \phi(\bar{v})\}\). 
+The theorem gives us this infinite set \(S\), from which any increasing sequence of length \(n\) satisfies the same formulae from our finite set \(\Phi\).
+Note that every finite subset includes only finitely many of our constant symbols, which we take to be in \(S\). 
+We see that this interpretation realizes our finite subset of \(\Gamma\), so \(\Gamma\) is satisfiable and we have a set of order indiscernibles. 
 
 \subsubsection{A Proof of Ramsey's Theorem}
 Assume without loss of generality that \(S = \N\).
