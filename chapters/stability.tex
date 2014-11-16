@@ -54,7 +54,7 @@ Let's observe that both of these theories are \(\omega\)-stable.
 \begin{example}\label{example_omst_sets}
 The theory of infinite sets is \omst. 
 First, consider the complete 1-types, \(p(v_1)\). \(p(v_1)\) must assert either that \(v_1 = a\) for exactly \(a \in A\) or that \(v_1 \neq a\) for all \(a \in A\). 
-Moreover, as the theory of infinite sets admits \qe all formulae are equivalent to boolean combinations of such formulae. % Citation 
+Moreover, as the theory of infinite sets admits \qe all formulae are equivalent to boolean combinations of such formulae. % Add Citation 
 We have now identified all 1-types (there is one for each element in \(A\) and one more for when \(v_1\) isn't in \(A\)). 
 This can be easily extended to \(n\)-types for \(n > 1\)
 \end{example}
@@ -64,7 +64,7 @@ The theory of \((\Z, s)\) is \omst.
 We will again consider 1-types and leave the general argument to the reader. 
 We can assume, WLOG, that no two elements of \(A\) are in the same \(\Z\)-chain. 
 Our 1-type either asserts that \(v_1\) is in the same \(\Z\)-chain as a single element of \(A\) and determines its position relative to that element, or asserts that \(v_1\) isn't in the same \(\Z\) chain as any element of \(A\). 
-Every formula is equivalent to a \qf one, so as these are all of the possible complete atomic types, they are also all of the possible types.    % More Detail
+Every formula is equivalent to a \qf one, so as these are all of the possible complete atomic types, they are also all of the possible types. % More Detail
 \end{example}
 
 \subsection{A Theorem about \(\omega\)-stability}
@@ -99,11 +99,14 @@ Recall that the theory of dense linear orders without endpoints admits \qe and i
 \end{definition}
 
 % Potential Clarification: < need not be in the language
-% Put in environments
 
-Our first theorem about order indiscernibles is that they always exist in a theory with infinite models.
-Moreover, a set of order-indiscernibles exists of every order type.
+\begin{theorem}\label{theorem_order_indiscernibles}
+Given an ordered set \(I\) and a theory, \(T\), which has infinite models, there always exists an \(\mcM \models T\) containing a set of order insicernibles of order type \(I\). 
+\end{theorem}
 
+% This needs to be made nicer
+
+\begin{proof}
 We claim that given any infinite model \(\mcM\) of a theory \(T\) and any finite set \(\Phi\) of formulae in \(n\) free-variables, we can present an \(X \subset M\) such that no two increasing senquences of length \(n\) taken from \(X\) can be distinguiched by a formula from \(\Phi\). 
 It is possible that \(M\) isn't ordered, in which case it suffices to fix an arbitrary ordering of \(M\). 
 We note that by compactness, this will suffice to show the existence of order indiscernibles of any order type. 
@@ -116,8 +119,17 @@ Color this set by the set \(\{\phi \in \Phi \mid \mcM \models \phi(\bar{v})\}\).
 The theorem gives us this infinite set \(S\), from which any increasing sequence of length \(n\) satisfies the same formulae from our finite set \(\Phi\).
 Note that every finite subset includes only finitely many of our constant symbols, which we take to be in \(S\). 
 We see that this interpretation realizes our finite subset of \(\Gamma\), so \(\Gamma\) is satisfiable and we have a set of order indiscernibles. 
+\end{proof}
 
 \subsubsection{A Proof of Ramsey's Theorem}
+
+The following is Ramsey's theorem mentioned above:
+
+\begin{theorem}\label{theorem_ramseys}
+If \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subset S\) for which every subset of size \(n\) of \(T\) has the same color. 
+\end{theorem}
+
+\begin{proof}
 Assume without loss of generality that \(S = \N\).
 When \(n=1\), Ramsey's Theorem states we cannot partition \(\N\) into finitely many finite sets, which is clear.
 Now, we will induct on \(n\). 
@@ -136,8 +148,12 @@ Continuing inductively, we take \(\bigcap_{<\omega}T_i = \{0, t_0, t_1, \ldots\}
 By what we've said above, we've proven Ramsey's Theorem. 
 This is also enough to complete our compactness argument showing that order-indiscernibles of every order type exist.  
 It is natural to identify this set of order indiscernibles with \(I\), so that if \(\mcM \models \Gamma \cup T\), then \(I \subset M\).
+\end{proof}
 
 \subsubsection{Realizing Only Countably Many Types Over Every Countable Set}
+
+% This section could also use help. 
+
 Now that we are familiar with order indiscernibles, we can use them to build \textit{Ehrenfeucht-Mostowski Models}, which are constructed as \textit{Skolem hulls} of order indiscernibles. 
 We recall that an \(\mcL\)-theory is said to have \textit{built-in Skolem functions} when for all \(\mcL\)-formulae, \(\phi(v, \bar{w})\), there is a function symbol \(f_\phi\) for which 
 \(T \models \A \bar{w} [(\E v \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})]\), in other words, the Skolem functions provide whitnesses for all existentials. 
@@ -145,7 +161,7 @@ Given any \(\mcL\)-theory \(T\), we can extend \(\mcL\) to \(\mcL^*\) so that it
 Moreover, there is a natural way to interpret any \(\mcM \models T\) as an \(\mcL^*\) structure modeling \(T^*\).
 Given, then \(I \subset M\), we can look at the substructure of \(\mcM\) whose universe will be the smallest set containing \(I\) and closed under our Skolem functions. 
 We will call this model ``\(\mathcal{H}(I)\)'' or the Skolem hull of \(I\).
-Note that \(\mathcal{H}(I) \prec \mcM\).
+Note that \(\mathcal{H}(I) \prec \mcM\). % it's worth explaining why
 
 We can now achieve our goal of constructing a model of any \(\omega\)-unstable theory which realizes only countably many types over any countable set. 
 Let \(\mcM = \mathcal{H}((\kappa, <))\) be our model of cardinality \(\kappa\) and let \(A\) be an arbitrary countable subset of \(M\). % This is unclear
@@ -158,6 +174,11 @@ This is because indiscernability tells us \(\mcM \models \psi(f_\phi(\bar{y}), \
 It now suffices to note that, as \(\kappa\) is well ordered, we get only countably many cuts of \(X\). 
 This deals with the 1-types. Dealing with the \(n\)-types only requires dealing with \(n\)-tuples of formulae instead of the single formula \(\phi\) we adressed here. 
 
+\begin{theorem}\label{theorem_omega_stability_categoricity}
+Any theory which is not \omst cannot be categorical in any uncountable cardinal. Contrapositively, all uncountably categorical theories are \(\omega\)-stable
+\end{theorem}
+
+\begin{proof}
 We have succeded in showing that there is a model of any \(\omega\)-unstable theory realizing only countably many types over any countable set.
-This model cannot be isomorphic to one realizing uncountably many types over a countable set, which we showed must exist as well. 
-Therefore, any \(\omega\)-unstable theory cannot be categorical. %This section was sketchy
+This model cannot be isomorphic to one realizing uncountably many types over a countable set, which we showed must exist as well. % reference the theorems from before
+\end{proof}

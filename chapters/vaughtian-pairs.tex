@@ -6,23 +6,28 @@ We simply add \(\kappa\) many vectors of constant symbols for each formula \(\ph
 First, let's define what it means for two models to form a Vaughtian pair. % Possible Addition: Definition of kappa lambda models (definition in previous commits)
 
 \begin{definition}\label{definition_vaughtian_pairs}
-\((\mcM, \mcN)\) form a Vaughtian pair if \(\mcM \prec \mcN\) and there is an \(\mcL_\mcM\)-formula \(\phi(\bar{v})\) for which
-\(\{\bar{m} \in N^k \mid \mcN \models \phi(\bar{n})\}\) is an infinite subset of \(M^k\). %7-1 m? I don't get it
+\((\mcN, \mcM)\) form a Vaughtian pair if \(\mcM \prec \mcN\) and there is an \(\mcL_\mcM\)-formula \(\phi(\bar{v})\) (in some number of free variables) for which
+\(\{\bar{m} \in N^k \mid \mcN \models \phi(\bar{n})\}\) is an infinite subset of \(M^k\). %7-1 m? I don't get it (I don't get what's not to get?)
 In other words, a formula with parameters in \(M\) defines an infinite subset of \(N^k\) containing no elements of \(N^k \setminus M^k\).
 \end{definition}
 
+Even though we write \(\mcM \prec \mcN\), we write the Vaughtian pair in the other order, that is as \((\mcN, \mcM)\), because we can think of this pair of models as a single model (\(\mcN\)) with a distinguished subset corresponding to \(\mcM\).
+This will often be useful in proving theorems and lemmas about Vaughtian pairs, so we will flesh out the construction here. 
+If \(\mcM, \mcN\) are \(\mcL\)-structures, let  \(\mcL^* = \mcL \cup \{U\}\). 
+We look at (\(\mcN, \mcM\)) as an \(\mcL^*\)-structure which shares its underlying set and interpretations of \(\mcL\) with \(\mcN\) but where \(U\) is the subset \(M\). 
+This predicate allows us to state that a formula \(\phi(\bar{v})\) is true in \(\mcM\) with slight modification to \(\phi\).
+Specifically, we will have \((\mcN, \mcM) \models \phi_U(\bar{v}) \iff \mcM \models \phi(\bar{v})\).
+For \(\phi(\bar{v})\) \qf we let \(\phi_U(\bar{v}) = \bigwedge U(v_i) \land \phi(\bar{v})\) and for \(\phi(\bar{v}) = \exists v \psi, \phi_U(\bar{v}) = \E v (U(v) \land \psi_U)\). 
+In the other cases, do the natural thing. %Say this better
+% We might want to show how we can also state that this \mcL^* structure is a Vaughtian pair as a first order thing (mostly). 
+
 \begin{theorem}\label{thm_countable_vaughtian_pairs}
-Assuming a theory \(T\) has a Vaughtian pair \(\mcM, \mcN\), it has a Vaughtian pair \((\mcM_0, \mcN_0)\) of countable models. 
+Assuming a theory \(T\) has a Vaughtian pair \(\mcN, \mcM\), it has a Vaughtian pair \((\mcN_0, \mcM_0)\) of countable models. 
 \end{theorem}
 
 \begin{proof}\label{proof_countable_vaughtian_pairs}
 In order to show the existence of a countable model, we will want to use the L\"owenheim-Skolem theorm.
 To do so, we will have to view the pair of models as a single model. 
-Let  \(\mcL^* = \mcL \cup \{U\}\). 
-We look at \(\mcN\) as an \(\mcL^*\)-structure where \(U\) is the subset \(M\). 
-This predicate allows us to state that a formula \(\phi(\bar{v})\) is true in \(\mcM\).
-For \(\phi(\bar{v})\) \qf we let \(\phi_U(\bar{v}) = \bigwedge U(v_i) \land \phi(\bar{v})\) and for \(\phi(\bar{v}) = \exists v \psi, \phi_U(\bar{v}) = \E v (U(v) \land \psi_U)\). 
-In the other cases, do the natural thing. %Say this better
 
 Our goal is to demonstrate an \(\mcL^*\)-theory in a countable language asserting that \((\mcM, \mcN)\) is Vaughtian pair.
 By the L\"owenheim-Skolem theorem, we will get out countable pair of models.
