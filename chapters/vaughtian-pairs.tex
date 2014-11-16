@@ -29,7 +29,7 @@ Assuming a theory \(T\) has a Vaughtian pair \(\mcN, \mcM\), it has a Vaughtian 
 In order to show the existence of a countable model, we will want to use the L\"owenheim-Skolem theorm.
 To do so, we will have to view the pair of models as a single model. 
 
-Our goal is to demonstrate an \(\mcL^*\)-theory in a countable language asserting that \((\mcM, \mcN)\) is Vaughtian pair.
+Our goal is to demonstrate an \(\mcL^*\)-theory in a countable language asserting that \((\mcN, \mcM)\) is Vaughtian pair.
 By the L\"owenheim-Skolem theorem, we will get out countable pair of models.
 This comes in two parts: asserting \(\mcM \prec \mcN\) and asserting that we can isolate an infinite subset of \(M\). 
 We assert the former with the formulae \((\bigwedge U(v_i) \land \psi(\bar{v})) \to \psi_U(\bar{v})\). 
@@ -37,7 +37,7 @@ Let \(\phi(\bar{v})\) be the \(\mcL_\mcM\)-formula which isolates an infinite su
 We can assert that \(\phi\) has infinitely many realizations by \(\E \bar{v}_1, \E \bar{v}_2, \ldots \E \bar{v}_n \bigwedge \bar{v}_i \neq \bar{v}_j \land \bigwedge \phi(\bar{v}_i)\). %This argument got out of hand
 We can assert that \(\phi\) only holds for vectors from \(M^k\) by \(\A \bar{v} (\phi(\bar{v}) \to U(\bar{v}))\).
 Finally, we assert that \(\mcN\) is a proper extension with \(\E x \neg U(x)\). 
-By construction, the countable model of this theory which is satisfied by \((\mcM, \mcN)\) will be our countable model.
+By construction, the countable model of this theory which is satisfied by \((\mcN, \mcM)\) will be our countable model.
 \end{proof}
 
 For the next few claims we will need to use a property called homogeneity which will allow us to show that certain countable models are isomorphic.
@@ -55,7 +55,7 @@ Additionally, it is easy to verify that \(f^*\) is a homomorphism.
 This is why homogeneity is a useful property. We can use it to build isomorphisms, which will be useful soon. 
 
 \begin{lemma}\label{lemma_types_isomorphism}
-The next thing we note about countable homogeneous models, \(\mcM\) and \(\mcN\), of the same complete theory, \(T\), is that if \(\mcM\) and \(\mcN\) realize the same types, they are isomorphic.
+The next thing we note about countable homogeneous models, \(\mcM\) and \(\mcN\), of the same complete theory, \(T\), is that if \(\mcM\) and \(\mcN\) realize the same types in \(S_n(T)\), they are isomorphic.
 \end{lemma}
 
 \begin{proof}\label{proof_types_isomorphism}
@@ -79,20 +79,21 @@ Vaughtian pair of countable models can be extended to a Vaughtian pair of isomor
 \end{theorem}
 
 \begin{proof}
-By above, it suffices to show a vaughtian pair \((\mcM, \mcN)\) can be extended to a vaughtian pair \((\mcM^*, \mcN^*)\) where \(\mcM^*, \mcN^*\) are homogeneous and realize the same types. 
+By above, it suffices to show a vaughtian pair \((\mcN, \mcM)\) can be extended to a vaughtian pair \((\mcN^*, \mcM^*)\) where \(\mcN^*, \mcM^*\) are homogeneous and realize the same types. 
 % TODO 1: Proof of 4.3.38
 \textcolor{red}{Insert Proof Here \ldots}
 \end{proof}
 
 % claim?
 \begin{theorem}\label{theorem_aleph_one_vaightian_pairs}
-Given a Vaughtian pair of countable isomorphic models, we can construct a Vaughtian pair \((\mcN_1, \mcN_2)\) where \(\mcM\) is countable and \(\mcN\) has cardinality \(\aleph_1\). % Possible Alternative: show for \(\aleph_1\). Then grow out to all uncountable kappa. (4th claim in previous commits)
+Given a Vaughtian pair of countable isomorphic models, \((\mcN_1, \mcN_0) \models T\), we can construct a model \(\mcN^*\models T\) which is of cardinality \(\aleph_1\) and has a definable subset which is countable.  
 \end{theorem}
 
 \begin{proof}
-% TODO 2a: Proof of 4.3.34/4.3.41 
-\textcolor{red}{Insert Proof Here \ldots} 
-% First line? We have an easy way to grow models once we have \((\mcN_1 \prec \mcN_2)\) and \(\mcN_1 \isom \mcN_2\). 
+% We have \(\mcN_0 \prec \mcN_1\) so \(\iota: \mcN_0 \to \mcN_1\) is the map including \(\mcN_0\) into \(\mcN_1\). 
+% Additionally, we have an isomorphism \(f: \mcN_0 \to \mcN_1\). 
+% TODO 2: Proof of 4.3.34
+\textcolor{red}{Insert Proof Here \ldots}
 \end{proof}
 
 \begin{theorem}\label{theorem_uncountable_vaightian_pairs}
@@ -105,7 +106,7 @@ Given a Vaughtian pair \((\mcN, \mcM)\), \(\mcN, \mcM \models T\) where \(|N| = 
 \end{proof}
 
 \begin{theorem}\label{theorem_vaughtian_pairs_categoricity}
-Any theory which has Vaughtian pairs cannot be \(\kappa\)-categorical for any uncountable \(\kappa\)
+Any theory which has Vaughtian pairs cannot be \(\kappa\)-categorical for any uncountable \(\kappa\).
 \end{theorem}
 
 \begin{proof}

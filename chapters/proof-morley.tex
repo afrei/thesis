@@ -12,18 +12,48 @@ This will complete the proof.
 \subsection{Prime Models}
 
 \begin{definition}\label{definition_prime_model}
-We say that a theory, \(T\),  has a prime model, \(\mcM \models T\) if, for every \(\mcN \models T\), we have \(\mcM \prec \mcN\). 
-Clearly, prime models are unique up to isomorphism. Easy examples of prime models are \(\Q\) for fields of characteristic 0 and \(\N\) for \(\Th(\N, 0, s)\). 
+We say that a model \(\mcM\) of a theory, \(T\), is a prime model (of \(T\)), if for every \(\mcN \models T\), we have \(\mcM \prec \mcN\). 
+Clearly, prime models are unique up to isomorphism. 
+Easy examples of prime models are \(\Q\) for fields of characteristic 0 and \(\N\) for \(\Th(\N, 0, s)\). 
+Our intuition should be that if \(\mcM\) is a prime model of \(T\), it consists only of those elements which ``must be in any model of \(T\)''.
+We can deal with a slightly more general notion which will be useful later. 
+If \(\mcM \models T\) as above and \(A \subset M\), then \(\mcM\) is prime over \(A\) if, for all \(\mcN \models T\) and \(f:A \to \mcN\) partial elementary, we have a \(f^* \supset f\) embedding \(\mcM\) in \(\mcN\). 
+Note that \(\mcM\) is a prime model iff it is prime over the empty set. 
 \end{definition}
+
 % Possible Addition: Examples?
 
 \begin{theorem}\label{thm_omst_prime}
 \omst theories have prime models.
 \end{theorem}
 
+To prove this theorem, it helps to have the following definition:
+\begin{definition}\label{definition_isolated_types}
+A type \(p(\bar{v})\) is isolated if there is a \(\phi(\bar{v}) \in p(\bar{v})\) such that \(\phi(\bar{v}) \to \psi(\bar{v})\) for all \(\psi \in p\). We say that \(\phi\) isolates \(p\). 
+% we might want to give more examples or something here. 
+\end{definition}
+
 \begin{proof}\label{proof_omst_prime} 
-% TODO 3: Proof: 4.2.20 p 136 (a transfinite induction)
-% Maybe do a little extra here for 7a
+We will prove something a little more general, which will be useful later.
+That is, if \(T\) is \(\omega\)-stable, \(\mcM \models T\) and \(A \subset M\) then there is an \(\mcM_0\) which is prime over \(A\). 
+By primality, we know that \(\mcM_0\) can be associated with a subset of \(\mcM\) including \(A\). 
+We will build up that set by induction. 
+
+In accordance with our intuition above, we will only add elements which ``must exist in any model of \(T\)'' in light of their relation to \(A\) (and other such elements).
+If \(\phi(v)\) isolates some type over \(A\) and if \(m\) realizes this type in \(\mcM\) then every model of \(T\) must contain \(m\) as well. 
+We will construct a chain of subsets of \(\mcM\) including \(A\) ordered by inclusion such that at each stage we include one more necassary element until we've included all such elements. 
+Let the first subset in our chain, \(A_0\), consist only of \(A\). 
+If \(A_\alpha\) is in our chain, and \(m_\alpha \notin A_\alpha\) realizes an isolated type over \(A_\alpha\), let \(A_{\alpha+1} = A_\alpha \cup \{m_\alpha\}\).
+If no such \(m_\alpha\) exists, our chain will only have length \(\alpha\). 
+If \(\alpha\) is a limit ordinal, let \(A_\alpha = \bigcup_{\beta < \alpha} A_\beta\). 
+As we can only add elements of \(\mcM\) our chain must eventually end and have a length \(\delta\) (that is no isolated types over \(A_\delta\) are realized by elements not already in \(A_\delta\)).
+
+We would like to show that if \(\mcM_0 \subset \mcM\) has universe \(A_\delta\) then \(\mcM_0 \prec \mcM\).
+% Do that
+{\color{red}Prove this \(\ldots\)}
+
+Moreover, \(\mcM_0\) is prime over \(A\), that is, for all \(\mcN\) and \(f: A \to \mcN\) partial elementary, we have an elementary \(f^*: \mcM_0 \to \mcN\). 
+% Do that
 {\color{red}Prove this \(\ldots\)}
 \end{proof}
 
