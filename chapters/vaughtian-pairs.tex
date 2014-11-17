@@ -102,15 +102,14 @@ We can see that \(\Gamma = \eldiag((\mcN, \mcM)) \cup \{\phi_U(\bar{v}, \bar{a})
 Specifically, if \(\phi_1(\bar{v}, \bar{a}), \ldots, \phi_k(\bar{v}, \bar{a}) \in p\) are a finite subset of this type, we know that \(\mcN \models \bigwedge \E \bar{x} \phi_k(\bar{x},\bar{a})\) and therefore that \(\mcM \models \bigwedge \E \bar{x} (\phi_k)_U(\bar{x},\bar{a})\). 
 This finite subset if realized in \((\mcN, \mcM)\) itself. 
 Any model of \(\Gamma\) is an elementary extension of \((\mcN, \mcM)\) which we may call \((\mcN', \mcM')\).
+We can also take \((\mcN', \mcM')\) to be countable. 
 As \((\mcN', \mcM') \models \Gamma\) we also have that \(p(\bar{v})\) is realized in \((\mcN', \mcM')\). 
 \item The construction for this stage is very similar to the one covered just above for the first stage.
-% This stage
-
-\item
-% This stage
-
-% TODO 1: Proof of 4.3.38
-\textcolor{red}{Insert Proof Here \ldots}
+Again, it will suffice to show that just one such type can be realized (namely the type of \(c\) over \(\bar{a}\)) as we can add realizations for our countably many types one at a time. 
+Here, we take \(\Gamma = \eldiag((\mcN, \mcM)) \cup \{\phi(\bar{b}, d) \mid \phi(\bar{a}, c)\}\). 
+If some finite subset, \(\Phi\), were not realizable, we would have \(\mcM \models \exists x \Phi(\bar{a})\) but this formuale wouldn't hold for \(\bar{b}\), giving a contradiction. 
+\item The argument above can applies again, except we no longer take \(\phi\) to be a formula in \(\mcM\). % TODO: clarify this. 
+\end{enumerate}
 
 \end{proof}
 
