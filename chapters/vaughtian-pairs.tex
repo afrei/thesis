@@ -1,4 +1,4 @@
-\subsection{Definition}
+\section{Definition}
 The (only) obstacle to uncountable categoricity aside from \(\omega\)-instability is the existence of Vaughtian pairs. %Introduce V-pairs first
 We will be able to use a Vaughtian pair of models of a theory to construct a model of size \(\kappa\) with a countable definable subset.  
 Such models prevent uncountable categoricity because given any model of cardinality \(\kappa\) we can construct an elementarily equivalent model in which all infinite definable sets are of cardinality \(\kappa\).
@@ -85,7 +85,7 @@ We aim to construct a chain of Vaughtian pairs indexed by the natural numbers su
 The zeroth pair is the countable pair (\(\mcN_0, \mcM_0\)) from above. 
 For \(i > 0\) we construct (\(\mcN_i, \mcM_i\)) as follows (the details of constructions in each of these stages will follow):
 \begin{enumerate}
-\item  If \(i\) is a multiple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that every type realized in \(\mcN_{i-1}\) is realized in \(\mcM_i\)
+\item  If \(i\) is a multiple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that for every \(\bar{a} \in M\) every type in \(S_n(\bar{a})\) realized in \(\mcN_{i-1}\) is realized in \(\mcM_i\). %make sure vector notation is good. 
 \item  If \(i\) is one more than a mutliple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that if \(\bar{a}, \bar{b}\) realize the same type in \(\mcM_{i-1}\) and \(c \in \mcM_{i-1}\), then there is a \(d \in \mcM_i\) such that \(\bar{a}c\) and \(\bar{b}d\) realize the same type in \(\mcM_i\). 
 \item If \(i\) is two more than a mutliple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that if \(\bar{a}, \bar{b}\) realize the same type in \(\mcN_{i-1}\) and \(c \in \mcN_{i-1}\), then there is a \(d \in \mcN_i\) such that \(\bar{a}c\) and \(\bar{b}d\) realize the same type in \(\mcN_i\).
 \end{enumerate}
@@ -95,7 +95,20 @@ Thus, \(\mcM\) and  \(\mcN\) realize the same types.
 Given a partial elementary map \(f:\mcM \to \mcM\) with finite domain, we have \(\text{dom}(f) \in \mcM_i\) for some \(i\), and stage two of our construction guaruntees that it can be extended. 
 Similarly for homogeneity of \(\mcN\) by the third stage of our construction. 
 
-At this point it would suffice to show how to construct the elementary extensions mentioned in out three stages. 
+At this point it would suffice to show how to construct the elementary extensions mentioned in our three stages. 
+\begin{enumerate}
+\item As we can enumerate the countably many types over finite sets realized in any countable \(\mcN\) (there are countably many finite sequences from a countable set and countably many \(\bar{a}\)), it would suffice to show that if \(p(\bar{v})\) is an \(\bar{a}\)-type and \((\mcN, \mcM)\) is a Vaughtian pair with \(\mcN\) realizing \(p(\bar{v})\) that there is a \((\mcN, \mcM) \prec (\mcN', \mcM')\) with \(\mcM'\) realizing \(p(\bar{v})\). 
+We can see that \(\Gamma = \eldiag((\mcN, \mcM)) \cup \{\phi_U(\bar{v}, \bar{a}) \mid \phi(\bar{v}, \bar{a}) \in  p(\bar{v})\}\) is satisfiable.  
+Specifically, if \(\phi_1(\bar{v}, \bar{a}), \ldots, \phi_k(\bar{v}, \bar{a}) \in p\) are a finite subset of this type, we know that \(\mcN \models \bigwedge \E \bar{x} \phi_k(\bar{x},\bar{a})\) and therefore that \(\mcM \models \bigwedge \E \bar{x} (\phi_k)_U(\bar{x},\bar{a})\). 
+This finite subset if realized in \((\mcN, \mcM)\) itself. 
+Any model of \(\Gamma\) is an elementary extension of \((\mcN, \mcM)\) which we may call \((\mcN', \mcM')\).
+As \((\mcN', \mcM') \models \Gamma\) we also have that \(p(\bar{v})\) is realized in \((\mcN', \mcM')\). 
+\item The construction for this stage is very similar to the one covered just above for the first stage.
+% This stage
+
+\item
+% This stage
+
 % TODO 1: Proof of 4.3.38
 \textcolor{red}{Insert Proof Here \ldots}
 
@@ -109,6 +122,7 @@ Given a Vaughtian pair of countable isomorphic models, \((\mcN_1, \mcN_0) \model
 \begin{proof}
 % We have \(\mcN_0 \prec \mcN_1\) so \(\iota: \mcN_0 \to \mcN_1\) is the map including \(\mcN_0\) into \(\mcN_1\). 
 % Additionally, we have an isomorphism \(f: \mcN_0 \to \mcN_1\). 
+
 % TODO 2: Proof of 4.3.34
 \textcolor{red}{Insert Proof Here \ldots}
 \end{proof}
