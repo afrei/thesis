@@ -1,58 +1,107 @@
 \section{Definition}
-The (only) obstacle to uncountable categoricity aside from \(\omega\)-instability is the existence of Vaughtian pairs. %Introduce V-pairs first
-We will be able to use a Vaughtian pair of models of a theory to construct a model of size \(\kappa\) with a countable definable subset.  
-Such models prevent uncountable categoricity because given any model of cardinality \(\kappa\) we can construct an elementarily equivalent model in which all infinite definable sets are of cardinality \(\kappa\).
-We simply add \(\kappa\) many vectors of constant symbols for each formula \(\phi\) defining an infinite set, assert that none of the vectors of constant symbols are equal. This is clearly finitely satisfiable and its model has the desired property.
-First, let's define what it means for two models to form a Vaughtian pair. % Possible Addition: Definition of kappa lambda models (definition in previous commits)
+Like \(\omega\)-instability, lacking Vaughtian pairs is a property of theories which prevents uncountable categoricity (we will prove this in Theorem \ref{theorem_vaughtian_pairs_categoricity}).
+The content of Morley's Categoricity theorem (Theorem \ref{theorem_morleys_categoricity}) will be that these are the only two obstacles to uncountable categoricity. 
+
+\begin{definition}\label{definition_definable_subset}
+Let \(\mcM\) be an \(\mcL\)-structure and \(\phi\) and \(\mcL\) formula in \(n\) free variables. 
+We define \(\phi(\mcM) = \{\bar{m} \in M^n \mid \mcM \models \phi(\bar{m})\}\).
+If \(S \subseteq M^n = \phi(\mcM)\) for some \(\phi\) we say that \(S\) is a definable subset of \(\mcM\) and that it is defined by \(\phi\).
+\end{definition}
 
 \begin{definition}\label{definition_vaughtian_pairs}
-\((\mcN, \mcM)\) form a Vaughtian pair if \(\mcM \prec \mcN\) and there is an \(\mcL_\mcM\)-formula \(\phi(\bar{v})\) (in some number of free variables) for which
-\(\{\bar{m} \in N^k \mid \mcN \models \phi(\bar{n})\}\) is an infinite subset of \(M^k\). %7-1 m? I don't get it (I don't get what's not to get?)
-In other words, a formula with parameters in \(M\) defines an infinite subset of \(N^k\) containing no elements of \(N^k \setminus M^k\).
+Two distinct \(\mcL\)-structures \((\mcN, \mcM)\) form a Vaughtian pair if \(\mcM \prec \mcN\) and for some \(\mcL_\mcM\)-formula \(\phi\), \(\phi(\mcM) = \phi(\mcN)\) is infinite. 
 \end{definition}
 
 Even though we write \(\mcM \prec \mcN\), we write the Vaughtian pair in the other order, that is as \((\mcN, \mcM)\), because we can think of this pair of models as a single model (\(\mcN\)) with a distinguished subset corresponding to \(\mcM\).
 This will often be useful in proving theorems and lemmas about Vaughtian pairs, so we will flesh out the construction here. 
-If \(\mcM, \mcN\) are \(\mcL\)-structures, let  \(\mcL^* = \mcL \cup \{U\}\). 
-We look at (\(\mcN, \mcM\)) as an \(\mcL^*\)-structure which shares its underlying set and interpretations of \(\mcL\) with \(\mcN\) but where \(U\) is the subset \(M\). 
-This predicate allows us to state that a formula \(\phi(\bar{v})\) is true in \(\mcM\) with slight modification to \(\phi\).
-Specifically, we will have \((\mcN, \mcM) \models \phi_U(\bar{v}) \iff \mcM \models \phi(\bar{v})\).
-For \(\phi(\bar{v})\) \qf we let \(\phi_U(\bar{v}) = \bigwedge U(v_i) \land \phi(\bar{v})\) and for \(\phi(\bar{v}) = \exists v \psi, \phi_U(\bar{v}) = \E v (U(v) \land \psi_U)\). 
-In the other cases, do the natural thing. %Say this better
-% We might want to show how we can also state that this \mcL^* structure is a Vaughtian pair as a first order thing (mostly). 
+
+If \(\mcM, \mcN\) are \(\mcL\)-structures, let  \(\mcL^U = \mcL \cup \{U\}\). 
+We look at (\(\mcN, \mcM\)) as an \(\mcL^U\)-structure which shares its underlying set and interpretations of \(\mcL\) with \(\mcN\) but where \(U\) is the subset \(M\). 
+Note that, if \(\phi\) is an \(\mcL\)-formula \((\mcN, \mcM) \models \phi \iff \mcN \models \phi\).
+Adding the unary predicate, \(U\), to our language allows us to find an \(\mcL^U\)-formula \(\phi_U\) corresponding to any \(\mcL\)-formula \(\phi\) such that \((\mcN, \mcM) \models \phi \iff \mcM \models \phi_U\).
+
+We define \(\phi_U\) as follows:
+\begin{enumerate}
+\item If \(\phi(\bar{v})\) is atomic, we let \(\phi_U(\bar{v}) = \bigwedge_{v \in \bar{v}}U(v) \land \phi(\bar{v})\)
+\item If \(\phi(\bar{v}) = \neg \psi(\bar{v})\) then \(\phi_U(\bar{v}) = \neg \psi_U(\bar{v})\)
+\item If \(\phi(\bar{v}) = (\psi \land \theta)(\bar{v})\) then \(\phi_U(\bar{v}) = \psi_U(\bar{v}) \land \theta_U(\bar{v})\)
+\item If \(\phi(\bar{v}) = \E x \psi(x, \bar{v})\) then \(\phi_U(\bar{v}) = \E x (U(x) \land \psi_U(x, \bar{v}))\)
+\end{enumerate}
+A simple induction shows that \((\mcN, \mcM) \models \phi \iff \mcM \models \phi_U\).
+
+Before we proceed, it will be useful to develop some intuition about why Vaughtian pairs prevent uncountable categoricity for theories in countable languages, \(T\).
+\begin{theorem}\label{theorem_vaughtian_pair_categoricity}
+If \(\mcM \models T\), \(|\mcM| = \kappa > \aleph_0\) and \(\phi(\mcM)\) is countably infinite then \(T\) is not \(\kappa\)-categorical and \(T\) has a Vaughtian pair. 
+\end{theorem}
+
+\begin{proof}
+We first show that then there is a Vaughtian pair for \(T\).
+It suffices to let \(\mcM^* \models T^*\) be as in Theorem \ref{theorem_skolem_function_extension}.
+We see that \((\mathcal{H}(\phi(\mcM)), \mcM)\) form a Vaughtian pair. 
+Additionally, \(T\) cannot be \(\kappa\) categorical as we can construct an \(\mcN \models T\) with \(|\mcN| = \kappa\) and \(|\phi(\mcN)| = \kappa\) (an isomorphism \(f: \mcM \to \mcN\) would be bijection when restricted to \(\phi(\mcM)\) and by definition there is no bijection from a countable set to any uncountable \(\kappa\)).
+We simple add constant symbols \(\{\bar{c}_i \mid i \in \kappa\}\) to our language. 
+We can easily see that \(\Gamma = \text{Th}(\mcM) \cup \{\bar{c}_i \neq \bar{c}_j \mid i \neq j\} \cup \{\phi(\bar{c}_i) \mid i \in \kappa\}\) is finitely satisfiable (it suffices to find \(n\) distinct realizations of \(\phi\) in \(\mcM\) for all \(n \in \N\) which is possible as \(\phi(\mcM)\) is infinite). 
+Any \(\mcN \models \Gamma\) will have \(|\phi(\mcN)| = \kappa\). 
+\end{proof}
+
+We see the connection between some Vaughtian pairs and lacking \(\kappa\)-categoricity, specifically Vaughtian pairs \((\mcN, \mcM)\) for which \(|\mcN| = \kappa\) and \(|\mcM| = \aleph_0\).
+It would suffice to show that whenever there is any Vaughtian pair for \(T\), we can construct a model of \(T\) of any cardinality \(\kappa\) which has a countable definable subset. 
+The rest of this chapter will show this construction. 
 
 \begin{theorem}\label{thm_countable_vaughtian_pairs}
-Assuming a theory \(T\) has a Vaughtian pair \(\mcN, \mcM\), it has a Vaughtian pair \((\mcN_0, \mcM_0)\) of countable models. 
+If \(\mcL\) is countable and an \(\mcL\)-theory \(T\) has a Vaughtian pair \(\mcN, \mcM\), it has a Vaughtian pair \((\mcN_0, \mcM_0)\) of countable models. 
 \end{theorem}
 
 \begin{proof}\label{proof_countable_vaughtian_pairs}
-In order to show the existence of a countable model, we will want to use the L\"owenheim-Skolem theorm.
-To do so, we will have to view the pair of models as a single model. 
+It will suffice to show that there is an \(\mcL^U\)-theory, \(T'\), for which \((\mcA, \mcB) \models T'\) iff \((\mcA, \mcB)\) forms a Vaughtian pair for \(T\). 
+As \((\mcN, \mcM)\) forms a Vaughtian pair, \(T'\) is satisfiable.
+As \(\mcL^U\) is countable, it has a countable model, \((\mcN_0, \mcM_0)\), by the downward L\"owenheim-Skolem theorem.
+This is the desired countable Vaughtian pair. 
 
-Our goal is to demonstrate an \(\mcL^*\)-theory in a countable language asserting that \((\mcN, \mcM)\) is Vaughtian pair.
-By the L\"owenheim-Skolem theorem, we will get out countable pair of models.
-This comes in two parts: asserting \(\mcM \prec \mcN\) and asserting that we can isolate an infinite subset of \(M\). 
-We assert the former with the formulae \((\bigwedge U(v_i) \land \psi(\bar{v})) \to \psi_U(\bar{v})\). 
-Let \(\phi(\bar{v})\) be the \(\mcL_\mcM\)-formula which isolates an infinite subset of \(M^k\). 
-We can assert that \(\phi\) has infinitely many realizations by \(\E \bar{v}_1, \E \bar{v}_2, \ldots \E \bar{v}_n \bigwedge \bar{v}_i \neq \bar{v}_j \land \bigwedge \phi(\bar{v}_i)\). %This argument got out of hand
-We can assert that \(\phi\) only holds for vectors from \(M^k\) by \(\A \bar{v} (\phi(\bar{v}) \to U(\bar{v}))\).
-Finally, we assert that \(\mcN\) is a proper extension with \(\E x \neg U(x)\). 
-By construction, the countable model of this theory which is satisfied by \((\mcN, \mcM)\) will be our countable model.
+Our goal is to demonstrate an \(\mcL_\mcM^U\)-theory, \(\Gamma\), asserting that \((\mcN, \mcM)\) is Vaughtian pair.
+
+\(\Gamma\) contains the following sets of formulae:
+\begin{itemize}
+\item \(T\) and \(\{\phi_U | \phi \in T\}\)
+\item \(\A \bar{v} (U(\bar{v}) \land \E x \phi(x, \bar{v})) \to \E x U(x) \land \phi(x, \bar{v})\) for all \(\phi\). (By Theorem \ref{theorem_tarski_vaught_test} this shows \(\mcM \prec \mcN\))) 
+\item If \(\psi(\bar{v})\) is the \(\mcL_\mcM\)-formula which isolates an infinite subset of \(\mcM\), for all \(n \in \N\), \(\Gamma\) includes \(\E \bar{v}_1, \E \bar{v}_2, \ldots \E \bar{v}_n \bigwedge \bar{v}_i \neq \bar{v}_j \land \bigwedge \phi(\bar{v}_i)\). That is \(\psi\) defines an infinite subset of \(\mcN\).
+\item \(\A \bar{v} (\psi(\bar{v}) \to U(\bar{v}))\). That is, \(\psi(\mcN) \subset \psi(\mcM)\). As the other direction is trivial, this ensures \(\psi(\mcN) = \psi(\mcM)\). 
+\item Finally, we assert that \(\mcN\) is a proper elementary extension of \(\mcM\) with \(\E x \neg U(x)\). 
+\end{itemize}
+
+By construction, \(\Gamma\) is an \(\mcL^U\)-theory, \(T'\), for which \((\mcA, \mcB) \models T'\) iff \((\mcA, \mcB)\) forms a Vaughtian pair for \(T\). 
+The L\"owenheim-Skolem theorem gives us our desired model. 
 \end{proof}
 
 For the next few claims we will need to use a property called homogeneity which will allow us to show that certain countable models are isomorphic.
 
-\begin{definition}\label{definition_homogeneity}
-We call a countable model \(\mcM\) is homogeneous if all finite \(A \subseteq M\) and functions \(f: A \to M\) for which \(\mcM \models \phi(\bar{v}) \iff \mcM \models \phi(f(\bar{v}))\) -- we call this property being ``partial elementary'' -- and every \(m \in M\), there is a \(f': A \cup \{m\} \to M\) extending \(f\) which is partial elementary. % Examples?
+\begin{definition}\label{definition_partial_elementary}
+Let \(\mcM\) be an \(\mcL\) function and \(A \subseteq M\).
+A function \(f:A \to M\) for which \(\mcM \models \phi(\bar{v}) \iff \mcM \models \phi(f(\bar{v}))\) is called ``partial elementary''.
 \end{definition}
 
-The first interesting thing we will note about countable homogeneous models is that any partial elementary map \(f: A \to M\) (where \(A \subseteq M\) is finite) can be extended to an automorphism. 
-To see this, note that partial elementary maps have partial elementary inverses. And \(f_0 = f\) %this bad
-We will alternatively extend the domain and range of \(f_i\) by elements in \(M\). 
-By construction, \(f^* = \bigcup_{<\omega}f_i\) has domain and range equal to all of \(M\). %something here
-Additionally, it is easy to verify that \(f^*\) is a homomorphism. 
+\begin{definition}\label{definition_homogeneity}
+A countable model \(\mcM\) is homogeneous if all finite \(A \subseteq M\), partial elementary functions \(f: A \to M\) and \(m \in M\), there is a partial elementary \(f': A \cup \{m\} \to M\) extending \(f\) which is partial elementary. 
+% Examples?
+\end{definition}
 
-This is why homogeneity is a useful property. We can use it to build isomorphisms, which will be useful soon. 
+\begin{theorem}\label{theorem_partial_elementary_automorphism}
+Any partial elementary map \(f: A \to M\) (where \(A \subseteq M\) is finite) can be extended to an automorphism. 
+\end{theorem}
+
+\begin{proof}
+We define an isomorphism extending \(f\) inductively. 
+Let \(f_0 = f\) be the first function in our chain.
+We will define \(f_i\) for \(i > 0\) such that \(f_{i-1} \subseteq f_i\).
+We will alternatively extend the domain and range of \(f_i\) by elements in \(M = \{m_1, m_2, \ldots\}\).
+That is, if \(i\) is odd, \(m_i \in \text{dom}(f_{\frac{i-1}{2}})\) and if \(i\) is even \(m_i \in \text{rng}(f_{\frac{i}{2}})\).
+The former is possible as homogeneity allows us to expand the domain of \(f_{i-1}\) to include \(m_i\).
+For the case of \(i\) even, note that partial elementary maps have partial elementary inverses (if \(f\) is partial elementary, it is injective). 
+That partial elementary functions have partial elementary inverses allows us to extend the range of \(f_{i-1}^{-1}\) to include \(m_i\). 
+Taking the inverse of the resulting function gives us \(f_i\).
+Let \(f^* = \bigcup_{i \in \N}f_i\).
+\(f^*\) has domain and range equal to all of \(M\) and is partial elementary, making \(f^*\) our desired automorphism.
+\end{proof}
 
 \begin{lemma}\label{lemma_types_isomorphism}
 The next thing we note about countable homogeneous models, \(\mcM\) and \(\mcN\), of the same complete theory, \(T\), is that if \(\mcM\) and \(\mcN\) realize the same types in \(S_n(T)\), they are isomorphic.
