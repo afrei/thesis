@@ -1,7 +1,5 @@
 In this section, our goal is to define stability (and \(\omega\)-stability in particular) and show that theories which aren't \(\omega\)-stable cannot be uncountably categorical for any uncountable cardinality. 
 
-% Info about types over A
-
 In order to define stability we need to recall a few definitions and facts about types. 
 Let \(\mcM\) be an \(\mcL\)-structure and \(A \subset M\). 
 It will often be natural to want to add constant symbols for every element of \(A\) to our language. 
@@ -12,9 +10,9 @@ In general, we call the set of \(\mcL_A\)-sentences true in \(\mcM\) ``\(\Th_A(\
 
 \begin{definition}\label{def_types}
 Let \(A, \mcM, \mcL\) as above. 
-An \(n\)-type, \(p\), is a set of \(\mcL_A\)-formulae in \(n\) free variables (\(v_1, \ldots, v_n\)) for which \(p \cup \Th_A(\mcM)\) is satisfiable.
+An \(n\)-type over \(A\), \(p\), is a set of \(\mcL_A\)-formulae in \(n\) free variables (\(v_1, \ldots, v_n\)) for which \(p \cup \Th_A(\mcM)\) is satisfiable.
 We say that \(p\) is complete if, for every \(\mcL_A\)-formula \(\phi(v_1, \ldots, v_n)\), either \(p \ni \phi\) or \(p \ni \neg \phi\). 
-We call the set of all complete \(n\) types (containing \(\mcL_A\) formulae satisfiable with \(\Th_A(\mcM)\)) ``\(S_n^\mcM(A)\)''. 
+We call the set of all complete \(n\) types over \(A\) ``S_n^\mcM(A)\)''. 
 \end{definition}
 
 Let's consider a few simple examples of types when  \(\mcM = (\N,s)\), the natural numbers with successor and \(A = \{0\}\) (we've added a constant symbol for 0). 
@@ -66,19 +64,23 @@ The theory of \((\Z, s)\) is \omst.
 We will again consider 1-types and leave the general argument to the reader. 
 We can assume, WLOG, that no two elements of \(A\) are in the same \(\Z\)-chain. 
 Our 1-type either asserts that \(v_1\) is in the same \(\Z\)-chain as a single element of \(A\) and determines its position relative to that element, or asserts that \(v_1\) isn't in the same \(\Z\) chain as any element of \(A\). 
-Every formula is equivalent to a \qf one, so as these are all of the possible complete atomic types, they are also all of the possible types. % More Detail
+Note that the number of possibilities mentioned above is countable and that these possibilities are exhaustive.
+I assert that if we know which of these possibilities is true of an element \(a\), i.e. what atomic formula \(\psi(a, \bar{b})\) hold for \(\bar{b} \in A\), we can determine the type of \(A\). 
+It suffices to show that we can determine wether \(\phi(a, \bar{b})\) holds of \(a\) given that atomic information.  
+Quantifier elminiation tells us that for all formulae \(\phi(\bar{v})\), \(\Th(\Z, s) \models \A \bar{v} \phi(\bar{v}) \psi(\bar{v})\) for some quantifier free \(\psi\).
+Given an arbitrary \(\phi(a, \bar{b})\) with \(\bar{b} \in A\) we know that \(\phi(a, \bar{b}) \iff  \psi(a, \bar{b})\) and by hypothesis we know wether or not \(\psi(a, bar{b})\) holds. 
+This suffices to decide \(\phi(a, \bar{b})\) and show the \(\omega\)-stability of the theory of \((\Z, s)\).
 \end{example}
 
 \section{A Theorem about \(\omega\)-stability}
-
 We now aim to show that no theory \(T\) can be uncountably categorical, unless it is \(\omega\)-stable.
 It suffices to show that for all uncountable \(\kappa\) we can present two non-isomorphic models of \(T\) of cardinality \(\kappa\), given only that \(T\) is not \(\omega\)-stable.  
-We will do so by finding one model realizing only countably many types, and one realizing uncountably many. 
+We will do so by finding one model realizing only countably many types over any countable set, and one realizing uncountably many types over some countable set. 
 Clearly, two such models will not be isomorphic, so \(T\) will not be categorical. 
 
-\subsection{Realizing Uncountably Many Types Over a Countable Set}
+\subsection{Realizing Uncountably Many Types}
 As \(T\) isn't \omst, for some countable \(A\) we have that \(|S_n^\mcM(A)|\) is uncountable. 
-We can realize all of these in some elementary extension of \(\mcM\) which can be taken to be of cardinality exactly \(\kappa\) for any desired uncountable \(\kappa\). %4-3 Big Enough?
+We can realize at least \(\aleph_1\) of these in some elementary extension of \(\mcM\) which can be taken to be of cardinality exactly \(\kappa\) for any desired uncountable \(\kappa\).
 Say \(\{p_i\}\) is a set of uncountably many but at most \(\kappa\) many types indexed by some set \(I\). 
 Let \(c_i\) simialar index that same number of constants in a new language \(\mcL^* = \mcL_\mcM \cup \{c_i\}\). 
 Let \(\Gamma = T \cup \eldiag(\mcM) \cup \{p_i(c_i)\}\) (we assert each type \(p_i\) is realized by \(c_i\)). 
@@ -94,13 +96,17 @@ We will be able to show that these ``right elements'' do not change the cardinal
 Only countably many types can be realized in a countable model, so our constructed model will realize countably many types over any countable set, as desired. 
 
 \begin{definition}\label{definition_order_indiscernibles}
-We say that a \(\{x_i \mid i \in I\}\) where \(I\) is an ordered set is a sequence of \textit{order indiscernibles (of order type \(I\))} if, given two increasing sequences of length \(n\) from \(I\), 
+Let \(\mcM\) be a model.
+We say that a set \(\{x_i \in M \mid i \in I\}\) where \(I\) is an infinite ordered set is a sequence of \textit{order indiscernibles (of order type \(I\))} if, given two increasing sequences of length \(n\) from \(I\), 
 \(i_1 < i_2 < \ldots < i_n\) and \(j_1 < j_2 < \ldots < j_n\), we will have \(\mcM \models \phi(i_1, \ldots, i_n) \iff \mcM \models \phi(j_1, \ldots, j_n)\). 
+Note that the order for which \(i_1 < i_2\) is an ordering on \(M\).
+The existence of this ordering on \(M\) in no way requires the binary relation symbol ``\(<\)'' to be in our language \(\mcL\). 
 Intuitively, these elements cannot be distinguised based on first order properties, modulo their relative positions.  
-Recall that the theory of dense linear orders without endpoints admits \qe and it's easy to see that any increasing sequence from such an order is a sequence of indiscernibles. 
 \end{definition}
 
-% Potential Clarification: < need not be in the language
+Recall that the theory of dense linear orders without endpoints admits \qe and it's easy to see that any increasing sequence from such an order is a sequence of indiscernibles. 
+Here, our ordering on the elements of the universe of our model agrees with the ordering present in the languge. 
+If we removed the ordering from our language (i.e. we work in the language of sets) our order indiscernibles are still order indiscernibles. 
 
 \begin{theorem}\label{theorem_order_indiscernibles}
 Given an ordered set \(I\) and a theory, \(T\), which has infinite models, there always exists an \(\mcM \models T\) containing a set of order insicernibles of order type \(I\). 
@@ -152,7 +158,7 @@ This is also enough to complete our compactness argument showing that order-indi
 It is natural to identify this set of order indiscernibles with \(I\), so that if \(\mcM \models \Gamma \cup T\), then \(I \subset M\).
 \end{proof}
 
-\subsection{Realizing Only Countably Many Types Over Every Countable Set}
+\subsection{Realizing Only Countably Many Types}
 
 % This section could also use help. 
 
