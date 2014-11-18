@@ -12,7 +12,7 @@ In general, we call the set of \(\mcL_A\)-sentences true in \(\mcM\) ``\(\Th_A(\
 Let \(A, \mcM, \mcL\) as above. 
 An \(n\)-type over \(A\), \(p\), is a set of \(\mcL_A\)-formulae in \(n\) free variables (\(v_1, \ldots, v_n\)) for which \(p \cup \Th_A(\mcM)\) is satisfiable.
 We say that \(p\) is complete if, for every \(\mcL_A\)-formula \(\phi(v_1, \ldots, v_n)\), either \(p \ni \phi\) or \(p \ni \neg \phi\). 
-We call the set of all complete \(n\) types over \(A\) ``S_n^\mcM(A)\)''. 
+We call the set of all complete \(n\) types over \(A\) ``\(S_n^\mcM(A)\)''. 
 \end{definition}
 
 Let's consider a few simple examples of types when  \(\mcM = (\N,s)\), the natural numbers with successor and \(A = \{0\}\) (we've added a constant symbol for 0). 
@@ -68,7 +68,7 @@ Note that the number of possibilities mentioned above is countable and that thes
 I assert that if we know which of these possibilities is true of an element \(a\), i.e. what atomic formula \(\psi(a, \bar{b})\) hold for \(\bar{b} \in A\), we can determine the type of \(A\). 
 It suffices to show that we can determine wether \(\phi(a, \bar{b})\) holds of \(a\) given that atomic information.  
 Quantifier elminiation tells us that for all formulae \(\phi(\bar{v})\), \(\Th(\Z, s) \models \A \bar{v} \phi(\bar{v}) \psi(\bar{v})\) for some quantifier free \(\psi\).
-Given an arbitrary \(\phi(a, \bar{b})\) with \(\bar{b} \in A\) we know that \(\phi(a, \bar{b}) \iff  \psi(a, \bar{b})\) and by hypothesis we know wether or not \(\psi(a, bar{b})\) holds. 
+Given an arbitrary \(\phi(a, \bar{b})\) with \(\bar{b} \in A\) we know that \(\phi(a, \bar{b}) \iff  \psi(a, \bar{b})\) and by hypothesis we know wether or not \(\psi(a, \bar{b})\) holds. 
 This suffices to decide \(\phi(a, \bar{b})\) and show the \(\omega\)-stability of the theory of \((\Z, s)\).
 \end{example}
 
@@ -109,24 +109,33 @@ Here, our ordering on the elements of the universe of our model agrees with the 
 If we removed the ordering from our language (i.e. we work in the language of sets) our order indiscernibles are still order indiscernibles. 
 
 \begin{theorem}\label{theorem_order_indiscernibles}
-Given an ordered set \(I\) and a theory, \(T\), which has infinite models, there always exists an \(\mcM \models T\) containing a set of order insicernibles of order type \(I\). 
+Given an ordered set \(I\) and an \(\mcL\)-theory, \(T\), which has infinite models, there always exists an \(\mcM \models T\) containing a set of order insicernibles of order type \(I\). 
 \end{theorem}
 
-% This needs to be made nicer
-
 \begin{proof}
-We claim that given any infinite model \(\mcM\) of a theory \(T\) and any finite set \(\Phi\) of formulae in \(n\) free-variables, we can present an \(X \subset M\) such that no two increasing senquences of length \(n\) taken from \(X\) can be distinguiched by a formula from \(\Phi\). 
-It is possible that \(M\) isn't ordered, in which case it suffices to fix an arbitrary ordering of \(M\). 
-We note that by compactness, this will suffice to show the existence of order indiscernibles of any order type. 
-Also, observe that this is a straightforward consequence of Ramsey's theorem (the infinite version).
-Ramsey's theorem states that if \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subset S\) for which every subset of size \(n\) of \(T\) has the same color. 
-In our case, subsets of \(\Phi\) color subsets of size \(n\) taken from \(M\) by seeing which formulae of \(\Phi\) are true of the (ordered) elements of the subset. %This could maybe be better. 
-More specifically if \(\Phi\) is the set of formulae in an arbitrary finite subset of \(\Gamma\), let \(2^\Phi\) be our set of colors of size \(2^{|\Phi|}\). 
-A subset, \(V\), of size \(n\) can be ordered so that \(V = \{v_1, \ldots, n_n\}\) where \(v_i < v_j\) when \(i < j\). 
-Color this set by the set \(\{\phi \in \Phi \mid \mcM \models \phi(\bar{v})\}\). 
-The theorem gives us this infinite set \(S\), from which any increasing sequence of length \(n\) satisfies the same formulae from our finite set \(\Phi\).
-Note that every finite subset includes only finitely many of our constant symbols, which we take to be in \(S\). 
-We see that this interpretation realizes our finite subset of \(\Gamma\), so \(\Gamma\) is satisfiable and we have a set of order indiscernibles. 
+Let \(\mcL_I \supset \mcL\) be an extension of our language including a constant symbol corresponding to each \(i \in I\), that is \(\mcL' = \mcL \cup \{c_i \mid i \in I\}\).
+We note that we can present a first order \(\mcL'\)-theory, \(T'\), such that all \(\mcM \models T'\) are models of \(T\) with a set of order indiscernibles of order type \(I\).
+\(T'\) includes \(T\), \(\{c_i \neq c_j \mid i \neq j\}\) and \(\{\phi(c_{i_1}, \ldots, c_{i_n}) \iff \phi(c_{j_1}, \ldots, c_{j_n})\}\) for all \(\mcL\)-formulae \(\phi\), and all sequences \(i_1 < \ldots < i_n, j_1 < \ldots < j_n\). 
+It suffices to show that finite subsets of \(T'\) are satisfiable. 
+That this is true is an application of Ramsey's Theorem, which states: 
+If \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subset S\) for which every subset of size \(n\) of \(T\) has the same color. 
+(We will prove this later.)
+
+Let \(\Phi\) be a finite set consisting of \(\mcL\)-formulae in at most \(k\) free variables. 
+Let \(\mcM\) be an infinite model of \(T\). 
+Let \(\mcL^* = \mcL \cup \{c_i | i \in \N\}\) where the \(c_i\)s are constant symbols. .
+It suffices to show that \(\mcM\) is a model of the theory \(T^*\) including: \(T\), \(\{c_i \neq c_j \mid i \neq j\}\) and \(\{\phi(c_{i_1}, \ldots, c_{i_n}) \iff \phi(c_{j_1}, \ldots, c_{j_n})\}\) for all \(\phi \in \Phi\), and all sequences \(i_1 < \ldots < i_n, j_1 < \ldots < j_n\) of length at most \(k\). 
+(All finite subsets of \(T'\) only include our indiscernability condition for finitely many formulae and finitely many constant symbols).
+
+In applying Ramsey's Theorem, we let \(S = M\). 
+We take \(n = k\) (that is we color subsets of size \(k\)).
+We let our set of \(2^{|\Phi|}\) colors be the subsets of \(\Phi\). 
+If \(N\) is a subset of \(S\) of size \(n\) let \(a_1 < \ldots < a_n\) enumerate its elements. 
+Assign the set \(N\) the color \(\{\phi \in \Phi \mid \mcM \models \phi(\bar{a})\}\). 
+If \(\phi\) has only \(m\) free variables and \(m < n\) we interpret \(\phi(\bar{a}\) as \(\phi(\bar{b})\) where \(\bar{b}\) is the first \(m\) elements of \(\bar{a}\).
+Interpreting the \(c_i\)s as the elements of \(T\) (whose existence is guarunteed by Ramsey's Theorem) is sufficient by construction.
+
+Thus, \(T'\) is satisfiable and its model is the desired \(\mcM\).
 \end{proof}
 
 \subsection{A Proof of Ramsey's Theorem}
