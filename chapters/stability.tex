@@ -1,7 +1,7 @@
 In this section, our goal is to define stability (and \(\omega\)-stability in particular) and show that theories which aren't \(\omega\)-stable cannot be uncountably categorical for any uncountable cardinality. 
 
 In order to define stability we need to recall a few definitions and facts about types. 
-Let \(\mcM\) be an \(\mcL\)-structure and \(A \subset M\). 
+Let \(\mcM\) be an \(\mcL\)-structure and \(A \subseteq M\). 
 It will often be natural to want to add constant symbols for every element of \(A\) to our language. 
 We will call the resulting language \(\mcL_A\). \(\mcM\) has a natural definition as an \(\mcL_A\)-structure. 
 In general, we call the set of \(\mcL_A\)-sentences true in \(\mcM\) ``\(\Th_A(\mcM)\)'' and, in the special case where \(A = M\) we call it \(\eldiag(\mcM)\) or the ``elementary diagram of \(\mcM\)''. 
@@ -79,29 +79,40 @@ We will do so by finding one model realizing only countably many types over any 
 Clearly, two such models will not be isomorphic, so \(T\) will not be categorical. 
 
 \subsection{Realizing Uncountably Many Types}
+\begin{theorem}\label{theorem_realizing_uncountable_types}
+If \(T\) is an \omst theory, there are models of \(T\) of any uncountable cardinality realizing uncountably many types over a countable set.
+\end{theorem}
+
+\begin{proof}
 As \(T\) isn't \omst, for some countable \(A\) we have that \(|S_n^\mcM(A)|\) is uncountable. 
 We can realize at least \(\aleph_1\) of these in some elementary extension of \(\mcM\) which can be taken to be of cardinality exactly \(\kappa\) for any desired uncountable \(\kappa\).
-Say \(\{p_i\}\) is a set of uncountably many but at most \(\kappa\) many types indexed by some set \(I\). 
-Let \(c_i\) simialar index that same number of constants in a new language \(\mcL^* = \mcL_\mcM \cup \{c_i\}\). 
-Let \(\Gamma = T \cup \eldiag(\mcM) \cup \{p_i(c_i)\}\) (we assert each type \(p_i\) is realized by \(c_i\)). 
-We claim that every finite subset of \(\Gamma\) is realizable (indeed, every finite subset is realized in \(\mcM\)). 
+Say \(\{p_i\}\) is a set of \(\aleph_1\) many types from \(S_n^{\mcM}(A)\).
+Let \(C = \{c_i| i \in \aleph_1\} \) be \(\aleph_1\) constant symbols in a new language \(\mcL^* = \mcL_\mcM \cup C\). 
+Let \(\Gamma = T \cup \eldiag(\mcM) \cup \{p_i(c_i)\}\) (we assert each type \(p_i\) is realized by \(c_i\) giving us the realization of uncountably many types).
+ 
+To show that \(\Gamma\) is finitely satisfiable, it will suffice to show that sets of the form \(\Gamma_0 = T \cup \eldiag(\mcM) \cup \bigcup_{i \in I}\bigcup_{\phi(c_i) \in (p_i)_0(c_i)} \phi(c_i)\) are satisfiable, where \((p_i)_0 \subseteq p_i\) are finite.  
+\(\Gamma_0\) is satisfiable iff \(\Delta = T \cup \eldiag(\mcM) \cup \bigcup_{i \in I}\E x \bigwedge_{\phi(c_i) \in (p_i)_0(c_i)} \phi(x)\) is satisfiable.
+For each of these existential sentences, \(\psi\), \(\mcM\) is either a model of \(\psi\) or of \(\neg \psi\). 
+As these types are, by definition, consistent with \(\eldiag(\mcM)\), it must be that \(\mcM \models \psi\). 
+Therefore, \(\mcM \models \Delta\) and \(\Gamma_0\) is satisfiable. 
 By compactness, we have a model of \(\Gamma\) of cardinality \(|\mcL^*| \leq \kappa\) and by the upward L\"owenheim-Skolem theorem, a model of cardinality \(\kappa\).
 \(\Gamma\) asserts that uncountably many types are realized over \(A\), as desired. 
+\end{proof}
 
 \subsection{Indiscernables}
-Now, we must show the existence of a model of size \(\kappa\) which realizes only countably many types. To do so, we will have to construct some machinery.
+Now, we must show the existence of a model of size \(\kappa\) which realizes only countably many types over every countable set. 
+To do so, we will have to construct some machinery.
 This will be our guiding intuition: to ensure our model is of size \(\kappa\), we will start out with \(\kappa\) many virtually identical (indiscernable) elements. 
-To ensure our model is indeed a model of \(T\), we will close it under existentials by adding the right elements. 
-We will be able to show that these ``right elements'' do not change the cardinality of the model and do not realize any types not found in out countable model.
-Only countably many types can be realized in a countable model, so our constructed model will realize countably many types over any countable set, as desired. 
+To ensure our model is indeed a model of \(T\), we will add elements to whitness existentials. 
+We will see that this method of construction will realize few types.
 
 \begin{definition}\label{definition_order_indiscernibles}
 Let \(\mcM\) be a model.
-We say that a set \(\{x_i \in M \mid i \in I\}\) where \(I\) is an infinite ordered set is a sequence of \textit{order indiscernibles (of order type \(I\))} if, given two increasing sequences of length \(n\) from \(I\), 
+We say that a set \(\{x_i \in M \mid i \in I\}\) where \(I\) is an infinite ordered set is a sequence of \textit{order indiscernibles (of order type \(I\))} if, given two sequences from \(I\), 
 \(i_1 < i_2 < \ldots < i_n\) and \(j_1 < j_2 < \ldots < j_n\), we will have \(\mcM \models \phi(i_1, \ldots, i_n) \iff \mcM \models \phi(j_1, \ldots, j_n)\). 
 Note that the order for which \(i_1 < i_2\) is an ordering on \(M\).
 The existence of this ordering on \(M\) in no way requires the binary relation symbol ``\(<\)'' to be in our language \(\mcL\). 
-Intuitively, these elements cannot be distinguised based on first order properties, modulo their relative positions.  
+Intuitively, these elements cannot be distinguised based on first order properties, modulo their relative positions in \(M\).  
 \end{definition}
 
 Recall that the theory of dense linear orders without endpoints admits \qe and it's easy to see that any increasing sequence from such an order is a sequence of indiscernibles. 
@@ -118,8 +129,8 @@ We note that we can present a first order \(\mcL'\)-theory, \(T'\), such that al
 \(T'\) includes \(T\), \(\{c_i \neq c_j \mid i \neq j\}\) and \(\{\phi(c_{i_1}, \ldots, c_{i_n}) \iff \phi(c_{j_1}, \ldots, c_{j_n})\}\) for all \(\mcL\)-formulae \(\phi\), and all sequences \(i_1 < \ldots < i_n, j_1 < \ldots < j_n\). 
 It suffices to show that finite subsets of \(T'\) are satisfiable. 
 That this is true is an application of Ramsey's Theorem, which states: 
-If \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subset S\) for which every subset of size \(n\) of \(T\) has the same color. 
-(We will prove this later.)
+If \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subseteq S\) for which every subset of size \(n\) of \(T\) has the same color. 
+(We will prove Ramsey's theorem, theorem \ref{ramseys_theorem}, in the appendix.)
 
 Let \(\Phi\) be a finite set consisting of \(\mcL\)-formulae in at most \(k\) free variables. 
 Let \(\mcM\) be an infinite model of \(T\). 
@@ -138,50 +149,75 @@ Interpreting the \(c_i\)s as the elements of \(T\) (whose existence is guaruntee
 Thus, \(T'\) is satisfiable and its model is the desired \(\mcM\).
 \end{proof}
 
-\subsection{A Proof of Ramsey's Theorem}
+\subsection{Realizing Only Countably Many Types}
 
-The following is Ramsey's theorem mentioned above:
+\begin{definition}\label{definition_skolem_functions}
+We recall that an \(\mcL\)-theory, \(T\), is said to have \textit{built-in Skolem functions} when for all \(\mcL\)-formulae \(\phi(v, \bar{w})\) is a function symbol \(f_\phi \in \mcL\) such that \(T \models \A \bar{w} [(\E v \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})]\), in other words, the Skolem functions provide whitnesses for all existentials. 
+\end{definition}
 
-\begin{theorem}\label{theorem_ramseys}
-If \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subset S\) for which every subset of size \(n\) of \(T\) has the same color. 
+\begin{theorem}\label{theorem_skolem_function_extension}
+Note that, for any \(\mcL\)-theory, \(T\), we can find \(\mcL^* \supseteq \mcL\) and \(T^* \supseteq T\) such that \(T^*\) has built in skolem functions. 
+Moreover, if \(\mcM \models T\) we can extend \(\mcM\) to an \(\mcL^*\)-structure, \(\mcM^*\), such that \(\mcM^* \models T^*\). 
 \end{theorem}
 
 \begin{proof}
-Assume without loss of generality that \(S = \N\).
-When \(n=1\), Ramsey's Theorem states we cannot partition \(\N\) into finitely many finite sets, which is clear.
-Now, we will induct on \(n\). 
-We will constuct a \(T \subset \N\) with the following property: the color of every subset of size \(n\) of \(T\) is determined by its least element. 
-Once we have that set \(T\), we can color the elements \(t\) of \(T\) by the color of all \(n\)-element sets with \(t\) as their element. 
-By the pidgeonhole principle, there will be one color which appears infinitely often. 
-If we take \(T' \subset T\) consisting of those elements, every \(n\) element subset of \(T'\) will have a least element and by construction, that subset will have the color \(c\) we chose. 
-\(T'\) will be the desired set. 
+We will construct \(\mcL^*, T^*\) inductively. 
+Let \(\mcL_0 = \mcL\) and \(T_0 = T\). 
+For \(i > 0\) let \(\mcL_i = \mcL_i \cup \{f_\phi \mid \phi \text{ is an } \mcL_{i-1}\text{-formula}\}\) where \(f_\phi\) is a function symbol.
+If \(\phi\) is a formula in \(n\) free variables, the arity of \(f_\phi\) is \(n-1\). 
+\(T_i\) is \(T_{i-1} \cup \{\A \bar{w} [(\E v \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})] \mid \phi \text{ is an } \mcL_{i-1}\text{-formula}\}\).
+Taking \(\mcL^* = \bigcup_{i \in \N} \mcL_i\) and \(T^* = \bigcup_{i \in \N} T_i\) will have built in skolem functions by construction.
 
-We now construct a \(T \subset \N\) such that the color of every subset of size \(n\) of \(T\) is determined by its least element. 
-We can color subsets, \(A\) of size \(n-1\) of \(\N \setminus \{0\}\) by the color assigned to \(A \cup \{0\}\). 
-By the inductive hypothesis, there is \(T_0 \subset \N \setminus \{0\}\) such that every \(n\)-element subset of \(T_0 \cup \{0\}\) with 0 as its least element is the same color. 
-We now take the least element \(t_0 \in T_0\) and similarly apply the inductive typothesis there to get an infinite \(T_1 \subset T_0\) such that every subset of \(T_1 \cup \{0, t_0\}\) with \(t_0\) as its least element has the same color. 
-As \(T_1 \subset T_0\) the same is still true for subsets with \(0\) as their least element. 
-Continuing inductively, we take \(\bigcap_{<\omega}T_i = \{0, t_0, t_1, \ldots\}\) which will have this property. 
-By what we've said above, we've proven Ramsey's Theorem. 
-This is also enough to complete our compactness argument showing that order-indiscernibles of every order type exist.  
-It is natural to identify this set of order indiscernibles with \(I\), so that if \(\mcM \models \Gamma \cup T\), then \(I \subset M\).
+To show that \(\mcM^*\) exists, it suffices to show that, if \(\mcM \models T_i\) then \(\mcM \models T_{i+1}\) given the correct interpretation of the function symbols in \(\mcL_{i+1}\).
+If \(\mcM \models \E x \phi(x, \bar{w})\) then it must be that, for some \(b \in M\) that \(\mcM \models \phi(b, \bar{w})\), so we let \(f_\phi(\bar{w}) = b\). 
+Otherwise, we let \(f_\phi(\bar{w})\) be an arbitrary element of \(M\). 
+
+Note that if \(\mcL\) is countable, then \(\mcL^*\) is countable as well as we add only countably many function symbols at each of the countably many stages.
 \end{proof}
 
-\subsection{Realizing Only Countably Many Types}
+\begin{theorem}\label{theorem_tarski_vaught_test}
+If \(\mcM \subseteq \mcN\) then \(\mcM \prec \mcN\) if and only if for every formula \(\phi(v, \bar{w})\), \(\bar{a} \in M\) and \(b \in N\) such that \(\mcN \models \phi(b, \bar{a})\) there is a \(c \in M\) such that \(\mcM \models \phi(c, \bar{a})\).
+\end{theorem}
 
-% This section could also use help. 
+\begin{proof}
+If \(\mcM \prec \mcN\) then \(\mcM \models \E x \phi(x, \bar{a}) \iff \mcN \models \E x \phi(x, \bar{a})\). This suffices to show the ``only if'' direction.
 
-Now that we are familiar with order indiscernibles, we can use them to build \textit{Ehrenfeucht-Mostowski Models}, which are constructed as \textit{Skolem hulls} of order indiscernibles. 
-We recall that an \(\mcL\)-theory is said to have \textit{built-in Skolem functions} when for all \(\mcL\)-formulae, \(\phi(v, \bar{w})\), there is a function symbol \(f_\phi\) for which 
-\(T \models \A \bar{w} [(\E v \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})]\), in other words, the Skolem functions provide whitnesses for all existentials. 
-Given any \(\mcL\)-theory \(T\), we can extend \(\mcL\) to \(\mcL^*\) so that it includes Skolem-functions and we also extend \(T\) to \(T^*\) which asserts that \(\mcL^*\) has Skolem-functions. 
-Moreover, there is a natural way to interpret any \(\mcM \models T\) as an \(\mcL^*\) structure modeling \(T^*\).
-Given, then \(I \subset M\), we can look at the substructure of \(\mcM\) whose universe will be the smallest set containing \(I\) and closed under our Skolem functions. 
-We will call this model ``\(\mathcal{H}(I)\)'' or the Skolem hull of \(I\).
-Note that \(\mathcal{H}(I) \prec \mcM\). % it's worth explaining why
+In the other direction, we show that \(\mcM \models \phi(\bar{a}) \iff \mcN \models \phi(\bar{a})\) by induction on formulae. 
+As \(\mcM \subseteq \mcN\), \(\mcM \models \phi(\bar{a}) \iff \mcN \models \phi(\bar{a})\) holds for all atomic \(\phi\).
+Assume for all \(\bar{a}\) that  \(\mcM \models \phi(\bar{a}) \iff \mcN \models \phi(\bar{a})\) and \(\mcM \models \psi(\bar{a}) \iff \mcN \models \psi(\bar{a})\).
+It suffices to show:
+\begin{enumerate}
+\item \(\mcM \models \neg \phi(\bar{a}) \iff \mcN \models \neg \phi(\bar{a})\). By assumption \(\mcM \not \models \phi(\bar{a}) \iff  \mcN \not \models \phi(\bar{a})\) which gives us our desired result. 
+\item \(\mcM \models (\phi\land\psi)(\bar{a}) \iff \mcN \models (\phi\land\psi)(\bar{a})\). If \(\mcM \models \phi(\bar{a})\) and \(\mcM \models \psi(\bar{a})\). By the inductive hypothesis,  \(\mcN \models \phi(\bar{a})\) and \(\mcN \models \psi(\bar{a})\). So \(\mcM \models (\phi \land \psi)(\bar{a}) \implies \mcN \models (\phi \land \psi)(\bar{a})\). The same argument applies in the other direction. 
+\item \(\mcM \models \E v \phi(v, \bar{a}) \iff \mcN \models \E v \phi(v, \bar{a})\). If \(\mcM \models \E v \phi(v, \bar{a})\) then for some \(b\) \(\mcM \models \phi(b, \bar{a}) \iff \mcN \models \phi(b, \bar{a})\) by the induction hypothesis. If \(\mcN \models \E v \phi(v, \bar{a})\) then for some \(b\) we have \(\mcN \models \phi(b, \bar{a})\) and, by hypothesis, there is a \(c \in M\) for which \(\mcM \models \phi(c, \bar{a})\) so \(\mcM \models \E v \phi(v, \bar{a})\) as desired.    
+\end{enumerate}
+\end{proof}
 
-We can now achieve our goal of constructing a model of any \(\omega\)-unstable theory which realizes only countably many types over any countable set. 
-Let \(\mcM = \mathcal{H}((\kappa, <))\) be our model of cardinality \(\kappa\) and let \(A\) be an arbitrary countable subset of \(M\). % This is unclear
+\begin{cor}\label{closure_under_skolem_functions}
+If \(T\) has built in skolem functions and \(\mcM \subseteq \mcN \models T\) then \(\mcM \prec \mcN\). 
+As \(\mcM\) is closed under the skolem functions, we can whitness existentials in accordance with the hypothesis of our previous theorem. 
+\end{cor}
+
+\begin{definition}\label{definition_skolem_hull}
+Let \(\mcM \models T\) where \(T\) has built in skolem functions. 
+If \(A \subset M\) then we can take \(\mathcal{H}(A)\) which is the smallest submodel of \(\mcM\) containing \(A\).
+As \(\mathcal{H}(A)\) is a submodel of \(\mcM\) it is closed under skolem functions, so \(\mathcal{H}(A) \prec \mcM\).
+We call \(\mathcal{H}(A)\) the ``skolem hull'' of \(A\).
+\end{definition}
+
+\begin{definition}\label{definition_ehrenfeuct_mostowski_model}
+If \(T\) is an \(\mcL\)-theory with build in skolem functions and infinite models, given any infinite ordered set \(I\), we find a \(\mcM \models T\) such that \(I \subset M\) is an infinte set of order indiscernibles. 
+We call \(\mathcal{H}(I)\) an Ehrenfeucht-Mostowski model. 
+Note that if \(\mcL\) is countable \(|\mathcal{H}(I)| = |I|\) as every element of \(\mathcal{H}(I)\) is an \(\mcL_{I}\)-term, of which there are \(|\mcL|+|I| = |I|\).
+\end{definition}
+
+\begin{theorem}\label{theorem_ehrenfeuct_mostowski_types}
+Let \(T\) be an arbitrary theory and \((\kappa, <)\) be a set of order indiscernibles of order type \(\kappa\).
+Let \(\mcM = \mathcal{H}((\kappa, <))\models T\). 
+\(\mcM\) is a model of size \(\kappa\) realizing countably many types over any countable \(A\).
+\end{theorem}
+
+\begin{proof}
 As every element of \(M\) (and of \(A\)) must be a Skolem term (i.e. of the form \(f_\phi(\bar{x})\) for some vector of indiscernables), it suffices to look at the types over countable subsets of \(\kappa\).
 Let \(X\) be this countable subset of \(\kappa\). 
 It suffices to show that for each fixed \(n, \phi\), terms of the form \(f_\phi(y_1, \ldots, y_n)\) realize only countably many types. 
@@ -190,6 +226,7 @@ We see that \(f_\phi(y_1, \ldots, y_n)\) and \(f_\phi(z_1, \ldots, z_n)\) realiz
 This is because indiscernability tells us \(\mcM \models \psi(f_\phi(\bar{y}), \bar{x}) \iff \mcM \models \psi(f_\phi(\bar{z}), \bar{x})\) when the relative orders of the indiscernibles in \(\bar{y}\bar{x}\) and in \(\bar{z}\bar{x}\) are the same. 
 It now suffices to note that, as \(\kappa\) is well ordered, we get only countably many cuts of \(X\). 
 This deals with the 1-types. Dealing with the \(n\)-types only requires dealing with \(n\)-tuples of formulae instead of the single formula \(\phi\) we adressed here. 
+\end{proof}
 
 \begin{theorem}\label{theorem_omega_stability_categoricity}
 Any theory which is not \omst cannot be categorical in any uncountable cardinal. Contrapositively, all uncountably categorical theories are \(\omega\)-stable

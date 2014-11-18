@@ -17,7 +17,7 @@ Clearly, prime models are unique up to isomorphism.
 Easy examples of prime models are \(\Q\) for fields of characteristic 0 and \(\N\) for \(\Th(\N, 0, s)\). 
 Our intuition should be that if \(\mcM\) is a prime model of \(T\), it consists only of those elements which ``must be in any model of \(T\)''.
 We can deal with a slightly more general notion which will be useful later. 
-If \(\mcM \models T\) as above and \(A \subset M\), then \(\mcM\) is prime over \(A\) if, for all \(\mcN \models T\) and \(f:A \to \mcN\) partial elementary, we have a \(f^* \supset f\) embedding \(\mcM\) in \(\mcN\). 
+If \(\mcM \models T\) as above and \(A \subseteq M\), then \(\mcM\) is prime over \(A\) if, for all \(\mcN \models T\) and \(f:A \to \mcN\) partial elementary, we have a \(f^* \supseteq f\) embedding \(\mcM\) in \(\mcN\). 
 Note that \(\mcM\) is a prime model iff it is prime over the empty set. 
 \end{definition}
 
@@ -35,7 +35,7 @@ A type \(p(\bar{v})\) is isolated if there is a \(\phi(\bar{v}) \in p(\bar{v})\)
 
 \begin{proof}\label{proof_omst_prime} 
 We will prove something a little more general, which will be useful later.
-That is, if \(T\) is \(\omega\)-stable, \(\mcM \models T\) and \(A \subset M\) then there is an \(\mcM_0\) which is prime over \(A\). 
+That is, if \(T\) is \(\omega\)-stable, \(\mcM \models T\) and \(A \subseteq M\) then there is an \(\mcM_0\) which is prime over \(A\). 
 By primality, we know that \(\mcM_0\) can be associated with a subset of \(\mcM\) including \(A\). 
 We will build up that set by induction. 
 
@@ -48,7 +48,7 @@ If no such \(m_\alpha\) exists, our chain will only have length \(\alpha\).
 If \(\alpha\) is a limit ordinal, let \(A_\alpha = \bigcup_{\beta < \alpha} A_\beta\). 
 As we can only add elements of \(\mcM\) our chain must eventually end and have a length \(\delta\) (that is no isolated types over \(A_\delta\) are realized by elements not already in \(A_\delta\)).
 
-We would like to show that if \(\mcM_0 \subset \mcM\) has universe \(A_\delta\) then \(\mcM_0 \prec \mcM\).
+We would like to show that if \(\mcM_0 \subseteq \mcM\) has universe \(A_\delta\) then \(\mcM_0 \prec \mcM\).
 % Do that
 {\color{red}Prove this \(\ldots\)}
 
@@ -62,7 +62,7 @@ Moreover, \(\mcM_0\) is prime over \(A\), that is, for all \(\mcN\) and \(f: A \
 \begin{definition}\label{definition_minimality}
 We say that a \(\mcL_\mcM\)-formula \(\phi\) is \textit{minimal} if \(\phi(\mcM) = \{\bar{m} \in M \mid \mcM \models \phi(\bar{m})\) is infinite and has no infinite and co-infinite definable subsets. 
 We may also call \(\phi(\mcM)\) minimal. 
-We will call \(\phi\) and the set \(\phi(\mcM) \subset M\) % Possible Clarification: more clarity on what it means for sets/formulas to be minimal esp. strongly minimal
+We will call \(\phi\) and the set \(\phi(\mcM) \subseteq M\) % Possible Clarification: more clarity on what it means for sets/formulas to be minimal esp. strongly minimal
 \textit{strongly minimal} if they are minimal in any elementary extension of \(\mcM\).
 Moreover, a theory is strongly minimal if the set \(M\) (defined by the formula \(v = v\)) is strongly minimal. 
 \end{definition}
@@ -129,17 +129,17 @@ From this fact, we will be able to show they are isomorphic, providing us, final
 
 
 \begin{definition}\label{definition_algebraic_closure}
-Given a model \(\mcM\) and an \(A \subset M\), we define the algebraic closure of \(A\), denoted \(\acl(A)\) to be all elements of \(M\) which are in a finite set definable by an \(\mcL_A\)-formula. 
+Given a model \(\mcM\) and an \(A \subseteq M\), we define the algebraic closure of \(A\), denoted \(\acl(A)\) to be all elements of \(M\) which are in a finite set definable by an \(\mcL_A\)-formula. 
 (Note that by quantifier elimination over algebraically closed fields, this notion of ``algebraic closure'' agrees with the familiar one.)
 \end{definition}
 
-The algebraic closure has the nice properties that \(\acl(\acl(A)) = \acl(A)\), that \(A \subset B \implies \acl(A) \subset \acl(B)\) and that if \(a \in \acl(A)\) then there is a finite subset \(A_0 \subset A\) such that \(a \in \acl(A_0)\).
+The algebraic closure has the nice properties that \(\acl(\acl(A)) = \acl(A)\), that \(A \subseteq B \implies \acl(A) \subseteq \acl(B)\) and that if \(a \in \acl(A)\) then there is a finite subset \(A_0 \subseteq A\) such that \(a \in \acl(A_0)\).
 This almost gives us that algebraic closure is a pregeometry. % Definition?
 The only other fact we would have to know is exchange, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 This is only true when we take \(A\) to be a subset of some strongly minimal set.
 
 \begin{theorem}\label{theorem_exchange}
-Let \(S\) be a strongly minimal set. If \(A \subset S, a, b \in S\) and \(a, b \notin \acl(A)\) but \(a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
+Let \(S\) be a strongly minimal set. If \(A \subseteq S, a, b \in S\) and \(a, b \notin \acl(A)\) but \(a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 \end{theorem}
 
 % Possible Clarification: Limiting \acl to a set D
@@ -163,8 +163,8 @@ This is a contradiction as \(\psi(b')\) asserts there are only \(n\) such elemen
 \end{proof}
 
 \begin{definition}\label{definition_independence}
-As above let \(D\) be a minimal set. \(A \subset D\) is independent if for all \(a \in A\), \(a \notin \acl(A \setminus \{a\})\). 
-% Possible Addition: Define ``independent over''. \(A \subset D\) is independent over \(C \subset D\) if, for all \(a \in A\), \(a \notin \acl(C \cup (A \setminus \{a\}))\). 
+As above let \(D\) be a minimal set. \(A \subseteq D\) is independent if for all \(a \in A\), \(a \notin \acl(A \setminus \{a\})\). 
+% Possible Addition: Define ``independent over''. \(A \subseteq D\) is independent over \(C \subseteq D\) if, for all \(a \in A\), \(a \notin \acl(C \cup (A \setminus \{a\}))\). 
 % Stricken: We call a maximal independent subset of \(A\) a basis for \(A\). 
 \(B\) is a basis for \(A\) when \(\acl(A) = \acl(B)\) and \(B\) is independent.
 We will show that all bases of a set \(A\)  have the same cardinality, which we will call the dimension of \(A\).
@@ -176,9 +176,9 @@ Given two disjoint independent sets, \(S, T\), %whose union is also independent?
 \end{lemma}
 
 \begin{proof}
-Let \(T_0 \subset T\) be of the smallest cardinality such that \(s \in \acl(S \cup T_0)\). 
+Let \(T_0 \subseteq T\) be of the smallest cardinality such that \(s \in \acl(S \cup T_0)\). 
 Clearly, \(T_0\) is non-empty, so choose \(t \in T_0\). 
-\(s \in \acl(S \cup T_0)\) and by exchange \(t \in \acl(S \cup \{s\} \cup T_0 \setminus \{t\}) \subset \acl(S \cup \{s\} \cup T \setminus \{t\})\).
+\(s \in \acl(S \cup T_0)\) and by exchange \(t \in \acl(S \cup \{s\} \cup T_0 \setminus \{t\}) \subseteq \acl(S \cup \{s\} \cup T \setminus \{t\})\).
 We can conclude \(\acl(S \cup \{s\} \cup T \setminus \{t\}) = \acl(S \cup T)\) as the former contains \(S \cup T\) and is algebraically closed and \(s \in \acl(S \cup T)\). 
 It suffices to show \(S \cup \{s\} \cup T \setminus \{t\}\) is independent. 
 We already know that \(S \cup T\) and therefore \(S \cup T \setminus \{t\}\) are independent. 

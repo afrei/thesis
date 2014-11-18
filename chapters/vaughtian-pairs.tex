@@ -43,10 +43,10 @@ By construction, the countable model of this theory which is satisfied by \((\mc
 For the next few claims we will need to use a property called homogeneity which will allow us to show that certain countable models are isomorphic.
 
 \begin{definition}\label{definition_homogeneity}
-We call a countable model \(\mcM\) is homogeneous if all finite \(A \subset M\) and functions \(f: A \to M\) for which \(\mcM \models \phi(\bar{v}) \iff \mcM \models \phi(f(\bar{v}))\) -- we call this property being ``partial elementary'' -- and every \(m \in M\), there is a \(f': A \cup \{m\} \to M\) extending \(f\) which is partial elementary. % Examples?
+We call a countable model \(\mcM\) is homogeneous if all finite \(A \subseteq M\) and functions \(f: A \to M\) for which \(\mcM \models \phi(\bar{v}) \iff \mcM \models \phi(f(\bar{v}))\) -- we call this property being ``partial elementary'' -- and every \(m \in M\), there is a \(f': A \cup \{m\} \to M\) extending \(f\) which is partial elementary. % Examples?
 \end{definition}
 
-The first interesting thing we will note about countable homogeneous models is that any partial elementary map \(f: A \to M\) (where \(A \subset M\) is finite) can be extended to an automorphism. 
+The first interesting thing we will note about countable homogeneous models is that any partial elementary map \(f: A \to M\) (where \(A \subseteq M\) is finite) can be extended to an automorphism. 
 To see this, note that partial elementary maps have partial elementary inverses. And \(f_0 = f\) %this bad
 We will alternatively extend the domain and range of \(f_i\) by elements in \(M\). 
 By construction, \(f^* = \bigcup_{<\omega}f_i\) has domain and range equal to all of \(M\). %something here
@@ -65,8 +65,8 @@ We will enumerate the elements in the universe of both models, and iteratively a
 If we can do this, the union of this sequence of maps will be an isomorphism.
 As the inverse of a partial elementary map is also partial elementary, it will suffice to show that we can extend a partial elementary map to include an arbitrary element in its range. 
 Let \(dom(f) = \{m_1, \ldots, m_i\}, rng(f) = \{n_1, \ldots, n_i\}, f(m_j) = n_j\).
-Now, choose \{m\} an arbitrary element of \(M\), our goal is to find \(g \supset f\) which is partial elementary and \(m \in dom(g)\).
-Note that we can find a partial elementary \(h\) for which \(dom(f) \cup \{m\} \subset dom(h)\) by merely finding the realization of \(tp(\bar{m}, m)\) in \(\mcN\), which is guarunteed by \(\mcM, \mcN\) realizing the same types. 
+Now, choose \{m\} an arbitrary element of \(M\), our goal is to find \(g \supseteq f\) which is partial elementary and \(m \in dom(g)\).
+Note that we can find a partial elementary \(h\) for which \(dom(f) \cup \{m\} =  dom(h)\) by merely finding the realization of \(tp(\bar{m}, m)\) in \(\mcN\), which is guarunteed by \(\mcM, \mcN\) realizing the same types. 
 Our one remaining obstacle is that \(h(m_i)\) may not be equal to \(n_i\). 
 This can be rectified with homogeneity. We can easily see that the function which takes \(h(m_i) \mapsto n_i\) can be extended to an automorphism. 
 By simply composing this automorphism with our \(h\) from above to form \(g\) we have found our desired function. 
