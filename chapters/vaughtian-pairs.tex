@@ -45,14 +45,16 @@ Any \(\mcN \models \Gamma\) will have \(|\phi(\mcN)| = \kappa\).
 \end{proof}
 
 We see the connection between some Vaughtian pairs and lacking \(\kappa\)-categoricity, specifically Vaughtian pairs \((\mcN, \mcM)\) for which \(|\mcN| = \kappa\) and \(|\mcM| = \aleph_0\).
-It would suffice to show that whenever there is any Vaughtian pair for \(T\), we can construct a model of \(T\) of any cardinality \(\kappa\) which has a countable definable subset. 
+It would suffice to show that whenever there is any Vaughtian pair for an \omst theory \(T\), we can construct a model of \(T\) of any cardinality \(\kappa\) which has a countable definable subset. 
+If \(T\) is not \omst then Theorem \ref{theorem_omega_stability_categoricity} tells us \(T\) is not \(\kappa\)-catgeorical.
+Otherwise, this construction, coupled with Theorem \ref{theorem_vaughtian_pair_categoricity} tells us \(T\) isn't \(\kappa\)-categorical.
 The rest of this chapter will show this construction. 
 
-\begin{theorem}\label{thm_countable_vaughtian_pairs}
+\begin{theorem}\label{theorem_countable_vaughtian_pairs}
 If \(\mcL\) is countable and an \(\mcL\)-theory \(T\) has a Vaughtian pair \(\mcN, \mcM\), it has a Vaughtian pair \((\mcN_0, \mcM_0)\) of countable models. 
 \end{theorem}
 
-\begin{proof}\label{proof_countable_vaughtian_pairs}
+\begin{proof}
 It will suffice to show that there is an \(\mcL^U\)-theory, \(T'\), for which \((\mcA, \mcB) \models T'\) iff \((\mcA, \mcB)\) forms a Vaughtian pair for \(T\). 
 As \((\mcN, \mcM)\) forms a Vaughtian pair, \(T'\) is satisfiable.
 As \(\mcL^U\) is countable, it has a countable model, \((\mcN_0, \mcM_0)\), by the downward L\"owenheim-Skolem theorem.
@@ -103,41 +105,58 @@ Let \(f^* = \bigcup_{i \in \N}f_i\).
 \(f^*\) has domain and range equal to all of \(M\) and is partial elementary, making \(f^*\) our desired automorphism.
 \end{proof}
 
+
+
 \begin{lemma}\label{lemma_types_isomorphism}
 The next thing we note about countable homogeneous models, \(\mcM\) and \(\mcN\), of the same complete theory, \(T\), is that if \(\mcM\) and \(\mcN\) realize the same types in \(S_n(T)\), they are isomorphic.
 \end{lemma}
 
-\begin{proof}\label{proof_types_isomorphism}
-To show this, we will build a map in a way very similar to the way we built \(f^*\) above. 
-Note that we need \(T\) to be complete in order for \(f_0=\emptyset\) to be partial elementary.
-We will enumerate the elements in the universe of both models, and iteratively add elements to the domain and range of a partial elementary map. 
+\begin{proof}
+To show this, we will build a map in a way very similar to the way we built \(f^*\) in Theorem \ref{theorem_partial_elementary_automorphism}
+We start by letting \(f_0 = \emptyset\), which is partial elementary if \(T\) is complete. . 
+We will enumerate the elements in the universe of both models, and iteratively add elements to the domain and range of a partial elementary map as above.
 If we can do this, the union of this sequence of maps will be an isomorphism.
-As the inverse of a partial elementary map is also partial elementary, it will suffice to show that we can extend a partial elementary map to include an arbitrary element in its range. 
-Let \(dom(f) = \{m_1, \ldots, m_i\}, rng(f) = \{n_1, \ldots, n_i\}, f(m_j) = n_j\).
-Now, choose \{m\} an arbitrary element of \(M\), our goal is to find \(g \supseteq f\) which is partial elementary and \(m \in dom(g)\).
-Note that we can find a partial elementary \(h\) for which \(dom(f) \cup \{m\} =  dom(h)\) by merely finding the realization of \(tp(\bar{m}, m)\) in \(\mcN\), which is guarunteed by \(\mcM, \mcN\) realizing the same types. 
-Our one remaining obstacle is that \(h(m_i)\) may not be equal to \(n_i\). 
-This can be rectified with homogeneity. We can easily see that the function which takes \(h(m_i) \mapsto n_i\) can be extended to an automorphism. 
-By simply composing this automorphism with our \(h\) from above to form \(g\) we have found our desired function. 
+
+As the inverse of a partial elementary map is also partial elementary, it will suffice to show that, for an arbitrary  partial elementary map \(f\) and element \(n \in N\), we can find \(f'\subseteq f\) with \(m \in \text{dom}(f')\).
+Let \(\text{dom}(f) = \{m_1, \ldots, m_i\}, \text{rng}(f) = \{n_1, \ldots, n_i\}, f(m_j) = n_j\).
+Note that we can find a partial elementary \(h\) for which \(dom(f) \cup \{m\} =  dom(h)\) by merely finding the realization of \(\text{tp}(\bar{m}, m)\) in \(\mcN\), which must exist by hypothesis.
+Our one remaining obstacle is that \(h(m_i)\) may not be equal to \(n_i\) for all \(i\). 
+This can be rectified with homogeneity. 
+We can easily see that the function \(g: h(m_i) \mapsto n_i\) and which is undefined everywhere else, is a partial elementary map which can be extended to an automorphism by Theorem \ref{theorem_partial_elementary_automorphism}. 
+Call this automorphism \(g'\). 
+We take \(f' = g' \circ h\).
+\(f'\) is partial elementary, extends \(f\) and has \(m\) in its domain.   
+
+We alternate adding elements of \(M\) and \(N\) to domain and range of \(f_i\) as above and take the union of these functions.
+Their union will be a partial elementary bijection defined on all of \(M\) and therefore an isomorphism
 \end{proof}
 
-% Possible Clarification: Moving from types over models to types over theories (p.125)
-
-\begin{theorem}\label{theorem_vaughtian_pairs_countable_isomorphic}
-A Vaughtian pair of countable models, (\(\mcN_0, \mcM_0\)) can be extended to a Vaughtian pair of isomorphic countable models.
+\begin{theorem}\label{theorem_countable_isomorphic_vaughtian_pair}
+A Vaughtian pair of countable models, (\(\mcN_0, \mcM_0\)), can be extended to a Vaughtian pair of isomorphic countable models.
 \end{theorem}
 
+% TODO A: Revise this proof
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{proof}
+
+{\color{red} I think this proof will get a rewrite.}
+
 By above, it suffices to show a vaughtian pair \((\mcN, \mcM)\) can be extended to a vaughtian pair \((\mcN^*, \mcM^*)\) where \(\mcN^*, \mcM^*\) are homogeneous and realize the same types. 
 
 We aim to construct a chain of Vaughtian pairs indexed by the natural numbers such that each pair is an elementary extension of the previous one and their union will be homogeneous and realize the same types. 
 The zeroth pair is the countable pair (\(\mcN_0, \mcM_0\)) from above. 
 For \(i > 0\) we construct (\(\mcN_i, \mcM_i\)) as follows (the details of constructions in each of these stages will follow):
+
 \begin{enumerate}
-\item  If \(i\) is a multiple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that for every \(\bar{a} \in M\) every type in \(S_n(\bar{a})\) realized in \(\mcN_{i-1}\) is realized in \(\mcM_i\). %make sure vector notation is good. 
-\item  If \(i\) is one more than a mutliple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that if \(\bar{a}, \bar{b}\) realize the same type in \(\mcM_{i-1}\) and \(c \in \mcM_{i-1}\), then there is a \(d \in \mcM_i\) such that \(\bar{a}c\) and \(\bar{b}d\) realize the same type in \(\mcM_i\). 
-\item If \(i\) is two more than a mutliple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that if \(\bar{a}, \bar{b}\) realize the same type in \(\mcN_{i-1}\) and \(c \in \mcN_{i-1}\), then there is a \(d \in \mcN_i\) such that \(\bar{a}c\) and \(\bar{b}d\) realize the same type in \(\mcN_i\).
+
+  \item  If \(i\) is a multiple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that for every \(\bar{a} \in M\) every type in \(S_n(\bar{a})\) realized in \(\mcN_{i-1}\) is realized in \(\mcM_i\). %make sure vector notation is good. 
+
+  \item  If \(i\) is one more than a mutliple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that if \(\bar{a}, \bar{b}\) realize the same type in \(\mcM_{i-1}\) and \(c \in \mcM_{i-1}\), then there is a \(d \in \mcM_i\) such that \(\bar{a}c\) and \(\bar{b}d\) realize the same type in \(\mcM_i\). 
+
+  \item If \(i\) is two more than a mutliple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that if \(\bar{a}, \bar{b}\) realize the same type in \(\mcN_{i-1}\) and \(c \in \mcN_{i-1}\), then there is a \(d \in \mcN_i\) such that \(\bar{a}c\) and \(\bar{b}d\) realize the same type in \(\mcN_i\).
+
 \end{enumerate}
+
 If we let \((\mcN, \mcM) = \bigcup_{i \in \N}(\mcN_i, \mcM_i)\), we see that every type realized in \(\mcN\) is realized in some \(\mcN_i\) and therefore in \(\mcM_{i+3}\) (as we must have done the first stage of our construction once in the interim) and thus in \(\mcM\). 
 Similarly, any type realized in \(\mcM\) must be realized in some \(\mcM_i\) and in \(\mcN_i\) as well (as \(\mcM \prec \mcN\)) and thus in \(\mcN\).
 Thus, \(\mcM\) and  \(\mcN\) realize the same types.  
@@ -145,7 +164,9 @@ Given a partial elementary map \(f:\mcM \to \mcM\) with finite domain, we have \
 Similarly for homogeneity of \(\mcN\) by the third stage of our construction. 
 
 At this point it would suffice to show how to construct the elementary extensions mentioned in our three stages. 
+
 \begin{enumerate}
+
 \item As we can enumerate the countably many types over finite sets realized in any countable \(\mcN\) (there are countably many finite sequences from a countable set and countably many \(\bar{a}\)), it would suffice to show that if \(p(\bar{v})\) is an \(\bar{a}\)-type and \((\mcN, \mcM)\) is a Vaughtian pair with \(\mcN\) realizing \(p(\bar{v})\) that there is a \((\mcN, \mcM) \prec (\mcN', \mcM')\) with \(\mcM'\) realizing \(p(\bar{v})\). 
 We can see that \(\Gamma = \eldiag((\mcN, \mcM)) \cup \{\phi_U(\bar{v}, \bar{a}) \mid \phi(\bar{v}, \bar{a}) \in  p(\bar{v})\}\) is satisfiable.  
 Specifically, if \(\phi_1(\bar{v}, \bar{a}), \ldots, \phi_k(\bar{v}, \bar{a}) \in p\) are a finite subset of this type, we know that \(\mcN \models \bigwedge \E \bar{x} \phi_k(\bar{x},\bar{a})\) and therefore that \(\mcM \models \bigwedge \E \bar{x} (\phi_k)_U(\bar{x},\bar{a})\). 
@@ -153,47 +174,84 @@ This finite subset if realized in \((\mcN, \mcM)\) itself.
 Any model of \(\Gamma\) is an elementary extension of \((\mcN, \mcM)\) which we may call \((\mcN', \mcM')\).
 We can also take \((\mcN', \mcM')\) to be countable. 
 As \((\mcN', \mcM') \models \Gamma\) we also have that \(p(\bar{v})\) is realized in \((\mcN', \mcM')\). 
+
 \item The construction for this stage is very similar to the one covered just above for the first stage.
 Again, it will suffice to show that just one such type can be realized (namely the type of \(c\) over \(\bar{a}\)) as we can add realizations for our countably many types one at a time. 
 Here, we take \(\Gamma = \eldiag((\mcN, \mcM)) \cup \{\phi(\bar{b}, d) \mid \phi(\bar{a}, c)\}\). 
 If some finite subset, \(\Phi\), were not realizable, we would have \(\mcM \models \exists x \Phi(\bar{a})\) but this formuale wouldn't hold for \(\bar{b}\), giving a contradiction. 
-\item The argument above can applies again, except we no longer take \(\phi\) to be a formula in \(\mcM\). % TODO: clarify this. 
+
+\item Here we let \(\Gamma = \eldiag((\mcN, \mcM)) \cup \{\phi(\bar{b}, d) \mid \mcN \models \phi(\bar{a}, c)\}\) where \(d\) is a new constant symbol.
+If \(\Gamma\) is not finitely satisfiable that must mean that for some \(\phi\) we have \(\mcN \models \phi(\bar{a}, c) \land \neg \E x \phi(\bar{b}, x)\), 
+so \(\bar{a}, \bar{b}\) cannot have the same type, a contradiction.
+
 \end{enumerate}
 
 \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% claim?
-\begin{theorem}\label{theorem_aleph_one_vaightian_pairs}
-Given a Vaughtian pair of countable isomorphic models, \((\mcN_1, \mcN_0) \models T\), we can construct a model \(\mcN^*\models T\) which is of cardinality \(\aleph_1\) and has a definable subset which is countable.  
-\end{theorem}
+\begin{lemma}\label{lemma_extend_isomorphically}
+Let \((\mcN, \mcM)\) be a vaughtian pair of countable models, \(\mcN'\) a countable model and \(f:\mcN' \to \mcM\) is an isomorphism. 
+We claim that there must exist an \(\mcN''\) such that \((\mcN'', \mcN') \isom (\mcN, \mcM)\). 
+\end{lemma}
 
 \begin{proof}
-% We have \(\mcN_0 \prec \mcN_1\) so \(\iota: \mcN_0 \to \mcN_1\) is the map including \(\mcN_0\) into \(\mcN_1\). 
-% Additionally, we have an isomorphism \(f: \mcN_0 \to \mcN_1\). 
-
-% TODO 2: Proof of 4.3.34
-\textcolor{red}{Insert Proof Here \ldots}
+Let \(N'' = N' \cup (N \setminus M)\).
+Define \(f'': N'' \to N\) as follows: if \(x \in N'\) then \(f'(x) = f(x)\). 
+Otherwise, \(f'(x) = x\). 
+By construction, \(f'\) is a bijection between \(N''\) and \(N\) which, when restricted to \(N'\) is a bijection between  \(N'\) and \(M\). 
+For atomic \(\mcL^U\)-formulae \(\phi\), let \((\mcN'', \mcN') \models \phi(\bar{v}) \iff (\mcN, \mcM) \models \phi(f'(\bar{v}))\).
+This gives us interpretations of \(\mcL\) for \(\mcN''\) such that \(f'\) is an \(\mcL\)-isomorphism by construction. 
 \end{proof}
 
-\begin{theorem}\label{theorem_uncountable_vaightian_pairs}
-Given a Vaughtian pair \((\mcN, \mcM)\), \(\mcN, \mcM \models T\) where \(|N| = \aleph_1\), \(\mcM\) is countable and \(T\) is \(\omega\)-stable, for every uncountable cardinal \(\kappa\), there is a model of \(T\) of cardinality \(\kappa\) with a countable definable subset.  
+\begin{theorem}\label{theorem_aleph_one_vaughtian_pair}
+Given a Vaughtian pair of countable isomorphic models, \((\mcN, \mcM) \models T\), we can construct a model \(\mcN^* \models T\) which is of cardinality \(\aleph_1\) and has a definable subset which is countable.  
+\end{theorem}
+
+% Consider discussing elementary chains
+
+\begin{proof}
+We will construct \(\mcN^*\) as the union of an elementary chain of models \(\mcN_\alpha\) indexed by \(\omega_1\).
+
+Let \(\mcN_0 = \mcN\). 
+We'd like to maintain \(\mcN_\alpha \isom \mcN\) and \(\phi(\mcN_\alpha) = \phi(\mcN)\) and \(\mcN_\alpha\) is countable. 
+This is true by hypothesis for \(\mcN\).
+
+If \(\alpha + 1\) is not a limit ordinal, let \(\mcN_{\alpha + 1}\) be a countable model of \(T\) such that \((\mcN_{\alpha+1}, \mcN_\alpha) \isom (\mcN, \mcM)\) which exists by Lemma \ref{lemma_extend_isomorphically}. 
+As \((\mcN_{\alpha+1}, \mcN_\alpha)\) is a Vaughtian pair, we've ensured that \(\mcN_\alpha \prec \mcN_{\alpha+1}\) and \(\mcN_\alpha \neq \mcN_{\alpha+1}\).
+We have \(\phi(\mcN_{\alpha + 1}) = \phi(\mcN_\alpha)\) and by hypothesis \(\phi(\mcN_\alpha) = \phi(\mcM)\). 
+Similarly,  \(\mcN_{\alpha+1} \isom \mcN_\alpha \isom \mcN\). 
+
+To define \(\mcN_\alpha\) where \(\alpha\) is a limit ordinal, let \(\mcN_\alpha = \bigcup_{\beta < \alpha}\mcN_\beta\). 
+As \(\mcN_\alpha\) is the union of countably many countable sets, it is countable. 
+If \(\bar{a} \in \mcN_\alpha\) then \(\bar{a} \in \mcN_\beta\) for some \(\beta < \alpha\). 
+As \(\mcN_\beta \prec \mcN_\alpha\), \(\text{tp}^{\mcN_\beta}(\bar{a}) = \text{tp}^{\mcN_\alpha}(\bar{a})\). 
+As \(\mcN_\beta \isom \mcM\), this type is realized in \(\mcN\).
+Thus, every from \(S_n(T)\) realized in \(\mcN_\alpha\) is realized in \(\mcN\). 
+The converse follows from \(\mcN \prec \mcN_\alpha\). 
+Thus \(\mcN \isom \mcN_\alpha\).
+
+If \(\mcN^* = \bigcup_{\alpha < \omega_1}\mcN_\alpha\) we know that \(\phi(\mcN^*) = \phi(\mcN) \subset \mcM\) which is countable.
+As \(\mcN \prec \mcN^*\) we have \(\mcN^* \models T\).  
+As we add at most countably many but at least one element at each of the \(\aleph_1\) stages, we have \(|\mcN^*| = \aleph_1\).
+\end{proof}
+
+\begin{theorem}\label{theorem_uncountable_vaughtian_pairs}
+Given \(\mcM \models T\) where \(|M| = \aleph_1\), \(T\) is \(\omega\)-stable and \(\phi(\mcM)\) is countably infinite, for every uncountable cardinal \(\kappa\), there is a model of \(T\) of cardinality \(\kappa\) with a countably infinite definable subset.  
 \end{theorem}
 
 \begin{proof}
 % TODO 2b: Proof of 4.3.41 
-Let \(\phi\) be the formula defining a countable subset. 
-It suffices to construct an elementary chain of models indexed by ordinals less than \(\kappa\) such that \(\mcM_\alpha \prec \mcM_{\alpha+1}\) and \(\mcM_\alpha \neq \mcM_{\alpha+1}\) but \(\phi(\mcM_\alpha) = \phi(\mcM_{\alpha+1}\). 
-The model given by \(\bigcup_{\alpha<\kappa} \mcM_\alpha\) will be of size \(\kappa\) (as there are \(\kappa\) many stages, each adding fewer than \(\kappa\) many elements but at least one).
-By construction, \(\phi\) will still define a countable subset. 
-
-\textcolor{red}{Insert Proof Here \ldots} 
 \end{proof}
 
 \begin{theorem}\label{theorem_vaughtian_pairs_categoricity}
-Any theory which has Vaughtian pairs cannot be \(\kappa\)-categorical for any uncountable \(\kappa\).
+Any theory, \(T\), which has Vaughtian pairs cannot be \(\kappa\)-categorical for any uncountable \(\kappa\).
 \end{theorem}
 
 \begin{proof}
-As we stated above, we can also create a model of \(T\) of size \(\kappa\) where all infinite definable sets are of size \(\kappa\). 
-Such a model wouldn't be isomorphic to the model we just created which has a countable definable subset. 
+If \(T\) is not \omst it cannot be categorical for any uncountable \(\kappa\) by Theorem \ref{theorem_omega_stability_categoricity}.
+Otherwise, as \(T\) has a Vaughtian pair, by Theorem \ref{theorem_countable_vaughtian_pairs} it has a Vaughtian pair of countable models. 
+By Theorem \ref{theorem_countable_isomorphic_vaughtian_pair} it has a Vaughtian pair of countable isomorphic models.
+By Theorem \ref{theorem_aleph_one_vaughtian_pair} it has a model of size \(\aleph_1\) with a countable definable subset. 
+By Theorem \ref{theorem_uncountable_vaughtian_pairs} it has a model of size \(\kappa\) which has a countable subset.  
+Theorem \ref{theorem_vaughtian_pair_categoricity} tells us that \(T\) cannot be \(\kappa\)-categorical. 
 \end{proof}

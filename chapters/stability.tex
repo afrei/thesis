@@ -13,6 +13,9 @@ Let \(A, \mcM, \mcL\) as above.
 An \(n\)-type over \(A\), \(p\), is a set of \(\mcL_A\)-formulae in \(n\) free variables (\(v_1, \ldots, v_n\)) for which \(p \cup \Th_A(\mcM)\) is satisfiable.
 We say that \(p\) is complete if, for every \(\mcL_A\)-formula \(\phi(v_1, \ldots, v_n)\), either \(p \ni \phi\) or \(p \ni \neg \phi\). 
 We call the set of all complete \(n\) types over \(A\) ``\(S_n^\mcM(A)\)''. 
+
+In the event that \(A = \emptyset\), \(T\) is a complete theory and \(\mcM, \mcN \models T\), we observe that \(S_n^\mcM(\emptyset) = S_n^\mcN(\emptyset)\) as both consist of complete \(n\)-types consistent with \(T\). 
+We define \(S_n(T) = S_n^\mcM(\emptyset)\).
 \end{definition}
 
 Let's consider a few simple examples of types when  \(\mcM = (\N,s)\), the natural numbers with successor and \(A = \{0\}\) (we've added a constant symbol for 0). 
