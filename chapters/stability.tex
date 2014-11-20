@@ -6,7 +6,7 @@ It will often be natural to want to add constant symbols for every element of \(
 We will call the resulting language \(\mcL_A\). \(\mcM\) has a natural definition as an \(\mcL_A\)-structure. 
 In general, we call the set of \(\mcL_A\)-sentences true in \(\mcM\) ``\(\Th_A(\mcM)\)'' and, in the special case where \(A = M\) we call it \(\eldiag(\mcM)\) or the ``elementary diagram of \(\mcM\)''. 
 
-\section{Defining Types}
+\subsection{Defining Types}
 
 \begin{definition}\label{def_types}
 Let \(A, \mcM, \mcL\) as above. 
@@ -37,7 +37,7 @@ We note that \(p \cup \Th_{\{0\}}(\N)\) is satisfiable (as it is finitely satisf
 We can extend \{p\} to a complete type, but that type cannot be realized by any natural number, since an element realizing \(p\) is greater than every natural number by construction. 
 We see that it isn't always the case that a type is realized in every model, even though it is consistent with the theory of that model. 
 
-\section{Defining Stability}
+\subsection{Defining Stability}
 
 \begin{definition}\label{def_stability}
 Let \(T\) be a complete theory in a countable language and \(\kappa\) be an infinite cardinal. 
@@ -75,13 +75,13 @@ Given an arbitrary \(\phi(a, \bar{b})\) with \(\bar{b} \in A\) we know that \(\p
 This suffices to decide \(\phi(a, \bar{b})\) and show the \(\omega\)-stability of the theory of \((\Z, s)\).
 \end{example}
 
-\section{A Theorem about \(\omega\)-stability}
+\subsection{A Theorem about \(\omega\)-stability}
 We now aim to show that no theory \(T\) can be uncountably categorical, unless it is \(\omega\)-stable.
 It suffices to show that for all uncountable \(\kappa\) we can present two non-isomorphic models of \(T\) of cardinality \(\kappa\), given only that \(T\) is not \(\omega\)-stable.  
 We will do so by finding one model realizing only countably many types over any countable set, and one realizing uncountably many types over some countable set. 
 Clearly, two such models will not be isomorphic, so \(T\) will not be categorical. 
 
-\subsection{Realizing Uncountably Many Types}
+\subsubsection{Realizing Uncountably Many Types}
 \begin{theorem}\label{theorem_realizing_uncountable_types}
 If \(T\) is an \omst theory, there are models of \(T\) of any uncountable cardinality realizing uncountably many types over a countable set.
 \end{theorem}
@@ -102,7 +102,7 @@ By compactness, we have a model of \(\Gamma\) of cardinality \(|\mcL^*| \leq \ka
 \(\Gamma\) asserts that uncountably many types are realized over \(A\), as desired. 
 \end{proof}
 
-\subsection{Indiscernables}
+\subsubsection{Indiscernables}
 Now, we must show the existence of a model of size \(\kappa\) which realizes only countably many types over every countable set. 
 To do so, we will have to construct some machinery.
 This will be our guiding intuition: to ensure our model is of size \(\kappa\), we will start out with \(\kappa\) many virtually identical (indiscernable) elements. 
@@ -152,7 +152,7 @@ Interpreting the \(c_i\)s as the elements of \(T\) (whose existence is guaruntee
 Thus, \(T'\) is satisfiable and its model is the desired \(\mcM\).
 \end{proof}
 
-\subsection{Realizing Only Countably Many Types}
+\subsubsection{Realizing Only Countably Many Types}
 
 \begin{definition}\label{definition_skolem_functions}
 We recall that an \(\mcL\)-theory, \(T\), is said to have \textit{built-in Skolem functions} when for all \(\mcL\)-formulae \(\phi(v, \bar{w})\) is a function symbol \(f_\phi \in \mcL\) such that \(T \models \A \bar{w} [(\E v \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})]\), in other words, the Skolem functions provide whitnesses for all existentials. 

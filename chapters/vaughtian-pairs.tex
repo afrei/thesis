@@ -1,4 +1,4 @@
-\section{Definition}
+\subsection{Definition}
 Like \(\omega\)-instability, lacking Vaughtian pairs is a property of theories which prevents uncountable categoricity (we will prove this in Theorem \ref{theorem_vaughtian_pairs_categoricity}).
 The content of Morley's Categoricity theorem (Theorem \ref{theorem_morleys_categoricity}) will be that these are the only two obstacles to uncountable categoricity. 
 
@@ -240,7 +240,23 @@ Given \(\mcM \models T\) where \(|M| = \aleph_1\), \(T\) is \(\omega\)-stable an
 \end{theorem}
 
 \begin{proof}
-% TODO 2b: Proof of 4.3.41 
+As in Theorem \ref{theorem_aleph_one_vaughtian_pair}, it suffices to show that if \(\mcM\) is uncountable has a countably infinite definable subset defined by \(\phi\), that there is an \(\mcM \prec \mcN\) which is a strict elementary extension such that \(\phi(\mcN) = \phi(\mcM)\) and \(|\mcM| = |\mcN|\).
+
+First, we show there is an \(\mcL_\mcM\)-formula, \(\psi\) such that there are uncountably many realizations of \(\psi(v)\) in \(\mcM\) and for all \(\mcL_\mcM\)-formulae, \(\theta\), either \(\psi \land \theta(v)\) or \(\psi \land \neg\theta(v)\) has only countably many realizations. 
+
+
+
+For contradiction, we build an infinite binary tree of formulae such that all paths in the tree are types over a countably set, and all are satisfiable, contradicting \(\omega\)-stability.  
+% as in reference
+The root of the tree is \(v = v\), which has uncountably many realizations. 
+As this formula is not our desired \(\psi\), there is a \(\theta\) such that \((v = v) \land \theta(v)\) and \((v = v) \land \neg \theta(v)\) have uncountably many realizations. 
+Every path in this tree is a finitely satisfiable type over the countable set of constants from \(\mcM\) appearing in the tree as in %reference. 
+.
+This contradicts \(\omega\) stability. 
+
+Given \(\psi\) as above, we not construct a type, \(p\)
+% TODO 1:
+
 \end{proof}
 
 \begin{theorem}\label{theorem_vaughtian_pairs_categoricity}

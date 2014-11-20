@@ -9,7 +9,7 @@ Because of their cardinalities, any equinumerous models will have the same dimen
 Having the same dimension over this prime model will suffice to show that these two models are isomorphic.
 This will complete the proof. 
 
-\section{Prime Models}
+\subsection{Prime Models}
 
 \begin{definition}\label{definition_prime_model}
 We say that a model \(\mcM\) of a theory, \(T\), is a prime model (of \(T\)), if for every \(\mcN \models T\), we have \(\mcM \prec \mcN\). 
@@ -27,11 +27,25 @@ Note that \(\mcM\) is a prime model iff it is prime over the empty set.
 \omst theories have prime models.
 \end{theorem}
 
-To prove this theorem, it helps to have the following definition:
+To prove this theorem, it helps to have the following definition and lemma:
 \begin{definition}\label{definition_isolated_types}
 A type \(p(\bar{v})\) is isolated if there is a \(\phi(\bar{v}) \in p(\bar{v})\) such that \(\phi(\bar{v}) \to \psi(\bar{v})\) for all \(\psi \in p\). We say that \(\phi\) isolates \(p\). 
 % we might want to give more examples or something here. 
 \end{definition}
+
+\begin{lemma}\label{isolated_types_are_dense}
+If T is a complete \omst theory in a countable language then for every \(\mcM \models T\) and \(A \subset M\), for every \(\phi(v)\) an \(\mcL_A\) formula, there is a \(\phi'(v)\) isolating a type \(p(v) \ni \phi(v)\) over \(A\).
+\end{lemma}
+
+\begin{proof}
+We build an infinite binary tree of \(\mcL_A\) formulae \(\psi\) each implying \(\phi\) and not isolating a type.
+This will give us a contradiction very similar to the one in % reference.
+The root of our tree is \(\phi\).
+If our node is defined by a formula \(\psi \implies \phi\) which doesn't isolate a type, then there must be a \(\theta\) such that \(\neg(\psi \implies \theta)\) and \(\neg(\psi \implies \neg \theta)\). 
+Let the children be \(\psi \land \theta\) and \(\psi \land \neg \theta\), both have realizations in \(\mcM\) and neither isolates a type (by hypothesis).
+Every path in this tree is a type over \(A_0 \subseteq A\) appearing in the tree which is countable. 
+Every one of the uncountably many paths is a distinct type over \(A_0\) contradicting \(\omega\)-stability. 
+\end{proof}
 
 \begin{proof}\label{proof_omst_prime} 
 We will prove something a little more general, which will be useful later.
@@ -49,15 +63,22 @@ If \(\alpha\) is a limit ordinal, let \(A_\alpha = \bigcup_{\beta < \alpha} A_\b
 As we can only add elements of \(\mcM\) our chain must eventually end and have a length \(\delta\) (that is no isolated types over \(A_\delta\) are realized by elements not already in \(A_\delta\)).
 
 We would like to show that if \(\mcM_0 \subseteq \mcM\) has universe \(A_\delta\) then \(\mcM_0 \prec \mcM\).
-% Do that
-{\color{red}Prove this \(\ldots\)}
+We apply Tarski-Vaught as in % ... this line
+so it suffices to show that if \(\mcM \models \phi(v, \bar{a})\) for some \(v \in M, \bar{a} \in A_\delta\) then there is a \(b \in M\) such that \(\mcM \models \phi(b, \bar{a})\) and \(tp^\mcM(b/A_\delta\) is isolated. 
+This is guarunteed by Lemma \ref{isolated_types_are_dense}.
 
 Moreover, \(\mcM_0\) is prime over \(A\), that is, for all \(\mcN\) and \(f: A \to \mcN\) partial elementary, we have an elementary \(f^*: \mcM_0 \to \mcN\). 
-% Do that
-{\color{red}Prove this \(\ldots\)}
+We construct the desired elementary embedding by induction from a partial elementary \(f: A \to \mcN\).  
+Our goal is to show by induction that a partial elementary \(f_\alpha:A_\alpha \to \mcN\) extending \(f\) exists. 
+\(f\) provides \(f_0\).
+If \(\alpha + 1\) is not a limit ordinal, then \(f_\alpha: A_\alpha \to \mcN\) extending \(f\) exists. 
+Let \(\phi(v, \bar{a})\) isolate the type of \(a_\alpha\) over \(A_\alpha\). 
+As % DO MORE ...
+% TODO 2
+
 \end{proof}
 
-\section{Minimality}
+\subsection{Minimality}
 
 \begin{definition}\label{definition_minimality}
 We say that a \(\mcL_\mcM\)-formula \(\phi\) is \textit{minimal} if \(\phi(\mcM) = \{\bar{m} \in M \mid \mcM \models \phi(\bar{m})\) is infinite and has no infinite and co-infinite definable subsets. 
@@ -125,7 +146,7 @@ We will develop the theory of dimensions of elementary extensions and see that a
 From this fact, we will be able to show they are isomorphic, providing us, finally, with \(\kappa\) categoricity and completing the proof of Morley's categoricity theorem. 
 \end{proof}
 
-\section{Algebraic Closure and Dimension}
+\subsection{Algebraic Closure and Dimension}
 
 
 \begin{definition}\label{definition_algebraic_closure}
@@ -134,8 +155,8 @@ Given a model \(\mcM\) and an \(A \subseteq M\), we define the algebraic closure
 \end{definition}
 
 The algebraic closure has the nice properties that \(\acl(\acl(A)) = \acl(A)\), that \(A \subseteq B \implies \acl(A) \subseteq \acl(B)\) and that if \(a \in \acl(A)\) then there is a finite subset \(A_0 \subseteq A\) such that \(a \in \acl(A_0)\).
-This almost gives us that algebraic closure is a pregeometry. % Definition?
-The only other fact we would have to know is exchange, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
+%This almost gives us that algebraic closure is a pregeometry. % Definition?
+We would like the exchange property to be true, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 This is only true when we take \(A\) to be a subset of some strongly minimal set.
 
 \begin{theorem}\label{theorem_exchange}
@@ -165,7 +186,6 @@ This is a contradiction as \(\psi(b')\) asserts there are only \(n\) such elemen
 \begin{definition}\label{definition_independence}
 As above let \(D\) be a minimal set. \(A \subseteq D\) is independent if for all \(a \in A\), \(a \notin \acl(A \setminus \{a\})\). 
 % Possible Addition: Define ``independent over''. \(A \subseteq D\) is independent over \(C \subseteq D\) if, for all \(a \in A\), \(a \notin \acl(C \cup (A \setminus \{a\}))\). 
-% Stricken: We call a maximal independent subset of \(A\) a basis for \(A\). 
 \(B\) is a basis for \(A\) when \(\acl(A) = \acl(B)\) and \(B\) is independent.
 We will show that all bases of a set \(A\)  have the same cardinality, which we will call the dimension of \(A\).
 \end{definition}
@@ -209,7 +229,7 @@ If \(\phi(\mcN_1)\) has the same dimension as \(\phi(\mcN_2)\), then there is a 
 \end{theorem}
 
 \begin{proof} %yet incomplete 
-% TODO 6: Thm 6.1.11 PEB between sets of same dimension  
+% TODO 3: Thm 6.1.11 PEB between sets of same dimension  
 Let \(B_1\) be a basis for \(\phi(\mcN_1)\) and \(B_2\) be a basis for \(\phi(\mcN_2)\).
 As \(|B_1| = |B_2|\), we have a bijection \(f: B_1 \to B_2\), which we claim is partial elementary. 
 % First, we show the case \(\mcN_1 \models \psi(b) \iff \mcN_2 \model \psi(f(b))\). 
@@ -219,7 +239,7 @@ This is a first order sentence, which must hold in \(\mcM, \mcN_1, \mcN_2\).
 {\color{red}Prove this \(\ldots\)}
 \end{proof}
 
-\section{Proof of Morley's Categoricity Theorem}
+\subsection{Proof of Morley's Categoricity Theorem}
 
 We can now present a proof of Morley's Categoricity Theorem, Theorem \ref{theorem_morleys_categoricity}.
 
@@ -228,15 +248,13 @@ In the previous sections we have succeeded in showing theories categorical in an
 We now show the converse: two models \(\mcM, \mcN\)  of a complete \omst theory, \(T\), in a countable language lacking Vaughtian pairs we can show \(\mcM \isom \mcN\). 
 As \(T\) is \omst it has a prime model, \(\mcM_0\), in which we have a minimal formula \(\phi\) (again as \(T\) is \(\omega\)-stable).
 Moreover, as \(T\) has no Vaughtian pairs, \(\phi\) is strongly minimal. 
-We begin by constructing a partial elementary map \(f:\phi(\mcM) \to \phi(\mcN)\) which is a bijection, which exists as per our theorem above.
+We begin by constructing a partial elementary map \(f:\phi(\mcM) \to \phi(\mcN)\) which is a bijection, which exists as per our theorem above. % Cite
 Both \(\phi(\mcM), \phi(\mcN)\) have cardinality \(\kappa\) and therefore dimension \(\kappa\). 
-% Potential Clarification: More detail here.
-We can extend \(f\) to an \(f'\) which is partial elementary and has domain \(\mcM\). 
-% TODO 7a: This is being prime over \mcM. Inline? proof of 6.1.17
-{\color{red}Prove this \(\ldots\)}
+As \(\phi(\mcM)\) is infinite and definable and \(T\) has no Vaughtian pairs and is \(\omega\)-stable, \(\mcM\) is prime over \(\phi(\mcM)\).
+We can extend \(f\) to an \(f'\) which is partial elementary and has domain \(\mcM\), \(\mcM\) is prime over \(\phi(\mcM)\).
 The range of \(f'\) is an elementary submodel of \(\mcN\) (as it's domain is isomorphic to its range) containing \(\phi(\mcN)\). 
 If the range of \(f'\) isn't all of \(\mcN\), then \((\mcN, f'(\mcM))\) forms a vaughtian pair (\(\phi(\mcN)\) is infinite and includes no element of \(\mcN \setminus f'(\mcM)\)).  
-So \(f'\) is injective (as it is partial elementary) and surjective (as we have no Vaughtian pairs) and our desired isomorphism. 
+So \(f'\) is injective (as it is partial elementary) and surjective (as we have no Vaughtian pairs) and is our desired isomorphism. 
 \end{proof}
 
 % Possible Addition: general review of proof.

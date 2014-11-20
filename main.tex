@@ -1,25 +1,10 @@
-\documentclass[10pt]{report}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{color}
+\documentclass[12pt]{article}
+\usepackage[centertags]{amsmath}
+\usepackage{amsfonts,amssymb,amsthm,color}
 
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{prop}[theorem]{Proposition}
-\newtheorem{cor}[theorem]{Corollary}
-\newtheorem{question}[theorem]{Question}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{notation}[theorem]{Notation}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{exercise}[theorem]{Exercise}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{convention}[theorem]{Convention}
-
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{enumerate}
+%
+%MY SHORTCUTS
+%
 \newcommand{\mcE}{\mathcal{E}}
 \newcommand{\mcC}{\mathcal{C}}
 \newcommand{\mcA}{\mathcal{A}}
@@ -44,51 +29,94 @@
 \newcommand{\omst}{\(\omega\)-stable }
 \newcommand{\acl}{\text{acl}}
 
-\graphicspath{ {images/} }
-%\title{
-%  {Morley's Categoricity}\\
-%  {\large University of Pennsylvania}\\
-%  {\includegraphics{university.jpg}}
-%}
-\title{Morley's Categoricity Theorem}
-\author{Adam Freilich}
-\date{Sunday November 16th, 2014}
+%
+%PAGE REFORMATTING
+%
+\setlength{\topmargin}{0 in}
+\setlength{\headheight}{0.25 in}
+\setlength{\oddsidemargin}{0.5 in}
+\setlength{\textwidth}{6 in}
+\setlength{\textheight}{8.5 in}
+\setlength{\headsep}{0.25 in}
+\newcommand{\singlespaced}{\renewcommand{\baselinestretch}{1}\normalfont}
+\newcommand{\doublespaced}{\renewcommand{\baselinestretch}{2}\normalfont}
+\singlespaced
+\doublespaced
 
+%
+%THEOREM STYLES
+%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{convention}[theorem]{Convention}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{fig}{Figure}[section]
+%
+\theoremstyle{plain}
+\newtheorem{res}[defn]{Result}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{cor}[defn]{Corollary}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{lem}[defn]{Lemma}
+%
+\theoremstyle{remark}
+\newtheorem*{case}{Case}
+\newtheorem{rem}[defn]{Remark}
+\newtheorem{ex}[defn]{Example}
+\newtheorem{exs}[defn]{Examples}
+
+%
+%EQ. NUMBERING
+%
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+%
+\def\thetitle{A Proof of Morley's Categoricity Theorem}
+\def\theauthor{Adam Freilich}
+\def\theadvisor{Advisor: Dr. Henry Towsner}
+\def\theyear{2014}
+%
+\pagenumbering{roman}
 \begin{document}
-%\maketitle
+\include{Titlepage}
+%\include{Abstract}
+\include{Dedication}
+\pagenumbering{arabic}
+\pagestyle{myheadings} \markright{}
 
-%\chapter*{Abstract}
-%Abstract
-
-%\chapter*{Dedication}
-%To mum and dad
-
-%\chapter*{Declaration}
-%I declare that..
-
-%\chapter*{Acknowledgements}
-%I want to thank...
-
-%\tableofcontents
-
-\chapter{Basic Notions}
-
+\section{Basic Notions}
 \input{chapters/introduction}
 
-\chapter{\(\omega\)-stability}
+\section{\(\omega\)-stability}
 \input{chapters/stability}
 
-\chapter{Vaughtian Pairs}
+\section{Vaughtian Pairs}
 \input{chapters/vaughtian-pairs}
 
-\chapter{Proof of Morley's Categoricity Theorem}
+\section{Proof of Morley's Categoricity Theorem}
 \input{chapters/proof-morley}
 
-\chapter{Further Questions}
+\section{Further Questions}
 \input{chapters/extensions}
 
 \appendix
-\chapter{Appendix}
+\section{Appendix}
 \input{chapters/appendix}
 
+\begin{thebibliography} \small
+%
+\bibitem[Mar]{mar} David Marker, Model Theory: An Introduction, 2002
+%
+\end{thebibliography}
 \end{document}
+
