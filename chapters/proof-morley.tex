@@ -71,10 +71,18 @@ Moreover, \(\mcM_0\) is prime over \(A\), that is, for all \(\mcN\) and \(f: A \
 We construct the desired elementary embedding by induction from a partial elementary \(f: A \to \mcN\).  
 Our goal is to show by induction that a partial elementary \(f_\alpha:A_\alpha \to \mcN\) extending \(f\) exists. 
 \(f\) provides \(f_0\).
+
 If \(\alpha + 1\) is not a limit ordinal, then \(f_\alpha: A_\alpha \to \mcN\) extending \(f\) exists. 
 Let \(\phi(v, \bar{a})\) isolate the type of \(a_\alpha\) over \(A_\alpha\). 
-As % DO MORE ...
-% TODO 2
+As \(f_\alpha\) is partial elementary, \(\mcN \models \E x \phi(x, f_\alpha(\bar{a}))\), so take \(b \in N\) realizing \(\phi(x, f_\alpha(\bar{a}))\).
+We'd like to show that \(f_\alpha \cup \{(a_\alpha, b)\}\) is elementary. 
+Otherwise, let \(\mcM_0 \models \theta(a_\alpha, \bar{a}')\) but \(\mcN \models \neg\theta(b, f_\alpha(\bar{a}')\) for some \(\bar{a}' \in A_\alpha\). 
+We have that \(\mcM_0 \models \A x \phi(x, \bar{a}) \to \theta(x, \bar{a}')\) (as \(\phi\) isolates the type of \(a_\alpha\)), so \(\mcN\) must as well, since \(f_\alpha\) is partial elementary.
+
+Otherwise, \(f_\alpha = \bigcup_{\beta < \alpha}f_\beta\) and unions of partial elementary functions are partial elementary. 
+Ultimately, \(f_\delta\) is partial elementary and has all of \(\mcM_0\) as its domain, which suffices. 
+
+% TODO2? Every realized type is isolated. 
 
 \end{proof}
 
@@ -83,7 +91,8 @@ As % DO MORE ...
 \begin{definition}\label{definition_minimality}
 We say that a \(\mcL_\mcM\)-formula \(\phi\) is \textit{minimal} if \(\phi(\mcM) = \{\bar{m} \in M \mid \mcM \models \phi(\bar{m})\) is infinite and has no infinite and co-infinite definable subsets. 
 We may also call \(\phi(\mcM)\) minimal. 
-We will call \(\phi\) and the set \(\phi(\mcM) \subseteq M\) % Possible Clarification: more clarity on what it means for sets/formulas to be minimal esp. strongly minimal
+We will call \(\phi\) and the set \(\phi(\mcM) \subseteq M\) 
+% Possible Clarification: more clarity on what it means for sets/formulas to be minimal esp. strongly minimal
 \textit{strongly minimal} if they are minimal in any elementary extension of \(\mcM\).
 Moreover, a theory is strongly minimal if the set \(M\) (defined by the formula \(v = v\)) is strongly minimal. 
 \end{definition}
@@ -223,20 +232,36 @@ In the case where \(B\) is infinite, \(|B| = \kappa\), we note that there are \(
 It is impossible to take mare than \(\kappa\) many elements of \(C\), so there cannot be a subset \(A\) of \(C\) with \(|A| > |B|\) so there cannot be such a basis. 
 \end{proof}
 
-\begin{theorem}\label{ss} %find a good label
+\begin{theorem}\label{partial_elementary_bijection}
 Let \(\mcM, \mcN_1, \mcN_1 \models T\) and \(\mcM \prec \mcN_1, \mcM \prec \mcN_2\) and \(\phi(v)\) be a strongly minimal formula with parameters from \(M\).
 If \(\phi(\mcN_1)\) has the same dimension as \(\phi(\mcN_2)\), then there is a partial elementary map \(f: \phi(\mcN_1) \to \phi(\mcN_2)\) which is a bijection. 
 \end{theorem}
 
-\begin{proof} %yet incomplete 
-% TODO 3: Thm 6.1.11 PEB between sets of same dimension  
+\begin{proof}
 Let \(B_1\) be a basis for \(\phi(\mcN_1)\) and \(B_2\) be a basis for \(\phi(\mcN_2)\).
 As \(|B_1| = |B_2|\), we have a bijection \(f: B_1 \to B_2\), which we claim is partial elementary. 
-% First, we show the case \(\mcN_1 \models \psi(b) \iff \mcN_2 \model \psi(f(b))\). 
-% As \(\psi(b)\) holds of a basis element \(\psi(x) \land \phi(x)\) must hold of co-finitely many elements, specifically, there are exactly \(n\) elements for which it doesn't hold. 
-% Clarification: P.E. wrt \mcL_\mcM, right?
-This is a first order sentence, which must hold in \(\mcM, \mcN_1, \mcN_2\). 
-{\color{red}Prove this \(\ldots\)}
+
+% check this
+Otherwise, for some \(\psi\) an \(\mcL_\mcM\)-formula and \(\bar{a} \in B_1\) we have \(\mcN_1 \models \psi(\bar{a})\) and \(\mcN_2 \not\models \psi(f(\bar{a}))\). 
+
+% We show that this doesn't happen by induction on length of \(\bar{a}\).
+Begin with the case \(\mcN_1 \models \psi(a)\) and \(\mcN_2 \not \models \psi(f(a))\). 
+\(a\) is not in any finite definable subset as \(B_1\) is independent and \(a \notin \acl(B_1 \setminus\{a\})\). 
+So \(\mcN_1 \models |\{x \mid \phi \land \neg \psi(x)\}| = n\) so \(\mcM \models |\{x \mid \phi \land \neg \psi(x)\}| = n\)
+and \(\mcN_2 \models |\{x \mid \phi \land \neg \psi(x)\}| = n\).
+\(f(a)\) is not in any finite definable subset as \(B_2\) is independent and \(f(a) \notin \acl(B_2 \setminus\{f(a)\})\). 
+So \(\mcN_2 \models \psi(f(a)\) as desired. 
+
+This argument easily generalizes to all \(\bar{a}\). 
+
+Now that we know \(f\) is partial elementary, we consider extensions of \(f\) which are partial elementary. 
+By Zorn's Lemma, it suffices to show that any partial elementary \(g\) extending \(f\) which doesn't have all of \(\mcN_1\) as its domain is not maximal (applying this to its inverse tells us it must be surjective as well).
+Let \(b \notin \text{dom}(g)\). \(b\) is algebraic over \(\text{dom}(g)\). %why
+So, it must be that the type of \(b\) over \(\text{dom}(g)\) is isolated by some \(\phi(v, \bar{d})\).
+As \(g\) is partial elementary, \(\phi(v, g(\bar{d}))\) holds for some \(c \in \phi(\mcN_1)\).  % something about still isolating the type?
+We must have \(tp(b/\text{dom}(g)) = tp (c/\text{rng}(g))\) so \(g \cup \{(b, c)\}\) must be partial elementary as desired. 
+
+Thus, our maximal element guarunteed by Zorn's Lemma is a bijective partial elementary map between \(\phi(\mcN_1)\) and  \(\phi(\mcN_2)\)
 \end{proof}
 
 \subsection{Proof of Morley's Categoricity Theorem}
@@ -248,7 +273,7 @@ In the previous sections we have succeeded in showing theories categorical in an
 We now show the converse: two models \(\mcM, \mcN\)  of a complete \omst theory, \(T\), in a countable language lacking Vaughtian pairs we can show \(\mcM \isom \mcN\). 
 As \(T\) is \omst it has a prime model, \(\mcM_0\), in which we have a minimal formula \(\phi\) (again as \(T\) is \(\omega\)-stable).
 Moreover, as \(T\) has no Vaughtian pairs, \(\phi\) is strongly minimal. 
-We begin by constructing a partial elementary map \(f:\phi(\mcM) \to \phi(\mcN)\) which is a bijection, which exists as per our theorem above. % Cite
+We begin by constructing a partial elementary map \(f:\phi(\mcM) \to \phi(\mcN)\) which is a bijection, which exists as per Theorem \ref{partial_elementary_bijection}.
 Both \(\phi(\mcM), \phi(\mcN)\) have cardinality \(\kappa\) and therefore dimension \(\kappa\). 
 As \(\phi(\mcM)\) is infinite and definable and \(T\) has no Vaughtian pairs and is \(\omega\)-stable, \(\mcM\) is prime over \(\phi(\mcM)\).
 We can extend \(f\) to an \(f'\) which is partial elementary and has domain \(\mcM\), \(\mcM\) is prime over \(\phi(\mcM)\).
