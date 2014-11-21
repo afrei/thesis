@@ -19,9 +19,9 @@ We define \(S_n(T) = S_n^\mcM(\emptyset)\).
 \end{definition}
 
 Let's consider a few simple examples of types when  \(\mcM = (\N,s)\), the natural numbers with successor and \(A = \{0\}\) (we've added a constant symbol for 0). 
-One example or an incomplete type is when we take \(p = \{v_1 \neq 0\}\). 
-As \(\N \models \phi(2)\) for all \(\phi \in p\), \(p \cup \Th_\emptyset(\N)\) must be satisfiable, and \(p\) is a type. 
-Still, neither \(v_1 = s(s(s(0)))\) or its negation is in \(p\) so it is not complete. 
+One example of an incomplete type is when we take \(p = \{v_1 \neq 0\}\). 
+As \(\N \models \phi(2)\) for the only \(\phi \in p\), \(p \cup \Th_\emptyset(\N)\) must be satisfiable, and \(p\) is a type. 
+Still, neither \(v_1 = (s(0))\) or its negation is in \(p\) so \(p\) is not complete. 
 
 There is one clear source of complete types. 
 Every element of \(\N\) has an associated complete type. 
@@ -34,8 +34,8 @@ More generally, we say \(\bar{x} \in M^n\) realizes an \(n\)-type \(p\) if \(\mc
 This, though, is not the only source of types. 
 If we take \(p = \{v_1 \neq 0, v_1 \neq s^1(0), v_1 \neq s^2(0), \ldots\}\) we get a set of \(\mcL_{\{0\}}\)-formulae in one free variable. 
 We note that \(p \cup \Th_{\{0\}}(\N)\) is satisfiable (as it is finitely satisfiable). 
-We can extend \{p\} to a complete type, but that type cannot be realized by any natural number, since an element realizing \(p\) is greater than every natural number by construction. 
-We see that it isn't always the case that a type is realized in every model, even though it is consistent with the theory of that model. 
+We can extend \(p\) to a complete type, but that type cannot be realized by any natural number, since an element realizing \(p\) is greater than every natural number by construction. 
+We see that it isn't always the case that a type is realized in a given model, even though it is consistent with the theory of that model. 
 
 \subsection{Defining Stability}
 
@@ -57,7 +57,7 @@ Let's observe that both of these theories are \(\omega\)-stable.
 \begin{example}\label{example_omst_sets}
 The theory of infinite sets is \omst. 
 First, consider the complete 1-types, \(p(v_1)\). \(p(v_1)\) must assert either that \(v_1 = a\) for exactly \(a \in A\) or that \(v_1 \neq a\) for all \(a \in A\). 
-Moreover, as the theory of infinite sets admits \qe all formulae are equivalent to boolean combinations of such formulae. % Add Citation 
+Moreover, as the theory of infinite sets admits \qe \cite{mar} all formulae are equivalent to boolean combinations of such formulae. % Add Citation 
 We have now identified all 1-types (there is one for each element in \(A\) and one more for when \(v_1\) isn't in \(A\)). 
 This can be easily extended to \(n\)-types for \(n > 1\)
 \end{example}
@@ -70,7 +70,7 @@ Our 1-type either asserts that \(v_1\) is in the same \(\Z\)-chain as a single e
 Note that the number of possibilities mentioned above is countable and that these possibilities are exhaustive.
 I assert that if we know which of these possibilities is true of an element \(a\), i.e. what atomic formula \(\psi(a, \bar{b})\) hold for \(\bar{b} \in A\), we can determine the type of \(A\). 
 It suffices to show that we can determine wether \(\phi(a, \bar{b})\) holds of \(a\) given that atomic information.  
-Quantifier elminiation tells us that for all formulae \(\phi(\bar{v})\), \(\Th(\Z, s) \models \A \bar{v} \phi(\bar{v}) \psi(\bar{v})\) for some quantifier free \(\psi\).
+Quantifier elminiation tells us that for all formulae \(\phi(\bar{v})\), \(\Th(\Z, s) \models \A \bar{v} \phi(\bar{v}) \leftrightarrow \psi(\bar{v})\) for some quantifier free \(\psi\).
 Given an arbitrary \(\phi(a, \bar{b})\) with \(\bar{b} \in A\) we know that \(\phi(a, \bar{b}) \iff  \psi(a, \bar{b})\) and by hypothesis we know wether or not \(\psi(a, \bar{b})\) holds. 
 This suffices to decide \(\phi(a, \bar{b})\) and show the \(\omega\)-stability of the theory of \((\Z, s)\).
 \end{example}
@@ -93,8 +93,8 @@ Say \(\{p_i\}\) is a set of \(\aleph_1\) many types from \(S_n^{\mcM}(A)\).
 Let \(C = \{c_i| i \in \aleph_1\} \) be \(\aleph_1\) constant symbols in a new language \(\mcL^* = \mcL_\mcM \cup C\). 
 Let \(\Gamma = T \cup \eldiag(\mcM) \cup \{p_i(c_i)\}\) (we assert each type \(p_i\) is realized by \(c_i\) giving us the realization of uncountably many types).
  
-To show that \(\Gamma\) is finitely satisfiable, it will suffice to show that sets of the form \(\Gamma_0 = T \cup \eldiag(\mcM) \cup \bigcup_{i \in I}\bigcup_{\phi(c_i) \in (p_i)_0(c_i)} \phi(c_i)\) are satisfiable, where \((p_i)_0 \subseteq p_i\) are finite.  
-\(\Gamma_0\) is satisfiable iff \(\Delta = T \cup \eldiag(\mcM) \cup \bigcup_{i \in I}\E x \bigwedge_{\phi(c_i) \in (p_i)_0(c_i)} \phi(x)\) is satisfiable.
+To show that \(\Gamma\) is finitely satisfiable, it will suffice to show that sets of the form \(\Gamma_0 = T \cup \eldiag(\mcM) \cup \bigcup\limits_{\phi \in (p_i)_0} \phi(c_i)\) are satisfiable, where \((p_i)_0 \subseteq p_i\) are finite.  
+\(\Gamma_0\) is satisfiable iff \(\Delta = T \cup \eldiag(\mcM) \cup \E x \bigwedge\limits_{\phi \in (p_i)_0} \phi(x)\) is satisfiable.
 For each of these existential sentences, \(\psi\), \(\mcM\) is either a model of \(\psi\) or of \(\neg \psi\). 
 As these types are, by definition, consistent with \(\eldiag(\mcM)\), it must be that \(\mcM \models \psi\). 
 Therefore, \(\mcM \models \Delta\) and \(\Gamma_0\) is satisfiable. 
@@ -118,7 +118,7 @@ The existence of this ordering on \(M\) in no way requires the binary relation s
 Intuitively, these elements cannot be distinguised based on first order properties, modulo their relative positions in \(M\).  
 \end{definition}
 
-Recall that the theory of dense linear orders without endpoints admits \qe and it's easy to see that any increasing sequence from such an order is a sequence of indiscernibles. 
+Recall that the theory of dense linear orders without endpoints admits \qe \cite{mar} and it's easy to see that any increasing sequence from such an order is a sequence of indiscernibles. 
 Here, our ordering on the elements of the universe of our model agrees with the ordering present in the languge. 
 If we removed the ordering from our language (i.e. we work in the language of sets) our order indiscernibles are still order indiscernibles. 
 
@@ -174,7 +174,7 @@ Let \(\mcL_0 = \mcL\) and \(T_0 = T\).
 For \(i > 0\) let \(\mcL_i = \mcL_i \cup \{f_\phi \mid \phi \text{ is an } \mcL_{i-1}\text{-formula}\}\) where \(f_\phi\) is a function symbol.
 If \(\phi\) is a formula in \(n\) free variables, the arity of \(f_\phi\) is \(n-1\). 
 \(T_i\) is \(T_{i-1} \cup \{\A \bar{w} [(\E v \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})] \mid \phi \text{ is an } \mcL_{i-1}\text{-formula}\}\).
-Taking \(\mcL^* = \bigcup_{i \in \N} \mcL_i\) and \(T^* = \bigcup_{i \in \N} T_i\) will have built in skolem functions by construction.
+Taking \(\mcL^* = \bigcup\limits_{i \in \N} \mcL_i\) and \(T^* = \bigcup\limits_{i \in \N} T_i\) will have built in skolem functions by construction.
 
 To show that \(\mcM^*\) exists, it suffices to show that, if \(\mcM \models T_i\) then \(\mcM \models T_{i+1}\) given the correct interpretation of the function symbols in \(\mcL_{i+1}\).
 If \(\mcM \models \E x \phi(x, \bar{w})\) then it must be that, for some \(b \in M\) that \(\mcM \models \phi(b, \bar{w})\), so we let \(f_\phi(\bar{w}) = b\). 
@@ -297,7 +297,7 @@ We will construct a chain of subsets of \(\mcM\) including \(A\) ordered by incl
 Let the first subset in our chain, \(A_0\), consist only of \(A\). 
 If \(A_\alpha\) is in our chain, and \(m_\alpha \notin A_\alpha\) realizes an isolated type over \(A_\alpha\), let \(A_{\alpha+1} = A_\alpha \cup \{m_\alpha\}\).
 If no such \(m_\alpha\) exists, our chain will only have length \(\alpha\). 
-If \(\alpha\) is a limit ordinal, let \(A_\alpha = \bigcup_{\beta < \alpha} A_\beta\). 
+If \(\alpha\) is a limit ordinal, let \(A_\alpha = \bigcup\limits_{\beta < \alpha} A_\beta\). 
 As we can only add elements of \(\mcM\) our chain must eventually end and have a length \(\delta\) (that is no isolated types over \(A_\delta\) are realized by elements not already in \(A_\delta\)).
 
 We would like to show that if \(\mcM_0 \subseteq \mcM\) has universe \(A_\delta\) then \(\mcM_0 \prec \mcM\).
@@ -317,7 +317,7 @@ We'd like to show that \(f_\alpha \cup \{(a_\alpha, b)\}\) is elementary.
 Otherwise, let \(\mcM_0 \models \theta(a_\alpha, \bar{a}')\) but \(\mcN \models \neg\theta(b, f_\alpha(\bar{a}')\) for some \(\bar{a}' \in A_\alpha\). 
 We have that \(\mcM_0 \models \A x \phi(x, \bar{a}) \to \theta(x, \bar{a}')\) (as \(\phi\) isolates the type of \(a_\alpha\)), so \(\mcN\) must as well, since \(f_\alpha\) is partial elementary.
 
-Otherwise, \(f_\alpha = \bigcup_{\beta < \alpha}f_\beta\) and unions of partial elementary functions are partial elementary. 
+Otherwise, \(f_\alpha = \bigcup\limits_{\beta < \alpha}f_\beta\) and unions of partial elementary functions are partial elementary. 
 Ultimately, \(f_\delta\) is partial elementary and has all of \(\mcM_0\) as its domain, which suffices. 
 
 % TODO2? Every realized type is isolated. 
