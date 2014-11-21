@@ -1,29 +1,26 @@
 \subsection{A Proof of Ramsey's Theorem}
 
 \begin{theorem}\label{ramseys_theorem}
-If \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subset S\) for which every subset of size \(n\) of \(T\) has the same color.
+If \(S\) is an infinite set whose subsets of size \(n\) are colored with \(c\) different colors, there exists a \(T \subseteq S\) for which every subset of size \(n\) of \(T\) has the same color.
 \end{theorem}
 
 \begin{proof}
 Assume without loss of generality that \(S = \N\).
 When \(n=1\), Ramsey's Theorem states we cannot partition \(\N\) into finitely many finite sets, which is clear.
 Now, we will induct on \(n\).
-We will constuct a \(T \subset \N\) with the following property: the color of every subset of size \(n\) of \(T\) is determined by its least element.
+We will constuct a \(T \subseteq \N\) with the following property: the color of every subset of size \(n\) of \(T\) is determined by its least element.
 Once we have that set \(T\), we can color the elements \(t\) of \(T\) by the color of all \(n\)-element sets with \(t\) as their element.
 By the pidgeonhole principle, there will be one color which appears infinitely often.
-If we take \(T' \subset T\) consisting of those elements, every \(n\) element subset of \(T'\) will have a least element and by construction, that subset will have the color \(c\) we chose.
+If we take \(T' \subseteq T\) consisting of those elements, every \(n\) element subset of \(T'\) will have a least element and by construction, that subset will have the color \(c\) we chose.
 \(T'\) will be the desired set.
 
-We now construct a \(T \subset \N\) such that the color of every subset of size \(n\) of \(T\) is determined by its least element.
+We now construct a \(T \subseteq \N\) such that the color of every subset of size \(n\) of \(T\) is determined by its least element.
 We can color subsets, \(A\) of size \(n-1\) of \(\N \setminus \{0\}\) by the color assigned to \(A \cup \{0\}\).
-By the inductive hypothesis, there is \(T_0 \subset \N \setminus \{0\}\) such that every \(n\)-element subset of \(T_0 \cup \{0\}\) with 0 as its least element is the same color.
-We now take the least element \(t_0 \in T_0\) and similarly apply the inductive typothesis there to get an infinite \(T_1 \subset T_0\) such that every subset of \(T_1 \cup \{0, t_0\}\) with \(t_0\) as i\
+By the inductive hypothesis, there is \(T_0 \subseteq \N \setminus \{0\}\) such that every \(n\)-element subset of \(T_0 \cup \{0\}\) with 0 as its least element is the same color.
+We now take the least element \(t_0 \in T_0\) and similarly apply the inductive typothesis there to get an infinite \(T_1 \subseteq T_0\) such that every subset of \(T_1 \cup \{0, t_0\}\) with \(t_0\) as i\
 ts least element has the same color.
-As \(T_1 \subset T_0\) the same is still true for subsets with \(0\) as their least element.
+As \(T_1 \subseteq T_0\) the same is still true for subsets with \(0\) as their least element.
 Continuing inductively, we take \(\bigcap_{<\omega}T_i = \{0, t_0, t_1, \ldots\}\) which will have this property.
-By what we've said above, we've proven Ramsey's Theorem.
-This is also enough to complete our compactness argument showing that order-indiscernibles of every order type exist.
-It is natural to identify this set of order indiscernibles with \(I\), so that if \(\mcM \models \Gamma \cup T\), then \(I \subset M\).
 \end{proof}
 
 

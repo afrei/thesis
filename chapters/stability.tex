@@ -150,6 +150,11 @@ If \(\phi\) has only \(m\) free variables and \(m < n\) we interpret \(\phi(\bar
 Interpreting the \(c_i\)s as the elements of \(T\) (whose existence is guarunteed by Ramsey's Theorem) is sufficient by construction.
 
 Thus, \(T'\) is satisfiable and its model is the desired \(\mcM\).
+
+%By what we've said above, we've proven Ramsey's Theorem.
+%This is also enough to complete our compactness argument showing that order-indiscernibles of every order type exist.
+%It is natural to identify this set of order indiscernibles with \(I\), so that if \(\mcM \models \Gamma \cup T\), then \(I \subseteq M\).
+
 \end{proof}
 
 \subsubsection{Realizing Only Countably Many Types}
@@ -238,4 +243,123 @@ Any theory which is not \omst cannot be categorical in any uncountable cardinal.
 \begin{proof}
 We have succeded in showing that there is a model of any \(\omega\)-unstable theory realizing only countably many types over any countable set.
 This model cannot be isomorphic to one realizing uncountably many types over a countable set, which we showed must exist as well. % reference the theorems from before
+\end{proof}
+
+Even though this last theorem was the main goal of this section, we introduce two more concepts which are connected with \(\omega\)-stability and prove some theorems about them. They are prime models and minimal formula. 
+
+\subsection{Prime Models}
+
+\begin{definition}\label{definition_prime_model}
+We say that a model \(\mcM\) of a theory, \(T\), is a prime model (of \(T\)), if for every \(\mcN \models T\), we have \(\mcM \prec \mcN\). 
+Clearly, prime models are unique up to isomorphism. 
+Easy examples of prime models are \(\Q\) for fields of characteristic 0 and \(\N\) for \(\Th(\N, 0, s)\). 
+Our intuition should be that if \(\mcM\) is a prime model of \(T\), it consists only of those elements which ``must be in any model of \(T\)''.
+We can deal with a slightly more general notion which will be useful later. 
+If \(\mcM \models T\) as above and \(A \subseteq M\), then \(\mcM\) is prime over \(A\) if, for all \(\mcN \models T\) and \(f:A \to \mcN\) partial elementary, we have a \(f^* \supseteq f\) embedding \(\mcM\) in \(\mcN\). 
+Note that \(\mcM\) is a prime model iff it is prime over the empty set. 
+\end{definition}
+
+% Possible Addition: Examples?
+
+\begin{theorem}\label{thm_omst_prime}
+\omst theories have prime models.
+\end{theorem}
+
+To prove this theorem, it helps to have the following definition and lemma:
+\begin{definition}\label{definition_isolated_types}
+A type \(p(\bar{v})\) is isolated if there is a \(\phi(\bar{v}) \in p(\bar{v})\) such that \(\phi(\bar{v}) \to \psi(\bar{v})\) for all \(\psi \in p\). We say that \(\phi\) isolates \(p\). 
+% we might want to give more examples or something here. 
+\end{definition}
+
+\begin{lemma}\label{isolated_types_are_dense}
+If T is a complete \omst theory in a countable language then for every \(\mcM \models T\) and \(A \subset M\), for every \(\phi(v)\) an \(\mcL_A\) formula, there is a \(\phi'(v)\) isolating a type \(p(v) \ni \phi(v)\) over \(A\).
+\end{lemma}
+
+\begin{proof}
+We build an infinite binary tree of \(\mcL_A\) formulae \(\psi\) each implying \(\phi\) and not isolating a type.
+This will give us a contradiction very similar to the one in % reference.
+The root of our tree is \(\phi\).
+If our node is defined by a formula \(\psi \implies \phi\) which doesn't isolate a type, then there must be a \(\theta\) such that \(\neg(\psi \implies \theta)\) and \(\neg(\psi \implies \neg \theta)\). 
+Let the children be \(\psi \land \theta\) and \(\psi \land \neg \theta\), both have realizations in \(\mcM\) and neither isolates a type (by hypothesis).
+Every path in this tree is a type over \(A_0 \subseteq A\) appearing in the tree which is countable. 
+Every one of the uncountably many paths is a distinct type over \(A_0\) contradicting \(\omega\)-stability. 
+\end{proof}
+
+\begin{proof}\label{proof_omst_prime} 
+We will prove something a little more general, which will be useful later.
+That is, if \(T\) is \(\omega\)-stable, \(\mcM \models T\) and \(A \subseteq M\) then there is an \(\mcM_0\) which is prime over \(A\). 
+By primality, we know that \(\mcM_0\) can be associated with a subset of \(\mcM\) including \(A\). 
+We will build up that set by induction. 
+
+In accordance with our intuition above, we will only add elements which ``must exist in any model of \(T\)'' in light of their relation to \(A\) (and other such elements).
+If \(\phi(v)\) isolates some type over \(A\) and if \(m\) realizes this type in \(\mcM\) then every model of \(T\) must contain \(m\) as well. 
+We will construct a chain of subsets of \(\mcM\) including \(A\) ordered by inclusion such that at each stage we include one more necassary element until we've included all such elements. 
+Let the first subset in our chain, \(A_0\), consist only of \(A\). 
+If \(A_\alpha\) is in our chain, and \(m_\alpha \notin A_\alpha\) realizes an isolated type over \(A_\alpha\), let \(A_{\alpha+1} = A_\alpha \cup \{m_\alpha\}\).
+If no such \(m_\alpha\) exists, our chain will only have length \(\alpha\). 
+If \(\alpha\) is a limit ordinal, let \(A_\alpha = \bigcup_{\beta < \alpha} A_\beta\). 
+As we can only add elements of \(\mcM\) our chain must eventually end and have a length \(\delta\) (that is no isolated types over \(A_\delta\) are realized by elements not already in \(A_\delta\)).
+
+We would like to show that if \(\mcM_0 \subseteq \mcM\) has universe \(A_\delta\) then \(\mcM_0 \prec \mcM\).
+We apply Tarski-Vaught %as in % ... this line
+so it suffices to show that if \(\mcM \models \phi(v, \bar{a})\) for some \(v \in M, \bar{a} \in A_\delta\) then there is a \(b \in M\) such that \(\mcM \models \phi(b, \bar{a})\) and \(tp^\mcM(b/A_\delta\) is isolated. 
+This is guarunteed by Lemma \ref{isolated_types_are_dense}.
+
+Moreover, \(\mcM_0\) is prime over \(A\), that is, for all \(\mcN\) and \(f: A \to \mcN\) partial elementary, we have an elementary \(f^*: \mcM_0 \to \mcN\). 
+We construct the desired elementary embedding by induction from a partial elementary \(f: A \to \mcN\).  
+Our goal is to show by induction that a partial elementary \(f_\alpha:A_\alpha \to \mcN\) extending \(f\) exists. 
+\(f\) provides \(f_0\).
+
+If \(\alpha + 1\) is not a limit ordinal, then \(f_\alpha: A_\alpha \to \mcN\) extending \(f\) exists. 
+Let \(\phi(v, \bar{a})\) isolate the type of \(a_\alpha\) over \(A_\alpha\). 
+As \(f_\alpha\) is partial elementary, \(\mcN \models \E x \phi(x, f_\alpha(\bar{a}))\), so take \(b \in N\) realizing \(\phi(x, f_\alpha(\bar{a}))\).
+We'd like to show that \(f_\alpha \cup \{(a_\alpha, b)\}\) is elementary. 
+Otherwise, let \(\mcM_0 \models \theta(a_\alpha, \bar{a}')\) but \(\mcN \models \neg\theta(b, f_\alpha(\bar{a}')\) for some \(\bar{a}' \in A_\alpha\). 
+We have that \(\mcM_0 \models \A x \phi(x, \bar{a}) \to \theta(x, \bar{a}')\) (as \(\phi\) isolates the type of \(a_\alpha\)), so \(\mcN\) must as well, since \(f_\alpha\) is partial elementary.
+
+Otherwise, \(f_\alpha = \bigcup_{\beta < \alpha}f_\beta\) and unions of partial elementary functions are partial elementary. 
+Ultimately, \(f_\delta\) is partial elementary and has all of \(\mcM_0\) as its domain, which suffices. 
+
+% TODO2? Every realized type is isolated. 
+
+\end{proof}
+
+\subsection{Minimality}
+
+\begin{definition}\label{definition_minimality}
+We say that a \(\mcL_\mcM\)-formula \(\phi\) is \textit{minimal} if \(\phi(\mcM) = \{\bar{m} \in M \mid \mcM \models \phi(\bar{m})\) is infinite and has no infinite and co-infinite definable subsets. 
+We may also call \(\phi(\mcM)\) minimal. 
+We will call \(\phi\) and the set \(\phi(\mcM) \subseteq M\) 
+% Possible Clarification: more clarity on what it means for sets/formulas to be minimal esp. strongly minimal
+\textit{strongly minimal} if they are minimal in any elementary extension of \(\mcM\).
+Moreover, a theory is strongly minimal if the set \(M\) (defined by the formula \(v = v\)) is strongly minimal. 
+\end{definition}
+
+\begin{lemma}\label{lemma_minimal_omst}
+If \(T\) is \omst there is a minimal formula in all \(\mcM \models T\).
+\end{lemma}
+
+\begin{proof}
+Assume no such formula exists for the sake of contradiction. 
+We will build an infinite binary tree of formulae such that 
+every node corresponds to an infinite definable subset of our model (and the formula defining it), 
+and such that every node is a subset (or consequence) of its parent. 
+We will see that every (infinite) path in this tree is a distinct type over a countable set and that there are \(2^{\aleph_0}\) such types. 
+This contradicts the \(\omega\)-stability of \(T\).
+
+It is easy to construct this tree. Let the root of the tree be the entire universe, \(M\), of our model which is defined by the formula \(v = v\).
+Given a node in our tree defined by a formula \(\phi\) which defines an infinite subset, there must be a formula \(\psi\) such that both \(\phi \land \psi\) and \(\phi \land \neg \psi\) define infinite subsets, as \(\phi\) is not minimal. 
+These two formulae/definable sets will be the children of \(\phi\) in our tree. 
+As no formula is minimal, we can repeat this ad infinitum. 
+
+Consider a path in this tree. We can consider the corresponding countable set of formulae consisting of the nodes on this path. 
+Every finite subset contains a node of maximum depth, which defines an infinite subset of \(M\) and is therefore satisfiable. 
+Our set of formulae corresponding to this path can therefore be completed to a type.
+No two distinct paths can be completed to the same type. 
+Specifically, if two paths diverge after a node \(\phi\), then they will disagree on the formula \(\psi\) as defined above. 
+
+Moreover, there are only countably many nodes in this tree. 
+Each formula in this tree contains finitely many constants from \(M\).
+Therefore, all of these types can be defined over countably many constants from \(M\). 
+We have presented \(2^{\aleph_0}\) types over a finite subset, contradicting the \(\omega\)-stability of \(T\).
 \end{proof}

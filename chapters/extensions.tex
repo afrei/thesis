@@ -10,14 +10,12 @@ We'd like to ask some more general questions, some of which we will be able to a
 In the following, we assume that \(T\) is a theory in a countable language. 
 
 \begin{question}\label{question_countable_models_uncountably_categorical}
-If \(\lambda > \aleph_0, I(T, \lambda) = 1\) what can we conclude about \(I(T, \aleph_0)\)? (could it be \(2^{\aleph_0}\)?)
+If \(\lambda > \aleph_0, I(T, \lambda) = 1\) what could \(I(T, \aleph_0)\) be? (could it be \(2^{\aleph_0}\)?)
 \end{question}
 
-\begin{question}\label{question_finite_spectra}
-For which natural numbers, \(n\), are there theories for which  \(I(T, \aleph_0) = n\)?
-\end{question}
-
-% \item More generally, what possible values can \(I(T, \aleph_0)\) take on?
+%\begin{question}\label{question_finite_spectra}
+%For which natural numbers are there theories for which  \(I(T, \aleph_0) = n\)?
+%\end{question}
 
 \begin{question}\label{question_morleys_conjecture}
 Is it possible to have \(\kappa > \lambda > \aleph_0\) but \(I(T, \kappa) < I(T, \lambda)\)?
@@ -27,19 +25,24 @@ Is it possible to have \(\kappa > \lambda > \aleph_0\) but \(I(T, \kappa) < I(T,
 Is there a natural analogue to Morley's Categoricity Theorem when we no longer assume that \(T\) is a theory in a countable language?
 \end{question}
 
-% \item What if we no longer assume that \(T\) is a first order theory?
-
 An easy extension of our argument for Morley's Categoricity Theorem shows us that for uncountably categorical \(T\), \(I(T, \aleph_0)\leq \aleph_0\).
 Up to isomorphism, these models are determined by their dimension, which must not be greater than \(\aleph_0\) leaving only countably many possibilities. 
 This is an answer to question \ref{question_countable_models_uncountably_categorical}.
 
-With regards to question \ref{question_finite_spectra}, we will exhibit theories which have \(n\) models up to isomorphism for all \(n \in \N\) with the exception of \(2\).
-Moreover, we can show that a theory with only two countable models up to isomorphism must not exist. 
+%With regards to question \ref{question_finite_spectra}, we will exhibit theories which have \(n\) models up to isomorphism for all \(n \in \N\) with the exception of \(2\).
+%See \cit{mar} for a proof that a theory cannot have only two countable models up to isomorphism.
 
 % TODO 4?
 % You have to actually do this
 
 We can answer question \ref{question_morleys_conjecture} in the negative. This is known as Morley's Conjecture. A full proof is beyond the scope of this paper, but we will present some of the ideas from the proof. 
 
+The proof relies on dealing with theories of a few different types.\cite{hart}
+One such type are the \textit{unsuperstable} theories. 
+The superstable theories are those which are \(\kappa\)-stable for all sufficiently large \(\kappa\).
+When we lack this property, that is when \(T\) is not superstable, we will have \(I(T, \kappa) = 2^\kappa\), that is, that \(T\) has \textit{many models}. \cite{shelahUnsuperstable}
+
+
+
 To adress Question \ref{question_los_conjecture_uncountable_languages}, \L o\'s' Conjecture for uncountable languages (of cardinality \(\kappa\)) states that if \(\lambda, \lambda' >\kappa\) then \(I(T, \lambda) = 1 \iff I(T, \lambda') = 1\). 
-A complete proof of this theorem is again beyond the scope of this paper, but we reference {\color{red}someplace or other.} %insert some reference here 
+A complete proof of this theorem is again beyond the scope of this paper, but we reference \cite{shelahUncountable}.
