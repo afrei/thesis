@@ -45,19 +45,19 @@ Our goal is to demonstrate an \(\mcL_\mcM^U\)-theory, \(\Gamma\), asserting that
 
 \(\Gamma\) is the union of the following sets of formulae:
 \begin{itemize}
-\item \(T\) and \(\{\phi_U \mid \phi \in T\}\)
+\item \(T\) and \(\{\phi_U \mid \phi \in T\}\). (That is \(\mcM, \mcN \models T\).)
 \item \(\A \bar{v} \, (U(\bar{v}) \land \E x \, \phi(x, \bar{v})) \to \E x \, U(x) \land \phi(x, \bar{v})\) for all \(\phi\). 
 
 (By Theorem \ref{theorem_tarski_vaught_test} this shows \(\mcM \prec \mcN\)) 
 
-\item If \(\psi(\bar{v})\) is the \(\mcL_\mcM\)-formula which isolates an infinite subset of \(\mcM\), we take the set \(\{\psi_n \mid n \in \N\}\) where \(\psi_n = |\{\bar{v} \mid \psi(\bar{v})\}| > n\).\footnote{\(\psi_n\) is first order. Sepecifically, \(\psi_n = \E x_1 \ldots \E x_n \, \bigwedge\limits_{0 <i < j \leq n} x_i \neq x_j \land \bigwedge\limits_{0 < i \leq n} \psi(x_i)\). Similarly, we can assert \(|\{\bar{v} \mid \psi(\bar{v})\}| = n\) as \(\psi_n \land \neg \psi_{n+1}\)}
+\item If \(\psi(\bar{v})\) is the \(\mcL_\mcM\)-formula which isolates an infinite subset of \(\mcM\), we take the set \(\{\psi_n \mid n \in \N\}\) where \(\psi_n = |\{\bar{v} \mid \psi(\bar{v})\}| > n\).\footnote{\(\psi_n\) is first order. Sepecifically, \(\psi_n = \E x_1 \ldots \E x_n \, \left(\bigwedge\limits_{0 <i < j \leq n} x_i \neq x_j\right) \land \left(\bigwedge\limits_{0 < i \leq n} \psi(x_i)\right)\). Similarly, we can assert \(|\{\bar{v} \mid \psi(\bar{v})\}| = n\) as \((\psi_n \land \neg \psi_{n+1})\).}
 That is \(\psi\) defines an infinite subset of \(\mcN\).
 
 \item \(\A \bar{v} \, (\psi(\bar{v}) \to U(\bar{v}))\). That is, \(\psi(\mcN) \subseteq \psi(\mcM)\). As the other direction is trivial, this ensures \(\psi(\mcN) = \psi(\mcM)\). 
 \item Finally, we assert that \(\mcN\) is a proper elementary extension of \(\mcM\) with \(\E x \, \neg U(x)\). 
 \end{itemize}
 
-By construction, \(\Gamma\) is an \(\mcL^U\)-theory, \(T'\), for which \((\mcA, \mcB) \models T'\) iff \((\mcA, \mcB)\) forms a Vaughtian pair for \(T\) (where the required infinite set iss defined by \(\psi\)). 
+By construction, \(\Gamma\) is an \(\mcL^U\)-theory, \(T'\), for which \((\mcA, \mcB) \models T'\) iff \((\mcA, \mcB)\) form a Vaughtian pair for \(T\) (where the required infinite set is defined by \(\psi\)). 
 The L\"owenheim-Skolem theorem gives us our desired countable model. 
 \end{proof}
 
@@ -101,12 +101,12 @@ Any partial elementary map \(f: A \to M\) (where \(A \subseteq M\) is finite) ca
 \begin{proof}
 We define an isomorphism extending \(f\) inductively. 
 Let \(f_0 = f\) be the first function in our chain.
-We will define \(f_i\) for \(i > 0\) such that \(f_{i-1} \subseteq f_i\).
+We will define \(f_i\) for \(i > 0\) such that \(f_{i} \supseteq f_{i-1}\).
 We will alternatively extend the domain and range of \(f_i\) by elements in \(M = \{m_1, m_2, \ldots\}\).
 That is, if \(i\) is odd, \(m_i \in \text{dom}(f_{\frac{i-1}{2}})\) and if \(i\) is even \(m_i \in \text{rng}(f_{\frac{i}{2}})\).
 The former is possible as homogeneity allows us to expand the domain of \(f_{i-1}\) to include \(m_i\).
 For the case of \(i\) even, note that partial elementary maps have partial elementary inverses (if \(f\) is partial elementary, it is injective). 
-That partial elementary functions have partial elementary inverses allows us to extend the range of \(f_{i-1}^{-1}\) to include \(m_i\). 
+That partial elementary functions have partial elementary inverses allows us to extend the range of \((f_{i-1})^{-1}\) to include \(m_i\). 
 Taking the inverse of the resulting function gives us \(f_i\).
 Let \(f^* = \bigcup\limits_{i \in \N}f_i\).
 \(f^*\) has domain and range equal to all of \(M\) and is partial elementary, making \(f^*\) our desired automorphism.
@@ -117,23 +117,23 @@ The next thing we note about countable homogeneous models, \(\mcM\) and \(\mcN\)
 \end{lemma}
 
 \begin{proof}
-To show this, we will build a map in a way very similar to the way we built \(f^*\) in Theorem \ref{theorem_partial_elementary_automorphism}.
+To show this, we will build a map in a way very similar to the way we built \(f^*\) in the previous Lemma \ref{theorem_partial_elementary_automorphism}.
 We start by letting \(f_0 = \emptyset\), which is partial elementary if \(T\) is complete.
 We will enumerate the elements in the universe of both models, and iteratively add elements to the domain and range of a partial elementary map as above.
 If we can do this, the union of this sequence of maps will be an isomorphism.
 
-As the inverse of a partial elementary map is also partial elementary, it will suffice to show that, for an arbitrary  partial elementary map \(f\) and element \(n \in N\), we can find \(f'\subseteq f\) with \(m \in \text{dom}(f')\).
+As the inverse of a partial elementary map is also partial elementary, it will suffice to show that, for an arbitrary  partial elementary map \(f\) and element \(n \in N\), we can find \(f'\supseteq f\) with \(m \in \text{dom}(f')\).
 Let \(\text{dom}(f) = \{m_1, \ldots, m_i\}, \text{rng}(f) = \{n_1, \ldots, n_i\}, f(m_j) = n_j\).
 Note that we can find a partial elementary \(h\) for which \(dom(f) \cup \{m\} =  dom(h)\) by merely finding the realization of \(\text{tp}(\bar{m}, m)\) in \(\mcN\), which must exist by hypothesis.
-Our one remaining obstacle is that \(h(m_i)\) may not be equal to \(n_i\) for all \(i\). 
+Our one remaining obstacle is that \(h(m_i)\) may not be equal to \(n_i\) for all \(i\), that is, it is quite possible that \(f \not \subseteq h\). 
 This can be rectified with homogeneity. 
-We can easily see that the function \(g: h(m_i) \mapsto n_i\) and which is undefined everywhere else, is a partial elementary map which can be extended to an automorphism by Theorem \ref{theorem_partial_elementary_automorphism}. 
+We can easily see that the function \(g: h(m_i) \mapsto n_i\) and undefined elsewhere, is a partial elementary map which can be extended to an automorphism by Lemma \ref{theorem_partial_elementary_automorphism}. 
 Call this automorphism \(g'\). 
 We take \(f' = g' \circ h\).
 \(f'\) is partial elementary, extends \(f\) and has \(m\) in its domain.   
 
 We alternate adding elements of \(M\) and \(N\) to domain and range of \(f_i\) as above and take the union of these functions.
-Their union will be a partial elementary bijection defined on all of \(M\) and therefore an isomorphism
+Their union will be a partial elementary bijection defined on all of \(M\) and therefore an isomorphism.
 \end{proof}
 
 \subsection{Uncountable Models with Definable Subsets}
@@ -142,35 +142,34 @@ Their union will be a partial elementary bijection defined on all of \(M\) and t
 A Vaughtian pair of countable models, (\(\mcN_0, \mcM_0\)), can be extended to a Vaughtian pair of isomorphic countable models.
 \end{theorem}
 
-% TODO A: Revise this proof
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{proof}%{\color{red} I think this proof will get a rewrite.}
-By above, it suffices to show a vaughtian pair \((\mcN, \mcM)\) can be extended to a vaughtian pair \((\mcN^*, \mcM^*)\) where \(\mcN^*, \mcM^*\) are homogeneous and realize the same types. 
+\begin{proof}
+By Lemma \ref{lemma_types_isomorphism}, it suffices to show a countable vaughtian pair \((\mcN, \mcM)\) can be extended to a countable vaughtian pair \((\mcN^*, \mcM^*)\) where \(\mcN^*, \mcM^*\) are homogeneous and realize the same types. 
 
-We aim to construct a chain of Vaughtian pairs indexed by the natural numbers such that each pair is an elementary extension of the previous one and their union will be homogeneous and realize the same types. 
-The zeroth pair is the countable pair (\(\mcN_0, \mcM_0\)) from above. 
+We aim to construct a chain of Vaughtian pairs \((\mcN_i, \mcM_i)\) such that \((\mcN_i, \mcM_i) \prec (\mcN_{i+1}, \mcM_{i+1})\) and their union, \(\bigcup\limits_{i\in \N} (\mcN_i, \mcM_i)\) will be homogeneous and realize the same types. 
+The first pair in our chain is \((\mcN_0, \mcM_0) = (\mcN, \mcM)\) from above. 
 For \(i > 0\) we construct (\(\mcN_i, \mcM_i\)) as follows (the details of constructions in each of these stages will follow):
 
 \begin{enumerate}
 
-  \item  If \(i\) is a multiple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that for every \(\bar{a} \in M\) every type in \(S_n(\bar{a})\) realized in \(\mcN_{i-1}\) is realized in \(\mcM_i\). %make sure vector notation is good. 
+  \item  \(i\) is a multiple of 3: then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that for every \(\bar{a} \in M\) every type in \(S_n(\bar{a})\) realized in \(\mcN_{i-1}\) is realized in \(\mcM_i\).
 
-  \item  If \(i\) is one more than a mutliple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that if \(\bar{a}, \bar{b}\) realize the same type in \(\mcM_{i-1}\) and \(c \in \mcM_{i-1}\), then there is a \(d \in \mcM_i\) such that \(\bar{a}c\) and \(\bar{b}d\) realize the same type in \(\mcM_i\). 
+  \item  If \(i = 3k+1\) , then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that if \(\bar{a}, \bar{b}\) realize the same type in \(\mcM_{i-1}\) and \(c \in \mcM_{i-1}\), then there is a \(d \in \mcM_i\) such that \(\bar{a}c\) and \(\bar{b}d\) realize the same type in \(\mcM_i\). 
 
-  \item If \(i\) is two more than a mutliple of 3, then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that if \(\bar{a}, \bar{b}\) realize the same type in \(\mcN_{i-1}\) and \(c \in \mcN_{i-1}\), then there is a \(d \in \mcN_i\) such that \(\bar{a}c\) and \(\bar{b}d\) realize the same type in \(\mcN_i\).
+  \item If \(i = 3k + 2\): then (\(\mcN_i, \mcM_i\)) is an elementary extension of (\(\mcN_{i-1}, \mcM_{i-1}\)) such that if \(\bar{a}, \bar{b}\) realize the same type in \(\mcN_{i-1}\) and \(c \in \mcN_{i-1}\), then there is a \(d \in \mcN_i\) such that \(\bar{a}c\) and \(\bar{b}d\) realize the same type in \(\mcN_i\).
 
 \end{enumerate}
 
-If we let \((\mcN, \mcM) = \bigcup\limits_{i \in \N}(\mcN_i, \mcM_i)\), we see that every type realized in \(\mcN\) is realized in some \(\mcN_i\) and therefore in \(\mcM_{i+3}\) (as we must have done the first stage of our construction once in the interim) and thus in \(\mcM\). 
-Similarly, any type realized in \(\mcM\) must be realized in some \(\mcM_i\) and in \(\mcN_i\) as well (as \(\mcM \prec \mcN\)) and thus in \(\mcN\).
-Thus, \(\mcM\) and  \(\mcN\) realize the same types.  
-Given a partial elementary map \(f:\mcM \to \mcM\) with finite domain, we have \(\text{dom}(f) \in \mcM_i\) for some \(i\), and stage two of our construction guaruntees that it can be extended. 
-Similarly for homogeneity of \(\mcN\) by the third stage of our construction. 
+If we let \((\mcN^*, \mcM^*) = \bigcup\limits_{i \in \N}(\mcN_i, \mcM_i)\), we see that every type realized in \(\mcN^*\) is realized in some \(\mcN_i\) and therefore in \(\mcM_{i+3}\) (as we must have done the first stage of our construction once in the interim) and thus in \(\mcM^*\). 
+Similarly, any type realized in \(\mcM^*\) must be realized in some \(\mcM_i\) and in \(\mcN_i\) as well (as \(\mcM_i \prec \mcN_i\)) and thus in \(\mcN^*\).
+Thus, \(\mcM^*\) and  \(\mcN^*\) realize the same types.  
+Given a partial elementary map \(f:\mcM^* \to \mcM^*\) with finite domain, we have \(\text{dom}(f) \in \mcM_i\) for some \(i\), and stage two of our construction guaruntees that it can be extended. 
+Similarly for homogeneity of \(\mcN^*\) by the third stage of our construction. 
 
 At this point it would suffice to show how to construct the elementary extensions mentioned in our three stages. 
 
+% TODO A: Revise this proof sections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{enumerate}
-
 \item As we can enumerate the countably many types over finite sets realized in any countable \(\mcN\) (there are countably many finite sequences from a countable set and countably many \(\bar{a}\)), it would suffice to show that if \(p(\bar{v})\) is an \(\bar{a}\)-type and \((\mcN, \mcM)\) is a Vaughtian pair with \(\mcN\) realizing \(p(\bar{v})\) that there is a \((\mcN, \mcM) \prec (\mcN', \mcM')\) with \(\mcM'\) realizing \(p(\bar{v})\). 
 We can see that \(\Gamma = \eldiag((\mcN, \mcM)) \cup \{\phi_U(\bar{v}, \bar{a}) \mid \phi(\bar{v}, \bar{a}) \in  p(\bar{v})\}\) is satisfiable.  
 Specifically, if \(\phi_1(\bar{v}, \bar{a}), \ldots, \phi_k(\bar{v}, \bar{a}) \in p\) are a finite subset of this type, we know that \(\mcN \models \bigwedge\limits \E \bar{x} \phi_k(\bar{x},\bar{a})\) and therefore that \(\mcM \models \bigwedge\limits \E \bar{x} (\phi_k)_U(\bar{x},\bar{a})\). 
@@ -187,12 +186,11 @@ If some finite subset, \(\Phi\), were not realizable, we would have \(\mcM \mode
 \item Here we let \(\Gamma = \eldiag((\mcN, \mcM)) \cup \{\phi(\bar{b}, d) \mid \mcN \models \phi(\bar{a}, c)\}\) where \(d\) is a new constant symbol.
 If \(\Gamma\) is not finitely satisfiable that must mean that for some \(\phi\) we have \(\mcN \models \phi(\bar{a}, c) \land \neg \E x \phi(\bar{b}, x)\), 
 so \(\bar{a}, \bar{b}\) cannot have the same type, a contradiction.
-
-\end{enumerate}
-
-\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\end{enumerate}
+This completes the proof. 
+\end{proof}
+% Consider discussing elementary chains
 \begin{lemma}\label{lemma_extend_isomorphically}
 Let \((\mcN, \mcM)\) be a vaughtian pair of countable models, \(\mcN'\) a countable model and \(f:\mcN' \to \mcM\) is an isomorphism. 
 We claim that there must exist an \(\mcN''\) such that \((\mcN'', \mcN') \isom (\mcN, \mcM)\). 
@@ -210,8 +208,6 @@ This gives us interpretations of \(\mcL\) for \(\mcN''\) such that \(f'\) is an 
 \begin{theorem}\label{theorem_aleph_one_vaughtian_pair}
 Given a Vaughtian pair of countable isomorphic models, \((\mcN, \mcM) \models T\), we can construct a model \(\mcN^* \models T\) which is of cardinality \(\aleph_1\) and has a definable subset which is countable.  
 \end{theorem}
-
-% Consider discussing elementary chains
 
 \begin{proof}
 We will construct \(\mcN^*\) as the union of an elementary chain of models \(\mcN_\alpha\) indexed by \(\omega_1\).

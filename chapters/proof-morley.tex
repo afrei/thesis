@@ -4,7 +4,7 @@ As this property doesn't depend on the uncountable cardinality, this suffices.
 
 We've already shown that \(\omega\)-stability and lacking Vaughtian pairs are necessary for uncountable categoricity.
 To show these conditions are also sufficient we will define a notion of ``dimension'' for elementary extensions.
-\(\omega\)-stability already tells us that we can view any two models as elementary extensions of the same prime model by Theorem %.
+\(\osmega\)-stability already tells us that we can view any two models as elementary extensions of the same prime model by Theorem %.
 Because of their cardinalities, any equinumerous models will have the same dimension over this prime model.
 Having the same dimension over this prime model will suffice to show that these two models are isomorphic.
 This will complete the proof. 
@@ -64,7 +64,8 @@ Let \(S\) be a strongly minimal set. If \(A \subseteq S, a, b \in S\) and \(a, b
 As \(a \in \acl(A \cup \{b\})\), we have \(\mcM \models \phi(a, b)\) for some \(\mcL_A\)-formula 
 % Possible Clarification: Make sure notation of \mcL_A is familiar/defined
 \(\phi\) where \(\{x \in S \mid \phi(x, b)\}\) contains \(n\) elements. 
-Consider the set defined by \(\psi(y)\), where \(\psi(y)\) asserts that \(\{x \in S \mid \phi(x, y)\}\) contains exactly \(n\) elements. % Book mentions \psi(\mcM) is cofinite, why?
+Consider the set defined by \(\psi(y)\), where \(\psi(y)\) asserts that \(\{x \in S \mid \phi(x, y)\}\) contains exactly \(n\) elements. 
+% Book mentions \psi(\mcM) is cofinite, why?
 We would very much like for \(X = \{y \in S \mid \psi(y) \land \phi(a, y)\}\) to be finite, making \(b \in \acl(A \cup \{a\})\). 
 We will show this must be the case by contradiction.
 If this fails and \(X\) is infinite, then \(X\) is cofinite. 
@@ -85,7 +86,8 @@ We will show that all bases of a set \(A\)  have the same cardinality, which we 
 \end{definition}
 
 \begin{lemma}\label{lemma_dimension}
-Given two disjoint independent sets, \(S, T\), %whose union is also independent?
+Given two disjoint independent sets, \(S, T\), 
+%whose union is also independent?
  if \(S \cup \{s\}\) is independent, there is an element \(t \in T\) such that \((S \cup \{s\}) \cup (T \setminus \{t\})\) is independent and has the same algebraic closure as \(S \cup T\). 
 \end{lemma}
 

@@ -7,7 +7,7 @@ We will call the resulting language \(\mcL_A\). \(\mcM\) has a natural definitio
 In general, we call the set of \(\mcL_A\)-sentences true in \(\mcM\) ``\(\Th_A(\mcM)\)'' and, in the special case where \(A = M\) we call it \(\eldiag(\mcM)\) or the ``elementary diagram of \(\mcM\)''. 
 
 If \(\mcN \models \eldiag(\mcM)\) we say that \(\mcM \prec \mcN\) or that \(\mcN\) is an elementary extension of \(\mcM\). 
-We note that \(\mcM \prec \mcN\) then \(\mcM \subset \mcN\) (the inclusion map is simpmly given by sending \(a\) to the interpretation of the constant symbol \(a\) in \(\mcN\)).
+We note that \(\mcM \prec \mcN\) then \(\mcM \subseteq \mcN\) (the inclusion map is simply given by sending \(a\) to the interpretation of the constant symbol \(a\) in \(\mcN\)).
 An equivelnt definition is that \(\mcM \models \phi \iff \mcN \models \phi\) for all \(\mcL_\mcM\) formulae. 
 
 \subsection{Defining Types}
@@ -22,11 +22,13 @@ In the event that \(A = \emptyset\), \(T\) is a complete theory and \(\mcM, \mcN
 We define \(S_n(T) = S_n^\mcM(\emptyset)\).
 \end{definition}
 
-Let's consider a few simple examples of types when  \(\mcM = (\N,s)\), the natural numbers with successor and \(A = \{0\}\) (we've added a constant symbol for 0). 
+\begin{example}\label{example_types_natural_numbers} 
+Let \(\mcM = (\N,s)\), the natural numbers with successor and \(A = \{0\}\) (we've added a constant symbol for 0). 
 One example of an incomplete type is when we take \(p = \{v_1 \neq 0\}\). 
 As \(\N \models \phi(2)\) for the only \(\phi \in p\), \(p \cup \Th_\emptyset(\N)\) must be satisfiable, and \(p\) is a type. 
 Still, neither \(v_1 = (s(0))\) or its negation is in \(p\).
 Hence, \(p\) is not complete. 
+\end{example}
 
 There is one clear source of complete types. 
 Every element of \(\N\) has an associated complete type. 
@@ -39,7 +41,7 @@ More generally, we say that
  \(\bar{x} \in M\) realizes an \(n\)-type \(p\) if \(\mcM \models \phi(\bar{x})\) for all \(\phi \in p\).  
 
 This, though, is not the only source of types. 
-If we take \(p = \{v_1 \neq 0, v_1 \neq s^1(0), v_1 \neq s^2(0), \ldots\}\) we get a set of \(\mcL_{\{0\}}\)-formulae in one free variable. 
+If we take \(p = \{v_1 \neq 0, v_1 \neq s^1(0), v_1 \neq s^2(0), \ldots\}\) this is a set of \(\mcL_{\{0\}}\)-formulae in one free variable. 
 We note that \(p \cup \Th_{\{0\}}(\N)\) is satisfiable (as it is finitely satisfiable). 
 We can extend \(p\) to a complete type, but that type cannot be realized by any natural number, since an element realizing \(p\) is not equal to any natural number by construction. 
 We see that it isn't always the case that a type is realized in a given model, even though it is consistent with the theory of that model. 
@@ -58,7 +60,7 @@ Still, every real number realizes a different type in \(S_1^\R(\Q)\) (as every t
 So there must be at least as many types as there are real numbers; there are uncountably many types.  
 
 Recall that we mentioned in the proof outline of Morley's Categoricity theorem that all uncountably categorical theories are \(\omega\)-stable. 
-We mentioned the theory of infinite sets and the theory of (\(\Z, s\)) as uncountably categorical theories. 
+We mentioned the theory of infinite sets (Example \ref{example_categoricity_sets}) and the theory of (\(\Z, s\)) (Example \ref{example_categoricity_integers}) as uncountably categorical theories. 
 Let's observe that both of these theories are \(\omega\)-stable. 
 
 \begin{example}\label{example_omst_sets}
@@ -66,7 +68,9 @@ The theory of infinite sets is \omst.
 First, consider the complete 1-types, \(p(v_1)\). \(p(v_1)\) must assert either that \(v_1 = a\) for exactly \(a \in A\) or that \(v_1 \neq a\) for all \(a \in A\). 
 Moreover, as the theory of infinite sets admits \qe \cite{mar} all formulae are equivalent to boolean combinations of such formulae. % Add Citation 
 We have now identified all 1-types (there is one for each element in \(A\) and one more for when \(v_1\) isn't in \(A\)). 
-This can be easily extended to \(n\)-types for \(n > 1\)
+This can be easily extended to \(n\)-types for \(n > 1\).
+
+Moreover, a slight generalization of this argument shows that the theory of exactly two infinite equivalence classes (Example \ref{example_categoricity_equiv}) is \omst even though it is not categorical. 
 \end{example}
 
 \begin{example}\label{example_omst_Z}
@@ -77,7 +81,7 @@ Our 1-type either asserts that \(v_1\) is in the same \(\Z\)-chain as a single e
 Note that the number of possibilities mentioned above is countable and that these possibilities are exhaustive.
 I assert that if we know which of these possibilities is true of an element \(a\), i.e. what atomic formula \(\psi(a, \bar{b})\) hold for \(\bar{b} \in A\), we can determine the type of \(A\). 
 It suffices to show that we can determine wether \(\phi(a, \bar{b})\) holds of \(a\) given that atomic information.  
-Quantifier elminiation tells us that for all formulae \(\phi(\bar{v})\), \(\Th(\Z, s) \models \A \bar{v} \phi(\bar{v}) \leftrightarrow \psi(\bar{v})\) for some quantifier free \(\psi\).
+Quantifier elminiation tells us that for all formulae \(\phi(\bar{v})\), \(\Th(\Z, s) \models \A \bar{v} \, \phi(\bar{v}) \leftrightarrow \psi(\bar{v})\) for some quantifier free \(\psi\).
 Given an arbitrary \(\phi(a, \bar{b})\) with \(\bar{b} \in A\) we know that \(\phi(a, \bar{b}) \iff  \psi(a, \bar{b})\) and by hypothesis we know wether or not \(\psi(a, \bar{b})\) holds. 
 This suffices to decide \(\phi(a, \bar{b})\) and show the \(\omega\)-stability of the theory of \((\Z, s)\).
 \end{example}
@@ -164,7 +168,7 @@ As our theory, \(T'\) ensured that we had order indiscernibles of order type \(I
 \subsubsection{Realizing Only Countably Many Types}
 
 \begin{definition}\label{definition_skolem_functions}
-We recall that an \(\mcL\)-theory, \(T\), is said to have built-in Skolem functions when for all \(\mcL\)-formulae \(\phi(v, \bar{w})\) is a function symbol \(f_\phi \in \mcL\) such that \(T \models \A \bar{w} \left[(\E v \, \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})\right]\), in other words, the Skolem functions provide whitnesses for all existentials. 
+An \(\mcL\)-theory, \(T\), is said to have built-in Skolem functions when for all \(\mcL\)-formulae \(\phi(v, \bar{w})\) is a function symbol \(f_\phi \in \mcL\) such that \(T \models \A \bar{w} \left[(\E v \, \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})\right]\), in other words, the Skolem functions provide whitnesses for all existentials. 
 \end{definition}
 
 \begin{theorem}\label{theorem_skolem_function_extension}
@@ -213,8 +217,8 @@ As \(\mcM\) is closed under the skolem functions, we can whitness existentials i
 \begin{definition}\label{definition_skolem_hull}
 Let \(\mcM \models T\) where \(T\) has built in skolem functions. 
 If \(A \subseteq M\) then we can take \(\mathcal{H}(A)\) which is the smallest submodel of \(\mcM\) containing \(A\).
-As \(\mathcal{H}(A)\) is a submodel of \(\mcM\) it is closed under skolem functions, so \(\mathcal{H}(A) \prec \mcM\).
-We call \(\mathcal{H}(A)\) the ``skolem hull'' of \(A\).
+As \(\mathcal{H}(A)\) is a submodel of \(\mcM\) it is closed under skolem functions, so \(\mathcal{H}(A) \prec \mcM\) (by Lemma \ref{closure_under_skolem_functions}).
+We call \(\mathcal{H}(A)\) the ``Skolem hull'' of \(A\). As we can extend any theory \(T\) to one with built in Skolem functions (Theorem \ref{theorem_skolem_function_extension}), we can create Skolem hulls with arbitrary order types for any theory \(T\) with infinite models.
 \end{definition}
 
 \begin{definition}\label{definition_ehrenfeuct_mostowski_model}
@@ -232,11 +236,11 @@ Let \(\mcM = \mathcal{H}(\kappa, <)\models T\).
 \begin{proof}
 As every element of \(M\) (and of \(A\)) must be a Skolem term (i.e. of the form \(f_\phi(\bar{x})\) for some vector of indiscernables), it suffices to look at the types over countable subsets of \(\kappa\).
 Let \(X\) be this countable subset of \(\kappa\). 
-It suffices to show that for each fixed \(n, \phi\), terms of the form \(f_\phi(y_1, \ldots, y_n)\) realize only countably many types. 
+It suffices to show that for each formula \(\phi\) in \(n\) free variables, terms of the form \(f_\phi(y_1, \ldots, y_n)\) realize only countably many types. 
 (We then have divided \(M\) into countably many sets each realizing at most countably many types).
 We see that \(f_\phi(y_1, \ldots, y_n)\) and \(f_\phi(z_1, \ldots, z_n)\) realize the same type if, for each \(i \leq n\) there is no \(x \in X\) between \(y_i\) and \(z_i\) or that \(y_i\) and \(z_i\) determine the same cut in \(X\).  
 This is because indiscernability tells us \(\mcM \models \psi(f_\phi(\bar{y}), \bar{x}) \iff \mcM \models \psi(f_\phi(\bar{z}), \bar{x})\) when the relative orders of the indiscernibles in \(\bar{y}\bar{x}\) and in \(\bar{z}\bar{x}\) are the same. 
-It now suffices to note that, as \(\kappa\) is well ordered, we get only countably many cuts of \(X\). 
+It now suffices to note that, as \(\kappa\) is well ordered, there are only countably many cuts of \(X\). 
 This deals with the 1-types. Dealing with the \(n\)-types only requires dealing with \(n\)-tuples of formulae instead of the single formula \(\phi\) we adressed here. 
 \end{proof}
 
@@ -256,7 +260,7 @@ Even though this last theorem was the main goal of this section, we introduce tw
 \subsection{Minimality}
 
 \begin{definition}\label{definition_minimality}
-We say that a \(\mcL_\mcM\)-formula \(\phi\) is \textit{minimal} if \(\phi(\mcM) = \{\bar{m} \in M \mid \mcM \models \phi(\bar{m})\}\) is infinite and has no infinite and co-infinite definable subsets. 
+We say that a \(\mcL_\mcM\)-formula \(\phi\) is \textit{minimal} if \(\phi(\mcM) = \{\bar{m} \in M \mid \mcM \models \phi(\bar{m})\}\) is infinite and has no definable subsets which are infinite and co-infinite. 
 We may also call the set \(\phi(\mcM)\) minimal. 
 We will call \(\phi\) and the set \(\phi(\mcM) \subseteq M\) 
 % Possible Clarification: more clarity on what it means for sets/formulas to be minimal esp. strongly minimal
