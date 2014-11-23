@@ -1,102 +1,29 @@
-\subsection{Defining Categoricity}
+Morley's Categoricity Theorem has been called the ``beginning of modern model theory''.
+To understand its statement requires only familiarity with some basic concepts from mathematical logic, specifically theories, models, cardinality and categoricity. 
+A student familiar with just these notions, and not much else, can see the importance of this result.
+These notions are often introduced in a first course in mathematical logic.
+Such a course might use Enderton's book. %cite
 
-We begin by recalling the defition of categoricity in a cardinal \(\lambda\):
+This paper is aimed specifically at such a student, who is familiar with basic logic including models, compactness and the L\"owenheim-Skolem theorem.
+Unlike popular introductory model theory texts, such as Marker's, %cite
+this thesis keeps focused on Morley's Categoricity Theorem.
+Unlike Marker's text, this thesis will introduce notions and immediately point out their relation to Morley's Categoricity. 
+In the process, the student will learn about many important model theory concepts, such as stability, types and elementary extensions. 
 
-\begin{definition}\label{def_categoricity}
-A theory \(T\) is \(\lambda\)-categorical if \(\mcM \isom \mcN\) whenever \(\mcM, \mcN \models T\) and \(|M| = |N| = \lambda\).
-Alternatively, \(T\) is \(\lambda\)-categorical if it has a single model of cardinality \(\lambda\) up to isomorphism. 
-\end{definition}
+As this thesis isn't a general introduction to model theory, it doesn't adress many important model theory concepts in detail, such as quantifier elimination.
+The interested reader is directed to Marker's text for more information. 
+With this thesis as background, the reader will find that they have motivation for model theory concepts they may later encounter in Marker.
 
-\begin{example}\label{example_categoricity_sets}
-Consider the theory of infinite sets in the pure language of equality. 
-This theory is \(\lambda\)-categorical for all \(\lambda\).
-Consider two models \(\mcM, \mcN\) such that \(|M|=|N|=\lambda\). 
-By hypothesis we have a bijection \(f: M \to N\). 
-\(f\) is an isomorphism of sets, so \(M \isom N\).
-\end{example}
+We begin by stating Morley's Categoricity Theorem and recalling some basic definitions, then we immediately give examples which will set the tone for the rest of the text. 
+When notions are introduced, seeing how they apply to these theories will be useful to the reader. 
 
-Recall that a theory, \(T\), is complete if for all sentences \(\phi\) we have either \(T \models \phi\) or \(T \models \neg \phi\). 
-Note that this theory must also be complete. 
-More generally, Vaught's test tells us that theories without finite models that are categorical in some infinite cardinal \(\kappa\) are complete. 
-(If such a theory were not complete, it would have models of cardinality of \(\lambda\) disagreeing on some \(\phi\) which couldn't then be isomorphic.)
+The rest of the thesis focuses on the only two obstacles to categoricity, \(\omega\)-instability and Vaughtian pairs. 
+Showing that both of these prevent categoricity is the main goal of sections ``\(\omega\)-stability'' and ``Vaughtian pairs''. 
+In these sections we also introduce theorems which will be useful in the final proof. 
 
-\begin{example}\label{example_categoricity_equiv}
-Consider the theory of an equivalence relation with exactly two infinite classes. 
-This theory is ``\(\aleph_0\)-categorical''.
-We will often call an \(\aleph_0\)-categorical theory ``countably categorical''.
-(These terms are synonomyous.)  
-Consider two countable models \(\mcM, \mcN\) of this theory. 
-There must be countably many members of each equivalence class in any countable model. 
-We can present a bijection \(f_1\) between members of the first equivalence class in  \(\mcM\) and those in \(\mcN\) and a similar bijection \(f_2\) for the second equivalence class. 
-We see that \(f = f_1 \cup f_2\) is a bijection and actually an isomorphism. 
+The next section is the one entitled ``Proof of Morley's Categoricity Theorem'' which will assume our aforementioned obstacles to categoricity are not present and prove categoricity for all such theories. 
+Specifically, we show that there is a good notion of ``dimension'' for models, which determines a model up to isomorphism. 
+All uncountable models of the same cardinality will have the same dimension, proving categoricity. 
 
-On the other hand, if \(\lambda > \aleph_0\) is an infinite cardinal, then this theory isn't \(\lambda\)-categorical. 
-It suffices to note that we can have the two non-isomorphic cases: where the first equivalence class has cardinality \(\lambda\) and the second is countable and where both classes are of cardinality \(\lambda\). 
-Vaught's theorem tells us that even though this theory isn't \(\aleph_1\) categorical, it is still complete. 
-\end{example}
-
-\begin{example}\label{example_categoricity_integers}
-Consider the theory of (\(\Z, s\)), the integers with successor. 
-Included in this theory is the fact that every element has a unique successor and predecessor and that there are no cycles (i.e. no number is its own successor, or the sucessor of its successor, etc.). 
-Using this fact, we observe that each model of this theory must consist of some number of \(\Z\)-chains (i.e. submodels isomorphic to \(\Z\) itself). 
-For uncountable cardinals \(\kappa\), we know that, up to isomorphism, the only model of cardinality \(\kappa\) consists of \(\kappa\) many \(\Z\)-chains. 
-Making this theory categorical for all uncountable cardinals and complete. 
-That being said, there are countably many non-isomorphic countable models, which are the familiar \(\Z\), \(n\) copies of \(\Z\) for any natural \(n\) or countably many copies of \(\Z\). 
-This theory is not countably categorical, but it is \(\kappa\) categorical for all uncountable \(\kappa\). 
-\end{example}
-
-\begin{example}\label{example_categoricity_sequence}
-We consider the language \(\mcL = \{<, c_1, c_2, c_3, \ldots\}\) which has countably many constant symbols indexed by the natural numbers. 
-In our theory, \(T\), \(<\) is a dense linear order (this is a first order property) and \(c_i\) is a strictly increasing sequence. 
-
-We show that \(T\) is complete.
-Consider a sentence \(\phi\), we will show that either \(T \models \phi\) or \(T \models \neg \phi\). 
-\(\phi\) can only include finitely many of the constant symbols, so assume without loss of generality that \(\phi\) is an \(\mcL_n\) formula where \(\mcL_n = \{<, c_1, \ldots, c_n\}\).
-It would suffice to show that \(T_0 = \{\phi \in T \mid \phi \text{ is an } \mcL_n \text{ formula}\}\) is countably categorical and therefore complete. 
-If \(\mcN, \mcM\) are countable models of this theory, we can build an isomorphism between them with the ``back and forth'' method. 
-We define an isomorphism as a union of partial functions (``partial isomorphisms'') respecting the order. 
-Let \(f_0\) be the function mapping \(c_i\) in \(\mcM\) to \(c_i\) in \(\mcN\) and undefined everywhere else. 
-We can enumerate the elements of \(\mcM, \mcN\) by the natural numbers making \(M = \{m_1, \ldots\}, N = \{n_1, \ldots\}\). 
-We will define \(f_i\) inductively for \(i > 0\). 
-If \(i\) is even, we extend \(f_{i-1}\) to include \(m_{i/2}\) in its domain if \(m_{i/2} \notin \text{dom}(f_{i-1})\) and otherwise, let \(f_i = f_{i-1}\).
-Note that as \(\text{dom}(f)\) is finite and doesn't include \(m_{i/2}\) there is a greatest element in \(\text{dom}(f)\) less than \(m_{i/2}\) and a least element greater than it, call them \(p\) and \(q\) respectively.
-We can map \(m_{i/2}\) to an arbitrary element in \(N\) which is greater than \(f(p)\) but less than \(f(q)\). 
-For odd \(i\) we similarly extend the range of \(f_{i-1}\). 
-Letting \(f = \bigcup_{i \in \N}f(i)\) we will find that we have an isomorphism. 
-Using the fact that dense linear orders have quantifier elimination \cite{mar} % specific in reference
-makes verifying this fact rather straightforward, and the details are left to the reader.
- 
-This theory is never categorical.
-Consider two models of this theory, both resemble \(\Q\) in their underlying set and order.
-In \(\mcM\) we let \(c_i = i\), making our increasing sequence the natural numbers. 
-In a second model, \(\mcN\), we let \(c_i = 1 - \frac{1}{i}\).
-It suffices to note that any isomorphism \(f: \mcN \to \mcM\) must send \(1\) to some element of \(\Q\).
-Inevitably \(f(1)\) will be less than \(n\) for some natural number \(n\) and therefore, \(\mcN \models f(1) < c_i\) for some \(i\).
-As \(\mcM \models c_i < 1\) for all \(i\), \(f\) cannot be an isomorphism. 
-We've shown two countable models of \(T\) which aren't isomorphic, showing that \(T\) isn't countably categorical. 
-Taking these two models, and adding \(\kappa\) many elements greater than every element of \(\Q\) will give us two non-isomorphic models of cardinality \(\kappa\) by a similar argument. 
-
-\(T\) is complete but never categorical. 
-\end{example}
-
-Morley's categoricity theorem will state that these are the only four cases.
-That is, a theory \(T\) is never categorical, always categorical, \(\kappa\) categorical for all \(\kappa > \aleph_0\) or countably categorical but categorical in no uncountable cardinal.  
-That theorem will be the main focus of this thesis. 
-
-\subsection{Stating Morley's Categoricity Theorem}
-
-\begin{theorem}\label{theorem_morleys_categoricity}
-If a first order theory in a countable language is categorical in some uncountable cardinal, it is categorical in all uncountable cardinals. 
-\end{theorem}
-
-I present a very general sketch of the proof of this theorem which I will flesh out throughout the rest of this work. 
-
-We will define two properties of theories: being \(\omega\)-stable and having Vaughtian pairs. 
-It turns out that lacking \(\omega\)-stability or having Vaughtian pairs will prevent uncountable categoricity, so all uncountably categorical theories lack Vaughtian pairs and are \(\omega\)-stable. 
-
-We then observe that these two conditions, lacking Vaughtian pairs and being \(\omega\)-stable, are sufficient to show categoricity in all uncountable cardinals. 
-Hence, the categoricity of a theory in some uncountable cardinal must imply \(\omega\)-stability and the absence of Vaughtian pairs, which, in turn, imply categoricity in all other uncountable cardinals.
-
-Once I complete this proof, I will seek to answer some related questions about how many non-isomorphic models there can be of a theory. 
-
-%I will elaborate more on issues of stability in general, morley rank and forking.  
+To end the thesis, we adress a few harder questions which aim to extend this result in natural ways. 
+To adress many of these extensions would require much more machinery, so we present some of the main ideas and state results without full proof. 

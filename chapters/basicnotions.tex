@@ -19,9 +19,16 @@ By hypothesis we have a bijection \(f: M \to N\).
 Recall that a theory, \(T\), is complete if for all sentences \(\phi\) we have either \(T \models \phi\) or \(T \models \neg \phi\). 
 \end{definition}
 
-Note that this theory must also be complete. 
-More generally, Vaught's test tells us that theories without finite models that are categorical in any infinite cardinal \(\kappa\) are complete. 
-(If such a theory were not complete, it would have models of cardinality \(\kappa\) disagreeing on some \(\phi\) which couldn't then be isomorphic.)
+\begin{theorem}\label{vaughts_test}
+If a theory \(T\) with no finite models is \(\lambda\)-categorical for some infinite cardinal \(\lambda\), it is complete.
+\end{theorem}
+
+\begin{proof}
+Assume for purposes of contradiction that for some \(\phi\), \(T \not \models \phi\) and \(T \not \models \not \phi\), we know that \(T \cup \{\phi\}\) and \(T \cup \{\neg \phi\}\) as satisfiable. 
+By the L\"owenheim-Skolem theorem, there are models of both of these theories of cardinality \(\lambda\), which must not be isomorphic. 
+\end{proof}
+
+It is an easy consequence of this theorem that the theory of infinite sets must also be complete. 
 
 \begin{example}\label{example_categoricity_equiv}
 Consider the theory of an equivalence relation with exactly two infinite classes. 
@@ -34,7 +41,7 @@ We can present a bijection \(f_1\) between members of the first equivalence clas
 We see that \(f = f_1 \cup f_2\) is a bijection and actually an isomorphism. 
 
 On the other hand, if \(\lambda > \aleph_0\) is an infinite cardinal, then this theory isn't \(\lambda\)-categorical. 
-It suffices to note that we can have the two non-isomorphic cases: where the first equivalence class has cardinality \(\lambda\) and the second is countable and where both classes are of cardinality \(\lambda\). 
+It suffices to note that we can present two non-isomorphic cases: where the first equivalence class has cardinality \(\lambda\) and the second is countable and where both classes are of cardinality \(\lambda\). 
 Vaught's theorem tells us that even though this theory isn't \(\aleph_1\) categorical, it is still complete. 
 \end{example}
 
@@ -65,7 +72,7 @@ If \(i=2k\) is even, we extend \(f_{i-1}\) to include \(m_{k}\) in its domain if
 Note that as \(\text{dom}(f)\) is finite and doesn't include \(m_{k}\) there is a greatest element in \(\text{dom}(f)\) less than \(m_{k}\) and a least element greater than it, call them \(p\) and \(q\) respectively.
 We can map \(m_{k}\) to an arbitrary element in \(N\) which is greater than \(f(p)\) but less than \(f(q)\). 
 For odd \(i\) we similarly extend the range of \(f_{i-1}\). 
-Letting \(f = \bigcup_{i \in \N}f(i)\) we will find that we have an isomorphism. 
+Letting \(f = \bigcup\limits_{i \in \N}f_i\) we will find that we have an isomorphism. 
 Using the fact that dense linear orders have quantifier elimination \cite{mar} makes verifying this fact rather straightforward, and the details are left to the reader.
  
 This theory is never categorical.

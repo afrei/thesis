@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
 \usepackage[centertags]{amsmath}
-\usepackage{amsfonts,amssymb,amsthm,color}
+\usepackage{amsfonts,amssymb,amsthm,color, fixltx2e}
 
 %
 %MY SHORTCUTS
@@ -81,7 +82,7 @@
 \numberwithin{equation}{section}
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 %
-\def\thetitle{A Proof of Morley's Categoricity Theorem}
+\def\thetitle{A PROOF OF MORLEY'S CATEGORICITY THEOREM}
 \def\theauthor{Adam Freilich}
 \def\theadvisor{Advisor: Dr. Henry Towsner}
 \def\theyear{2014}
@@ -92,27 +93,42 @@
 \include{Titlepage}
 %\include{Abstract}
 %\include{Dedication}
+\tableofcontents
+\newpage
+
 \pagenumbering{arabic}
 \pagestyle{myheadings} \markright{}
 
-\section{Basic Notions}
+%
+
+\section{Introduction}
 \input{chapters/introduction}
+\newpage
+
+\section{Basic Notions}
+\input{chapters/basicnotions}
+\newpage
 
 \section{\(\omega\)-stability}
 \input{chapters/stability}
+\newpage
 
 \section{Vaughtian Pairs}
 \input{chapters/vaughtian-pairs}
+\newpage
 
 \section{Proof of Morley's Categoricity Theorem}
 \input{chapters/proof-morley}
+\newpage
 
 \section{Further Questions}
 \input{chapters/extensions}
+\newpage
 
 \appendix
 \section{Appendix}
 \input{chapters/appendix}
+\newpage
 
 \begin{thebibliography} \small
 %
