@@ -3,18 +3,20 @@ It suffices to show that uncountable categoricity (for any uncountable cardinal)
 As this property doesn't depend on the uncountable cardinality, this suffices. 
 
 We've already shown that \(\omega\)-stability and lacking Vaughtian pairs are necessary for uncountable categoricity.
-To show these conditions are also sufficient we will define a notion of ``dimension'' for elementary extensions.
-\(\osmega\)-stability already tells us that we can view any two models as elementary extensions of the same prime model by Theorem %.
-Because of their cardinalities, any equinumerous models will have the same dimension over this prime model.
-Having the same dimension over this prime model will suffice to show that these two models are isomorphic.
+To show these conditions are also sufficient we will define a notion of ``dimension'' for models of such theories (more specifically for their minimal subsets).
+If two sets have the same dimension, they will be isomorphic.
+Any two models of the same countable theory \(T\) of cardinality \(\kappa\) will have dimension \(\kappa\) and therefore be isomorphic.
+%\(\omega\)-stability already tells us that we can view any two models as elementary extensions of the same prime model by Theorem \ref{thm_omst_prime}.
+%Because of their cardinalities, any equinumerous models will have the same dimension over this prime model.
+%Having the same dimension over this prime model will suffice to show that these two models are isomorphic.
 This will complete the proof. 
 
 \subsection{Strong Minimality and Vaughtian Pairs}
 
 Now, assume we have a theory which is \omst and has no Vaughtian-pairs. 
-As it is \omst it has a prime model.
-By \(\omega\)-stability, that prime model has a minimal formula. 
-For our proof of Morley's categoricity theorem it will be important that this minimal formula is strongly minimal, so that we can use dimension to find an isomorphism as described above. 
+As it is \omst it has a prime model (Theorem \ref{thm_omst_prime}).
+By \(\omega\)-stability, that prime model has a minimal formula (Lemma \ref{lemma_minimal_omst}). 
+For our proof of Morley's categoricity theorem it will be important that this minimal formula is strongly minimal, so that we can use dimension to show isomorphism as described above. 
 A theory lacking Vaughtian pairs will have the property that minimal formula are strongly minimal. 
 
 \begin{theorem}\label{theorem_minimal_vaughtian_pair}
@@ -148,7 +150,7 @@ So, it must be that the type of \(b\) over \(\text{dom}(g)\) is isolated by some
 As \(g\) is partial elementary, \(\phi(v, g(\bar{d}))\) holds for some \(c \in \phi(\mcN_1)\).  % something about still isolating the type?
 We must have \(tp(b/\text{dom}(g)) = tp (c/\text{rng}(g))\) so \(g \cup \{(b, c)\}\) must be partial elementary as desired. 
 
-Thus, our maximal element guarunteed by Zorn's Lemma is a bijective partial elementary map between \(\phi(\mcN_1)\) and  \(\phi(\mcN_2)\)
+Thus, our maximal element guaranteed by Zorn's Lemma is a bijective partial elementary map between \(\phi(\mcN_1)\) and  \(\phi(\mcN_2)\)
 \end{proof}
 
 \subsection{Proof of Morley's Categoricity Theorem}

@@ -8,7 +8,7 @@ If \(S\) is an infinite set whose subsets of size \(n\) are colored with a finit
 Assume without loss of generality that \(S = \N\).
 When \(n=1\), Ramsey's Theorem states we cannot partition \(\N\) into finitely many finite sets, which is clear.
 Now, we will induct on \(n\).
-We will constuct a \(T \subseteq \N\) with the following property: the color of every subset of size \(n\) of \(T\) is determined by its least element.
+We will construct a \(T \subseteq \N\) with the following property: the color of every subset of size \(n\) of \(T\) is determined by its least element.
 Once we have that set \(T\), we can color the elements \(t\) of \(T\) by the color of all \(n\)-element sets with \(t\) as their element.
 By the pidgeonhole principle, there will be one color which appears infinitely often.
 If we take \(T' \subseteq T\) consisting of those elements, every \(n\) element subset of \(T'\) will have a least element and by construction, that subset will have the color we chose.
@@ -17,7 +17,7 @@ If we take \(T' \subseteq T\) consisting of those elements, every \(n\) element 
 We now construct a \(T \subseteq \N\) such that the color of every subset of size \(n\) of \(T\) is determined by its least element.
 We can color subsets, \(A\) of size \(n-1\) of \(\N \setminus \{0\}\) by the color assigned to \(A \cup \{0\}\).
 By the inductive hypothesis, there is \(T_0 \subseteq \N \setminus \{0\}\) such that every \(n\)-element subset of \(T_0 \cup \{0\}\) with 0 as its least element is the same color.
-We now take the least element \(t_0 \in T_0\) and similarly apply the inductive typothesis there to get an infinite \(T_1 \subseteq T_0\) such that every subset of \(T_1 \cup \{0, t_0\}\) with \(t_0\) as i\
+We now take the least element \(t_0 \in T_0\) and similarly apply the inductive hypothesis there to get an infinite \(T_1 \subseteq T_0\) such that every subset of \(T_1 \cup \{0, t_0\}\) with \(t_0\) as i\
 ts least element has the same color.
 As \(T_1 \subseteq T_0\) the same is still true for subsets with \(0\) as their least element.
 Continuing inductively, we take \(T = \bigcap\limits_{i \in \N}T_i = \{0, t_0, t_1, \ldots\}\) which will have this property.

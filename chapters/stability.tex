@@ -8,7 +8,7 @@ In general, we call the set of \(\mcL_A\)-sentences true in \(\mcM\) ``\(\Th_A(\
 
 If \(\mcN \models \eldiag(\mcM)\) we say that \(\mcM \prec \mcN\) or that \(\mcN\) is an elementary extension of \(\mcM\). 
 We note that \(\mcM \prec \mcN\) then \(\mcM \subseteq \mcN\) (the inclusion map is simply given by sending \(a\) to the interpretation of the constant symbol \(a\) in \(\mcN\)).
-An equivelnt definition is that \(\mcM \models \phi \iff \mcN \models \phi\) for all \(\mcL_\mcM\) formulae. 
+An equivalent definition is that \(\mcM \models \phi \iff \mcN \models \phi\) for all \(\mcL_\mcM\) formulae. 
 
 \subsection{Defining Types}
 
@@ -66,7 +66,7 @@ Let's observe that both of these theories are \(\omega\)-stable.
 \begin{example}\label{example_omst_sets}
 The theory of infinite sets is \omst. 
 First, consider the complete 1-types, \(p(v_1)\). \(p(v_1)\) must assert either that \(v_1 = a\) for exactly \(a \in A\) or that \(v_1 \neq a\) for all \(a \in A\). 
-Moreover, as the theory of infinite sets admits \qe \cite{mar} all formulae are equivalent to boolean combinations of such formulae. % Add Citation 
+Moreover, as the theory of infinite sets admits \qe \cite{mar} all formulae are equivalent to Boolean combinations of such formulae. % Add Citation 
 We have now identified all 1-types (there is one for each element in \(A\) and one more for when \(v_1\) isn't in \(A\)). 
 This can be easily extended to \(n\)-types for \(n > 1\).
 
@@ -80,9 +80,9 @@ We can assume, without loss of generality, that no two elements of \(A\) are in 
 Our 1-type either asserts that \(v_1\) is in the same \(\Z\)-chain as a single element of \(A\) and determines its position relative to that element, or asserts that \(v_1\) isn't in the same \(\Z\) chain as any element of \(A\). 
 Note that the number of possibilities mentioned above is countable and that these possibilities are exhaustive.
 I assert that if we know which of these possibilities is true of an element \(a\), i.e. what atomic formula \(\psi(a, \bar{b})\) hold for \(\bar{b} \in A\), we can determine the type of \(A\). 
-It suffices to show that we can determine wether \(\phi(a, \bar{b})\) holds of \(a\) given that atomic information.  
-Quantifier elminiation tells us that for all formulae \(\phi(\bar{v})\), \(\Th(\Z, s) \models \A \bar{v} \, \phi(\bar{v}) \leftrightarrow \psi(\bar{v})\) for some quantifier free \(\psi\).
-Given an arbitrary \(\phi(a, \bar{b})\) with \(\bar{b} \in A\) we know that \(\phi(a, \bar{b}) \iff  \psi(a, \bar{b})\) and by hypothesis we know wether or not \(\psi(a, \bar{b})\) holds. 
+It suffices to show that we can determine whether \(\phi(a, \bar{b})\) holds of \(a\) given that atomic information.  
+Quantifier elimination tells us that for all formulae \(\phi(\bar{v})\), \(\Th(\Z, s) \models \A \bar{v} \, \phi(\bar{v}) \leftrightarrow \psi(\bar{v})\) for some quantifier free \(\psi\).
+Given an arbitrary \(\phi(a, \bar{b})\) with \(\bar{b} \in A\) we know that \(\phi(a, \bar{b}) \iff  \psi(a, \bar{b})\) and by hypothesis we know whether or not \(\psi(a, \bar{b})\) holds. 
 This suffices to decide \(\phi(a, \bar{b})\) and show the \(\omega\)-stability of the theory of \((\Z, s)\).
 \end{example}
 
@@ -105,7 +105,7 @@ Let \(C = \{c_i| i \in \aleph_1\} \) be \(\aleph_1\) constant symbols in a new l
 Let \(\Gamma = T \cup \eldiag(\mcM) \cup \{p_i(c_i)\}\) (we assert each type \(p_i\) is realized by \(c_i\) giving us the realization of uncountably many types).
  
 To show that \(\Gamma\) is finitely satisfiable, it will suffice to show that sets of the form \(\Gamma_0 = T \cup \eldiag(\mcM) \cup \bigcup\limits_{i \in \aleph_1}\{\phi(c_i) \mid \phi \in (p_i)_0\}\) are satisfiable, where \((p_i)_0 \subseteq p_i\) are finite.  
-\(\Gamma_0\) is satisfiable iff \(\Delta = T \cup \eldiag(\mcM) \cup \{\E x \bigwedge\limits_{\phi \in (p_i)_0} \phi(x) \mid i \in \aleph_1\}\) is satisfiable.
+\(\Gamma_0\) is satisfiable if \(\Delta = T \cup \eldiag(\mcM) \cup \{\E x \bigwedge\limits_{\phi \in (p_i)_0} \phi(x) \mid i \in \aleph_1\}\) is satisfiable.
 For each of these existential sentences, \(\psi\), \(\mcM\) is either a model of \(\psi\) or of \(\neg \psi\). 
 As these types are, by definition, consistent with \(\eldiag(\mcM)\), it must be that \(\mcM \models \psi\). 
 Therefore, \(\mcM \models \Delta\) and \(\Gamma_0\) is satisfiable. 
@@ -113,10 +113,10 @@ By compactness, we have a model of \(\Gamma\) of cardinality \(|\mcL^*| \leq \ka
 \(\Gamma\) asserts that uncountably many types are realized over \(A\), as desired. 
 \end{proof}
 
-\subsubsection{Indiscernables}
+\subsubsection{Indiscernibles}
 Now, we must show the existence of a model of size \(\kappa\) which realizes only countably many types over every countable set. 
 To do so, we will have to construct some machinery.
-This will be our guiding intuition: to ensure our model is of size \(\kappa\), we will start out with \(\kappa\) many virtually identical (indiscernable) elements. 
+This will be our guiding intuition: to ensure our model is of size \(\kappa\), we will start out with \(\kappa\) many virtually identical (indiscernible) elements. 
 To ensure our model is indeed a model of \(T\), we will add elements to whitness existentials. 
 We will see that this method of construction will realize few types.
 
@@ -128,14 +128,14 @@ We say that a set \(\{x_i \in M \mid i \in I\}\) where \(I\) is an infinite orde
 
 Note that the order for which \(i_1 < i_2\) is an ordering on \(M\).
 The existence of this ordering on \(M\) in no way requires the binary relation symbol ``\(<\)'' to be in our language \(\mcL\). 
-Intuitively, these elements cannot be distinguised based on first order properties, modulo their relative positions in \(M\). 
+Intuitively, these elements cannot be distinguished based on first order properties, modulo their relative positions in \(M\). 
 
 Recall that the theory of dense linear orders without endpoints admits \qe \cite{mar} and it's easy to see that any increasing sequence from such an order is a sequence of indiscernibles. 
-Here, our ordering on the elements of the universe of our model agrees with the ordering present in the languge. 
+Here, our ordering on the elements of the universe of our model agrees with the ordering present in the language. 
 If we removed the ordering from our language (i.e. we work in the language of sets) our order indiscernibles remain order indiscernibles. 
 
 \begin{theorem}\label{theorem_order_indiscernibles}
-Given an ordered set \(I\) and an \(\mcL\)-theory, \(T\), which has infinite models, there always exists an \(\mcM \models T\) containing a set of order insicernibles of order type \(I\). 
+Given an ordered set \(I\) and an \(\mcL\)-theory, \(T\), which has infinite models, there always exists an \(\mcM \models T\) containing a set of order indiscernibles of order type \(I\). 
 \end{theorem}
 
 \begin{proof}
@@ -159,7 +159,7 @@ We let our set of \(2^{|\Phi|}\) colors be the subsets of \(\Phi\).
 If \(N\) is a subset of \(S\) of size \(m\) let \(a_1 < \ldots < a_m\) enumerate its elements. 
 Assign the set \(N\) the color \(\{\phi \in \Phi \mid \mcM \models \phi(\bar{a})\}\). 
 If \(\phi\) has only \(m'\) free variables and \(m' < m\) we interpret \(\phi(\bar{a})\) as \(\phi(\bar{b})\) where \(\bar{b}\) is the first \(m'\) elements of \(\bar{a}\).
-Interpreting the \(c_i\)s as the elements of \(T\) (whose existence is guarunteed by Ramsey's Theorem) is sufficient by construction. Thus, \(T'\) is satisfiable and its model is the desired \(\mcM\).
+Interpreting the \(c_i\)s as the elements of \(T\) (whose existence is guaranteed by Ramsey's Theorem) is sufficient by construction. Thus, \(T'\) is satisfiable and its model is the desired \(\mcM\).
 
 Thus, we have shown that our theory, \(T'\) is finitely satisfiable.
 As our theory, \(T'\) ensured that we had order indiscernibles of order type \(I\), we have proven the theorem.
@@ -168,11 +168,11 @@ As our theory, \(T'\) ensured that we had order indiscernibles of order type \(I
 \subsubsection{Realizing Only Countably Many Types}
 
 \begin{definition}\label{definition_skolem_functions}
-An \(\mcL\)-theory, \(T\), is said to have built-in Skolem functions when for all \(\mcL\)-formulae \(\phi(v, \bar{w})\) is a function symbol \(f_\phi \in \mcL\) such that \(T \models \A \bar{w} \left[(\E v \, \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})\right]\), in other words, the Skolem functions provide whitnesses for all existentials. 
+An \(\mcL\)-theory, \(T\), is said to have built-in Skolem functions when for all \(\mcL\)-formulae \(\phi(v, \bar{w})\) is a function symbol \(f_\phi \in \mcL\) (a ``Skolem function'') such that \(T \models \A \bar{w} \left[(\E v \, \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})\right]\) in other words, the Skolem functions provide witnesses for all existentials. 
 \end{definition}
 
 \begin{theorem}\label{theorem_skolem_function_extension}
-Note that, for any \(\mcL\)-theory, \(T\), we can find \(\mcL^* \supseteq \mcL\) and \(T^* \supseteq T\) such that \(T^*\) has built in skolem functions. 
+Note that, for any \(\mcL\)-theory, \(T\), we can find \(\mcL^* \supseteq \mcL\) and \(T^* \supseteq T\) such that \(T^*\) has built in Skolem functions. 
 Moreover, if \(\mcM \models T\) we can extend \(\mcM\) to an \(\mcL^*\)-structure, \(\mcM^*\), such that \(\mcM^* \models T^*\). 
 \end{theorem}
 
@@ -182,7 +182,7 @@ Let \(\mcL_0 = \mcL\) and \(T_0 = T\).
 For \(i > 0\) let \(\mcL_i = \mcL_i \cup \{f_\phi \mid \phi \text{ is an } \mcL_{i-1}\text{-formula}\}\) where \(f_\phi\) is a function symbol.
 If \(\phi\) is a formula in \(n\) free variables, the arity of \(f_\phi\) is \(n-1\). 
 Let \[T_i = T_{i-1} \cup \{\A \bar{w} \left[(\E v \, \phi(v, \bar{w})) \to \phi(f_\phi(\bar{w}), \bar{w})\right] \mid \phi \text{ is an } \mcL_{i-1}\text{-formula}\}\]
-Taking \(\mcL^* = \bigcup\limits_{i \in \N} \mcL_i\) and \(T^* = \bigcup\limits_{i \in \N} T_i\) will have built in skolem functions by construction.
+Taking \(\mcL^* = \bigcup\limits_{i \in \N} \mcL_i\) and \(T^* = \bigcup\limits_{i \in \N} T_i\) will have built in Skolem functions by construction.
 
 To show that \(\mcM^*\) exists, it suffices to show that, if \(\mcM \models T_i\) then \(\mcM \models T_{i+1}\) given the correct interpretation of the function symbols in \(\mcL_{i+1}\).
 If \(\mcM \models \E x \, \phi(x, \bar{w})\) then it must be that, for some \(b \in M\) that \(\mcM \models \phi(b, \bar{w})\), so we let \(f_\phi(\bar{w}) = b\). 
@@ -210,19 +210,19 @@ It suffices to show:
 As our inductions succeeded, we have proven the other direction. \end{proof}
 
 \begin{lemma}\label{closure_under_skolem_functions}
-If \(T\) has built in skolem functions and \(\mcM \subseteq \mcN \models T\) then \(\mcM \prec \mcN\). 
-As \(\mcM\) is closed under the skolem functions, we can whitness existentials in accordance with the hypothesis of our previous theorem. 
+If \(T\) has built in Skolem functions and \(\mcM \subseteq \mcN \models T\) then \(\mcM \prec \mcN\). 
+As \(\mcM\) is closed under the Skolem functions, we can witness existentials in accordance with the hypothesis of our previous theorem. 
 \end{lemma}
 
 \begin{definition}\label{definition_skolem_hull}
-Let \(\mcM \models T\) where \(T\) has built in skolem functions. 
+Let \(\mcM \models T\) where \(T\) has built in Skolem functions. 
 If \(A \subseteq M\) then we can take \(\mathcal{H}(A)\) which is the smallest submodel of \(\mcM\) containing \(A\).
-As \(\mathcal{H}(A)\) is a submodel of \(\mcM\) it is closed under skolem functions, so \(\mathcal{H}(A) \prec \mcM\) (by Lemma \ref{closure_under_skolem_functions}).
+As \(\mathcal{H}(A)\) is a submodel of \(\mcM\) it is closed under Skolem functions, so \(\mathcal{H}(A) \prec \mcM\) (by Lemma \ref{closure_under_skolem_functions}).
 We call \(\mathcal{H}(A)\) the ``Skolem hull'' of \(A\). As we can extend any theory \(T\) to one with built in Skolem functions (Theorem \ref{theorem_skolem_function_extension}), we can create Skolem hulls with arbitrary order types for any theory \(T\) with infinite models.
 \end{definition}
 
 \begin{definition}\label{definition_ehrenfeuct_mostowski_model}
-If \(T\) is an \(\mcL\)-theory with build in skolem functions and infinite models, given any infinite ordered set \(I\), we find a \(\mcM \models T\) such that \(I \subseteq M\) is an infinte set of order indiscernibles.\footnote{We identify the order indiscernibles of order type \(I\) with the set \(I\) itself.}
+If \(T\) is an \(\mcL\)-theory with build in Skolem functions and infinite models, given any infinite ordered set \(I\), we find a \(\mcM \models T\) such that \(I \subseteq M\) is an infinite set of order indiscernibles.\footnote{We identify the order indiscernibles of order type \(I\) with the set \(I\) itself.}
 We call \(\mathcal{H}(I)\) an Ehrenfeucht-Mostowski model. 
 Note that if \(\mcL\) is countable \(|\mathcal{H}(I)| = |I|\) as every element of \(\mathcal{H}(I)\) is an \(\mcL_{I}\)-term, of which there are \(|\mcL|+|I| = |I|\).
 \end{definition}
@@ -234,14 +234,14 @@ Let \(\mcM = \mathcal{H}(\kappa, <)\models T\).
 \end{theorem}
 
 \begin{proof}
-As every element of \(M\) (and of \(A\)) must be a Skolem term (i.e. of the form \(f_\phi(\bar{x})\) for some vector of indiscernables), it suffices to look at the types over countable subsets of \(\kappa\).
+As every element of \(M\) (and of \(A\)) must be a Skolem term (i.e. of the form \(f_\phi(\bar{x})\) for some vector of indiscernibles), it suffices to look at the types over countable subsets of \(\kappa\).
 Let \(X\) be this countable subset of \(\kappa\). 
 It suffices to show that for each formula \(\phi\) in \(n\) free variables, terms of the form \(f_\phi(y_1, \ldots, y_n)\) realize only countably many types. 
 (We then have divided \(M\) into countably many sets each realizing at most countably many types).
 We see that \(f_\phi(y_1, \ldots, y_n)\) and \(f_\phi(z_1, \ldots, z_n)\) realize the same type if, for each \(i \leq n\) there is no \(x \in X\) between \(y_i\) and \(z_i\) or that \(y_i\) and \(z_i\) determine the same cut in \(X\).  
 This is because indiscernability tells us \(\mcM \models \psi(f_\phi(\bar{y}), \bar{x}) \iff \mcM \models \psi(f_\phi(\bar{z}), \bar{x})\) when the relative orders of the indiscernibles in \(\bar{y}\bar{x}\) and in \(\bar{z}\bar{x}\) are the same. 
 It now suffices to note that, as \(\kappa\) is well ordered, there are only countably many cuts of \(X\). 
-This deals with the 1-types. Dealing with the \(n\)-types only requires dealing with \(n\)-tuples of formulae instead of the single formula \(\phi\) we adressed here. 
+This deals with the 1-types. Dealing with the \(n\)-types only requires dealing with \(n\)-tuples of formulae instead of the single formula \(\phi\) we addressed here. 
 \end{proof}
 
 \begin{theorem}\label{theorem_omega_stability_categoricity}
@@ -249,7 +249,7 @@ Any theory which is not \omst cannot be categorical in any uncountable cardinal.
 \end{theorem}
 
 \begin{proof}
-We have succeded in showing that there is a model of any \(\omega\)-unstable theory realizing only countably many types over any countable set in Theorem \ref{theorem_ehrenfeuct_mostowski_types}.
+We have succeeded in showing that there is a model of any \(\omega\)-unstable theory realizing only countably many types over any countable set in Theorem \ref{theorem_ehrenfeuct_mostowski_types}.
 This model cannot be isomorphic to one realizing uncountably many types over a countable set, which we showed must exist as in Theorem \ref{theorem_realizing_uncountable_types}.
 \end{proof}
 
@@ -316,10 +316,8 @@ A function \(f:A \to N\) for which \(\mcM \models \phi(\bar{v}) \iff \mcN \model
 
 \begin{definition}\label{definition_prime_over}
 If \(\mcM \models T\) as above and \(A \subseteq M\), then \(\mcM\) is prime over \(A\) if, for all \(\mcN \models T\) and \(f:A \to \mcN\) partial elementary, we have a \(f^* \supseteq f\) embedding \(\mcM\) in \(\mcN\). 
-Note that \(\mcM\) is a prime model iff it is prime over the empty set. 
+Note that \(\mcM\) is a prime model iff it is prime over the empty set.
 \end{definition}
-
-% Possible Addition: Examples?
 
 \begin{theorem}\label{thm_omst_prime}
 \omst theories have prime models. Moreover, if \(T\) is \(\omega\)-stable, \(\mcM \models T\) and \(A \subseteq M\) then there is a \(\mcM_0\) which is prime over \(A\). 
@@ -327,8 +325,7 @@ Note that \(\mcM\) is a prime model iff it is prime over the empty set.
 
 \noindent To prove this theorem, it helps to have the following definition and lemma:
 \begin{definition}\label{definition_isolated_types}
-A type \(p(\bar{v})\) is isolated if there is a \(\phi(\bar{v}) \in p(\bar{v})\) such that \(\phi(\bar{v}) \to \psi(\bar{v})\) for all \(\psi \in p\). We say that \(\phi\) isolates \(p\). 
-% we might want to give more examples or something here. 
+A type \(p(\bar{v})\) is isolated if there is a \(\phi(\bar{v}) \in p(\bar{v})\) such that \(\phi(\bar{v}) \to \psi(\bar{v})\) for all \(\psi \in p\). We say that \(\phi\) isolates \(p\). % Examples?
 \end{definition}
 
 \begin{lemma}\label{isolated_types_are_dense}
@@ -352,7 +349,7 @@ We will build up that set by induction.
 
 In accordance with our intuition above, we will only add elements which ``must exist in any model of \(T\)'' in light of their relation to \(A\) (and other such elements).
 If \(\phi(v)\) isolates some type over \(A\) and if \(m\) realizes this type in \(\mcM\) then every model of \(T\) must contain \(m\) as well. 
-We will construct a chain of subsets of \(\mcM\) ordered by inclusion such that at each stage we include one more necassary element until we've included all such elements. 
+We will construct a chain of subsets of \(\mcM\) ordered by inclusion such that at each stage we include one more necessary element until we've included all such elements. 
 Let the first subset in our chain, \(A_0\), consist only of \(A\). 
 If \(A_\alpha\) is in our chain, and \(m_\alpha \notin A_\alpha\) realizes an isolated type over \(A_\alpha\), let \(A_{\alpha+1} = A_\alpha \cup \{m_\alpha\}\).
 If no such \(m_\alpha\) exists, our chain will only have length \(\alpha\). 
@@ -361,7 +358,7 @@ As we can only add elements of \(\mcM\) our chain must eventually end and have a
 
 We would like to show that if \(\mcM_0 \subseteq \mcM\) has universe \(A_\delta\) then \(\mcM_0 \prec \mcM\).
 We apply the Tarski-Vaught test (Theorem \ref{theorem_tarski_vaught_test}) so it suffices to show that if \(\mcM \models \phi(v, \bar{a})\) for some \(v \in M, \bar{a} \in A_\delta\) then there is a \(b \in M\) such that \(\mcM \models \phi(b, \bar{a})\) and \(tp^\mcM(b/A_\delta\) is isolated. 
-This is guarunteed by Lemma \ref{isolated_types_are_dense}.
+This is guaranteed by Lemma \ref{isolated_types_are_dense}.
 
 Moreover, \(\mcM_0\) is prime over \(A\), that is, for all \(\mcN\) and \(f: A \to \mcN\) partial elementary, we have an elementary \(f^*: \mcM_0 \to \mcN\). 
 We construct the desired elementary embedding by induction from a partial elementary \(f: A \to \mcN\).  
