@@ -177,7 +177,7 @@ If we can realize a single type in an elementary extension, enumerating the type
 
 Let \(p(\bar{v})\) be a given type. 
 We can see that \(\Gamma = \eldiag((\mcN, \mcM)) \cup \{\phi_U(\bar{v}, \bar{a}) \mid \phi(\bar{v}, \bar{a}) \in  p(\bar{v})\}\) is satisfiable.  
-Specifically, if \(\phi_1(\bar{v}, \bar{a}), \ldots, \phi_k(\bar{v}, \bar{a}) \in p\) are a finite subset of this type, we know that \(\mcN \models \bigwedge\limits \E \bar{x}\, \phi_k(\bar{x},\bar{a})\) and therefore that \(\mcM \models \bigwedge\limits \E \bar{x} \, (\phi_k)_U(\bar{x},\bar{a})\). 
+Specifically, if \(\phi_1(\bar{v}, \bar{a}), \ldots, \phi_k(\bar{v}, \bar{a}) \in p\) are a finite subset of this type, we know that \(\mcN \models \bigwedge\limits_{j \leq k} \E \bar{x}\, \phi_j(\bar{x},\bar{a})\) and therefore that \(\mcM \models \bigwedge\limits_{j \leq k} \E \bar{x} \, (\phi_j)_U(\bar{x},\bar{a})\). 
 This finite subset is realized in \((\mcN, \mcM)\) itself. 
 Any model of \(\Gamma\) is an elementary extension of \((\mcN, \mcM)\) which we may call \((\mcN', \mcM')\).
 We can also take \((\mcN', \mcM')\) to be countable as we did in Theorem \ref{theorem_countable_vaughtian_pairs}. 
@@ -277,13 +277,13 @@ Assume for the purposes of contradiction that it is realized in \(\mcN\) by some
 There must be an \(\mcL_\mcM\) formula \(\psi(x, y)\) such that \(\psi(v, c)\) isolates \(\text{tp}(v/M \cup \{c\})\). % Why? Do something with the prime models
 Note that the formula \(\E x \, \psi(x, c)\) is true of \(c\) and is therefore in \(p(c)\). 
 Moreover, if \(\gamma(v) \in \Gamma(v)\) then \(\A v (\psi(v, c) \to \gamma(v)) \in p(c)\). 
-Let \(\Delta(c) = \{\A v \, (\psi(v, c) \to \gamma(v)) \mid \gamma \in \Gamma\} \cup \{\E \, v \psi(v, c)\}\).
-\(\Delta\) is countable and a subset of \(p\) so it is realized by \(c\). 
-If another \(d\) realizes \(\Delta\) then \(\E w \psi(w, d)\) and \(w\) realizes \(\Gamma\).
+Let \(\Delta(c) = \{\A v \, (\psi(v, c) \to \gamma(v)) \mid \gamma \in \Gamma\} \cup \{\E v \, \psi(v, c)\}\).
+\(\Delta\) is a subset of \(p\) so it is realized by \(c\). 
+If another \(d\) realizes \(\Delta\) then \(\E w \, \psi(w, d)\) and \(w\) realizes \(\Gamma\).
 Let \(\{\delta_0(c), \delta_1(c), \ldots\} = \Delta(c)\). 
-\(\{x \in M \mid \psi(x)\}\) must be uncountable. 
+\(\{x \in M \mid \psi(x)\}\) must be uncountable by construction. 
 For every \(n\), though, \(|\{x \in M \mid \psi(x) \land \neg (\bigwedge\limits_{i=0}^n\delta_i)\}|\) is countable (by the definition of \(p \ni \delta_i\)).
-So only countably many \(x\) realizing \(\psi\) fail to realize \(\Delta\), let \(d\) be one of the uncountably many realizing \(\Delta\) in \(M\).
+So only countably many \(x\) realizing \(\psi\) fail to realize \(\Delta\), let \(d\) be one of the uncountably many elements realizing \(\Delta\) in \(M\).
 As above, \(w\) realizes \(\Gamma\) in \(\mcM\). This is our contradiction.  
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -4,43 +4,48 @@ As this property doesn't depend on the uncountable cardinality, this suffices.
 
 We've already shown that \(\omega\)-stability and lacking Vaughtian pairs are necessary for uncountable categoricity.
 To show these conditions are also sufficient we will define a notion of ``dimension'' for models of such theories (more specifically for their minimal subsets).
-If two sets have the same dimension, they will be isomorphic.
-Any two models of the same countable theory \(T\) of cardinality \(\kappa\) will have dimension \(\kappa\) and therefore be isomorphic.
+If two models of \(T\) have minimal subsets of the same dimension defined by the same \(\phi\) we will be able to construct an isomorphism between them. 
+This will always be the case for \(T\) \omst and lacking Vaughtian pairs. 
 This will complete the proof. 
 
 \subsection{Strong Minimality and Vaughtian Pairs}
 
-Now, assume we have a theory which is \omst and has no Vaughtian-pairs. 
+Consider a theory which is \omst and has no Vaughtian-pairs. 
 As it is \omst it has a prime model (Theorem \ref{thm_omst_prime}).
 By \(\omega\)-stability, that prime model has a minimal formula (Lemma \ref{lemma_minimal_omst}). 
-For our proof of Morley's categoricity theorem it will be important that this minimal formula is strongly minimal, so that we can use dimension to show isomorphism as described above. 
-A theory lacking Vaughtian pairs will have the property that minimal formula are strongly minimal. 
+For our proof of Morley's categoricity theorem it will be important that this minimal formula is strongly minimal, so that we can use the dimension of that set to construct an isomorphism between elementary extensions of the prime model  as described above. 
+A theory lacking Vaughtian pairs will have the property that minimal formulae are strongly minimal. 
 
 \begin{theorem}\label{theorem_minimal_vaughtian_pair}
 If \(T\) has no Vaughtian pairs and \(\phi\) is a minimal formula for \(\mcM \models T\) then \(\phi\) is strongly-minimal. 
 \end{theorem}
 
 \begin{proof}
-If \(\phi\) is not strongly minimal, there is \(\mcM \prec \mcN\), \(\bar{b} \in \mcN\) and \(\psi(\bar{x}, \bar{b})\) such that \(\psi(\mcN, \bar{b})\) is infinite and co-infinite. 
-We see that for every natural number \(n\), we know \(\mcN \models \E \bar{b} (\theta_{\psi, \bar{b}, n} \land \theta_{\neg \psi, \bar{b}, n})\) where \(\theta_{\psi, \bar{b},n}\) asserts there are at least \(n\) vectors \(\bar{x}\) for which \(\psi(\bar{x}, \bar{b})\) holds. 
-As \(\mcM \prec \mcN\), we know that each of these formulae hold in \(\mcM\) as well. 
-We can use this fact, together with compactness to show that \(T\) has a Vaughtian pair.
-Note that for each \(\bar{b}\) either \(\psi(\mcM, \bar{b})\) is infinite or it is co-infinite. 
-% You need a sequence. There is a problem here, please fix it. 
-One of these cases must happen for arbitrarily large \(n\).  % 10-1 in M?
-Assume without loos of generality that \(\psi(\mcM, \bar{b})\) is co-infinite and arbitrarily large. 
-We will represent model pairs as in the previous section with an additional predicate \(U\) defining an elementary submodel. 
-We will show that the following set of formulae is satisfiable: 
-%being an extension of M? (Tws)
-\(\E x (\neg U(x))\), \(U(\bar{w})\), \(\{\theta_{\psi, \bar{w}, n}\}_{n\in \N}\), \(\psi(\bar{v}, \bar{w}) \to U(\bar{v})\). 
-% Possible Clarification: We took the \(\psi(\mcM, \bar{n})\) co-infinite so we could have a proper elementary submodel. Elaborate more on this. 
-When taking finite subsets of these formulae, it suffices to take \(n\) sufficiently large and let \(\bar{w}\) be the \(\bar{b}\) which we know exists.
-In this model, \(\{\bar{v}\mid\psi(\bar{w}, \bar{v})\}\) defines an infinite subset, for which \(U(\bar{v})\) holds, in other words, a Vaughtian pair. % Explain more
+We begin by proving the following claim: Let \(T\) be a theory with no Vaughtian pairs, \(\mcM \models T\), and \(\phi(\bar{v}, \bar{w})\) an \(\mcL\)-formula.
+There exists an \(n\) such that if \(\bar{a} \in M\) and \(|\phi(\mcM, \bar{a})| > n\) then \(|\phi(\mcM, \bar{a})|\) is infinite. 
+
+We will prove this by contradiction. 
+If this claim is false, for all \(n\) there is an \(\bar{a}_n \in M\) such that \(|\phi(\mcM, \bar{a}_n)| > n\). 
+We will use this fact to show that, by compactness, we can find a Vaughtian pair of models of \(T\).
+We add constant symbols to our language for \(\bar{b}\) and we will present a finitely satisfiable theory, \(\Gamma\), in \(\mcL^U\) asserting that \((\mcN', \mcM')\) is a Vaughtian pair with infinite definable subset defined by \(\phi(\bar{v}, \bar{b})\). 
+Note that we've demonstrated the construction of such a theory in Theorem \ref{theorem_countable_vaughtian_pairs}.
+
+A finite subset of \(\Gamma\) will assert that \(\phi(\mcM', \bar{b}) = \phi(\mcN', \bar{b})\) and both have size at least \(n\). 
+We let \(\mcM' = \mcM, \mcN'\) be an arbitrary proper elementary extension of \(\mcM\) and \(\bar{b} = \bar{a}_n\). 
+\(\bar{b} = \bar{a}_n\) gives us that \(\phi(\mcM', \bar{b}), \phi(\mcN', \bar{b})\) both have size at least \(n\). 
+As \(\phi(\mcM, \bar{a}_n)\) is finite, \(\mcM \models |\phi(\mcM, \bar{a}_n)| = m\) for some \(m\), and therefore \(\mcN' \models |\phi(\mcN', \bar{a}_n)| = m\) as \(\mcM \prec \mcN'\).
+This suffices to prove the claim. 
+
+Let \(\phi\) be a minimal formula for \(\mcM \models T\) and \(\mcM \prec \mcN\).
+We will show that, for any \(\psi(\bar{v}, \bar{a})\) with \(\bar{a} \in M\) that \(\phi(\bar{v}) \land \psi(\bar{v}, \bar{a})\) defines an infinite or coinfinite subset of \(\phi(\mcN)\) but not both. 
+Let \(n\) be the one from our claim above given \(\mcM\) and \(\psi\). 
+We know that \(\mcM \models \A \bar{w} \, \neg(\{\bar{v} \mid \phi(\bar{v}) \land \psi(\bar{v}, \bar{w})\} > n \land \{\bar{v} \mid \phi(\bar{v}) \land \neg\psi(\bar{v}, \bar{w})\} > n)\)
+This statement remains true in any elementary extension of \(\mcM\), specifically in \(\mcN\), that is to say \(\psi(\bar{v}, \bar{a})\) doesn't define an infinite and coinfinite subset of \(\phi(\mcN)\).
 \end{proof}
 
-With these past few lemmata we can conclude that any theory which lack Vaughtian pairs and is \omst has a strongly minimal formula with parameters from a countable prime model. 
-We will develop the theory of dimensions of elementary extensions and see that any two extensions of cardinality \(\kappa > \aleph_0\) will have dimension \(\kappa\) over the prime model.
-From this fact, we will be able to show they are isomorphic, providing us, finally, with \(\kappa\) categoricity and completing the proof of Morley's categoricity theorem. 
+With this theorem, Theorem \ref{thm_omst_prime} and Lemma \ref{lemma_minimal_omst}, we can conclude that any theory which lacks Vaughtian pairs and is \omst has a strongly minimal formula with parameters from a countable prime model. 
+We will develop the theory of dimensions of elementary extensions and see that any two extensions of cardinality \(\kappa > \aleph_0\) will have a definable subset of dimension \(\kappa\) defined by this strongly minimal formula. 
+From this fact, we will be able to show these arbitrary models of the same uncountable cardinality are isomorphic, providing us, finally, with \(\kappa\) categoricity and completing the proof of Morley's categoricity theorem. 
 
 \subsection{Algebraic Closure and Dimension}
 
@@ -53,6 +58,8 @@ The algebraic closure has the nice properties that \(\acl(\acl(A)) = \acl(A)\), 
 We would like the exchange property to be true, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 This is only true when we take \(A\) to be a subset of some strongly minimal set.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This one is confusing.
 \begin{theorem}\label{theorem_exchange}
 Let \(S\) be a strongly minimal set. If \(A \subseteq S, a, b \in S\) and \(a, b \notin \acl(A)\) but \(a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 \end{theorem}
@@ -73,6 +80,7 @@ As \(\theta(a_i)\) holds, each set \(\{y \in S \mid \psi(y) \land \phi(a_i, y)\}
 For any element, \(b'\) in the intersection, we have \(\psi(b')\) and \(a_i \in \{x \in S \mid \phi(x, b')\}\) for each \(a_i\) by construction.
 This is a contradiction as \(\psi(b')\) asserts there are only \(n\) such elements.  
 \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{definition}\label{definition_independence}
 As above let \(D\) be a minimal set. \(A \subseteq D\) is independent if for all \(a \in A\), \(a \notin \acl(A \setminus \{a\})\). 
@@ -80,6 +88,8 @@ As above let \(D\) be a minimal set. \(A \subseteq D\) is independent if for all
 We will show that all bases of a set \(A\)  have the same cardinality, which we will call the dimension of \(A\).
 \end{definition}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This three
 \begin{lemma}\label{lemma_dimension}
 Given two disjoint independent sets, \(S, T\), 
 % (whose union is also independent?)
@@ -100,6 +110,7 @@ It suffices to show (by exchange) that \(s \notin \acl(S \cup T \setminus \{t\})
 If this were not the case, by exchange we would have \(t \in \acl(S \cup T \setminus \{t\})\) as that set is equal to \(\acl(S \cup \{s\} \cup T \setminus\{t\})\).
 But this would contradict the independence of \(S \cup T\). 
 \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{theorem}\label{theorem_dimension}
 The dimension of a set (which is a subset of a strongly minimal set) is well defined.
@@ -117,6 +128,8 @@ In the case where \(B\) is infinite, \(|B| = \kappa\), we note that there are \(
 It is impossible to take mare than \(\kappa\) many elements of \(C\), so there cannot be a subset \(A\) of \(C\) with \(|A| > |B|\) so there cannot be such a basis. 
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This looks bad
 \begin{theorem}\label{partial_elementary_bijection}
 Let \(\mcM, \mcN_1, \mcN_1 \models T\) and \(\mcM \prec \mcN_1, \mcM \prec \mcN_2\) and \(\phi(v)\) be a strongly minimal formula with parameters from \(M\).
 If \(\phi(\mcN_1)\) has the same dimension as \(\phi(\mcN_2)\), then there is a partial elementary map \(f: \phi(\mcN_1) \to \phi(\mcN_2)\) which is a bijection. 
@@ -148,6 +161,7 @@ We must have \(tp(b/\text{dom}(g)) = tp (c/\text{rng}(g))\) so \(g \cup \{(b, c)
 
 Thus, our maximal element guaranteed by Zorn's Lemma is a bijective partial elementary map between \(\phi(\mcN_1)\) and  \(\phi(\mcN_2)\)
 \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Proof of Morley's Categoricity Theorem}
 
