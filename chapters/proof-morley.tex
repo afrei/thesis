@@ -88,29 +88,29 @@ As above let \(D\) be a minimal set. \(A \subseteq D\) is independent if for all
 We will show that all bases of a set \(A\)  have the same cardinality, which we will call the dimension of \(A\).
 \end{definition}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% This three
 \begin{lemma}\label{lemma_dimension}
-Given two disjoint independent sets, \(S, T\), 
-% (whose union is also independent?)
-% is s in acl(ST) asks TWS
- if \(S \cup \{s\}\) is independent, there is an element \(t \in T\) such that \((S \cup \{s\}) \cup (T \setminus \{t\})\) is independent and has the same algebraic closure as \(S \cup T\). 
+Given two disjoint sets, \(S, T\), such that \(S \cup T\) is independent, and \(s \in \acl(S \cup T)\), if \(S \cup \{s\}\) is independent, there is an element \(t \in T\) such that \((S \cup \{s\}) \cup (T \setminus \{t\})\) is independent and has the same algebraic closure as \(S \cup T\). 
 \end{lemma}
 
 \begin{proof}
 Let \(T_0 \subseteq T\) be of the smallest cardinality such that \(s \in \acl(S \cup T_0)\). 
-Clearly, \(T_0\) is non-empty, so choose \(t \in T_0\). 
-\(s \in \acl(S \cup T_0)\) and by exchange \(t \in \acl(S \cup \{s\} \cup T_0 \setminus \{t\}) \subseteq \acl(S \cup \{s\} \cup T \setminus \{t\})\).
-We can conclude \(\acl(S \cup \{s\} \cup T \setminus \{t\}) = \acl(S \cup T)\) as the former contains \(S \cup T\) and is algebraically closed and \(s \in \acl(S \cup T)\). 
-It suffices to show \(S \cup \{s\} \cup T \setminus \{t\}\) is independent. 
+As \(\acl(S \cup T) \ni s\) there must be such a \(T_0\).
+Clearly, \(T_0\) is non-empty as \(S \cup \{s\}\) is independent.
+Let \(t \in T_0\) be arbitrary. 
+Using exchange, since \(s \in \acl(S \cup T_0)\) we see that \(t \in \acl((S \cup \{s\}) \cup (T_0 \setminus \{t\})) \subseteq \acl((S \cup \{s\}) \cup (T \setminus \{t\}))\).
+
+First, we show \(\acl((S \cup \{s\}) \cup (T \setminus \{t\})) = \acl(S \cup T)\).
+By choice of \(s\), \((S \cup \{s\}) \cup (T \setminus \{t\}) \subseteq \acl(S \cup T)\) which implies that \(\acl(S \cup \{s\} \cup T \setminus \{t\}) \subseteq \acl(\acl(S \cup T)) = \acl(S \cup T)\).
+Similarly, in the other direction, it suffices to note that \(t \in \acl((S \cup \{s\}) \cup (T \setminus \{t\}))\).
+
+We now show that \((S \cup \{s\}) \cup (T \setminus \{t\})\) is independent. 
 We already know that \(S \cup T\) and therefore \(S \cup T \setminus \{t\}\) are independent. 
-It suffices to show (by exchange) that \(s \notin \acl(S \cup T \setminus \{t\})\).
-% inspect word not (typo to not include?)
-% how does exchange come in to play?
-If this were not the case, by exchange we would have \(t \in \acl(S \cup T \setminus \{t\})\) as that set is equal to \(\acl(S \cup \{s\} \cup T \setminus\{t\})\).
+It suffices to show that \(s \notin \acl(S \cup (T \setminus \{t\}))\).
+We seek a contradiction. 
+If it were true that \(s \in \acl(S \cup T \setminus \{t\})\) then  \(t \in \acl(S \cup (T \setminus \{t\})) = \acl((S \cup \{s\}) \cup (T \setminus\{t\}))\).
 But this would contradict the independence of \(S \cup T\). 
+\((S \cup \{s\}) \cup (T \setminus \{t\})\) is thus independent. 
 \end{proof}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{theorem}\label{theorem_dimension}
 The dimension of a set (which is a subset of a strongly minimal set) is well defined.
@@ -124,7 +124,7 @@ Ultimately, we see that \(\acl(A) = \acl(S_i \cup T_i) = \acl(B \cup (A \setminu
 If \(A \setminus \{a_1, \ldots, a_n\}\) is non-empty and contains some element \(a\), then \(a \notin \acl(B)\) as \(B \cup (A \setminus \{a_1, \ldots, a_n\})\) is independent. 
 But \(a \in \acl(A) = \acl(C)\) so \(\acl(B)\) cannot equal \(\acl(C)\) and cannot be a basis. 
 
-In the case where \(B\) is infinite, \(|B| = \kappa\), we note that there are \(\kappa\) many formula with parameters from \(B\) and at most \(\kappa\) many elements of \(\acl(B) = \acl(C) \supset C\). 
+In the case where \(B\) is infinite, \(|B| = \kappa\), we note that there are \(\kappa\) many formula with parameters from \(B\) and at most \(\kappa\) many elements of \(\acl(B) = \acl(C) \supseteq C\). 
 It is impossible to take mare than \(\kappa\) many elements of \(C\), so there cannot be a subset \(A\) of \(C\) with \(|A| > |B|\) so there cannot be such a basis. 
 \end{proof}
 

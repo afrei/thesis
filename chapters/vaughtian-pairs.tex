@@ -271,22 +271,22 @@ Additionally, \(\mcM \prec \mcM_0\).
 This \(\mcM_0\) will be our desired model. 
 
 All that remains is to show that \(\mcM_0\) has the desired property, that \(\phi(\mcM) = \phi(\mcM_0)\).   
-\(\mcM_0\) will actually have the more general property that if \(\Delta = \{\delta_i(v)\mid i \in \N\}\) is a countable set of consistent formula in one free variable which is realized in \(\mcM_0\), then \(\Delta\) is realized in \(\mcM\).
-If we take \(\Delta = \{v \neq a \mid a \in \phi(\mcM)\} \cup \{\phi(v)\}\) then we see that \(\Delta\) is not realized in \(\mcM\) and therefore not realized in \(\mcM_0\), giving the desired property. 
+\(\mcM_0\) will actually have the more general property that if \(\Delta = \{\delta_i(v)\mid i \in \N\}\) is a countable (incomplete) type which is realized in \(\mcM_0\), then \(\Delta\) is realized in \(\mcM\).
+If we take \(\Delta(v) = \{v \neq a \mid a \in \phi(\mcM)\} \cup \{\phi(v)\}\) then we see that \(\Delta\) is not realized in \(\mcM\) and therefore not realized in \(\mcM_0\), giving the desired property. 
 
 Say \(\Delta(v)\) is realized in \(\mcM_0\).
 The type of \(v\) over \(M \cup \{c\}\) must be isolated by some formula \(\theta(v, c)\). %cite
 Note that \(p(c) \ni \E x \, \theta(x, c)\) as this formula is true of \(c\) in \(\mcM_0\) (as it is witnessed by \(v\)).
-Additionally, \(\A v \, (\psi(v, c) \to \delta_i(v)) \in p(c)\) for all \(i\). (As \(\theta\) isolates the type of \(v\)). 
-Let \(\Gamma(c) \subseteq p(c)\) be these formulae just mentioned, that is \(\Gamma(c) = \{\(\A v \,(\theta(v, c) \to \delta_i(v)) \in p(c) \mid i \in \N\} \cup \{\E x \, \theta(x, c)\}\). 
+Additionally, \(\A v \, (\theta(v, c) \to \delta_i(v)) \in p(c)\) for all \(i\). (As \(\theta(v, c)\) isolates the type of \(v\)). 
+Let \(\Gamma(c) \subseteq p(c)\) be these formulae just mentioned, that is \(\Gamma(c) = \{\A v \,(\theta(v, c) \to \delta_i(v)) \in p(c) \mid i \in \N\} \cup \{\E x \, \theta(x, c)\}\). 
 \(\Gamma\) is realized by \(c\) in \(\mcM_0\). 
 
-At this point, it suffices to find a realization of \(\Gamma\) in \(\mcM\).
-If \(c'\) realizes \(\Gamma\) in \(\mcM\) then \(\E x \, \theta(x, c')\), call this element \(v'\). 
-As \(c'\) realizes \(\Gamma\), \(\mcM \models \A v' \,(\theta(v', c') \to \delta_i(v'))\) giving us that \(v'\) realized \(\Delta\) in \(\mcM\). 
+If \(c'\) realizes \(\Gamma\) in \(\mcM\) then \(\E x \, \theta(x, c')\) and any \(x\) for which \(\mcM \models \theta(x, c')\) is a realization of \(\Delta\) as desired. 
+Therefore, it suffices to find a realization of \(\Gamma\) in \(\mcM\).
 Note that there are countably many formulae in \(\Gamma\), each of which will fail on only countably many elements of \(\psi(\mcM)\) by construction of \(p\). 
 There must therefore be only countably many elements of \(M\) for which \(\Gamma\) doesn't hold. 
-Therefore, \(\Gamma\) mist be realized in \(\mcM\) and \(\Delta\) must be as well. 
+Therefore, \(\Gamma\) must be realized in \(\mcM\) and \(\Delta\) must be as well.
+This shows that a countable type \(\Delta\) is realized in \(\mcM_0\) iff it is realized in \(\mcM\).  
 \end{proof}
 
 \begin{theorem}\label{theorem_vaughtian_pairs_categoricity}
