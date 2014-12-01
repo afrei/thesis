@@ -6,9 +6,6 @@ We've already shown that \(\omega\)-stability and lacking Vaughtian pairs are ne
 To show these conditions are also sufficient we will define a notion of ``dimension'' for models of such theories (more specifically for their minimal subsets).
 If two sets have the same dimension, they will be isomorphic.
 Any two models of the same countable theory \(T\) of cardinality \(\kappa\) will have dimension \(\kappa\) and therefore be isomorphic.
-%\(\omega\)-stability already tells us that we can view any two models as elementary extensions of the same prime model by Theorem \ref{thm_omst_prime}.
-%Because of their cardinalities, any equinumerous models will have the same dimension over this prime model.
-%Having the same dimension over this prime model will suffice to show that these two models are isomorphic.
 This will complete the proof. 
 
 \subsection{Strong Minimality and Vaughtian Pairs}
@@ -29,29 +26,30 @@ We see that for every natural number \(n\), we know \(\mcN \models \E \bar{b} (\
 As \(\mcM \prec \mcN\), we know that each of these formulae hold in \(\mcM\) as well. 
 We can use this fact, together with compactness to show that \(T\) has a Vaughtian pair.
 Note that for each \(\bar{b}\) either \(\psi(\mcM, \bar{b})\) is infinite or it is co-infinite. 
+% You need a sequence. There is a problem here, please fix it. 
 One of these cases must happen for arbitrarily large \(n\).  % 10-1 in M?
 Assume without loos of generality that \(\psi(\mcM, \bar{b})\) is co-infinite and arbitrarily large. 
 We will represent model pairs as in the previous section with an additional predicate \(U\) defining an elementary submodel. 
 We will show that the following set of formulae is satisfiable: 
+%being an extension of M? (Tws)
 \(\E x (\neg U(x))\), \(U(\bar{w})\), \(\{\theta_{\psi, \bar{w}, n}\}_{n\in \N}\), \(\psi(\bar{v}, \bar{w}) \to U(\bar{v})\). 
 % Possible Clarification: We took the \(\psi(\mcM, \bar{n})\) co-infinite so we could have a proper elementary submodel. Elaborate more on this. 
 When taking finite subsets of these formulae, it suffices to take \(n\) sufficiently large and let \(\bar{w}\) be the \(\bar{b}\) which we know exists.
 In this model, \(\{\bar{v}\mid\psi(\bar{w}, \bar{v})\}\) defines an infinite subset, for which \(U(\bar{v})\) holds, in other words, a Vaughtian pair. % Explain more
+\end{proof}
 
 With these past few lemmata we can conclude that any theory which lack Vaughtian pairs and is \omst has a strongly minimal formula with parameters from a countable prime model. 
 We will develop the theory of dimensions of elementary extensions and see that any two extensions of cardinality \(\kappa > \aleph_0\) will have dimension \(\kappa\) over the prime model.
 From this fact, we will be able to show they are isomorphic, providing us, finally, with \(\kappa\) categoricity and completing the proof of Morley's categoricity theorem. 
-\end{proof}
 
 \subsection{Algebraic Closure and Dimension}
 
 \begin{definition}\label{definition_algebraic_closure}
 Given a model \(\mcM\) and an \(A \subseteq M\), we define the algebraic closure of \(A\), denoted \(\acl(A)\) to be all elements of \(M\) which are in a finite set definable by an \(\mcL_A\)-formula. 
-(Note that by quantifier elimination over algebraically closed fields, this notion of ``algebraic closure'' agrees with the familiar one.)
+(Note that by quantifier elimination over algebraically closed fields, this notion of ``algebraic closure'' agrees with the familiar one in the case of algebraically closed fields.)
 \end{definition}
 
 The algebraic closure has the nice properties that \(\acl(\acl(A)) = \acl(A)\), that \(A \subseteq B \implies \acl(A) \subseteq \acl(B)\) and that if \(a \in \acl(A)\) then there is a finite subset \(A_0 \subseteq A\) such that \(a \in \acl(A_0)\).
-%This almost gives us that algebraic closure is a pregeometry. % Definition?
 We would like the exchange property to be true, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 This is only true when we take \(A\) to be a subset of some strongly minimal set.
 
@@ -59,12 +57,8 @@ This is only true when we take \(A\) to be a subset of some strongly minimal set
 Let \(S\) be a strongly minimal set. If \(A \subseteq S, a, b \in S\) and \(a, b \notin \acl(A)\) but \(a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 \end{theorem}
 
-% Possible Clarification: Limiting \acl to a set D
-
 \begin{proof}
-% Possible Improvement: Better presentation/intuition including pairs definable by \phi(x, y)
 As \(a \in \acl(A \cup \{b\})\), we have \(\mcM \models \phi(a, b)\) for some \(\mcL_A\)-formula 
-% Possible Clarification: Make sure notation of \mcL_A is familiar/defined
 \(\phi\) where \(\{x \in S \mid \phi(x, b)\}\) contains \(n\) elements. 
 Consider the set defined by \(\psi(y)\), where \(\psi(y)\) asserts that \(\{x \in S \mid \phi(x, y)\}\) contains exactly \(n\) elements. 
 % Book mentions \psi(\mcM) is cofinite, why?
@@ -82,14 +76,14 @@ This is a contradiction as \(\psi(b')\) asserts there are only \(n\) such elemen
 
 \begin{definition}\label{definition_independence}
 As above let \(D\) be a minimal set. \(A \subseteq D\) is independent if for all \(a \in A\), \(a \notin \acl(A \setminus \{a\})\). 
-% Possible Addition: Define ``independent over''. \(A \subseteq D\) is independent over \(C \subseteq D\) if, for all \(a \in A\), \(a \notin \acl(C \cup (A \setminus \{a\}))\). 
 \(B\) is a basis for \(A\) when \(\acl(A) = \acl(B)\) and \(B\) is independent.
 We will show that all bases of a set \(A\)  have the same cardinality, which we will call the dimension of \(A\).
 \end{definition}
 
 \begin{lemma}\label{lemma_dimension}
 Given two disjoint independent sets, \(S, T\), 
-%whose union is also independent?
+% (whose union is also independent?)
+% is s in acl(ST) asks TWS
  if \(S \cup \{s\}\) is independent, there is an element \(t \in T\) such that \((S \cup \{s\}) \cup (T \setminus \{t\})\) is independent and has the same algebraic closure as \(S \cup T\). 
 \end{lemma}
 
@@ -101,7 +95,9 @@ We can conclude \(\acl(S \cup \{s\} \cup T \setminus \{t\}) = \acl(S \cup T)\) a
 It suffices to show \(S \cup \{s\} \cup T \setminus \{t\}\) is independent. 
 We already know that \(S \cup T\) and therefore \(S \cup T \setminus \{t\}\) are independent. 
 It suffices to show (by exchange) that \(s \notin \acl(S \cup T \setminus \{t\})\).
-If this were the case, by exchange we would have \(t \in \acl(S \cup T \setminus \{t\})\) as that set is equal to \(\acl(S \cup \{s\} \cup T \setminus\{t\})\).
+% inspect word not (typo to not include?)
+% how does exchange come in to play?
+If this were not the case, by exchange we would have \(t \in \acl(S \cup T \setminus \{t\})\) as that set is equal to \(\acl(S \cup \{s\} \cup T \setminus\{t\})\).
 But this would contradict the independence of \(S \cup T\). 
 \end{proof}
 
@@ -170,5 +166,3 @@ The range of \(f'\) is an elementary submodel of \(\mcN\) (as it's domain is iso
 If the range of \(f'\) isn't all of \(\mcN\), then \((\mcN, f'(\mcM))\) forms a vaughtian pair (\(\phi(\mcN)\) is infinite and includes no element of \(\mcN \setminus f'(\mcM)\)).  
 So \(f'\) is injective (as it is partial elementary) and surjective (as we have no Vaughtian pairs) and is our desired isomorphism. 
 \end{proof}
-
-% Possible Addition: general review of proof.
