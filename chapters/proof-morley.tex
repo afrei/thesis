@@ -58,19 +58,16 @@ The algebraic closure has the nice properties that \(\acl(\acl(A)) = \acl(A)\), 
 We would like the exchange property to be true, namely that if \(a, b \notin \acl(A), a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 This is only true when we take \(A\) to be a subset of some strongly minimal set.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% This one is confusing.
 \begin{theorem}\label{theorem_exchange}
 Let \(S\) be a strongly minimal set. If \(A \subseteq S, a, b \in S\) and \(a, b \notin \acl(A)\) but \(a \in \acl(A \cup \{b\})\) then \(b \in \acl(A \cup \{a\})\) 
 \end{theorem}
 
 \begin{proof}
-As \(a \in \acl(A \cup \{b\})\), we have \(\mcM \models \phi(a, b)\) for some \(\mcL_A\)-formula 
-\(\phi\) where \(\{x \in S \mid \phi(x, b)\}\) contains \(n\) elements. 
+As \(a \in \acl(A \cup \{b\})\), we have \(\mcM \models \phi(a, b)\) for some \(\mcL_A\)-formula \(\phi\) where \(\{x \in S \mid \phi(x, b)\}\) contains \(n\) elements. 
 Consider the set defined by \(\psi(y)\), where \(\psi(y)\) asserts that \(\{x \in S \mid \phi(x, y)\}\) contains exactly \(n\) elements. 
-% Book mentions \psi(\mcM) is cofinite, why?
 We would very much like for \(X = \{y \in S \mid \psi(y) \land \phi(a, y)\}\) to be finite, making \(b \in \acl(A \cup \{a\})\). 
 We will show this must be the case by contradiction.
+
 If this fails and \(X\) is infinite, then \(X\) is cofinite. 
 Specifically, \(\{y \in S \mid \neg(\psi(y) \land \phi(a, y))\}\) contains \(m\) elements.  
 We let \(\theta(x)\) assert that \(\{y \in S \mid \neg(\psi(y) \land \phi(x, y))\}\) contains exactly \(m\) elements.
@@ -80,7 +77,6 @@ As \(\theta(a_i)\) holds, each set \(\{y \in S \mid \psi(y) \land \phi(a_i, y)\}
 For any element, \(b'\) in the intersection, we have \(\psi(b')\) and \(a_i \in \{x \in S \mid \phi(x, b')\}\) for each \(a_i\) by construction.
 This is a contradiction as \(\psi(b')\) asserts there are only \(n\) such elements.  
 \end{proof}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{definition}\label{definition_independence}
 As above let \(D\) be a minimal set. \(A \subseteq D\) is independent if for all \(a \in A\), \(a \notin \acl(A \setminus \{a\})\). 
@@ -128,8 +124,6 @@ In the case where \(B\) is infinite, \(|B| = \kappa\), we note that there are \(
 It is impossible to take mare than \(\kappa\) many elements of \(C\), so there cannot be a subset \(A\) of \(C\) with \(|A| > |B|\) so there cannot be such a basis. 
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% This looks bad
 \begin{theorem}\label{partial_elementary_bijection}
 Let \(\mcM, \mcN_1, \mcN_1 \models T\) and \(\mcM \prec \mcN_1, \mcM \prec \mcN_2\) and \(\phi(v)\) be a strongly minimal formula with parameters from \(M\).
 If \(\phi(\mcN_1)\) has the same dimension as \(\phi(\mcN_2)\), then there is a partial elementary map \(f: \phi(\mcN_1) \to \phi(\mcN_2)\) which is a bijection. 
@@ -139,29 +133,25 @@ If \(\phi(\mcN_1)\) has the same dimension as \(\phi(\mcN_2)\), then there is a 
 Let \(B_1\) be a basis for \(\phi(\mcN_1)\) and \(B_2\) be a basis for \(\phi(\mcN_2)\).
 As \(|B_1| = |B_2|\), we have a bijection \(f: B_1 \to B_2\), which we claim is partial elementary. 
 
-% check this
-Otherwise, for some \(\psi\) an \(\mcL_\mcM\)-formula and \(\bar{a} \in B_1\) we have \(\mcN_1 \models \psi(\bar{a})\) and \(\mcN_2 \not\models \psi(f(\bar{a}))\). 
-
-% We show that this doesn't happen by induction on length of \(\bar{a}\).
-Begin with the case \(\mcN_1 \models \psi(a)\) and \(\mcN_2 \not \models \psi(f(a))\). 
+Begin with the case \(\mcN_1 \models \psi(a)\) and we aim to show \(\mcN_2 \models \psi(f(a))\).
 \(a\) is not in any finite definable subset as \(B_1\) is independent and \(a \notin \acl(B_1 \setminus\{a\})\). 
 So \(\mcN_1 \models |\{x \mid \phi \land \neg \psi(x)\}| = n\) so \(\mcM \models |\{x \mid \phi \land \neg \psi(x)\}| = n\)
 and \(\mcN_2 \models |\{x \mid \phi \land \neg \psi(x)\}| = n\).
 \(f(a)\) is not in any finite definable subset as \(B_2\) is independent and \(f(a) \notin \acl(B_2 \setminus\{f(a)\})\). 
-So \(\mcN_2 \models \psi(f(a)\) as desired. 
-
+So \(\mcN_2 \models \psi(f(a))\) as desired. 
 This argument easily generalizes to all \(\bar{a}\). 
 
 Now that we know \(f\) is partial elementary, we consider extensions of \(f\) which are partial elementary. 
 By Zorn's Lemma, it suffices to show that any partial elementary \(g\) extending \(f\) which doesn't have all of \(\mcN_1\) as its domain is not maximal (applying this to its inverse tells us it must be surjective as well).
-Let \(b \notin \text{dom}(g)\). \(b\) is algebraic over \(\text{dom}(g)\). %why
-So, it must be that the type of \(b\) over \(\text{dom}(g)\) is isolated by some \(\phi(v, \bar{d})\).
-As \(g\) is partial elementary, \(\phi(v, g(\bar{d}))\) holds for some \(c \in \phi(\mcN_1)\).  % something about still isolating the type?
-We must have \(tp(b/\text{dom}(g)) = tp (c/\text{rng}(g))\) so \(g \cup \{(b, c)\}\) must be partial elementary as desired. 
+Let \(b \notin \text{dom}(g)\). 
+\(b\) is algebraic over \(\text{dom}(g)\) as otherwise \(B_1\) is not a basis for \(\phi(\mcN_1)\). 
+So, it must be that the type of \(b\) over \(\text{dom}(g)\) is isolated by some \(\phi(v, \bar{d})\) (that is, for all \(\psi(v, \bar{g}) \in \text{tp}(b/\text{dom}(g))\) we have \(\A v \, \psi(v, \bar{d}) \to \psi(v, \bar{g})\)). .
+As \(g\) is partial elementary, \(\phi(v, g(\bar{d}))\) holds for some \(c \in \phi(\mcN_1)\). 
+(Note that \(g\) partial elementary and the formulae above tell us \(\phi(v, g(\bar(d))\) also isolates the type mentioned above).
+Thus \(\text{tp}(b/\text{dom}(g)) = \text{tp}(c/\text{rng}(g))\) so \(g \cup \{(b, c)\}\) must be partial elementary as desired. 
 
 Thus, our maximal element guaranteed by Zorn's Lemma is a bijective partial elementary map between \(\phi(\mcN_1)\) and  \(\phi(\mcN_2)\)
 \end{proof}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Proof of Morley's Categoricity Theorem}
 
