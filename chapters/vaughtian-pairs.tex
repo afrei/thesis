@@ -111,10 +111,10 @@ That partial elementary functions have partial elementary inverses allows us to 
 Taking the inverse of the resulting function gives us \(f_i\).
 Let \(f^* = \bigcup\limits_{i \in \N}f_i\).
 \(f^*\) has domain and range equal to all of \(M\) and is partial elementary, making \(f^*\) our desired automorphism.
+\end{proof}
 
 This is a ``back and forth'' argument, much like the one we saw in Example \ref{example_categoricity_sequence}. 
 In retrospect, we see that the construction in that example relied on homogeneity. 
-\end{proof}
 
 \begin{lemma}\label{lemma_types_isomorphism}
 The next thing we note about countable homogeneous models, \(\mcM\) and \(\mcN\), of the same complete theory, \(T\), is that if \(\mcM\) and \(\mcN\) realize the same types in \(S_n(T)\), they are isomorphic.
@@ -275,18 +275,18 @@ All that remains is to show that \(\mcM_0\) has the desired property, that \(\ph
 If we take \(\Delta(v) = \{v \neq a \mid a \in \phi(\mcM)\} \cup \{\phi(v)\}\) then we see that \(\Delta\) is not realized in \(\mcM\) and therefore not realized in \(\mcM_0\), giving the desired property. 
 
 Say \(\Delta(v)\) is realized in \(\mcM_0\).
-The type of \(v\) over \(M \cup \{c\}\) must be isolated by some formula \(\theta(v, c)\). %cite
+The type of \(v\) over \(M \cup \{c\}\) must be isolated by some formula \(\theta(v, c)\). (Consider the construction presented in Theorem \ref{lemma_minimal_omst}.)
 Note that \(p(c) \ni \E x \, \theta(x, c)\) as this formula is true of \(c\) in \(\mcM_0\) (as it is witnessed by \(v\)).
 Additionally, \(\A v \, (\psi(v, c) \to \delta_i(v)) \in p(c)\) for all \(i\). (As \(\theta\) isolates the type of \(v\)). 
-Let \(\Gamma(c) \subseteq p(c)\) be these formulae just mentioned, that is \(\Gamma(c) = \{\A v \,(\theta(v, c) \to \delta_i(v)) \in p(c) \mid i \in \N\} \cup \{\E x \, \theta(x, c)\}\). 
+Let \(\Gamma(c) \subseteq p(c)\) be these formulae just mentioned, that is \(\Gamma(c) = \{\A v \,(\theta(v, c) \to \delta_i(v)) \mid i \in \N\} \cup \{\E x \, \theta(x, c)\}\). 
 \(\Gamma\) is realized by \(c\) in \(\mcM_0\). 
 
 At this point, it suffices to find a realization of \(\Gamma\) in \(\mcM\).
 If \(c'\) realizes \(\Gamma\) in \(\mcM\) then \(\E x \, \theta(x, c')\), call this element \(v'\). 
-As \(c'\) realizes \(\Gamma\), \(\mcM \models \A v' \,(\theta(v', c') \to \delta_i(v'))\) giving us that \(v'\) realized \(\Delta\) in \(\mcM\). 
+As \(c'\) realizes \(\Gamma\), \(\mcM \models \A v' \,(\theta(v', c') \to \delta_i(v'))\) giving us that \(v'\) realizes \(\Delta\) in \(\mcM\). 
 Note that there are countably many formulae in \(\Gamma\), each of which will fail on only countably many elements of \(\psi(\mcM)\) by construction of \(p\). 
 There must therefore be only countably many elements of \(M\) for which \(\Gamma\) doesn't hold. 
-Therefore, \(\Gamma\) mist be realized in \(\mcM\) and \(\Delta\) must be as well. 
+Therefore, \(\Gamma\) must be realized in \(\mcM\) and \(\Delta\) must be as well. 
 \end{proof}
 
 \begin{theorem}\label{theorem_vaughtian_pairs_categoricity}

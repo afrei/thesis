@@ -193,7 +193,7 @@ If \(\mcM \subseteq \mcN\) then \(\mcM \prec \mcN\) if and only if for every for
 \end{theorem}
 
 \begin{proof}
-If \(\mcM \prec \mcN\) then \(\mcM \models \E x \phi(x, \bar{a}) \iff \mcN \models \E x \phi(x, \bar{a})\). This suffices to show the ``only if'' direction.
+If \(\mcM \prec \mcN\) then \(\mcM \models \E x \, \phi(x, \bar{a}) \iff \mcN \models \E x \, \phi(x, \bar{a})\). This suffices to show the ``only if'' direction.
 
 In the other direction, we show that \(\mcM \models \phi(\bar{a}) \iff \mcN \models \phi(\bar{a})\) by induction on formulae. 
 As \(\mcM \subseteq \mcN\), \(\mcM \models \phi(\bar{a}) \iff \mcN \models \phi(\bar{a})\) holds for all atomic \(\phi\).
@@ -239,7 +239,7 @@ It suffices to show that for each formula \(\phi\) in \(n\) free variables, term
 (We then have divided \(M\) into countably many sets each realizing at most countably many types).
 We see that \(f_\phi(y_1, \ldots, y_n)\) and \(f_\phi(z_1, \ldots, z_n)\) realize the same type if, for each \(i \leq n\) there is no \(x \in X\) between \(y_i\) and \(z_i\) or that the sets \(\{x \in X \mid x < y_i\}\) and \(\{x \in X \mid x < z_i\}\) are equal. 
 This is because indiscernability tells us \(\mcM \models \psi(f_\phi(\bar{y}), \bar{x}) \iff \mcM \models \psi(f_\phi(\bar{z}), \bar{x})\) when the relative orders of the indiscernibles in \(\bar{y}\bar{x}\) and in \(\bar{z}\bar{x}\) are the same. 
-It now suffices to note that, as \(\kappa\) is well ordered, there are only countably many \(S \subseteq X\) which are ``downward closed'' -- that is that if \(t < s\) and \(s \in S\) then \(t \in s\) -- as thesesubsets are determined by their least upper bound in \(X\) or lack thereof.
+It now suffices to note that, as \(\kappa\) is well ordered, there are only countably many \(S \subseteq X\) which are ``downward closed'' -- that is that if \(t < s\) and \(s \in S\) then \(t \in s\) -- as these subsets are determined by their least upper bound in \(X\) or lack thereof.
 This deals with the 1-types. Dealing with the \(n\)-types only requires dealing with \(n\)-tuples of formulae instead of the single formula \(\phi\) we addressed here. 
 \end{proof}
 
@@ -321,7 +321,7 @@ Note that \(\mcM\) is a prime model iff it is prime over the empty set.
 
 \noindent To prove this theorem, it helps to have the following definition and lemma:
 \begin{definition}\label{definition_isolated_types}
-A type \(p(\bar{v})\) is isolated if there is a \(\phi(\bar{v}) \in p(\bar{v})\) such that \(\phi(\bar{v}) \to \psi(\bar{v})\) for all \(\psi \in p\). We say that \(\phi\) isolates \(p\). % Examples?
+A type \(p(\bar{v})\) is isolated if there is a \(\phi(\bar{v}) \in p(\bar{v})\) such that \(\phi(\bar{v}) \to \psi(\bar{v})\) for all \(\psi \in p\). We say that \(\phi\) isolates \(p\).
 \end{definition}
 
 \begin{lemma}\label{isolated_types_are_dense}
@@ -353,7 +353,7 @@ If \(\alpha\) is a limit ordinal, let \(A_\alpha = \bigcup\limits_{\beta < \alph
 As we can only add elements of \(\mcM\) our chain must eventually end and have a length \(\delta\) (that is no isolated types over \(A_\delta\) are realized by elements not already in \(A_\delta\)).
 
 We would like to show that if \(\mcM_0 \subseteq \mcM\) has universe \(A_\delta\) then \(\mcM_0 \prec \mcM\).
-We apply the Tarski-Vaught test (Theorem \ref{theorem_tarski_vaught_test}) so it suffices to show that if \(\mcM \models \phi(v, \bar{a})\) for some \(v \in M, \bar{a} \in A_\delta\) then there is a \(b \in M\) such that \(\mcM \models \phi(b, \bar{a})\) and \(tp^\mcM(b/A_\delta)\) is isolated. 
+We apply the Tarski-Vaught test (Theorem \ref{theorem_tarski_vaught_test}) so it suffices to show that if \(\mcM \models \phi(v, \bar{a})\) for some \(v \in M, \bar{a} \in A_\delta\) then there is a \(b \in M\) such that \(\mcM \models \phi(b, \bar{a})\) and \(\text{tp}^\mcM(b/A_\delta)\) is isolated. 
 This is guaranteed by Lemma \ref{isolated_types_are_dense}.
 
 Moreover, \(\mcM_0\) is prime over \(A\), that is, for all \(\mcN\) and \(f: A \to \mcN\) partial elementary, we have an elementary \(f^*: \mcM_0 \to \mcN\). 
@@ -372,8 +372,5 @@ We have that \(\mcM_0 \models \A x \, \phi(x, \bar{a}) \to \theta(x, \bar{a}')\)
 
 \item If \(\alpha\) is a limit ordinal, let \(f_\alpha = \bigcup\limits_{\beta < \alpha}f_\beta\). Unions of partial elementary functions are partial elementary, so \(f_\alpha\) has the desired property.
 \end{itemize}
- 
 \noindent Ultimately, \(f_\delta\) is partial elementary and has all of \(\mcM_0\) as its domain, which suffices. 
-%We will also show that every type in \(S^{\mcM_0}_n(A)\) realized in \(\mcM_0\) is isolated. 
-% All realized types isolated
 \end{proof}
